@@ -1,7 +1,9 @@
+import Test from "../entities";
+
 function App() {
   return (
     <div className="App">
-        hello
+        <Test />
     </div>
   );
 }
