@@ -1,9 +1,9 @@
-import Test from "../entities";
+import Search from "../pages/search/search";
 
 function App() {
   return (
     <div className="App">
-        <Test />
+        <Search />
     </div>
   );
 }

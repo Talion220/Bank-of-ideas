@@ -1,0 +1,10 @@
+header{
+    background-color: rgba(229, 232, 235, 1);
+    height: 65px;
+    display: flex;
+}
+img{
+    max-width: 25px;
+    padding-right: 16px;
+    padding-left: 40px;
+}
