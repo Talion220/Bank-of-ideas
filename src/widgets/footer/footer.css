@@ -1,0 +1,17 @@
+footer{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+footer nav{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+footer a{
+    display: flex;
+    justify-content: center;
+    color: rgba(79, 115, 150, 1);
+}

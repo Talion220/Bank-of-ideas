@@ -5,7 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(247, 250, 252, 1);
 }
 h1,h2,h3,h4,h5,h6,p,a{
   color: rgba(13, 20, 28, 1);
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }
