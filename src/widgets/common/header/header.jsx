@@ -1,6 +1,6 @@
 import "./header.css";
-import lamp from "../../shared/images/lamp.svg";
-import avatar from "../../shared/images/avatar.png";
+import lamp from "../../../shared/images/lamp.svg";
+import avatar from "../../../shared/images/avatar.png";
 
 function Header() {
     return(
