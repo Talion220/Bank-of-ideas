@@ -24,3 +24,12 @@
     color: $bg-color;
     border-radius: 16px;
 }
+.searchTitle a:hover{
+    filter: brightness(90%);
+}
+.searchTitle a:active{
+    transform: scale(0.9);
+    background-color: darken($blue-color, 5%);
+    box-shadow: 0 2px 25px rgba(26, 128, 230, 0.3);
+    // filter: brightness(60%);
+}
