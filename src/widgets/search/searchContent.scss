@@ -7,27 +7,30 @@
 }
 .SearchContent input{
     border: none;
-    color: $font-gray-color;
     background: $form-gray-color;
     height: 48px;
     width: 100%;
     border-radius: 12px;
     text-indent: 52px;
 }
+.SearchContent input::placeholder{
+    color: $font-gray-color;
+}
 .SearchContent input:focus {
     outline: none;
 }
 .SearchContent .search-container {
     position: relative;
+    margin-bottom: 18px;
 }
-.search-icon {
+.SearchContent .search-icon {
     position: absolute;
     left: 16px; 
     top: 50%;
     transform: translateY(-50%);
   }
 
-.search-button {
+.SearchContent .search-button {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -35,4 +38,17 @@
   border: none;
   background: none;
   cursor: pointer;
+}
+.SearchContent .filters{
+    display: flex;
+    justify-content: space-evenly;
+}
+.SearchContent .filters button{
+    margin: 6px 8px 6px 0;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: $form-gray-color;
+    padding: 0.6em 1.2em; 
+
 }

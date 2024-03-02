@@ -16,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $bg-color;
 }
-h1,h2,h3,h4,h5,h6,p,a{
+h1,h2,h3,h4,h5,h6,p,a,button,input{
   color: $font-black-color;
 }
 a{
@@ -26,12 +26,14 @@ a{
 p{
   margin: 0;
 }
+a,button{
+  font-weight: 500;
+}
 h3{
   font-weight: 700;
   font-size: calc(12px + 6 * (100vw / 1280));
 }
-a,p{
-  // font-size: 14px;
+a,p,button, input{
   font-size: calc(10px + 4 * (100vw / 1280));
 }
 h1{
