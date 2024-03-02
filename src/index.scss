@@ -1,0 +1,39 @@
+$header-border-color:rgba(229, 232, 235, 1);
+$bg-color:rgba(247, 250, 252, 1);
+$font-black-color:rgba(13, 20, 28, 1);
+$font-gray-color:rgba(79, 115, 150, 1);
+$blue-color: rgba(26, 128, 230, 1);
+$blue-shadow-color:rgba(26, 128, 230, 0.5);
+$form-gray-color: rgba(232, 237, 242, 1);
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color;
+}
+h1,h2,h3,h4,h5,h6,p,a{
+  color: $font-black-color;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+p{
+  margin: 0;
+}
+h3{
+  font-weight: 700;
+  font-size: calc(12px + 6 * (100vw / 1280));
+}
+a,p{
+  // font-size: 14px;
+  font-size: calc(10px + 4 * (100vw / 1280));
+}
+h1{
+  font-size: calc(18px + 14 * (100vw / 1280));
+}

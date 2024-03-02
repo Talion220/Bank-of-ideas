@@ -1,4 +1,4 @@
-import "./header.css";
+import "./header.scss";
 import lamp from "../../../shared/images/lamp.svg";
 import avatar from "../../../shared/images/avatar.png";
 
