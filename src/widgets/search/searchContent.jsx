@@ -1,5 +1,8 @@
 import searchIcon from "../../shared/images/search.svg";
 import './searchContent.scss';
+import approved from "../../shared/images/approved.svg";
+import rejected from "../../shared/images/rejected.svg";
+import proposed from "../../shared/images/proposed.svg";
 
 function SearchContent() {
   return (
@@ -27,6 +30,79 @@ function SearchContent() {
             <button>Предложено</button>
             <button>Отклонено</button>
           </form>
+      </div>
+
+      <div className="scrollable-container">
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={approved} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={rejected} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={proposed} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={approved} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={approved} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={proposed} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
+          <div className="ideaBlock">
+            <div className="ideaBlockLeft">
+              <img src={approved} alt="" />
+              <div className="ideaBlockLeftTitle">
+                <h4>Бесплатная пицца по понедельникам</h4>
+                <p>5 голосов, 2 комментария</p>
+              </div>              
+            </div>
+            <p>2 дня назад</p>
+          </div>
       </div>
     </div>
   );

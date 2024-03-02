@@ -33,9 +33,25 @@ h3{
   font-weight: 700;
   font-size: calc(12px + 6 * (100vw / 1280));
 }
+h4{
+  margin: 0;
+  
+}
 a,p,button, input{
   font-size: calc(10px + 4 * (100vw / 1280));
 }
 h1{
   font-size: calc(18px + 14 * (100vw / 1280));
+}
+
+
+::-webkit-scrollbar {
+  width: 8px; 
+}
+::-webkit-scrollbar-track {
+  background: $bg-color; 
+}
+::-webkit-scrollbar-thumb {
+  background: $blue-color; 
+  border-radius: 12px;
 }

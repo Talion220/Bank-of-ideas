@@ -4,7 +4,6 @@
     max-width: 960px;
     margin: 0 auto;
     padding-top: 28px;
-    padding-bottom: 24px;
 }
 .SearchContent input{
     border: none;
@@ -40,6 +39,9 @@
   background: none;
   cursor: pointer;
 }
+.SearchContent .filters{
+    padding-bottom: 24px;
+}
 .SearchContent .filters form{
     display: flex;
     flex-wrap: wrap;
@@ -60,4 +62,36 @@
 //применить в js при нажатии на фильтр
 .filterClicked{
     filter: brightness(65%);
+}
+.SearchContent .scrollable-container {
+    height: 350px; 
+    overflow-y: auto; 
+    // border: 1px solid #ccc; 
+} 
+.SearchContent .ideaBlock{
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.SearchContent .ideaBlockLeft{
+    display: flex;
+    justify-content: left;
+}
+.SearchContent .ideaBlockLeftTitle{
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.SearchContent .ideaBlock img{
+    margin-left: 16px;
+}
+.SearchContent .ideaBlock p{
+    padding-right: 22px;
+    font-weight: 500;
+}
+.SearchContent .ideaBlockLeftTitle p{
+    color: $font-gray-color;
+    font-weight: 400;
 }
