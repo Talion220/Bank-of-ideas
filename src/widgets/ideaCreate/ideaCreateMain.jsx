@@ -5,7 +5,7 @@ function IdeaCreateMain(){
     return(
         <div className='ideaCreateMain'>
             <h1>Создать новую идею</h1>
-            <form action="" method='post'>
+            <form id='ideaForm' action="index.php" method='post'>
 
                 <label htmlFor="ideaTitle">Название идеи</label>
                 <input type="text" id='ideaTitle' name='ideaTitle' placeholder='Введите название'/>
