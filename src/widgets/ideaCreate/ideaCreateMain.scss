@@ -1,2 +1,42 @@
 @import '/src/index.scss';
 
+.ideaCreateMain{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.ideaCreateMain form{
+    display: flex;
+    flex-direction: column;
+
+}
+.ideaCreateMain input,select{
+    height: 48px;
+}
+.ideaCreateMain input, select{
+    background: $form-gray-color;
+    border: 1px solid $header-border-color;
+    border-radius: 12px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-indent: 15px;
+}
+.ideaCreateMain textarea{
+    padding: 15px;
+    background: $form-gray-color;
+    border: 1px solid $header-border-color;
+    border-radius: 12px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    resize: vertical;
+    max-height: 300px;
+}
+.ideaCreateMain select{
+    margin-bottom: 20px;
+
+}
+.ideaCreateMain input,textarea,select:focus {
+    outline: none;
+}
+.ideaCreateMain label{
+    padding-bottom: 10px;
+}

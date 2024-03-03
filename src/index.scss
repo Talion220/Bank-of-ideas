@@ -29,7 +29,7 @@ a.active{
 p{
   margin: 0;
 }
-a,button{
+a,button,label{
   font-weight: 500;
 }
 h3{
@@ -40,7 +40,7 @@ h4{
   margin: 0;
   
 }
-a,p,button, input{
+a,p,button, input,label{
   font-size: calc(10px + 4 * (100vw / 1280));
 }
 h1{

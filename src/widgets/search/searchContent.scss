@@ -31,13 +31,13 @@
   }
 
 .SearchContent .search-button {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  padding: 0 10px;
-  border: none;
-  background: none;
-  cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 .SearchContent .filters{
     padding-bottom: 24px;
@@ -65,8 +65,7 @@
 }
 .SearchContent .scrollable-container {
     height: 350px; 
-    overflow-y: auto; 
-    // border: 1px solid #ccc; 
+    overflow-y: auto;  
 } 
 .SearchContent .ideaBlock{
     height: 72px;
