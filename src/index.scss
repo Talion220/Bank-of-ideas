@@ -23,6 +23,9 @@ a{
   text-decoration: none;
   color: inherit;
 }
+a.active{
+  color: $blue-color;
+}
 p{
   margin: 0;
 }

@@ -1,4 +1,5 @@
 import "./searchTitle.scss";
+import { NavLink } from "react-router-dom";
 
 function SearchTitle(){
     return(
@@ -7,7 +8,7 @@ function SearchTitle(){
                 <h1>Изучайте идеи компании</h1>
                 <p>1,000 идей</p>
             </div>
-            <a href="#">Создать идею</a>
+            <NavLink to="/idea-create">Создать идею</NavLink>
         </div>
 
     )

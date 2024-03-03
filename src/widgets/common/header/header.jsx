@@ -1,21 +1,22 @@
 import "./header.scss";
 import lamp from "../../../shared/images/lamp.svg";
 import avatar from "../../../shared/images/avatar.png";
+import { NavLink} from "react-router-dom";
 
 function Header() {
     return(
         <header>
-            <a href="#">
+            <NavLink to="/">
                 <div className="logo">
                     <img src={lamp} alt="logo" />
                     <h3>Банк идей</h3>
                 </div>
-            </a>
+            </NavLink>
             <nav>
-                <a href="#">Поиск</a>
-                <a href="#">Новости</a>
-                <a href="#">Создать идею</a>
-                <a href="#"><img src={avatar} alt="avatar" /></a>
+                <NavLink to="/">Поиск</NavLink>
+                <NavLink to="/news">Новости</NavLink>
+                <NavLink to="/idea-create">Создать идею</NavLink>
+                <NavLink to="/profile"><img src={avatar} alt="avatar" /></NavLink>
             </nav> 
         </header>
     )
