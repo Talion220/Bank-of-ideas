@@ -13,9 +13,6 @@
     border-radius: 12px;
     text-indent: 52px;
 }
-.SearchContent input::placeholder{
-    color: $font-gray-color;
-}
 .SearchContent input:focus {
     outline: none;
 }

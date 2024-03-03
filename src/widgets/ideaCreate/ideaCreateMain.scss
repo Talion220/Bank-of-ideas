@@ -1,7 +1,7 @@
 @import '/src/index.scss';
 
 .ideaCreateMain{
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
 }
 .ideaCreateMain form{
@@ -38,5 +38,43 @@
     outline: none;
 }
 .ideaCreateMain label{
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.ideaCreateMain input[type="file"]{
+    display: none;
+}
+.ideaCreateMain .pin{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    width: fit-content;
+    padding-right: 10px;
+}
+.ideaCreateMain .pin img{
+    margin-right: 15px;
+}
+.ideaCreateMain select{
+    -moz-appearance:none; 
+    -webkit-appearance:none; 
+    appearance:none;
+}
+.ideaCreateMain button{
+    margin-top: 10px;
+    padding: 0.8em 1.2em; 
+    background-color: $blue-color; 
+    border: 1px solid ; 
+    text-decoration: none; 
+    color: $bg-color;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.ideaCreateMain button:hover{
+    filter: brightness(90%);
+}
+.ideaCreateMain button:active{
+    transform: scale(0.95);
+    background-color: darken($blue-color, 5%);
+    box-shadow: 0 2px 25px rgba(26, 128, 230, 0.3);
+    // filter: brightness(60%);
 }
