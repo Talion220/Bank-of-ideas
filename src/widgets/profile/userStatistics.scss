@@ -1,6 +1,6 @@
 @import '/src/index.scss';
 .userStatistics{
-    
+    margin-top: 40px;
 }
 .userStatistics .userInfo{
     display: flex;
@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     border: 2px solid $header-border-color;
     padding: 2em 4em;
     border-radius: 16px;
@@ -23,7 +24,12 @@
     margin-top: 30px;
 }
 .userStatistics .userCardCount{
-    font-weight: 500;
+    font-weight: 700;
+    font-size: $number-font-size;
+    padding-bottom: 10px;
+}
+.userStatistics .userCardDescription{
+    color: $font-gray-color;
 }
 .userStatistics .userInfo div{
     margin-left: 15px;
