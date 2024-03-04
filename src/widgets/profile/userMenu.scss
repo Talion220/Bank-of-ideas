@@ -11,12 +11,13 @@
 }
 .userMenu button{
     text-align: left;
-    margin: 10px 0 10px 40px;
+    margin: 0px 0 10px 40px;
     background: $bg-color;
     border: none;
     cursor: pointer;
-    padding: 1.2em 0.6em;
-    border-radius: 16px;
+    padding: 0.6em 5em 0.6em 1.2em ;
+    border-radius: 12px;
+    // width: fit-content;
 }
 .userMenu button:hover{
     filter: brightness(90%);

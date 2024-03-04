@@ -7,7 +7,7 @@ function UserMenu(){
             <button>Все идеи</button>
             <button>Одобренные</button>
             <button>Предложенные</button>
-            <button>Опубликованные</button>
+            <button>Отклоненные</button>
         </div>
         
     )
