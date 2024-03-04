@@ -5,10 +5,13 @@ import UserIdeas from "../../widgets/profile/userIdeas";
 
 function Profile(){
     return(
-        <div>
+        <div className='profile'>
             <UserMenu />
-            <UserStatistics />
-            <UserIdeas />
+            <div className='userContent'>
+                <UserStatistics />
+                <UserIdeas />
+            </div>
+            
         </div>
     )
 }

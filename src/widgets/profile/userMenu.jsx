@@ -3,7 +3,7 @@ import './userMenu.scss';
 function UserMenu(){
     return(
         <div className='userMenu'>
-            <p>Мои идеи</p>
+            <h3>Мои идеи</h3>
             <button>Все идеи</button>
             <button>Одобренные</button>
             <button>Предложенные</button>

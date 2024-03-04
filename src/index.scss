@@ -5,7 +5,7 @@ $font-gray-color:rgba(79, 115, 150, 1);
 $blue-color: rgba(26, 128, 230, 1);
 $blue-shadow-color:rgba(26, 128, 230, 0.5);
 $form-gray-color: rgba(232, 237, 242, 1);
-
+$number-font-size: calc(12px + 6 * (100vw / 1280));
 
 body {
   margin: 0;
@@ -42,7 +42,6 @@ h3{
 }
 h4{
   margin: 0;
-  
 }
 a,p,button, input,label{
   font-size: calc(10px + 4 * (100vw / 1280));
@@ -50,7 +49,6 @@ a,p,button, input,label{
 h1{
   font-size: calc(18px + 14 * (100vw / 1280));
 }
-
 
 ::-webkit-scrollbar {
   width: 8px; 
