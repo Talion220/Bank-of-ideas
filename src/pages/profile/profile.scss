@@ -1,9 +1,12 @@
 @import '/src/index.scss';
 .profile{
+    margin-top: 35px;
     display: flex;
-    max-width: 1280px;
+    justify-content: left;
+    // max-width: 1280px;
 }
 .profile .userContent{
-    margin: 0 auto;
+    // margin: 0 auto;
+    margin-left: 35px;
     
 }

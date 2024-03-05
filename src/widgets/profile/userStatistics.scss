@@ -1,7 +1,5 @@
 @import '/src/index.scss';
-.userStatistics{
-    margin-top: 40px;
-}
+
 .userStatistics .userInfo{
     display: flex;
     justify-content: left;
@@ -19,7 +17,7 @@
     align-items: center;
     flex-wrap: wrap;
     border: 2px solid $header-border-color;
-    padding: 2em 4em;
+    padding: 1em 8em;
     border-radius: 16px;
     margin-right: 15px;
     margin-top: 30px;

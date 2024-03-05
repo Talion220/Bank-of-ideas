@@ -1,13 +1,11 @@
 @import '/src/index.scss';
 
 .userMenu{
-    margin-right: auto;
-    max-width: 330px;
+    // margin-right: auto;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: left;
-    margin-top: 40px;
-
 }
 .userMenu button{
     text-align: left;
