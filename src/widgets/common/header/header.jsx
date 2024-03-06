@@ -13,7 +13,8 @@ function Header() {
                 </div>
             </NavLink>
             <nav>
-                <NavLink to="/">Поиск</NavLink>
+                <NavLink to="/">Главная</NavLink>
+                <NavLink to="/search">Поиск</NavLink>
                 <NavLink to="/news">Новости</NavLink>
                 <NavLink to="/idea-create">Создать идею</NavLink>
                 <NavLink to="/profile"><img src={avatar} alt="avatar" /></NavLink>
