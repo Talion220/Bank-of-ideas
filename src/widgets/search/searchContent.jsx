@@ -23,6 +23,8 @@ function SearchContent() {
             <button>За месяц</button>
             <button>За неделю</button>
             <button>За день</button>
+            <button>Больше всего просмотров</button>
+            <button>Меньше всего просмотров</button>
             <button>Больше всего голосов</button>
             <button>Меньше всего голосов</button>
             <button>Самые обсуждаемые</button>
