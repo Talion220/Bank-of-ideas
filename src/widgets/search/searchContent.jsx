@@ -28,7 +28,7 @@ function SearchContent() {
             <button>Больше всего голосов</button>
             <button>Меньше всего голосов</button>
             <button>Самые обсуждаемые</button>
-            <button>Одобрено</button>
+            {/* <button>Одобрено</button> */}
             <button>Предложено</button>
             <button>Отклонено</button>
           </form>
