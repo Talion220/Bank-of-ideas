@@ -1,0 +1,34 @@
+@import '/src/index.scss';
+
+.userIdeas{
+    margin-right: 15px;
+}
+
+.userIdeas .userIdea{
+    height: 75px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.userIdeas .userIdea img{
+    border-radius: 12px;
+    margin-right: 15px;
+}
+.userIdeas .userIdea div{
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.userIdeas .userIdea .ideaTitle{
+    font-weight: 600;
+}
+.ideaDateCreated, .ideaStatus{
+    color: $font-gray-color;
+}
+.userIdeas .scrollable-user-container {
+    height: 350px; 
+    overflow-y: auto;  
+} 

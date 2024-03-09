@@ -1,0 +1,90 @@
+@import '/src/index.scss';
+
+.SearchContent{
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 28px;
+}
+.SearchContent input{
+    border: none;
+    background: $form-gray-color;
+    height: 48px;
+    width: 100%;
+    border-radius: 12px;
+    text-indent: 52px;
+}
+.SearchContent input:focus {
+    outline: none;
+}
+.SearchContent .search-container {
+    position: relative;
+    margin-bottom: 18px;
+}
+.SearchContent .search-icon {
+    position: absolute;
+    left: 16px; 
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.SearchContent .search-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.SearchContent .filters{
+    padding-bottom: 24px;
+}
+.SearchContent .filters form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.SearchContent .filters button{
+    margin: 6px 6px 6px 0;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: $form-gray-color;
+    padding: 0.6em 1.8em; 
+
+}
+.SearchContent .filters button:hover{
+    filter: brightness(95%);
+}
+//применить в js при нажатии на фильтр
+.filterClicked{
+    filter: brightness(65%);
+}
+.SearchContent .scrollable-container {
+    height: 350px; 
+    overflow-y: auto;  
+} 
+.SearchContent .ideaBlock{
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.SearchContent .ideaBlockLeft{
+    display: flex;
+    justify-content: left;
+}
+.SearchContent .ideaBlockLeftTitle{
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.SearchContent .ideaBlock p{
+    padding-right: 22px;
+    font-weight: 500;
+}
+.SearchContent .ideaBlockLeftTitle p{
+    color: $font-gray-color;
+    font-weight: 400;
+}

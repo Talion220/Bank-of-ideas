@@ -1,0 +1,30 @@
+@import '/src/index.scss';
+
+.userMenu{
+    // margin-right: auto;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.userMenu button{
+    text-align: left;
+    margin: 0px 0 10px 40px;
+    background: $bg-color;
+    border: none;
+    cursor: pointer;
+    padding: 0.6em 5em 0.6em 1.2em ;
+    border-radius: 12px;
+    // width: fit-content;
+}
+.userMenu button:hover{
+    filter: brightness(90%);
+}
+.userMenu button:active{
+    background: $blue-color;
+    color: $bg-color;
+}
+.userMenu h3{
+    margin: 0 0 20px 40px;
+    
+}

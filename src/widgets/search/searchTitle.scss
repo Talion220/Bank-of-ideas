@@ -1,0 +1,35 @@
+@import '/src/index.scss';
+
+.searchTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.searchTitle .title{
+    display: flex;
+    flex-direction: column;
+    
+}
+.searchTitle .title p{
+    color: $font-gray-color;
+}
+.searchTitle a{
+    display: inline-block; 
+    padding: 0.6em 1.2em; 
+    background-color: $blue-color; 
+    border: 1px solid ; 
+    text-decoration: none; 
+    color: $bg-color;
+    border-radius: 16px;
+}
+.searchTitle a:hover{
+    filter: brightness(90%);
+}
+.searchTitle a:active{
+    transform: scale(0.9);
+    background-color: darken($blue-color, 5%);
+    box-shadow: 0 2px 25px rgba(26, 128, 230, 0.3);
+    // filter: brightness(60%);
+}
