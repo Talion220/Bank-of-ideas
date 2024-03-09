@@ -1,5 +1,5 @@
-import SearchTitle from "../../widgets/search/searchTitle";
-import SearchContent from "../../widgets/search/searchContent";
+import SearchTitle from "../../widgets/search/SearchTitle";
+import SearchContent from "../../widgets/search/SearchContent";
 
 function Search(){
     return(

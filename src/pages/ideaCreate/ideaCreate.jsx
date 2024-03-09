@@ -1,4 +1,4 @@
-import IdeaCreateMain from "../../widgets/ideaCreate/ideaCreateMain.jsx";
+import IdeaCreateMain from "../../widgets/ideaCreate/IdeaCreateMain.jsx";
 
 function IdeaCreate(){
     return(

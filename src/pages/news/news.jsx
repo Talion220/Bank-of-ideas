@@ -3,7 +3,7 @@
 function News(){
     return(
         <div className="news">
-            dd
+            news
         </div>
     )
 }

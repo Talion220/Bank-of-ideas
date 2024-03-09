@@ -38,12 +38,6 @@ function IdeaCreateMain(){
                 <label htmlFor="ideaAuthor">Автор</label>
                 <input type="text" name='ideaAuthor' id='ideaAuthor' placeholder='Перечислите авторов' />
 
-                <label htmlFor="ideaImg" className='pin'>
-                    <img src={pin} alt="" />
-                    Выберите обложку
-                </label>
-                <input type="file" name='ideaImg' id='ideaImg' accept="image/png, image/jpeg"/>
-
                 <label htmlFor="ideaFiles" className='pin'>
                     <img src={pin} alt="" />
                     Прикрепить файлы

@@ -1,11 +1,14 @@
-import Search from "../pages/search/search";
-import IdeaCreate from "../pages/ideaCreate/ideaCreate";
+import Search from "../pages/search/Search";
+import IdeaCreate from "../pages/ideaCreate/IdeaCreate";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from "../widgets/common/layout/layout";
+import Layout from "../widgets/common/layout/Layout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
-import Profile from "../pages/profile/profile";
+import Profile from "../pages/profile/Profile";
 import News from "../pages/news/news";
-import Home from "../pages/home/home";
+import Home from "../pages/home/Home";
+import Analytics from "../pages/analytics/Analytics";
+import Documentation from "../pages/documentation/Documentation";
+import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />}/>
             <Route path="search" element={<Search />}/>
+            <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />}/>
+            <Route path="analytics" element={<Analytics />}/>
+            <Route path="documentation" element={<Documentation />}/>
             <Route path="idea-create" element={<IdeaCreate />}/> 
             <Route path="profile" element={<Profile />}/>
             <Route path="news" element={<News />} /> 

@@ -1,7 +1,7 @@
 import './profile.scss';
-import UserMenu from "../../widgets/profile/userMenu";
-import UserStatistics from "../../widgets/profile/userStatistics";
-import UserIdeas from "../../widgets/profile/userIdeas";
+import UserMenu from "../../widgets/profile/UserMenu";
+import UserStatistics from "../../widgets/profile/UserStatistics";
+import UserIdeas from "../../widgets/profile/UserIdeas";
 
 function Profile(){
     return(
