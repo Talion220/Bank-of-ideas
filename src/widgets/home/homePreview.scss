@@ -61,13 +61,17 @@ $swiper-image-3: '../../shared/images/swiper3.jpg';
   background: $form-gray-color;
 
 }
-.homePreview .sliderContent1{
-  background-image: url($swiper-image-1);
+.swiper-zoom-container{
+  background: $form-gray-color;
+  align-items: end !important;
 }
-.homePreview .sliderContent2{
-  background-image: url($swiper-image-2);
-}
-.homePreview .sliderContent3{
-  background-image: url($swiper-image-3);
-}
+// .homePreview .sliderContent1{
+//   background-image: url($swiper-image-1);
+// }
+// .homePreview .sliderContent2{
+//   background-image: url($swiper-image-2);
+// }
+// .homePreview .sliderContent3{
+//   background-image: url($swiper-image-3);
+// }
 
