@@ -25,10 +25,10 @@ function HomePreview() {
         parallax={true}
         effect={'cards'}
         grabCursor={true}
-        // autoplay={{
-        //   delay: 3500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}

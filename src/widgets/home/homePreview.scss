@@ -1,7 +1,4 @@
 @import '/src/index.scss';
-$swiper-image-1: '../../shared/images/swiper1.jpg';
-$swiper-image-2: '../../shared/images/swiper2.jpg';
-$swiper-image-3: '../../shared/images/swiper3.jpg';
 
 .homePreview{
   margin-top: 40px;
@@ -65,13 +62,3 @@ $swiper-image-3: '../../shared/images/swiper3.jpg';
   background: $form-gray-color;
   align-items: end !important;
 }
-// .homePreview .sliderContent1{
-//   background-image: url($swiper-image-1);
-// }
-// .homePreview .sliderContent2{
-//   background-image: url($swiper-image-2);
-// }
-// .homePreview .sliderContent3{
-//   background-image: url($swiper-image-3);
-// }
-
