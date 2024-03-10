@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "../widgets/common/layout/Layout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 import Profile from "../pages/profile/Profile";
-import News from "../pages/news/news";
+import News from "../pages/news/News";
 import Home from "../pages/home/Home";
 import Analytics from "../pages/analytics/Analytics";
 import Documentation from "../pages/documentation/Documentation";

@@ -1,0 +1,73 @@
+@import '/src/index.scss';
+$swiper-image-1: '../../shared/images/swiper1.jpg';
+$swiper-image-2: '../../shared/images/swiper2.jpg';
+$swiper-image-3: '../../shared/images/swiper3.jpg';
+
+.homePreview{
+  margin-top: 40px;
+  max-height: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.homePreviewContent{
+  max-width: 600px;
+}
+.homePreviewContent a{
+  margin-top: 20px;
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  background-color: rgb(26, 128, 230);
+  border: 1px solid;
+  text-decoration: none;
+  color: rgb(247, 250, 252);
+  border-radius: 16px;
+}
+.homePreviewContent a:hover{
+  filter: brightness(90%);
+}
+.homePreviewContent a:active{
+  transform: scale(0.9);
+  background-color: darken($blue-color, 5%);
+  box-shadow: 0 2px 25px rgba(26, 128, 230, 0.3);
+}
+.homePreview .slider{
+  max-width: 600px;
+}
+.homePreview .mySwiper{
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.homePreview .slider h3{
+  margin: 0;
+}
+.sliderContent1, .sliderContent2, .sliderContent3{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 600px;
+}
+.homePreview .slideInfo{
+  background: $bg-color;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background: $form-gray-color;
+
+}
+.homePreview .sliderContent1{
+  background-image: url($swiper-image-1);
+}
+.homePreview .sliderContent2{
+  background-image: url($swiper-image-2);
+}
+.homePreview .sliderContent3{
+  background-image: url($swiper-image-3);
+}
+
