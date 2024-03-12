@@ -4,8 +4,7 @@ import HomeTopBusinessProcesses from "./homeTop/HomeTopBusinessProcesses";
 
 function HomeTop() {
   return (
-    <div>
-        HomeTop
+    <div className="homeTop">
         <HomeTopAuthors />
         <HomeTopFilials />
         <HomeTopBusinessProcesses />    

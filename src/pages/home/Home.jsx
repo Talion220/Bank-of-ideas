@@ -1,9 +1,8 @@
 import HomePreview from "../../widgets/home/HomePreview";
-import HomeIdeas from "../../widgets/home/HomeIdeas";
 import HomeInfo from "../../widgets/home/HomeInfo";
-import HomeNews from "../../widgets/home/HomeNews";
 import HomeStage from "../../widgets/home/HomeStage";
 import HomeTop from "../../widgets/home/HomeTop";
+import HomeOtherPages from "../../widgets/home/HomeOtherPages";
 
 function Home(){
     return(
@@ -12,12 +11,8 @@ function Home(){
             <HomeStage />
             <HomeTop />
             <HomeInfo />
-            <div className="homeGroup">
-                <HomeNews />
-                <HomeIdeas />
-            </div>
+            <HomeOtherPages />  
             
-
         </div>
     )
 }
