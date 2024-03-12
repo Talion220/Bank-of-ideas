@@ -1,2 +1,27 @@
 @import '/src/index.scss';
 
+.homeStage{
+    margin-top: 100px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.homeStage .stageContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.homeStage .stageElement{
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.homeStage .stageElement .stageElementTitle{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.homeStage h1{
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
