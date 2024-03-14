@@ -1,0 +1,37 @@
+@import "/src/index.scss";
+
+.homeNews {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.homeNews main {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.homeNews a {
+  width: 600px;
+}
+.homeNews article {
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+.homeNews article:hover {
+  background: $form-gray-color;
+}
+.homeNews main .homeNewsCover {
+  width: 100px;
+  margin-right: 20px;
+}
+.homeNews main img {
+  width: 100%;
+  border-radius: 12px;
+}
+.homeNews .homeNewsContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}

@@ -1,0 +1,8 @@
+@import "/src/index.scss";
+
+.homeOtherWidgets {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: start;
+}
