@@ -1,5 +1,5 @@
 import avatar from "../../../shared/images/avatar.png";
-import './homeTopAuthors.scss';
+import './homeTopCol.scss';
 import { NavLink } from "react-router-dom";
 
 

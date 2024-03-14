@@ -1,4 +1,4 @@
-
+import './homeTopCol.scss';
 
 function HomeTopBusinessProcesses() {
   return (
