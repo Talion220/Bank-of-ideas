@@ -1,0 +1,41 @@
+@import '/src/index.scss';
+
+
+.homeBenefit{
+    // margin-top: 100px;
+    // margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+.homeBenefit h1{
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+.homeBenefit main{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.homeBenefit article{
+    max-width: 250px;
+    margin: 0 15px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    height: 230px;
+}
+.homeBenefit article img{
+    width: 100%;
+    // height: auto;
+    border-radius: 12px;
+}
+
+.homeBenefit article p{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+

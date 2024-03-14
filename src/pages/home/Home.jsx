@@ -1,5 +1,5 @@
 import HomePreview from "../../widgets/home/HomePreview";
-import HomeInfo from "../../widgets/home/HomeInfo";
+import HomeBenefit from "../../widgets/home/HomeBenefit";
 import HomeStage from "../../widgets/home/HomeStage";
 import HomeTop from "../../widgets/home/HomeTop";
 import HomeOtherPages from "../../widgets/home/HomeOtherPages";
@@ -11,7 +11,7 @@ function Home(){
             <HomePreview />
             <HomeStage />
             <HomeTop />
-            <HomeInfo />
+            <HomeBenefit />
             <HomeOtherPages />  
             
         </div>
