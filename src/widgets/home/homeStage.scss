@@ -1,15 +1,16 @@
 @import '/src/index.scss';
 
 .homeStage{
-    margin-top: 100px;
-    margin-bottom: 60px;
+    // margin-top: 100px;
+    // margin-bottom: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
+    height: calc(100vh);
 }
 .homeStage .stageContainer{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .homeStage .stageElement{
     max-width: 200px;

@@ -29,9 +29,9 @@ function HomePreview() {
           delay: 3500,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         zoom={true}
         navigation={true}
         modules={[Parallax, Autoplay, Pagination, Navigation, EffectCards, Zoom]}

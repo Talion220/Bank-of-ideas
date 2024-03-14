@@ -5,23 +5,28 @@ function HomeTopBusinessProcesses() {
     <div>
       <div className="top">
       <h3>Топ бизнес-процессов</h3>
-      <content>
+      <main>
         <article>
-          <p>Бизнес процесс 1</p>
+          <p>Первый бизнес процесс</p>
+          <p>№1</p>
         </article>
         <article>
-          <p>Бизнес процесс 2</p>
+          <p>Второй бизнес процесс</p>
+          <p>№2</p>
         </article>
         <article>
-          <p>Бизнес процесс 3</p>
+          <p>Третий бизнес процесс</p>
+          <p>№3</p>
         </article>
         <article>
-          <p>Бизнес процесс 4</p>
+          <p>Четвертый бизнес процесс</p>
+          <p>№4</p>
         </article>
         <article>
-          <p>Бизнес процесс 5</p>
+          <p>Пятый бизнес процесс</p>
+          <p>№5</p>
         </article>
-      </content>
+      </main>
     </div>
     </div>
   )

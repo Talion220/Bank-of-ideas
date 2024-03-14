@@ -5,23 +5,28 @@ function HomeTopFilials() {
     <div>
       <div className="top">
       <h3>Топ филиалов</h3>
-      <content>
+      <main>
         <article>
-          <p>Филиал 1</p>
+          <p>Первый филиал</p>
+          <p>№1</p>
         </article>
         <article>
-          <p>Филиал 2</p>
+          <p>Второй филиал</p>
+          <p>№2</p>
         </article>
         <article>
-          <p>Филиал 3</p>
+          <p>Третий филиал</p>
+          <p>№3</p>
         </article>
         <article>
-          <p>Филиал 4</p>
+          <p>Четвертый филиал</p>
+          <p>№4</p>
         </article>
         <article>
-          <p>Филиал 5</p>
+          <p>Пятый филиал</p>
+          <p>№5</p>
         </article>
-      </content>
+      </main>
     </div>
     </div>
   )

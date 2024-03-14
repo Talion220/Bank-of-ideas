@@ -1,3 +1,6 @@
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+
 import Search from "../pages/search/Search";
 import IdeaCreate from "../pages/ideaCreate/IdeaCreate";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -12,23 +15,25 @@ import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />}/>
-            <Route path="search" element={<Search />}/>
-            <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />}/>
-            <Route path="analytics" element={<Analytics />}/>
-            <Route path="documentation" element={<Documentation />}/>
-            <Route path="idea-create" element={<IdeaCreate />}/> 
-            <Route path="profile" element={<Profile />}/>
-            <Route path="news" element={<News />} /> 
-          </Route>
-          <Route path="*" element={<NotFoundPage />}/>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <MantineProvider>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />}/>
+              <Route path="search" element={<Search />}/>
+              <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />}/>
+              <Route path="analytics" element={<Analytics />}/>
+              <Route path="documentation" element={<Documentation />}/>
+              <Route path="idea-create" element={<IdeaCreate />}/> 
+              <Route path="profile" element={<Profile />}/>
+              <Route path="news" element={<News />} /> 
+            </Route>
+            <Route path="*" element={<NotFoundPage />}/>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </MantineProvider>
   );
 }
 

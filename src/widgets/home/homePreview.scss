@@ -1,10 +1,9 @@
 @import '/src/index.scss';
 
 .homePreview{
-  margin-top: 40px;
-  max-height: 600px;
+  margin-top: 150px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .homePreviewContent{

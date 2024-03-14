@@ -3,6 +3,7 @@ import HomeInfo from "../../widgets/home/HomeInfo";
 import HomeStage from "../../widgets/home/HomeStage";
 import HomeTop from "../../widgets/home/HomeTop";
 import HomeOtherPages from "../../widgets/home/HomeOtherPages";
+import './home.scss';
 
 function Home(){
     return(

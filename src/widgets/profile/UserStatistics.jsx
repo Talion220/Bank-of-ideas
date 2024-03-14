@@ -7,7 +7,7 @@ function UserStatistics(){
             <div className='userInfo'>
                 <img src={avatarBig} alt="" />
                 <div>
-                    <h3>Анна Кузнецова</h3>
+                    <h3>Кузнецова Анна Евгеньевна</h3>
                     <p>Дизайнер, Москва</p>
                 </div>
             </div>
