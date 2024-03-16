@@ -1,80 +1,97 @@
 import { NavLink } from "react-router-dom";
-import './homePreview.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Parallax, Autoplay, Pagination, Navigation, EffectCards, Zoom } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-cards';
-import 'swiper/css/zoom';
-import swiper1 from "../../shared/images/swiper1.jpg";
-import swiper2 from "../../shared/images/swiper2.jpg";
-import swiper3 from "../../shared/images/swiper3.jpg";
+import { useRef } from "react";
+
+import "./homePreview.scss";
+import classes from "./Slider.module.scss";
+
+import Autoplay from "embla-carousel-autoplay";
+import { Carousel } from "@mantine/carousel";
+import { useMediaQuery } from "@mantine/hooks";
+import { Button, Paper, Title, useMantineTheme, Text } from "@mantine/core";
+
+import "@mantine/carousel/styles.css";
+
+import swiper1 from "../../shared/images/slider1.jpg";
+import swiper2 from "../../shared/images/slider2.jpg";
+import swiper3 from "../../shared/images/slider3.jpg";
+
+const data = [
+  {
+    image: swiper1,
+    count: 2500,
+    title: "Идей подано",
+  },
+  {
+    image: swiper2,
+    count: 1500,
+    title: "Идей одобрено",
+  },
+  {
+    image: swiper3,
+    count: 500,
+    title: "Идей внедрено",
+  },
+];
+
+function Card({ image, count, title }) {
+  return (
+    <Paper
+      shadow="md"
+      p="xl"
+      radius="md"
+      style={{ backgroundImage: `url(${image})` }}
+      className={classes.card}
+    >
+      <div>
+        <Text className={classes.title} size="xs">
+          {title}
+        </Text>
+        <Title order={3} className={classes.count}>
+          {count}
+        </Title>
+      </div>
+      {/* <Button variant="white" color="dark">
+        Подробнее
+      </Button> */}
+    </Paper>
+  );
+}
 
 function HomePreview() {
+  const autoplay = useRef(Autoplay({ delay: 2500 }));
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const slides = data.map((item) => (
+    <Carousel.Slide key={item.title}>
+      <Card {...item} />
+    </Carousel.Slide>
+  ));
   return (
     <div className="homePreview">
       <div className="homePreviewContent">
-        <h1>Банк идей Россети Сибирь </h1><h3>Предназначен для сбора и рассмотрения предложений по совершенствованию деятельности компании, а также для формирования базы лучших практик в целях их тиражирования.</h3>
+        <h1>Банк идей Россети Сибирь </h1>
+        <h3>
+          Предназначен для сбора и рассмотрения предложений по совершенствованию
+          деятельности компании, а также для формирования базы лучших практик в
+          целях их тиражирования.
+        </h3>
         <NavLink to="/documentation">Документация, инструкции</NavLink>
       </div>
       <div className="slider">
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        parallax={true}
-        effect={'cards'}
-        grabCursor={true}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        zoom={true}
-        navigation={true}
-        modules={[Parallax, Autoplay, Pagination, Navigation, EffectCards, Zoom]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <div className="sliderContent1">
-            <div className="swiper-zoom-container">
-              <img src={swiper1} />
-            </div>
-            <div className="slideInfo">
-              <h3>2500</h3>
-              <h3>Идей подано</h3>
-            </div>
-          </div>
-          </SwiperSlide>
-          <SwiperSlide>
-          <div className="sliderContent2">
-          <div className="swiper-zoom-container">
-              <img src={swiper2} />
-            </div>
-            <div className="slideInfo">
-              <h3>1500</h3>
-              <h3>Идей одобрено</h3>
-            </div>
-            
-          </div>
-          </SwiperSlide>
-          <SwiperSlide>
-          <div className="sliderContent3">
-          <div className="swiper-zoom-container">
-              <img src={swiper3} />
-            </div>
-            <div className="slideInfo">
-              <h3>500</h3>
-              <h3>Идей внедрено</h3>
-            </div>
-          </div>
-          </SwiperSlide>
-      </Swiper>
+        <Carousel
+          slideSize={{ base: "100%", sm: "100%" }}
+          slideGap={{ base: "xl", sm: 2 }}
+          align="start"
+          slidesToScroll={mobile ? 1 : 1}
+          plugins={[autoplay.current]}
+          onMouseEnter={autoplay.current.stop}
+          onMouseLeave={autoplay.current.reset}
+        >
+          {slides}
+        </Carousel>
       </div>
     </div>
-  )
+  );
 }
 
 export default HomePreview;

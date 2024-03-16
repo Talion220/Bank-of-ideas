@@ -10,16 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.6.2",
     "@mantine/charts": "^7.6.2",
     "@mantine/core": "^7.6.2",
     "@mantine/form": "^7.6.2",
     "@mantine/hooks": "^7.6.2",
     "embla-carousel-autoplay": "^7.1.0",
+    "embla-carousel-react": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
-    "recharts": "^2.12.2",
-    "swiper": "^11.0.7"
+    "recharts": "^2.12.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
