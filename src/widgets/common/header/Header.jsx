@@ -95,7 +95,9 @@ function Header() {
         <NavLink to="/" variant="filled">
           <Flex align="center">
             <img src={lamp} alt="logo" />
-            <p>Банк идей</p>
+            <Text c="black" ml={15}>
+              Банк идей
+            </Text>
           </Flex>
         </NavLink>
 

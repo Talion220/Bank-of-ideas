@@ -27,6 +27,12 @@ const theme = createTheme({
       xl: rem(20),
     },
     spacing: {},
+    colors: {
+      black: "rgba(13, 20, 28, 1)",
+      white: "rgba(247, 250, 252, 1)",
+      gray: ["rgba(232, 237, 242, 1)", "rgba(79, 115, 150, 1)"],
+      blue: "rgba(26, 128, 230, 1)",
+    },
   },
 });
 
