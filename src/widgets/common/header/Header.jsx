@@ -1,8 +1,8 @@
-import { Menu, Group, Center, Burger, Container } from "@mantine/core";
+import { Menu, Group, Center, Burger, Container, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-// import { IconChevronDown } from "@tabler/icons-react";
-// import { MantineLogo } from "@mantinex/mantine-logo";
-import classes from "./header.scss";
+import { Icon } from "@iconify/react";
+
+import classes from "./HeaderMenu.module.css";
 
 // import "./header.scss";
 import lamp from "../../../shared/images/lamp.svg";
@@ -37,7 +37,9 @@ function Header() {
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link}>
+        <NavLink to={item.link}>{item.label}</NavLink>
+      </Menu.Item>
     ));
 
     if (menuItems) {
@@ -49,16 +51,10 @@ function Header() {
           withinPortal
         >
           <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                {/* <IconChevronDown size="0.9rem" stroke={1.5} /> */}
-              </Center>
-            </a>
+            <Center>
+              <a className={classes.linkLabel}>{link.label}</a>
+              <Icon icon="flowbite:angle-down-outline" width={20} height={20} />
+            </Center>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
         </Menu>
@@ -66,14 +62,9 @@ function Header() {
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
+      <NavLink to={link.link} key={link.label} className={classes.link}>
         {link.label}
-      </a>
+      </NavLink>
     );
   });
 
@@ -81,7 +72,13 @@ function Header() {
     <header className={classes.header}>
       <Container size="md">
         <div className={classes.inner}>
-          {/* <MantineLogo size={28} /> */}
+          <NavLink to="/">
+            <Flex align="center">
+              <img src={lamp} alt="logo" />
+              <p>Банк идей</p>
+            </Flex>
+          </NavLink>
+
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>
@@ -94,10 +91,10 @@ function Header() {
   //   return (
   //     <header>
   //       <NavLink to="/">
-  //         <div className="logo">
-  //           <img src={lamp} alt="logo" />
-  //           <h3>Банк идей</h3>
-  //         </div>
+  //   <div className="logo">
+  //     <img src={lamp} alt="logo" />
+  //     <h3>Банк идей</h3>
+  //   </div>
   //       </NavLink>
   //       <nav>
   //         <NavLink to="/">Главная</NavLink>
