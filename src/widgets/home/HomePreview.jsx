@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useRef } from "react";
 
-import "./homePreview.scss";
-import classes from "./Slider.module.scss";
+import classes from "./homePreview.module.css";
 
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel } from "@mantine/carousel";
@@ -67,8 +66,8 @@ function HomePreview() {
     </Carousel.Slide>
   ));
   return (
-    <div className="homePreview">
-      <div className="homePreviewContent">
+    <div className={classes.homePreview}>
+      <div className={classes.homePreviewContent}>
         <h1>Банк идей Россети Сибирь </h1>
         <h3>
           Предназначен для сбора и рассмотрения предложений по совершенствованию

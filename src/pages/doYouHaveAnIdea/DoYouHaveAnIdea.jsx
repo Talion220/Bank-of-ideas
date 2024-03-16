@@ -1,10 +1,11 @@
 // import doYouHaveAnIdea from "../../shared/images/doYouHaveAnIdea.png";
-import "./doYouHaveAnIdea.scss";
+import styles from "./styles.module.scss";
+import { NavLink } from "react-router-dom";
 
 function DoYouHaveAnIdea() {
   return (
-    <div className="doYouHaveAnIdea">
-      <nav className="nav">
+    <div className={styles.doYouHaveAnIdea}>
+      <nav className={styles.nav}>
         <ul>
           <li>
             <a href="#">Идея по совершенствованию работы общества</a>
@@ -34,28 +35,36 @@ function DoYouHaveAnIdea() {
                             </a>
                             <ul>
                               <li>
-                                <a href="#">
+                                <NavLink
+                                  to="/idea-create"
+                                  className={styles.btn}
+                                >
                                   Оформите предложение по улучшению
-                                </a>
+                                </NavLink>
                               </li>
                               <li>
-                                <a href="#">
+                                <NavLink
+                                  to="/idea-create"
+                                  className={styles.btn}
+                                >
                                   Оформите рациоанализаторское предложение
-                                </a>
+                                </NavLink>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="#">
+                            <NavLink to="/idea-create" className={styles.btn}>
                               Оформите рациоанализаторское предложение
-                            </a>
+                            </NavLink>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#">Оформите лучшую практику</a>
+                    <NavLink to="/idea-create" className={styles.btn}>
+                      Оформите лучшую практику
+                    </NavLink>
                   </li>
                 </ul>
               </li>
