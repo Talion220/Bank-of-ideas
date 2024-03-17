@@ -193,38 +193,59 @@ function Header() {
         opened={drawerOpened}
         onClose={closeDrawer}
         size="100%"
+        title={
+          <Text size="lg" fw={700}>
+            Навигация
+          </Text>
+        }
         padding="md"
-        title="Navigation"
         hiddenFrom="sm"
         zIndex={1000000}
+        transitionProps={{
+          transition: "rotate-left",
+          duration: 150,
+          timingFunction: "linear",
+        }}
       >
+        {/*  */}
+
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
           <NavLink to="/" className={classes.link}>
-            Главная
+            <Text fw={500}>Главная</Text>
           </NavLink>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
-                Идеи
+                <Center>
+                  <Text mr={5} fw={500} size="md">
+                    Идеи
+                  </Text>
+                  <Icons.AngleDownOutline />
+                </Center>
               </Box>
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{ideaLinks}</Collapse>
           <NavLink to="/news" className={classes.link}>
-            Новости
+            <Text fw={500}>Новости</Text>
           </NavLink>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
-                Другое
+                <Center>
+                  <Text mr={5} fw={500} size="md">
+                    Другое
+                  </Text>
+                  <Icons.AngleDownOutline />
+                </Center>
               </Box>
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{otherLinks}</Collapse>
           <NavLink to="/profile" className={classes.link}>
-            Профиль
+            <Text fw={500}>Профиль</Text>
             {/* <Avatar src={avatar} />
             Кузнецова Анна Евгеньевна */}
           </NavLink>
