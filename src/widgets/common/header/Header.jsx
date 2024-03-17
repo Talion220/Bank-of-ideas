@@ -6,6 +6,7 @@ import {
   Container,
   Flex,
   Text,
+  Avatar,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -36,7 +37,7 @@ const links = [
       { link: "/documentation", label: "Документация" },
     ],
   },
-  { link: "/profile", label: "Профиль" },
+  { link: "/profile", label: <Avatar src={avatar} /> },
 ];
 
 function Header() {
@@ -89,13 +90,12 @@ function Header() {
   });
 
   return (
-    // <header className={classes.header}>
     <Container size="md">
       <div className={classes.inner}>
         <NavLink to="/" variant="filled">
           <Flex align="center">
             <img src={lamp} alt="logo" />
-            <Text c="black" ml={15}>
+            <Text c="black" ml={15} fw={600}>
               Банк идей
             </Text>
           </Flex>
@@ -108,9 +108,6 @@ function Header() {
       </div>
     </Container>
   );
-  {
-    /* </header> */
-  }
 }
 
 export default Header;
