@@ -6,7 +6,17 @@ import classes from "./homePreview.module.css";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
-import { Button, Paper, Title, useMantineTheme, Text } from "@mantine/core";
+import {
+  Container,
+  Paper,
+  Title,
+  useMantineTheme,
+  Text,
+  Button,
+  Flex,
+  SimpleGrid,
+  Center,
+} from "@mantine/core";
 
 import "@mantine/carousel/styles.css";
 
@@ -66,30 +76,40 @@ function HomePreview() {
     </Carousel.Slide>
   ));
   return (
-    <div className={classes.homePreview}>
-      <div className={classes.homePreviewContent}>
-        <h1>Банк идей Россети Сибирь </h1>
-        <h3>
-          Предназначен для сбора и рассмотрения предложений по совершенствованию
-          деятельности компании, а также для формирования базы лучших практик в
-          целях их тиражирования.
-        </h3>
-        <NavLink to="/documentation">Документация, инструкции</NavLink>
-      </div>
-      <div className="slider">
-        <Carousel
-          slideSize={{ base: "100%", sm: "100%" }}
-          slideGap={{ base: "xl", sm: 2 }}
+    <Container size="xl" px="md" my={100}>
+      <SimpleGrid cols={{ base: 1, md: 2 }} spacing={30} verticalSpacing={50}>
+        <Flex
+          styles={classes.homePreviewContent}
+          direction="column"
+          justify="center"
           align="start"
-          slidesToScroll={mobile ? 1 : 1}
-          plugins={[autoplay.current]}
-          onMouseEnter={autoplay.current.stop}
-          onMouseLeave={autoplay.current.reset}
         >
-          {slides}
-        </Carousel>
-      </div>
-    </div>
+          <Title>Банк идей Россети Сибирь </Title>
+          <Text mt={15}>
+            Предназначен для сбора и рассмотрения предложений по
+            совершенствованию деятельности компании, а также для формирования
+            базы лучших практик в целях их тиражирования.
+          </Text>
+
+          <Button mt={15} radius={16} component={NavLink} to="/documentation">
+            Документация, инструкции
+          </Button>
+        </Flex>
+        <div className="slider">
+          <Carousel
+            slideSize={{ base: "100%", sm: "100%" }}
+            slideGap={{ base: "xl", sm: 2 }}
+            align="start"
+            slidesToScroll={mobile ? 1 : 1}
+            plugins={[autoplay.current]}
+            onMouseEnter={autoplay.current.stop}
+            onMouseLeave={autoplay.current.reset}
+          >
+            {slides}
+          </Carousel>
+        </div>
+      </SimpleGrid>
+    </Container>
   );
 }
 

@@ -7,8 +7,13 @@
   align-items: center;
 }
 .homePreviewContent {
-  max-width: 600px;
+  max-width: rem(500px);
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: var(--mantine-font-size-sm);
+    max-width: 100%;
+  }
 }
+
 .homePreviewContent a {
   margin-top: 20px;
   display: inline-block;

@@ -17,7 +17,7 @@ const theme = createTheme({
   white: "rgba(247, 250, 252, 1)",
   black: "rgba(13, 20, 28, 1)",
   fontFamily: "Inter",
-  primaryColor: "cyan",
+  primaryColor: "blue",
   headings: {
     textWrap: "wrap",
     fontSizes: {
