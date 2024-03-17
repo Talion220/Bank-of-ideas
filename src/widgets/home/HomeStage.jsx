@@ -55,7 +55,7 @@ function HomeStage() {
       className={classes.card}
       padding="xl"
     >
-      <Image radius="md" w="100%" src={arrowStage} />
+      <Image className={classes.arrow} radius="md" src={arrowStage} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
