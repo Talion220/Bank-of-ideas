@@ -71,7 +71,7 @@ function Header() {
   ));
 
   const otherLinks = dropLinks.other.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <UnstyledButton w="100%" className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" pl={20} align="flex-start">
         <NavLink to={item.link} onClick={toggleDrawer}>
           <Text size="md" fw={500}>
