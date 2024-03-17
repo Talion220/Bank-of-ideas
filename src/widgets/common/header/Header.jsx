@@ -12,7 +12,6 @@ import {
   Collapse,
   ScrollArea,
   rem,
-  useMantineTheme,
   Flex,
   Avatar,
 } from "@mantine/core";
@@ -58,11 +57,10 @@ function Header() {
     useDisclosure(false);
   const [linksOpenedIdea, { toggle: toggleLinksIdea }] = useDisclosure(false);
   const [linksOpenedOther, { toggle: toggleLinksOther }] = useDisclosure(false);
-  const theme = useMantineTheme();
 
   const ideaLinks = dropLinks.idea.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group wrap="nowrap" align="flex-start">
+      <Group wrap="nowrap" pl={20} align="flex-start">
         <NavLink to={item.link} onClick={toggleDrawer}>
           <Text size="md" fw={500}>
             {item.title}
@@ -74,7 +72,7 @@ function Header() {
 
   const otherLinks = dropLinks.other.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group wrap="nowrap" align="flex-start">
+      <Group wrap="nowrap" pl={20} align="flex-start">
         <NavLink to={item.link} onClick={toggleDrawer}>
           <Text size="md" fw={500}>
             {item.title}
@@ -193,7 +191,7 @@ function Header() {
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
-        size="100%"
+        size="70%"
         title={
           <Text size="lg" fw={700}>
             Навигация
@@ -212,13 +210,19 @@ function Header() {
           <Divider my="sm" />
 
           <NavLink to="/" className={classes.link} onClick={toggleDrawer}>
-            <Text fw={500}>Главная</Text>
+            <Text fw={500} p={10}>
+              Главная
+            </Text>
           </NavLink>
-          <UnstyledButton className={classes.link} onClick={toggleLinksIdea}>
+          <UnstyledButton
+            w="100%"
+            className={classes.link}
+            onClick={toggleLinksIdea}
+          >
             <Center inline>
               <Box component="span" mr={5}>
                 <Center>
-                  <Text mr={5} fw={500} size="md">
+                  <Text mr={5} fw={500} size="md" p={10}>
                     Идеи
                   </Text>
                   <Icons.AngleDownOutline />
@@ -228,13 +232,19 @@ function Header() {
           </UnstyledButton>
           <Collapse in={linksOpenedIdea}>{ideaLinks}</Collapse>
           <NavLink to="/news" className={classes.link} onClick={toggleDrawer}>
-            <Text fw={500}>Новости</Text>
+            <Text fw={500} p={10}>
+              Новости
+            </Text>
           </NavLink>
-          <UnstyledButton className={classes.link} onClick={toggleLinksOther}>
+          <UnstyledButton
+            w="100%"
+            className={classes.link}
+            onClick={toggleLinksOther}
+          >
             <Center inline>
               <Box component="span" mr={5}>
                 <Center>
-                  <Text mr={5} fw={500} size="md">
+                  <Text mr={5} fw={500} size="md" p={10}>
                     Другое
                   </Text>
                   <Icons.AngleDownOutline />
@@ -248,7 +258,9 @@ function Header() {
             className={classes.link}
             onClick={toggleDrawer}
           >
-            <Text fw={500}>Профиль</Text>
+            <Text fw={500} p={10}>
+              Профиль
+            </Text>
             {/* <Avatar src={avatar} />
             Кузнецова Анна Евгеньевна */}
           </NavLink>
