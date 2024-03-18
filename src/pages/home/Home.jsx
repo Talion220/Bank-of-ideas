@@ -3,18 +3,15 @@ import HomeBenefit from "../../widgets/home/HomeBenefit";
 import HomeStage from "../../widgets/home/HomeStage";
 import HomeTop from "../../widgets/home/HomeTop";
 import HomeOtherWidgets from "../../widgets/home/HomeOtherWidgets";
-import "./home.scss";
 
-function Home() {
-  return (
-    <div className="home">
-      <HomePreview />
-      <HomeStage />
-      <HomeTop />
-      <HomeBenefit />
-      <HomeOtherWidgets />
-    </div>
-  );
-}
+const Home = () => (
+  <>
+    <HomePreview />
+    <HomeStage />
+    <HomeTop />
+    <HomeBenefit />
+    <HomeOtherWidgets />
+  </>
+);
 
 export default Home;

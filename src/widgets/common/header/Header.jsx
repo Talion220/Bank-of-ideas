@@ -7,6 +7,7 @@ import {
   Divider,
   Center,
   Box,
+  Stack,
   Burger,
   Drawer,
   Collapse,
@@ -14,6 +15,8 @@ import {
   rem,
   Flex,
   Avatar,
+  Container,
+  Anchor,
 } from "@mantine/core";
 
 import classes from "./header.module.css";
@@ -21,7 +24,7 @@ import classes from "./header.module.css";
 import { useDisclosure } from "@mantine/hooks";
 
 import { Icons } from "../../../shared/images/Icons";
-import lamp from "../../../shared/images/lamp.svg";
+
 import avatar from "../../../shared/images/avatar.png";
 import { NavLink } from "react-router-dom";
 
@@ -59,138 +62,167 @@ function Header() {
   const [linksOpenedOther, { toggle: toggleLinksOther }] = useDisclosure(false);
 
   const ideaLinks = dropLinks.idea.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <UnstyledButton className={classes.subLinks} key={item.title}>
       <Group wrap="nowrap" pl={20} align="flex-start">
-        <NavLink to={item.link} onClick={toggleLinksIdea}>
-          <Text size="md" fw={500}>
-            {item.title}
-          </Text>
-        </NavLink>
+        <Anchor
+          component={NavLink}
+          to={item.link}
+          underline="never"
+          className={classes.subLink}
+          aria-label={item.title}
+          onClick={toggleLinksIdea}
+        >
+          {item.title}
+        </Anchor>
       </Group>
     </UnstyledButton>
   ));
 
   const otherLinks = dropLinks.other.map((item) => (
-    <UnstyledButton w="100%" className={classes.subLink} key={item.title}>
+    <UnstyledButton w="100%" className={classes.subLinks} key={item.title}>
       <Group wrap="nowrap" pl={20} align="flex-start">
-        <NavLink to={item.link} onClick={toggleLinksOther}>
-          <Text size="md" fw={500}>
-            {item.title}
-          </Text>
-        </NavLink>
+        <Anchor
+          component={NavLink}
+          to={item.link}
+          underline="never"
+          className={classes.subLink}
+          aria-label={item.title}
+          onClick={toggleLinksOther}
+        >
+          {item.title}
+        </Anchor>
       </Group>
     </UnstyledButton>
   ));
 
   return (
-    <Box>
-      <header className={classes.header}>
-        <Group justify="space-between" h="100%">
-          <NavLink to="/" variant="filled">
-            <Flex align="center">
-              <img src={lamp} alt="logo" />
-              <Text c="black" size="xl" ml={15} fw={600}>
-                Банк идей
-              </Text>
-            </Flex>
-          </NavLink>
+    <Container size="xl" px="md" className={classes.inner}>
+      <Group>
+        <Anchor
+          component={NavLink}
+          to="/"
+          underline="never"
+          aria-label="Логотип Банк идей"
+        >
+          <Flex align="center">
+            <Icons.Logo />
+            <Text c="black" size="xl" ml={15} fw={600}>
+              Банк идей
+            </Text>
+          </Flex>
+        </Anchor>
+      </Group>
 
-          <Group h="100%" gap={0} visibleFrom="sm">
-            <NavLink to="/" className={classes.link}>
-              <Text size="md" fw={500}>
-                Главная
-              </Text>
-            </NavLink>
-            <HoverCard
-              width={250}
-              position="bottom"
-              radius="md"
-              shadow="md"
-              withinPortal
+      <Group h="100%" gap={0} visibleFrom="sm">
+        <Anchor
+          component={NavLink}
+          to="/"
+          underline="never"
+          className={classes.link}
+          aria-label="Главная"
+        >
+          Главная
+        </Anchor>
+
+        <HoverCard
+          width={250}
+          position="bottom"
+          radius="md"
+          shadow="md"
+          withinPortal
+        >
+          <HoverCard.Target>
+            <Anchor
+              component="a"
+              href="#"
+              underline="never"
+              className={classes.link}
+              aria-label="Идеи"
             >
-              <HoverCard.Target>
-                <a href="#" className={classes.link}>
-                  <Center inline>
-                    <Box component="span" mr={5}>
-                      <Center>
-                        <Text mr={5} fw={500} size="md">
-                          Идеи
-                        </Text>
-                        <Icons.AngleDownOutline />
-                      </Center>
-                    </Box>
-                  </Center>
-                </a>
-              </HoverCard.Target>
+              <Center>
+                <Text mr={5} fw={500}>
+                  Идеи
+                </Text>
+                <Icons.AngleDownOutline />
+              </Center>
+            </Anchor>
+          </HoverCard.Target>
 
-              <HoverCard.Dropdown style={{ overflow: "hidden" }}>
-                <Group justify="space-between" px="md">
-                  <Text fw={500}>Идеи</Text>
-                </Group>
+          <HoverCard.Dropdown style={{ overflow: "hidden" }}>
+            <Text fw={500}>Идеи</Text>
 
-                <Divider my="sm" />
+            <Divider my="sm" />
 
-                <SimpleGrid rows={3} spacing={0}>
-                  {ideaLinks}
-                </SimpleGrid>
-              </HoverCard.Dropdown>
-            </HoverCard>
+            <SimpleGrid rows={3} spacing={0}>
+              {ideaLinks}
+            </SimpleGrid>
+          </HoverCard.Dropdown>
+        </HoverCard>
 
-            <NavLink to="/news" className={classes.link}>
-              <Text size="md" fw={500}>
-                Новости
-              </Text>
-            </NavLink>
-            <HoverCard
-              width={250}
-              position="bottom"
-              radius="md"
-              shadow="md"
-              withinPortal
+        <Anchor
+          component={NavLink}
+          to="/news"
+          underline="never"
+          className={classes.link}
+          aria-label=" Новости"
+        >
+          Новости
+        </Anchor>
+
+        <HoverCard
+          width={250}
+          position="bottom"
+          radius="md"
+          shadow="md"
+          withinPortal
+        >
+          <HoverCard.Target>
+            <Anchor
+              component="a"
+              href="#"
+              underline="never"
+              className={classes.link}
+              aria-label="Другое"
             >
-              <HoverCard.Target>
-                <a href="#" className={classes.link}>
-                  <Center inline>
-                    <Box component="span" mr={5}>
-                      <Center>
-                        <Text mr={5} size="md" fw={500}>
-                          Другое
-                        </Text>
-                        <Icons.AngleDownOutline />
-                      </Center>
-                    </Box>
-                  </Center>
-                </a>
-              </HoverCard.Target>
+              <Center>
+                <Text mr={5} fw={500}>
+                  Другое
+                </Text>
+                <Icons.AngleDownOutline />
+              </Center>
+            </Anchor>
+          </HoverCard.Target>
 
-              <HoverCard.Dropdown style={{ overflow: "hidden" }}>
-                <Group justify="space-between" px="md">
-                  <Text fw={500}>Другое</Text>
-                </Group>
+          <HoverCard.Dropdown style={{ overflow: "hidden" }}>
+            <Text fw={500} size="md">
+              Другое
+            </Text>
 
-                <Divider my="sm" />
+            <Divider my="sm" />
 
-                <SimpleGrid rows={2} spacing={0}>
-                  {otherLinks}
-                </SimpleGrid>
-              </HoverCard.Dropdown>
-            </HoverCard>
+            <SimpleGrid rows={2} spacing={0}>
+              {otherLinks}
+            </SimpleGrid>
+          </HoverCard.Dropdown>
+        </HoverCard>
 
-            <NavLink to="/profile" className={classes.link}>
-              <Avatar src={avatar} />
-            </NavLink>
-          </Group>
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            hiddenFrom="sm"
-          />
-        </Group>
-      </header>
+        <Anchor
+          component={NavLink}
+          to="/profile"
+          underline="never"
+          className={classes.link}
+          aria-label="Аватар"
+        >
+          <Avatar src={avatar} />
+        </Anchor>
+      </Group>
+
+      <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
 
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
+        closeButtonProps={{ "aria-label": "Закрыть меню" }}
         size="70%"
         title={
           <Text size="lg" fw={700}>
@@ -209,70 +241,86 @@ function Header() {
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <NavLink to="/" className={classes.link} onClick={toggleDrawer}>
-            <Text fw={500} p={10}>
+          <Stack gap={0} px={20}>
+            <Anchor
+              component={NavLink}
+              to="/"
+              className={classes.link}
+              onClick={toggleDrawer}
+              underline="never"
+              aria-label="Главная"
+              py={10}
+            >
               Главная
-            </Text>
-          </NavLink>
-          <UnstyledButton
-            w="100%"
-            className={classes.link}
-            onClick={toggleLinksIdea}
-          >
-            <Center inline>
-              <Box component="span" mr={5}>
-                <Center>
-                  <Text mr={5} fw={500} size="md" p={10}>
-                    Идеи
-                  </Text>
-                  <Icons.AngleDownOutline />
-                </Center>
-              </Box>
-            </Center>
-          </UnstyledButton>
-          <Collapse in={linksOpenedIdea} onClick={toggleDrawer}>
-            {ideaLinks}
-          </Collapse>
-          <NavLink to="/news" className={classes.link} onClick={toggleDrawer}>
-            <Text fw={500} p={10}>
+            </Anchor>
+
+            <UnstyledButton
+              w="100%"
+              className={classes.link}
+              onClick={toggleLinksIdea}
+              py={10}
+            >
+              <Center>
+                <Text mr={5} fw={500}>
+                  Идеи
+                </Text>
+                <Icons.AngleDownOutline />
+              </Center>
+            </UnstyledButton>
+
+            <Collapse in={linksOpenedIdea} onClick={toggleDrawer}>
+              {ideaLinks}
+            </Collapse>
+
+            <Anchor
+              component={NavLink}
+              to="/news"
+              className={classes.link}
+              onClick={toggleDrawer}
+              underline="never"
+              aria-label="Новости"
+              py={10}
+            >
               Новости
-            </Text>
-          </NavLink>
-          <UnstyledButton
-            w="100%"
-            className={classes.link}
-            onClick={toggleLinksOther}
-          >
-            <Center inline>
-              <Box component="span" mr={5}>
-                <Center>
-                  <Text mr={5} fw={500} size="md" p={10}>
-                    Другое
-                  </Text>
-                  <Icons.AngleDownOutline />
-                </Center>
-              </Box>
-            </Center>
-          </UnstyledButton>
-          <Collapse in={linksOpenedOther} onClick={toggleDrawer}>
-            {otherLinks}
-          </Collapse>
-          <NavLink
-            to="/profile"
-            className={classes.link}
-            onClick={toggleDrawer}
-          >
-            <Text fw={500} p={10}>
+            </Anchor>
+
+            <UnstyledButton
+              w="100%"
+              className={classes.link}
+              onClick={toggleLinksOther}
+              py={10}
+            >
+              <Center>
+                <Text mr={5} fw={500}>
+                  Другое
+                </Text>
+                <Icons.AngleDownOutline />
+              </Center>
+            </UnstyledButton>
+
+            <Collapse in={linksOpenedOther} onClick={toggleDrawer}>
+              {otherLinks}
+            </Collapse>
+
+            <Anchor
+              component={NavLink}
+              to="/profile"
+              className={classes.link}
+              onClick={toggleDrawer}
+              underline="never"
+              aria-label="Профиль"
+              py={10}
+            >
               Профиль
-            </Text>
-            {/* <Avatar src={avatar} />
+              {/* <Avatar src={avatar} />
             Кузнецова Анна Евгеньевна */}
-          </NavLink>
+            </Anchor>
+          </Stack>
 
           <Divider my="sm" />
         </ScrollArea>
       </Drawer>
-    </Box>
+    </Container>
   );
 }
 
