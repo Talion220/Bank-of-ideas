@@ -1,5 +1,5 @@
 import { Text, Container, ActionIcon, Group, rem } from "@mantine/core";
-import logo from "../../../shared/images/lamp.svg";
+import { Icons } from "../../../shared/images/Icons";
 import classes from "./footer.module.css";
 
 const data = [
@@ -56,18 +56,17 @@ export default function FooterLinks() {
 
   return (
     <footer className={classes.footer}>
-      <Container className={classes.inner}>
+      <Container size="xl" px="md" className={classes.inner}>
         <div className={classes.logo}>
-          <Text size="xs" c="dimmed" className={classes.description}>
+          <Icons.Logo />
+          <Text size="xs" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
-      <Container className={classes.afterFooter}>
-        <Text c="dimmed" size="sm">
-          © 2024 dev. All rights reserved.
-        </Text>
+      <Container size="xl" px="md" className={classes.afterFooter}>
+        <Text size="sm">© 2024 dev. All rights reserved.</Text>
       </Container>
     </footer>
   );

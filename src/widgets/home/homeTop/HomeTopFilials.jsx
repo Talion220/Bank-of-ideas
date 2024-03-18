@@ -1,4 +1,4 @@
-import "./homeTopAll.scss";
+import styles from "./homeTopAll.module.css";
 
 function HomeTopFilials() {
   return (
