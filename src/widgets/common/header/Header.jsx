@@ -61,7 +61,7 @@ function Header() {
   const ideaLinks = dropLinks.idea.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" pl={20} align="flex-start">
-        <NavLink to={item.link} onClick={toggleDrawer}>
+        <NavLink to={item.link} onClick={toggleLinksIdea}>
           <Text size="md" fw={500}>
             {item.title}
           </Text>
@@ -73,7 +73,7 @@ function Header() {
   const otherLinks = dropLinks.other.map((item) => (
     <UnstyledButton w="100%" className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" pl={20} align="flex-start">
-        <NavLink to={item.link} onClick={toggleDrawer}>
+        <NavLink to={item.link} onClick={toggleLinksOther}>
           <Text size="md" fw={500}>
             {item.title}
           </Text>
@@ -230,7 +230,9 @@ function Header() {
               </Box>
             </Center>
           </UnstyledButton>
-          <Collapse in={linksOpenedIdea}>{ideaLinks}</Collapse>
+          <Collapse in={linksOpenedIdea} onClick={toggleDrawer}>
+            {ideaLinks}
+          </Collapse>
           <NavLink to="/news" className={classes.link} onClick={toggleDrawer}>
             <Text fw={500} p={10}>
               Новости
@@ -252,7 +254,9 @@ function Header() {
               </Box>
             </Center>
           </UnstyledButton>
-          <Collapse in={linksOpenedOther}>{otherLinks}</Collapse>
+          <Collapse in={linksOpenedOther} onClick={toggleDrawer}>
+            {otherLinks}
+          </Collapse>
           <NavLink
             to="/profile"
             className={classes.link}
