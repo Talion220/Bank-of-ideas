@@ -24,9 +24,7 @@ function HomeTopBusinessProcesses() {
   const rows = topBusinessProcesses.map((item) => (
     <Table.Tr key={item.title}>
       <Table.Td>
-        <Text fz="md" fw={500}>
-          {item.title}
-        </Text>
+        <Text className={styles.text}>{item.title}</Text>
       </Table.Td>
     </Table.Tr>
   ));

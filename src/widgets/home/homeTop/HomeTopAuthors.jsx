@@ -42,14 +42,12 @@ function HomeTopAuthors() {
       <Table.Td>
         <Group gap="sm">
           <Avatar size={40} src={item.avatar} radius={40} />
-          <div>
-            <Text fz="md" fw={500}>
-              {item.name}
-            </Text>
-          </div>
+          <Text className={styles.text}>{item.name}</Text>
         </Group>
       </Table.Td>
-      <Table.Td>{item.count}</Table.Td>
+      <Table.Td>
+        <Text className={styles.text}>{item.count}</Text>
+      </Table.Td>
     </Table.Tr>
   ));
 
