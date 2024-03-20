@@ -38,15 +38,15 @@ const topAuthors = [
 
 function HomeTopAuthors() {
   const rows = topAuthors.map((item) => (
-    <Table.Tr key={item.name}>
+    <Table.Tr key={item.name} style={{ cursor: "pointer" }}>
       <Table.Td>
         <Group gap="sm">
           <Avatar size={40} src={item.avatar} radius={40} />
-          <Text className={styles.text}>{item.name}</Text>
+          <Text>{item.name}</Text>
         </Group>
       </Table.Td>
       <Table.Td>
-        <Text className={styles.text}>{item.count}</Text>
+        <Text>{item.count}</Text>
       </Table.Td>
     </Table.Tr>
   ));
