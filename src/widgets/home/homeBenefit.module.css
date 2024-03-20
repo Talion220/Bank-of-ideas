@@ -1,0 +1,7 @@
+.card {
+  background-color: var(--mantine-color-body);
+  width: 300px;
+  @media (max-width: var(--mantine-breakpoint-sm)) {
+    width: 100%;
+  }
+}

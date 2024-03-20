@@ -1,44 +1,55 @@
-import HomeBenefitImg1 from '../../shared/images/HomeBenefitImg1.jpg';
-import HomeBenefitImg2 from '../../shared/images/HomeBenefitImg2.jpg';
-import HomeBenefitImg3 from '../../shared/images/HomeBenefitImg3.jpg';
-import HomeBenefitImg4 from '../../shared/images/HomeBenefitImg4.jpg';
-import HomeBenefitImg5 from '../../shared/images/HomeBenefitImg5.png';
-import './homeBenefit.scss';
+import HomeBenefitImg1 from "../../shared/images/HomeBenefitImg1.jpg";
+import HomeBenefitImg2 from "../../shared/images/HomeBenefitImg2.jpg";
+import HomeBenefitImg3 from "../../shared/images/HomeBenefitImg3.jpg";
+import HomeBenefitImg4 from "../../shared/images/HomeBenefitImg4.jpg";
+import HomeBenefitImg5 from "../../shared/images/HomeBenefitImg5.png";
+import classes from "./homeBenefit.module.css";
+
+import { Card, Grid, Image, Container, Text } from "@mantine/core";
+
+const content = [
+  {
+    title: "Получи признание за свой вклад в развитие компании",
+    image: HomeBenefitImg1,
+  },
+  {
+    title: "Получи вознаграждение зв эффективные предложения",
+    image: HomeBenefitImg2,
+  },
+  {
+    title: "Почувствуй улучшение в ежедневной деятельности",
+    image: HomeBenefitImg3,
+  },
+  {
+    title: "Сформируй круг активных и неравнодушных коллег",
+    image: HomeBenefitImg4,
+  },
+  {
+    title: "Будь примером для других коллег",
+    image: HomeBenefitImg5,
+  },
+];
 
 function HomeBenefit() {
+  const features = content.map((feature) => (
+    <Grid.Col key={feature.title} my={20} span={{ base: 12, md: 4, lg: 4 }}>
+      <Card withBorder padding="lg" radius="md" className={classes.card}>
+        <Card.Section mb="sm">
+          <Image src={feature.image} height={180} />
+        </Card.Section>
+
+        <Text fw={700} mt="xs">
+          {feature.title}
+        </Text>
+      </Card>
+    </Grid.Col>
+  ));
+
   return (
-<div className='homeBenefit'>
-      <h1>
-        Выгоды от участия        
-      </h1>
-      <main>
-        <article>
-          <p>Получи признание за свой вклад в развитие компании</p>
-          <img src={HomeBenefitImg1} alt="" />
-        </article>
-      
-        <article>
-          <p>Получи вознаграждение зв эффективные предложения</p>
-          <img src={HomeBenefitImg2} alt="" />
-        </article>
-      
-        <article>
-          <p>Почувствуй улучшение в ежедневной деятельности</p>
-          <img src={HomeBenefitImg3} alt="" />
-        </article>
-     
-        <article>
-          <p>Сформируй круг активных и неравнодушных коллег</p>
-          <img src={HomeBenefitImg4} alt="" />
-        </article>
-      
-        <article>
-          <p>Будь примером для других коллег</p>
-          <img src={HomeBenefitImg5} alt="" />
-        </article>
-      </main>
-    </div>
-  )
+    <Container size="xl">
+      <Grid gutter={0}>{features}</Grid>
+    </Container>
+  );
 }
 
 export default HomeBenefit;
