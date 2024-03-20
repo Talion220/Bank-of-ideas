@@ -1,34 +1,53 @@
 import styles from "./homeTopAll.module.css";
 
+import { Center, Table, Text, Flex, Title } from "@mantine/core";
+
+const topBusinessProcesses = [
+  {
+    title: "Бизнес процесс 1",
+  },
+  {
+    title: "Бизнес процесс 2",
+  },
+  {
+    title: "Бизнес процесс 3",
+  },
+  {
+    title: "Бизнес процесс 4",
+  },
+  {
+    title: "Бизнес процесс 5",
+  },
+];
+
 function HomeTopBusinessProcesses() {
+  const rows = topBusinessProcesses.map((item) => (
+    <Table.Tr key={item.title}>
+      <Table.Td>
+        <Text fz="md" fw={500}>
+          {item.title}
+        </Text>
+      </Table.Td>
+    </Table.Tr>
+  ));
+
   return (
-    <div>
-      <div className="top">
-        <h3>Топ бизнес-процессов</h3>
-        <main>
-          <article>
-            <p>Первый бизнес процесс</p>
-            <p>№1</p>
-          </article>
-          <article>
-            <p>Второй бизнес процесс</p>
-            <p>№2</p>
-          </article>
-          <article>
-            <p>Третий бизнес процесс</p>
-            <p>№3</p>
-          </article>
-          <article>
-            <p>Четвертый бизнес процесс</p>
-            <p>№4</p>
-          </article>
-          <article>
-            <p>Пятый бизнес процесс</p>
-            <p>№5</p>
-          </article>
-        </main>
-      </div>
-    </div>
+    <Flex align="center" direction="column">
+      <Title pb="xl">Топ бизенс процессов</Title>
+
+      <Center>
+        <Table.ScrollContainer maw={300}>
+          <Table verticalSpacing="sm" horizontalSpacing="md" highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th fz="lg">Бизнес процессы</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>{rows}</Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
+      </Center>
+    </Flex>
   );
 }
 
