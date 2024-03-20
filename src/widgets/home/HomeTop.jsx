@@ -7,14 +7,14 @@ import { Grid } from "@mantine/core";
 
 function HomeTop() {
   return (
-    <Grid py={80}>
-      <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+    <Grid gutter="0" size="xl" py={80}>
+      <Grid.Col pt={40} span={{ base: 12, md: 12, lg: 12 }}>
         <HomeTopAuthors />
       </Grid.Col>
-      <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
+      <Grid.Col pt={40} span={{ base: 12, md: 6, lg: 6 }}>
         <HomeTopFilials />
       </Grid.Col>
-      <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
+      <Grid.Col pt={40} span={{ base: 12, md: 6, lg: 6 }}>
         <HomeTopBusinessProcesses />
       </Grid.Col>
     </Grid>
