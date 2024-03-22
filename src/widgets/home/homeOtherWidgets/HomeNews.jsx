@@ -63,7 +63,7 @@ function HomeNews() {
         <Table.Thead>
           <Table.Tr>
             <Table.Th>
-              <Title>Новости</Title>
+              <Title pb={15}>Новости</Title>
             </Table.Th>
           </Table.Tr>
         </Table.Thead>

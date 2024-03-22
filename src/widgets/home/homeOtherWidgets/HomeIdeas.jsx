@@ -99,7 +99,7 @@ function HomeIdeas() {
         <Table.Thead>
           <Table.Tr>
             <Table.Th>
-              <Title>Наша база идей</Title>
+              <Title pb={15}>Наша база идей</Title>
             </Table.Th>
           </Table.Tr>
         </Table.Thead>
