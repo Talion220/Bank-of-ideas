@@ -30,22 +30,20 @@ function HomeTopBusinessProcesses() {
   ));
 
   return (
-    <Flex align="center" direction="column">
-      <Title pb="xl">Топ бизенс процессов</Title>
-
-      <Center>
-        <Table.ScrollContainer maw={300}>
-          <Table verticalSpacing="sm" horizontalSpacing="md" highlightOnHover>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th fz="lg">Бизнес процессы</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>{rows}</Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
-      </Center>
-    </Flex>
+    // <Flex align="center" direction="column">
+    <Table.ScrollContainer w={500}>
+      <Table verticalSpacing="sm" horizontalSpacing="md">
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>
+              <Title pb="xl">Топ бизенс процессов</Title>
+            </Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
+      </Table>
+    </Table.ScrollContainer>
+    // {/* </Flex> */}
   );
 }
 

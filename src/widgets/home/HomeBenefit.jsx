@@ -35,7 +35,7 @@ function HomeBenefit() {
     <Grid.Col key={feature.title} my={20} span={{ base: 12, md: 4, lg: 4 }}>
       <Card withBorder padding="lg" radius="md" className={classes.card}>
         <Card.Section mb="sm">
-          <Image src={feature.image} height={180} />
+          <Image className={classes.img} src={feature.image} height={180} />
         </Card.Section>
 
         <Text fw={700} mt="xs">
@@ -46,7 +46,7 @@ function HomeBenefit() {
   ));
 
   return (
-    <Container size="xl">
+    <Container size="xl" py={100}>
       <Grid gutter={0}>{features}</Grid>
     </Container>
   );

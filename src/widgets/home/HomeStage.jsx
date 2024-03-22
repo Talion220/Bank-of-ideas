@@ -66,7 +66,7 @@ function HomeStage() {
   ));
 
   return (
-    <Container size="xl" py="xl">
+    <Container size="xl" py={100}>
       {/* <Group justify="center">
         <Badge variant="filled" size="lg">
           Быстро. Просто. Доступно.
