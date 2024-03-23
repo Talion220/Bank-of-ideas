@@ -52,7 +52,7 @@ function IdeaCreateMain() {
   return (
     <Container size="lg" mt={100}>
       <Center>
-        <Title>Создать новую идею</Title>
+        <Title mb={40}>Создать новую идею</Title>
       </Center>
 
       <Box
