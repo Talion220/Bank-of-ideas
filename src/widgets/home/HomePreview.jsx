@@ -91,7 +91,13 @@ function HomePreview() {
             базы лучших практик в целях их тиражирования.
           </Text>
 
-          <Button mt={15} radius={16} component={NavLink} to="/documentation">
+          <Button
+            mt={15}
+            radius={16}
+            size="md"
+            component={NavLink}
+            to="/documentation"
+          >
             Документация, инструкции
           </Button>
         </Flex>
