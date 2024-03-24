@@ -149,7 +149,9 @@ function Header() {
           </HoverCard.Target>
 
           <HoverCard.Dropdown style={{ overflow: "hidden" }}>
-            <Text fw={500}>Идеи</Text>
+            <Text fw={500} pl={30}>
+              Идеи
+            </Text>
 
             <Divider my="sm" />
 
@@ -194,7 +196,7 @@ function Header() {
           </HoverCard.Target>
 
           <HoverCard.Dropdown style={{ overflow: "hidden" }}>
-            <Text fw={500} size="md">
+            <Text fw={500} size="md" pl={30}>
               Другое
             </Text>
 
