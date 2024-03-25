@@ -29,10 +29,10 @@ const theme = createTheme({
     },
     spacing: {},
     colors: {
-      black: "rgba(13, 20, 28, 1)",
-      white: "rgba(247, 250, 252, 1)",
-      gray: ["rgba(232, 237, 242, 1)", "rgba(79, 115, 150, 1)"],
-      blue: "rgba(26, 128, 230, 1)",
+      myBlack: "rgba(13, 20, 28, 1)",
+      myWhite: "rgba(247, 250, 252, 1)",
+      myGray: ["rgba(232, 237, 242, 1)", "rgba(79, 115, 150, 1)"],
+      myBlue: "rgba(26, 128, 230, 1)",
     },
   },
 });
