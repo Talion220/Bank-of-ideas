@@ -6,6 +6,8 @@ import {
   ActionIcon,
   SegmentedControl,
   Flex,
+  CloseButton,
+  Group,
 } from "@mantine/core";
 import { Icons } from "../../shared/images/Icons";
 
@@ -14,18 +16,32 @@ export default function SearchContent(props) {
   const [views, setViews] = useState("allViews");
   const [votes, setVotes] = useState("allVotes");
   const [ideas, setIdeas] = useState("allIdeas");
+  const [clear, setClear] = useState("");
   return (
     <Container size="xl" mt={20}>
       <TextInput
         radius="xl"
         size="xl"
         placeholder="Искать идеи"
-        rightSectionWidth={58}
+        rightSectionWidth={clear ? 100 : 58}
         leftSection={<Icons.IconSearch />}
+        value={clear}
+        rightSectionPointerEvents="all"
+        onChange={(event) => setClear(event.currentTarget.value)}
         rightSection={
-          <ActionIcon size={42} radius="xl" variant="filled">
-            <Icons.IconArrowRight />
-          </ActionIcon>
+          <Flex>
+            <ActionIcon
+              size={42}
+              variant="transparent"
+              onClick={() => setClear("")}
+              style={{ display: clear ? undefined : "none" }}
+            >
+              <Icons.CloseButton />
+            </ActionIcon>
+            <ActionIcon size={42} radius="xl" variant="filled">
+              <Icons.IconArrowRight />
+            </ActionIcon>
+          </Flex>
         }
         {...props}
       />
