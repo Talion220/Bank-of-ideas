@@ -22,8 +22,8 @@ export default function SearchContent(props) {
       <TextInput
         radius="xl"
         size="xl"
-        placeholder="Искать идеи"
-        rightSectionWidth={clear ? 100 : 58}
+        placeholder="Искать идеи..."
+        rightSectionWidth={clear ? 150 : 108}
         leftSection={<Icons.IconSearch />}
         value={clear}
         rightSectionPointerEvents="all"
@@ -32,12 +32,23 @@ export default function SearchContent(props) {
           <Flex>
             <ActionIcon
               size={42}
+              color="gray"
               variant="transparent"
               onClick={() => setClear("")}
               style={{ display: clear ? undefined : "none" }}
             >
               <Icons.CloseButton />
             </ActionIcon>
+
+            <ActionIcon
+              size={42}
+              radius="xl"
+              variant="transparent"
+              color="gray"
+            >
+              <Icons.IconAdjustments />
+            </ActionIcon>
+
             <ActionIcon size={42} radius="xl" variant="filled">
               <Icons.IconArrowRight />
             </ActionIcon>
