@@ -22,7 +22,7 @@ export default function SearchContent(props) {
         radius="xl"
         size="xl"
         placeholder="Искать идеи..."
-        rightSectionWidth={clear ? 150 : 108}
+        rightSectionWidth={clear ? 200 : 158}
         leftSection={<Icons.IconSearch />}
         value={clear}
         rightSectionPointerEvents="all"
@@ -39,14 +39,66 @@ export default function SearchContent(props) {
               <Icons.CloseButton />
             </ActionIcon>
 
-            <ActionIcon
-              size={42}
-              radius="xl"
-              variant="transparent"
-              color="gray"
+            <Popover
+              transitionProps={{ transition: "rotate-right", duration: 150 }}
+              width={300}
+              radius={16}
+              position="bottom"
+              withArrow
+              arrowPosition="side"
+              shadow="md"
             >
-              <Icons.IconAdjustments />
-            </ActionIcon>
+              <Popover.Target>
+                <Button variant="transparent" radius={12}>
+                  Фильтры
+                </Button>
+              </Popover.Target>
+              <Popover.Dropdown bg="var(--mantine-color-body)">
+                <Select
+                  label="По времени"
+                  defaultValue="За все время" //дефалт велью должен меняться
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  data={[
+                    "За все время",
+                    "За год",
+                    "За месяц",
+                    "За неделю",
+                    "За день",
+                  ]}
+                />
+                <Select
+                  label="По просмотрам"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  data={[
+                    "Все",
+                    "Больше всего просмотров",
+                    "Меньше всего просмотров",
+                  ]}
+                />
+                <Select
+                  label="По голосам"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  data={["Все", "Больше всего голосов", "Меньше всего голосов"]}
+                />
+                <Select
+                  label="По стадии"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  data={[
+                    "Все",
+                    "Поданные идеи",
+                    "Одобренные идеи",
+                    "Внедренные идеи",
+                  ]}
+                />
+              </Popover.Dropdown>
+            </Popover>
 
             <ActionIcon size={42} radius="xl" variant="filled">
               <Icons.IconArrowRight />
@@ -55,60 +107,6 @@ export default function SearchContent(props) {
         }
         {...props}
       />
-      <Popover
-        transitionProps={{ transition: "rotate-right", duration: 150 }}
-        width={300}
-        radius={16}
-        position="bottom"
-        withArrow
-        arrowPosition="side"
-        shadow="md"
-      >
-        <Popover.Target>
-          <Button radius={12}>Фильтры</Button>
-        </Popover.Target>
-        <Popover.Dropdown bg="var(--mantine-color-body)">
-          <Select
-            label="По времени"
-            defaultValue="За все время" //дефалт велью должен меняться
-            allowDeselect={false}
-            comboboxProps={{ withinPortal: false }}
-            data={[
-              "За все время",
-              "За год",
-              "За месяц",
-              "За неделю",
-              "За день",
-            ]}
-          />
-          <Select
-            label="По просмотрам"
-            defaultValue="Все"
-            allowDeselect={false}
-            comboboxProps={{ withinPortal: false }}
-            data={["Все", "Больше всего просмотров", "Меньше всего просмотров"]}
-          />
-          <Select
-            label="По голосам"
-            defaultValue="Все"
-            allowDeselect={false}
-            comboboxProps={{ withinPortal: false }}
-            data={["Все", "Больше всего голосов", "Меньше всего голосов"]}
-          />
-          <Select
-            label="По стадии"
-            defaultValue="Все"
-            allowDeselect={false}
-            comboboxProps={{ withinPortal: false }}
-            data={[
-              "Все",
-              "Поданные идеи",
-              "Одобренные идеи",
-              "Внедренные идеи",
-            ]}
-          />
-        </Popover.Dropdown>
-      </Popover>
     </Container>
   );
 }
