@@ -22,7 +22,7 @@ export default function SearchContent(props) {
         radius="xl"
         size="xl"
         placeholder="Искать идеи..."
-        rightSectionWidth={clear ? 200 : 158}
+        rightSectionWidth={clear ? 230 : 188}
         leftSection={<Icons.IconSearch />}
         value={clear}
         rightSectionPointerEvents="all"
@@ -49,8 +49,9 @@ export default function SearchContent(props) {
               shadow="md"
             >
               <Popover.Target>
-                <Button variant="transparent" radius={12}>
+                <Button c="gray" variant="transparent" radius={12}>
                   Фильтры
+                  <Icons.IconAdjustments />
                 </Button>
               </Popover.Target>
               <Popover.Dropdown bg="var(--mantine-color-body)">
