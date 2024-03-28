@@ -60,6 +60,7 @@ export default function SearchContent(props) {
                   defaultValue="За все время" //дефалт велью должен меняться
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
+                  radius={16}
                   data={[
                     "За все время",
                     "За год",
@@ -73,6 +74,7 @@ export default function SearchContent(props) {
                   defaultValue="Все"
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
+                  radius={16}
                   data={[
                     "Все",
                     "Больше всего просмотров",
@@ -84,6 +86,7 @@ export default function SearchContent(props) {
                   defaultValue="Все"
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
+                  radius={16}
                   data={["Все", "Больше всего голосов", "Меньше всего голосов"]}
                 />
                 <Select
@@ -91,6 +94,7 @@ export default function SearchContent(props) {
                   defaultValue="Все"
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
+                  radius={16}
                   data={[
                     "Все",
                     "Поданные идеи",
