@@ -22,6 +22,7 @@ import avatar from "../../shared/images/avatar.png";
 
 const data = [
   {
+    id: "1",
     author: "Isaac Asimov",
     title: "Foundation",
     status: "Внедрено",
@@ -33,6 +34,7 @@ const data = [
     linkIdea: "/idea/1",
   },
   {
+    id: "2",
     author: "Mary Shelley",
     title: "Frankenstein",
     status: "Внедрено",
@@ -44,6 +46,7 @@ const data = [
     linkIdea: "/idea/2",
   },
   {
+    id: "3",
     author: "Stanislaw Lem",
     title: "Solaris",
     status: "Внедрено",
@@ -55,6 +58,7 @@ const data = [
     linkIdea: "/idea/3",
   },
   {
+    id: "4",
     author: "Frank Herbert",
     title: "Dune",
     status: "Внедрено",
@@ -66,6 +70,67 @@ const data = [
     linkIdea: "/idea/4",
   },
   {
+    id: "5",
+    author: "Ursula K. Le Guin",
+    title: "The Left Hand of Darkness",
+    status: "Внедрено",
+    votes: "16",
+    comments: "1",
+    views: "47",
+    avatar: avatar,
+    linkAuthor: "/profile",
+    linkIdea: "/idea/5",
+  },
+  {
+    id: "6",
+    author: "Ursula K. Le Guin",
+    title: "The Left Hand of Darkness",
+    status: "Внедрено",
+    votes: "16",
+    comments: "1",
+    views: "47",
+    avatar: avatar,
+    linkAuthor: "/profile",
+    linkIdea: "/idea/5",
+  },
+  {
+    id: "7",
+    author: "Ursula K. Le Guin",
+    title: "The Left Hand of Darkness",
+    status: "Внедрено",
+    votes: "16",
+    comments: "1",
+    views: "47",
+    avatar: avatar,
+    linkAuthor: "/profile",
+    linkIdea: "/idea/5",
+  },
+  {
+    id: "8",
+    author: "Ursula K. Le Guin",
+    title: "The Left Hand of Darkness",
+    status: "Внедрено",
+    votes: "16",
+    comments: "1",
+    views: "47",
+    avatar: avatar,
+    linkAuthor: "/profile",
+    linkIdea: "/idea/5",
+  },
+  {
+    id: "9",
+    author: "Ursula K. Le Guin",
+    title: "The Left Hand of Darkness",
+    status: "Внедрено",
+    votes: "16",
+    comments: "1",
+    views: "47",
+    avatar: avatar,
+    linkAuthor: "/profile",
+    linkIdea: "/idea/5",
+  },
+  {
+    id: "10",
     author: "Ursula K. Le Guin",
     title: "The Left Hand of Darkness",
     status: "Внедрено",
@@ -83,7 +148,7 @@ export default function SearchContent(props) {
 
   const rows = data.map((row) => {
     return (
-      <Table.Tr key={row.title}>
+      <Table.Tr key={row.id}>
         <Table.Td>
           <Anchor
             component={NavLink}
@@ -101,7 +166,6 @@ export default function SearchContent(props) {
             </Flex>
           </Anchor>
         </Table.Td>
-
         <Table.Td>
           <Anchor
             component={NavLink}
@@ -235,28 +299,31 @@ export default function SearchContent(props) {
         }
         {...props}
       />
-      <Table.ScrollContainer mt={30}>
-        <Table verticalSpacing="xs">
+      <Table.ScrollContainer h={500} mt={30}>
+        <Table highlightOnHover stickyHeader verticalSpacing="xs">
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>ФИО автора</Table.Th>
-              <Table.Th>Название идеи</Table.Th>
-              <Table.Th>Статус</Table.Th>
-              <Table.Th>Голоса</Table.Th>
-              <Table.Th>Комментарии</Table.Th>
-              <Table.Th>Просмотры</Table.Th>
+              <Table.Th>
+                <Title fz="lg">ФИО автора</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Название идеи</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Статус</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Голоса</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Комментарии</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Просмотры</Title>
+              </Table.Th>
             </Table.Tr>
           </Table.Thead>
-          <Table.Tbody>
-            <ScrollArea
-              h={250}
-              type="always"
-              offsetScrollbars
-              scrollbarSize={8}
-            >
-              {rows}
-            </ScrollArea>
-          </Table.Tbody>
+          <Table.Tbody>{rows}</Table.Tbody>
         </Table>
       </Table.ScrollContainer>
     </Container>

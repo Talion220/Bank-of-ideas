@@ -6,26 +6,31 @@ import { Table, Anchor, Image, Text, Group, Title, Flex } from "@mantine/core";
 
 const data = [
   {
+    id: "1",
     title: "Foundation",
     cover: NewsCover,
     link: "/news/1",
   },
   {
+    id: "2",
     title: "Frankenstein",
     cover: NewsCover,
     link: "/news/2",
   },
   {
+    id: "3",
     title: "Solaris",
     cover: NewsCover,
     link: "/news/3",
   },
   {
+    id: "4",
     title: "Dune",
     cover: NewsCover,
     link: "/news/4",
   },
   {
+    id: "5",
     title: "The Left Hand of Darkness",
     cover: NewsCover,
     link: "/news/5",
@@ -35,7 +40,7 @@ const data = [
 function HomeNews() {
   const rows = data.map((row) => {
     return (
-      <Table.Tr key={row.title}>
+      <Table.Tr key={row.id}>
         <Table.Td>
           <Anchor
             component={NavLink}
