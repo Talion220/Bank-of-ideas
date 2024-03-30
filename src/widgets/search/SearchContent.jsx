@@ -289,6 +289,24 @@ export default function SearchContent(props) {
                     "Внедренные идеи",
                   ]}
                 />
+                <Select
+                  label="По статусу"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  radius={16}
+                  data={[
+                    "Все",
+                    "На рассмотрении",
+                    "На формировании итогового экспертного заключения",
+                    "Одобрена",
+                    "На внедрении",
+                    "Внедрена",
+                    "На доработке",
+                    "Отложена",
+                    "Отклонена",
+                  ]}
+                />
               </Popover.Dropdown>
             </Popover>
 
