@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 function SearchTitle() {
   return (
-    <Container size="xl" mt={100}>
+    <Container size="xl" mt={40}>
       <Flex justify="space-between">
         <div>
           <Title>Изучайте идеи компании</Title>

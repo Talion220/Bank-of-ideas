@@ -20,21 +20,12 @@
   }
 }
 
-.searchCode {
-  font-weight: 700;
-  font-size: rem(10px);
-  background-color: light-dark(
-    var(--mantine-color-gray-0),
-    var(--mantine-color-dark-7)
-  );
-  border: rem(1px) solid
-    light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
-}
-
 .mainLinks {
   padding-left: calc(var(--mantine-spacing-md) - var(--mantine-spacing-xs));
   padding-right: calc(var(--mantine-spacing-md) - var(--mantine-spacing-xs));
   padding-bottom: var(--mantine-spacing-md);
+  font-size: var(--mantine-font-size-lg);
+  font-weight: 600;
 }
 
 .mainLink {
@@ -49,7 +40,7 @@
 
   &:hover {
     background-color: light-dark(
-      var(--mantine-color-gray-0),
+      var(--mantine-color-gray-2),
       var(--mantine-color-dark-6)
     );
     color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
@@ -62,11 +53,6 @@
   flex: 1;
 }
 
-.mainLinkIcon {
-  margin-right: var(--mantine-spacing-sm);
-  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-2));
-}
-
 .mainLinkBadge {
   padding: 0;
   width: rem(20px);
@@ -74,33 +60,8 @@
   pointer-events: none;
 }
 
-.collections {
-  padding-left: calc(var(--mantine-spacing-md) - rem(6px));
-  padding-right: calc(var(--mantine-spacing-md) - rem(6px));
-  padding-bottom: var(--mantine-spacing-md);
-}
-
-.collectionsHeader {
-  padding-left: calc(var(--mantine-spacing-md) + rem(2px));
-  padding-right: var(--mantine-spacing-md);
-  margin-bottom: rem(5px);
-}
-
-.collectionLink {
-  display: block;
-  padding: rem(8px) var(--mantine-spacing-xs);
-  text-decoration: none;
-  border-radius: var(--mantine-radius-sm);
-  font-size: var(--mantine-font-size-xs);
-  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  line-height: 1;
+.subLink {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-weight: 500;
-
-  &:hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-6)
-    );
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  }
+  font-size: var(--mantine-font-size-md);
 }

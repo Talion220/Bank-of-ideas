@@ -50,7 +50,7 @@ function IdeaCreateMain() {
   });
 
   return (
-    <Container size="lg" mt={100}>
+    <Container size="lg" mt={40}>
       <Center>
         <Title mb={40}>Создать новую идею</Title>
       </Center>

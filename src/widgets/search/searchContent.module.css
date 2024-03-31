@@ -1,11 +1,14 @@
-.progressSection {
-  &:not(:first-of-type) {
-    border-left: rem(3px) solid
-      light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
-  }
-}
 .subLink {
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-weight: 500;
   font-size: var(--mantine-font-size-md);
+}
+.select {
+  &:hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-2),
+      var(--mantine-color-dark-6)
+    );
+    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  }
 }

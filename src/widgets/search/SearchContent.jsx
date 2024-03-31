@@ -241,7 +241,7 @@ export default function SearchContent(props) {
                   <Icons.IconAdjustments />
                 </Button>
               </Popover.Target>
-              <Popover.Dropdown bg="var(--mantine-color-body)">
+              <Popover.Dropdown>
                 <Select
                   label="По времени"
                   defaultValue="За все время" //дефалт велью должен меняться
