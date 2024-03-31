@@ -1,19 +1,12 @@
-import './profile.scss';
 import UserMenu from "../../widgets/profile/UserMenu";
-import UserStatistics from "../../widgets/profile/UserStatistics";
-import UserIdeas from "../../widgets/profile/UserIdeas";
+import { Container } from "@mantine/core";
 
-function Profile(){
-    return(
-        <div className='profile'>
-            <UserMenu />
-            <div className='userContent'>
-                <UserStatistics />
-                <UserIdeas />
-            </div>
-            
-        </div>
-    )
+function Profile() {
+  return (
+    <Container size="xl">
+      <UserMenu />
+    </Container>
+  );
 }
 
 export default Profile;
