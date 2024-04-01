@@ -12,20 +12,13 @@ import {
   Stack,
   Table,
   Title,
+  SegmentedControl,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./userMenu.module.css";
 import avatar from "../../shared/images/avatar.png";
 import { Icons } from "../../shared/images/Icons";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
-
-const links = [
-  { label: "Мои идеи" },
-  { label: "Мои предложения по улучшению" },
-  { label: "Мои лучшие практики" },
-  { label: "Мои рационализаторские предложения" },
-  { label: "Уведомления", notifications: 3 },
-];
 
 const data = [
   {
@@ -211,8 +204,20 @@ function UserMenu() {
           </Button>
         </Anchor>
       </Flex>
+      <SegmentedControl
+        mt={20}
+        radius={16}
+        color="blue"
+        fz="lg"
+        data={[
+          "Все",
+          "Мои предложения по улучшению",
+          "Мои лучшие практики",
+          "Мои рационализаторские предложения",
+        ]}
+      />
 
-      <Table.ScrollContainer h={500} mt={30}>
+      <Table.ScrollContainer h={500} mt={20}>
         <Table highlightOnHover stickyHeader verticalSpacing="lg">
           <Table.Thead>
             <Table.Tr>
