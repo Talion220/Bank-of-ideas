@@ -34,18 +34,13 @@ function IdeaCreateMain() {
   };
 
   const form = useForm({
-    initialValues: {
-      name: "",
-      job: "",
-    },
-
     validate: {
-      name: hasLength({ min: 2, max: 10 }, "Name must be 2-10 characters long"),
-      job: isNotEmpty("Enter your current job"),
-      age: isInRange(
-        { min: 18, max: 99 },
-        "You must be 18-99 years old to register"
-      ),
+      Category: isNotEmpty("Выберите категорию идеи"),
+      Name: hasLength({ min: 2 }, "Название должно быть больше 2-х символов"),
+      BusinessProcesses: isNotEmpty("Выберите бизнес процесс"),
+      Problem: isNotEmpty("Опишите проблему"),
+      Solution: isNotEmpty("Опишите решение"),
+      Result: isNotEmpty("Опишите результат"),
     },
   });
 
@@ -70,6 +65,7 @@ function IdeaCreateMain() {
             "Лучшая практика",
           ]}
           clearable
+          {...form.getInputProps("Category")}
           radius={12}
           size="md"
           mt="md"
@@ -79,7 +75,7 @@ function IdeaCreateMain() {
           label="Название предложения"
           placeholder="Коротко опишите название Вашей идеи..."
           withAsterisk
-          {...form.getInputProps("name")}
+          {...form.getInputProps("Name")}
           radius={12}
           size="md"
           mt="md"
@@ -96,6 +92,7 @@ function IdeaCreateMain() {
             "Бизнес-процесс 6",
           ]}
           clearable
+          {...form.getInputProps("BusinessProcesses")}
           radius={12}
           size="md"
           mt="md"
@@ -107,6 +104,7 @@ function IdeaCreateMain() {
           label="Проблема"
           autosize
           minRows={4}
+          {...form.getInputProps("Problem")}
           radius={12}
           size="md"
           mt="md"
@@ -117,6 +115,7 @@ function IdeaCreateMain() {
           label="Решение"
           autosize
           minRows={4}
+          {...form.getInputProps("Solution")}
           radius={12}
           size="md"
           mt="md"
@@ -127,6 +126,7 @@ function IdeaCreateMain() {
           label="Результат"
           autosize
           minRows={4}
+          {...form.getInputProps("Result")}
           radius={12}
           size="md"
           mt="md"
@@ -145,7 +145,7 @@ function IdeaCreateMain() {
         <TextInput
           label="Соавторы"
           placeholder="Укажите соавторов..."
-          withAsterisk
+          // withAsterisk
           radius={12}
           size="md"
           mt="md"
