@@ -206,7 +206,6 @@ function UserMenu() {
       </Flex>
       <SegmentedControl
         mt={20}
-        radius={16}
         color="blue"
         fz="lg"
         data={[

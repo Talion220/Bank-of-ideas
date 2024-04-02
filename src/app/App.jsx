@@ -1,5 +1,6 @@
 import "@mantine/core/styles.css";
-import { MantineProvider, createTheme, rem } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
+import { theme } from "./Theme";
 
 import Search from "../pages/search/Search";
 import IdeaCreate from "../pages/ideaCreate/IdeaCreate";
@@ -12,30 +13,6 @@ import Home from "../pages/home/Home";
 import Analytics from "../pages/analytics/Analytics";
 import Documentation from "../pages/documentation/Documentation";
 import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
-
-const theme = createTheme({
-  white: "rgba(247, 250, 252, 1)",
-  black: "rgba(13, 20, 28, 1)",
-  fontFamily: "Inter",
-  primaryColor: "blue",
-  headings: {
-    textWrap: "wrap",
-    fontSizes: {
-      xs: rem(12),
-      sm: rem(14),
-      md: rem(16),
-      lg: rem(18),
-      xl: rem(20),
-    },
-    spacing: {},
-    colors: {
-      myBlack: "rgba(13, 20, 28, 1)",
-      myWhite: "rgba(247, 250, 252, 1)",
-      myGray: ["rgba(232, 237, 242, 1)", "rgba(79, 115, 150, 1)"],
-      myBlue: "rgba(26, 128, 230, 1)",
-    },
-  },
-});
 
 function App() {
   return (

@@ -1,69 +1,16 @@
 $header-border-color: rgba(229, 232, 235, 1);
 $bg-color: rgba(247, 250, 252, 1);
 $font-black-color: rgb(13, 20, 28);
-$font-gray-color: rgb(79, 115, 150);
-$blue-color: rgba(26, 128, 230, 1);
-$blue-shadow-color: rgba(26, 128, 230, 0.5);
-$form-gray-color: rgba(232, 237, 242, 1);
+$blue-color: #228be6;
 $number-font-size: calc(12px + 6 * (100vw / 1280));
 
 body {
-  margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-button,
-input {
-  color: $font-black-color;
-}
-a {
-  text-decoration: none;
-  color: inherit;
 }
 a.active {
   color: $blue-color;
 }
-input::placeholder,
-textarea::placeholder {
-  color: $font-gray-color;
-}
-p {
-  margin: 0;
-}
-a,
-button,
-label {
-  font-weight: 500;
-}
-h3 {
-  font-weight: 700;
-  font-size: calc(12px + 6 * (100vw / 1280));
-}
-h4 {
-  margin: 0;
-}
-a,
-p,
-button,
-input,
-label {
-  font-size: calc(10px + 4 * (100vw / 1280));
-}
-h1 {
-  font-size: calc(18px + 14 * (100vw / 1280));
-}
-
 ::-webkit-scrollbar {
   width: 8px;
 }
