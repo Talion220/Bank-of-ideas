@@ -11,6 +11,10 @@ import Profile from "../pages/profile/Profile";
 import News from "../pages/news/News";
 import Home from "../pages/home/Home";
 import Analytics from "../pages/analytics/Analytics";
+import IdeasPerDay from "../pages/analytics/pages/IdeasPerDay";
+import IdeasPerEmployee from "../pages/analytics/pages/IdeasPerEmployee";
+import IdeasImplemented from "../pages/analytics/pages/IdeasImplemented";
+import AllIdeas from "../pages/analytics/pages/AllIdeas";
 import Documentation from "../pages/documentation/Documentation";
 import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
 
@@ -24,7 +28,18 @@ function App() {
               <Route index element={<Home />} />
               <Route path="search" element={<Search />} />
               <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />} />
-              <Route path="analytics" element={<Analytics />} />
+              <Route path="analytics" element={<Analytics />}>
+                <Route path="all-ideas" element={<AllIdeas />} />
+                <Route
+                  path="ideas-implemented"
+                  element={<IdeasImplemented />}
+                />
+                <Route
+                  path="ideas-per-employee"
+                  element={<IdeasPerEmployee />}
+                />
+                <Route path="ideas-per-day" element={<IdeasPerDay />} />
+              </Route>
               <Route path="documentation" element={<Documentation />} />
               <Route path="idea-create" element={<IdeaCreate />} />
               <Route path="profile" element={<Profile />} />

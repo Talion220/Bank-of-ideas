@@ -1,5 +1,6 @@
 import classes from "./analytics.module.css";
-import { Button, Container, Text, Title } from "@mantine/core";
+import { Button, Container, Flex, Text, Title } from "@mantine/core";
+import { NavLink } from "react-router-dom";
 
 const data = [
   {
@@ -8,6 +9,7 @@ const data = [
     stats: "456,133",
     description:
       "Общее количество идей, поданных в нашем приложении. Включает в себя идеи по улучшению процессов, лучшие практики, и рационализаторские предложения от наших сотрудников.",
+    link: "/all-ideas",
   },
   {
     id: 2,
@@ -15,6 +17,7 @@ const data = [
     stats: "2,175",
     description:
       "Количество идей, которые были успешно внедрены после их подачи. Эти идеи привели к конкретным изменениям или улучшениям в нашей компании.",
+    link: "/ideas-implemented",
   },
   {
     id: 3,
@@ -22,6 +25,7 @@ const data = [
     stats: "1,994",
     description:
       "Среднее количество идей, предложенных каждым сотрудником. Это показывает активность и творческий потенциал наших сотрудников в процессе поиска новых решений и улучшений.",
+    link: "/ideas-per-employee",
   },
   {
     id: 4,
@@ -29,19 +33,35 @@ const data = [
     stats: "1,994",
     description:
       "Среднее количество идей, которые подаются в нашем приложении ежедневно. Это свидетельствует о постоянном потоке новых идей и о нашем стремлении к постоянному улучшению и инновациям.",
+    link: "/ideas-per-day",
   },
 ];
 
 function Analytics() {
   const stats = data.map((stat) => (
-    <div key={stat.id} className={classes.stat}>
-      <Text className={classes.count}>{stat.stats}</Text>
-      <Text className={classes.title}>{stat.title}</Text>
-      <Text className={classes.description}>{stat.description}</Text>
-      <Button mt={"var(--mantine-spacing-md)"} c="blue" bg="white" radius={12}>
+    <Flex
+      key={stat.id}
+      className={classes.stat}
+      direction="column"
+      align="start"
+      justify="space-between"
+    >
+      <div>
+        <Text className={classes.count}>{stat.stats}</Text>
+        <Text className={classes.title}>{stat.title}</Text>
+        <Text className={classes.description}>{stat.description}</Text>
+      </div>
+      <Button
+        component={NavLink}
+        to={stat.link}
+        mt={"var(--mantine-spacing-md)"}
+        c="blue"
+        bg="white"
+        radius={12}
+      >
         Подробнее...
       </Button>
-    </div>
+    </Flex>
   ));
 
   return (
