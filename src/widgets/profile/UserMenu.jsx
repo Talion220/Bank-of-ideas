@@ -207,7 +207,7 @@ function UserMenu() {
       <SegmentedControl
         mt={20}
         color="blue"
-        fz="lg"
+        // fz="lg"
         data={[
           "Все",
           "Мои предложения по улучшению",

@@ -1,5 +1,5 @@
 import { BarChart } from "@mantine/charts";
-import { Container, Title } from "@mantine/core";
+import { Container, Title, Text } from "@mantine/core";
 
 const dataFilials = [
   { filial: "ИА", filialIdeas: 12 },
@@ -29,6 +29,9 @@ export default function AllIdeas() {
   return (
     <Container size="xl">
       <Title ta="center">Всего идей подано</Title>
+      <Text py={30} fz="lg" ta="center">
+        По филиалам
+      </Text>
       <BarChart
         h={500}
         data={dataFilials}
@@ -38,6 +41,9 @@ export default function AllIdeas() {
         yAxisLabel="Количество идей"
         series={[{ name: "filialIdeas", label: "Идей", color: "pink" }]}
       />
+      <Text p="100px 0 30px" fz="lg" ta="center">
+        По бизнес-процессам
+      </Text>
       <BarChart
         h={500}
         data={dataBusinessProcesses}
@@ -46,7 +52,7 @@ export default function AllIdeas() {
         // xAxisLabel="Бизнес процессы"
         yAxisLabel="Количество идей"
         series={[
-          { name: "businessProcessesIdeas", label: "Идей", color: "pink" },
+          { name: "businessProcessesIdeas", label: "Идей", color: "blue" },
         ]}
       />
     </Container>

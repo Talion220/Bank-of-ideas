@@ -25,7 +25,7 @@ export const theme = createTheme({
       styles: {
         root: { borderRadius: 16 },
         label: { padding: "10px 0" },
-        innerLabel: { fontSize: 20 },
+        innerLabel: { fontSize: 14 },
         indicator: {
           borderRadius: 16,
         },
