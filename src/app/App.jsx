@@ -11,6 +11,7 @@ import Profile from "../pages/profile/Profile";
 import News from "../pages/news/News";
 import Home from "../pages/home/Home";
 import Analytics from "../pages/analytics/Analytics";
+import AnalyticsOverview from "../pages/analytics/AnalyticsOverview";
 import IdeasPerDay from "../pages/analytics/pages/IdeasPerDay";
 import IdeasPerEmployee from "../pages/analytics/pages/IdeasPerEmployee";
 import IdeasImplemented from "../pages/analytics/pages/IdeasImplemented";
@@ -29,6 +30,7 @@ function App() {
               <Route path="search" element={<Search />} />
               <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />} />
               <Route path="analytics" element={<Analytics />}>
+                <Route index element={<AnalyticsOverview />} />
                 <Route path="all-ideas" element={<AllIdeas />} />
                 <Route
                   path="ideas-implemented"
