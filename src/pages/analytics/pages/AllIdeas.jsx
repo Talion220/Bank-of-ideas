@@ -34,14 +34,16 @@ export default function AllIdeas() {
         data={dataFilials}
         tooltipAnimationDuration={200}
         dataKey="filial"
-        series={[{ name: "filialIdeas", color: "pink" }]}
+        series={[{ name: "filialIdeas", label: "Идей", color: "pink" }]}
       />
       <BarChart
         h={500}
         data={dataBusinessProcesses}
         tooltipAnimationDuration={200}
         dataKey="businessProcesses"
-        series={[{ name: "businessProcessesIdeas", color: "pink" }]}
+        series={[
+          { name: "businessProcessesIdeas", label: "Идей", color: "pink" },
+        ]}
       />
     </Container>
   );
