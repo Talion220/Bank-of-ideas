@@ -1,6 +1,5 @@
 import { Container, Title, Text } from "@mantine/core";
 import { AreaChart } from "@mantine/charts";
-import React from "react";
 
 const dataIdeaPerDay = [
   {
@@ -47,7 +46,7 @@ export default function IdeasPerDay() {
         data={dataIdeaPerDay}
         dataKey="date"
         withGradient
-        series={[{ name: "ideas", label: "идей", color: "blue" }]}
+        series={[{ name: "ideas", label: "Идей", color: "blue" }]}
       />
     </Container>
   );
