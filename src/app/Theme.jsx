@@ -4,6 +4,7 @@ import {
   SegmentedControl,
   DEFAULT_THEME,
 } from "@mantine/core";
+import "@mantine/charts/styles.css";
 
 export const theme = createTheme({
   white: "rgba(247, 250, 252, 1)",

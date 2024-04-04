@@ -1,6 +1,5 @@
-import classes from "./analytics.module.css";
-import { Button, Container, Flex, Text, Title } from "@mantine/core";
-import { NavLink, Outlet } from "react-router-dom";
+import { Container } from "@mantine/core";
+import { Outlet } from "react-router-dom";
 
 function Analytics() {
   return (
