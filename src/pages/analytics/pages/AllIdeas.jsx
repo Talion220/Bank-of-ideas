@@ -34,6 +34,8 @@ export default function AllIdeas() {
         data={dataFilials}
         tooltipAnimationDuration={200}
         dataKey="filial"
+        // xAxisLabel="Филиалы"
+        yAxisLabel="Количество идей"
         series={[{ name: "filialIdeas", label: "Идей", color: "pink" }]}
       />
       <BarChart
@@ -41,6 +43,8 @@ export default function AllIdeas() {
         data={dataBusinessProcesses}
         tooltipAnimationDuration={200}
         dataKey="businessProcesses"
+        // xAxisLabel="Бизнес процессы"
+        yAxisLabel="Количество идей"
         series={[
           { name: "businessProcessesIdeas", label: "Идей", color: "pink" },
         ]}
