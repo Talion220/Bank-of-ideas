@@ -4,17 +4,16 @@ import { useState } from "react";
 import {
   Container,
   Title,
-  ScrollArea,
   TextInput,
   ActionIcon,
-  Table,
   Flex,
   Anchor,
   Avatar,
-  Popover,
-  Button,
-  Select,
   Text,
+  SimpleGrid,
+  Card,
+  Image,
+  AspectRatio,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
@@ -28,7 +27,8 @@ const data = [
     likes: "12",
     comments: "2",
     views: "34",
-    newsImg: newsImg,
+    newsImg:
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     linkNews: "/news/1",
   },
@@ -39,7 +39,8 @@ const data = [
     likes: "25",
     comments: "4",
     views: "86",
-    newsImg: newsImg,
+    newsImg:
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     linkNews: "/news/2",
   },
@@ -50,7 +51,8 @@ const data = [
     likes: "65",
     comments: "14",
     views: "125",
-    newsImg: newsImg,
+    newsImg:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     linkNews: "/news/3",
   },
@@ -61,7 +63,8 @@ const data = [
     likes: "4",
     comments: "0",
     views: "6",
-    newsImg: newsImg,
+    newsImg:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     linkNews: "/news/4",
   },
@@ -135,6 +138,27 @@ const data = [
 function News(props) {
   const [clear, setClear] = useState("");
 
+  const cards = data.map((article) => (
+    <Card
+      key={article.id}
+      p="md"
+      radius={16}
+      component="a"
+      href="#"
+      className={classes.card}
+    >
+      <AspectRatio ratio={1920 / 1080}>
+        <Image radius={16} src={article.newsImg} />
+      </AspectRatio>
+      <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
+        {article.date}
+      </Text>
+      <Text className={classes.title} mt={5}>
+        {article.title}
+      </Text>
+    </Card>
+  ));
+
   return (
     <Container size="xl" mt={40}>
       <Title pb={30}>Новости компании</Title>
@@ -165,6 +189,10 @@ function News(props) {
         }
         {...props}
       />
+
+      <SimpleGrid mt={30} cols={{ base: 1, sm: 2 }}>
+        {cards}
+      </SimpleGrid>
     </Container>
   );
 }
