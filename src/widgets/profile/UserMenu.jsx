@@ -180,18 +180,15 @@ function UserMenu() {
         <Group wrap="nowrap">
           <Avatar src={avatar} size={94} />
           <div>
-            <Text fz="lg" fw={500} className={classes.name}>
+            <Text fz="xl" fw={600} className={classes.name}>
               Иванов Иван Иванович
             </Text>
-            <Text fz="xs" tt="uppercase" fw={700} c="dimmed">
+            <Text fz="md" fw={500}>
+              Генеральный директор
+            </Text>
+            <Text fz="sm" fw={700} c="gray">
               Красноярскэнерго
             </Text>
-
-            <Group wrap="nowrap" gap={10} mt={3}>
-              <Text fz="xs" c="dimmed">
-                Генеральный директор
-              </Text>
-            </Group>
           </div>
         </Group>
 
@@ -205,6 +202,7 @@ function UserMenu() {
         </Anchor>
       </Flex>
       <SegmentedControl
+        fullWidth
         mt={20}
         color="blue"
         // fz="lg"
