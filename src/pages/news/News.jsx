@@ -143,8 +143,8 @@ function News(props) {
       key={article.id}
       p="md"
       radius={16}
-      component="a"
-      href="#"
+      component={NavLink}
+      to={article.linkNews}
       className={classes.card}
     >
       <AspectRatio ratio={1920 / 1080}>
