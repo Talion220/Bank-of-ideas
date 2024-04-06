@@ -16,15 +16,18 @@ import {
   AspectRatio,
   Group,
   Center,
+  Divider,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
 import newsImg from "../../shared/images/newsImg.jpg";
+import avatar from "../../shared/images/avatar.png";
 
 const data = [
   {
     id: "1",
-    author: "Isaac Asimov",
+    author: "Павлова Мария Алиевна",
+    avatar: avatar,
     title: "Foundation",
     likes: "12",
     comments: "2",
@@ -36,7 +39,8 @@ const data = [
   },
   {
     id: "2",
-    author: "Mary Shelley",
+    author: "Токарева Варвара Вячеславовна",
+    avatar: avatar,
     title: "Frankenstein",
     likes: "25",
     comments: "4",
@@ -48,7 +52,8 @@ const data = [
   },
   {
     id: "3",
-    author: "Stanislaw Lem",
+    author: "Куликова Вера Даниэльевна",
+    avatar: avatar,
     title: "Solaris",
     likes: "65",
     comments: "14",
@@ -60,7 +65,8 @@ const data = [
   },
   {
     id: "4",
-    author: "Frank Herbert",
+    author: "Быков Григорий Богданович",
+    avatar: avatar,
     title: "Dune",
     likes: "4",
     comments: "0",
@@ -72,7 +78,8 @@ const data = [
   },
   {
     id: "5",
-    author: "Ursula K. Le Guin",
+    author: "Климова Алина Марсельевна",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -83,7 +90,8 @@ const data = [
   },
   {
     id: "6",
-    author: "Ursula K. Le Guin",
+    author: "Соколова Александра Ивановна",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -94,7 +102,8 @@ const data = [
   },
   {
     id: "7",
-    author: "Ursula K. Le Guin",
+    author: "Громов Павел Германович",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -105,7 +114,8 @@ const data = [
   },
   {
     id: "8",
-    author: "Ursula K. Le Guin",
+    author: "Моисеева Маргарита Кирилловна",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -116,7 +126,8 @@ const data = [
   },
   {
     id: "9",
-    author: "Ursula K. Le Guin",
+    author: "Гаврилова Екатерина Марковна",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -127,7 +138,8 @@ const data = [
   },
   {
     id: "10",
-    author: "Ursula K. Le Guin",
+    author: "Кононова Таисия Алиевна",
+    avatar: avatar,
     title: "The Left Hand of Darkness",
     likes: "16",
     comments: "1",
@@ -159,9 +171,12 @@ function News(props) {
         {article.title}
       </Text>
       <Group justify="space-between" gap="xs">
-        <Text size="sm" className={classes.author}>
-          {article.author}
-        </Text>
+        <Group gap="sm" wrap="nowrap">
+          <Avatar size={20} src={article.avatar} />
+          <Text size="sm" className={classes.author}>
+            {article.author}
+          </Text>
+        </Group>
 
         <Group gap="lg">
           <Center>
@@ -184,6 +199,62 @@ function News(props) {
           </Center>
         </Group>
       </Group>
+
+      <Divider my="sm" />
+
+      <Group wrap="nowrap" gap="xs">
+        <Group gap="sm" wrap="nowrap">
+          <Avatar
+            size={20}
+            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
+          />
+          <Text size="sm">Иванова Анна Сергеевна</Text>
+        </Group>
+        <Text size="sm" c="dimmed">
+          •
+        </Text>
+        <Text size="sm" c="dimmed">
+          Feb 6th
+        </Text>
+      </Group>
+      <Text lineClamp={2}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
+        tellus egestas, facilisis elit ac, hendrerit libero. Sed eget finibus
+        mauris. Fusce imperdiet felis sapien, sit amet ornare nunc maximus vel.
+        Duis volutpat libero nec mi egestas elementum. Suspendisse arcu metus,
+        porttitor quis interdum nec, maximus nec ante. Integer condimentum
+        ultrices consequat. In ut tincidunt erat. Nullam sollicitudin metus
+        dolor, a condimentum velit fringilla id. Ut finibus, nunc sed vestibulum
+        venenatis, velit nunc aliquet velit, a tempus enim leo a nisl. Duis
+        ultricies ante vitae orci auctor ultrices.
+      </Text>
+
+      <Group mt="xs" wrap="nowrap" gap="xs">
+        <Group gap="xs" wrap="nowrap">
+          <Avatar
+            size={20}
+            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png"
+          />
+          <Text size="xs">Петрова Екатерина Владимировна</Text>
+        </Group>
+        <Text size="xs" c="dimmed">
+          •
+        </Text>
+        <Text size="xs" c="dimmed">
+          Feb 6th
+        </Text>
+      </Group>
+      <Text lineClamp={2}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
+        tellus egestas, facilisis elit ac, hendrerit libero. Sed eget finibus
+        mauris. Fusce imperdiet felis sapien, sit amet ornare nunc maximus vel.
+        Duis volutpat libero nec mi egestas elementum. Suspendisse arcu metus,
+        porttitor quis interdum nec, maximus nec ante. Integer condimentum
+        ultrices consequat. In ut tincidunt erat. Nullam sollicitudin metus
+        dolor, a condimentum velit fringilla id. Ut finibus, nunc sed vestibulum
+        venenatis, velit nunc aliquet velit, a tempus enim leo a nisl. Duis
+        ultricies ante vitae orci auctor ultrices.
+      </Text>
     </Card>
   ));
 
