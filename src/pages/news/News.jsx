@@ -14,6 +14,8 @@ import {
   Card,
   Image,
   AspectRatio,
+  Group,
+  Center,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
@@ -156,6 +158,32 @@ function News(props) {
       <Text className={classes.title} mt={5}>
         {article.title}
       </Text>
+      <Group justify="space-between" gap="xs">
+        <Text size="sm" className={classes.author}>
+          {article.author}
+        </Text>
+
+        <Group gap="lg">
+          <Center>
+            <Icons.IconEye />
+            <Text size="sm" className={classes.bodyText}>
+              {article.views}
+            </Text>
+          </Center>
+          <Center>
+            <Icons.IconMessageCircle />
+            <Text size="sm" className={classes.bodyText}>
+              {article.comments}
+            </Text>
+          </Center>
+          <Center>
+            <Icons.IconLike />
+            <Text size="sm" className={classes.bodyText}>
+              {article.likes}
+            </Text>
+          </Center>
+        </Group>
+      </Group>
     </Card>
   ));
 
