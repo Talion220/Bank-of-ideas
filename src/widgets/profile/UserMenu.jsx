@@ -202,6 +202,7 @@ function UserMenu() {
         </Anchor>
       </Flex>
       <SegmentedControl
+        // orientation="vertical"
         fullWidth
         mt={20}
         color="blue"

@@ -180,9 +180,9 @@ function News(props) {
 
         <Group gap="lg">
           <Center>
-            <Icons.IconEye />
+            <Icons.IconLike />
             <Text size="sm" className={classes.bodyText}>
-              {article.views}
+              {article.likes}
             </Text>
           </Center>
           <Center>
@@ -192,9 +192,9 @@ function News(props) {
             </Text>
           </Center>
           <Center>
-            <Icons.IconLike />
+            <Icons.IconEye />
             <Text size="sm" className={classes.bodyText}>
-              {article.likes}
+              {article.views}
             </Text>
           </Center>
         </Group>
@@ -217,7 +217,7 @@ function News(props) {
           Feb 6th
         </Text>
       </Group>
-      <Text lineClamp={2}>
+      <Text size="sm" lineClamp={2}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
         tellus egestas, facilisis elit ac, hendrerit libero. Sed eget finibus
         mauris. Fusce imperdiet felis sapien, sit amet ornare nunc maximus vel.
@@ -235,16 +235,16 @@ function News(props) {
             size={20}
             src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png"
           />
-          <Text size="xs">Петрова Екатерина Владимировна</Text>
+          <Text size="sm">Петрова Екатерина Владимировна</Text>
         </Group>
-        <Text size="xs" c="dimmed">
+        <Text size="sm" c="dimmed">
           •
         </Text>
-        <Text size="xs" c="dimmed">
+        <Text size="sm" c="dimmed">
           Feb 6th
         </Text>
       </Group>
-      <Text lineClamp={2}>
+      <Text size="sm" lineClamp={2}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
         tellus egestas, facilisis elit ac, hendrerit libero. Sed eget finibus
         mauris. Fusce imperdiet felis sapien, sit amet ornare nunc maximus vel.

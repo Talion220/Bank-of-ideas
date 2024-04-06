@@ -25,3 +25,6 @@
   font-family: "Greycliff CF", var(--mantine-font-family);
   font-weight: bold;
 }
+.bodyText {
+  margin-left: rem(7px);
+}
