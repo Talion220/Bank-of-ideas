@@ -17,9 +17,10 @@
 
 .root {
   display: flex;
-  padding: 150px calc(var(--mantine-spacing-xl) * 1.5) 200px;
+  padding: 150px calc(var(--mantine-spacing-xl) * 1.5) 150px;
   @media (max-width: $mantine-breakpoint-md) {
     flex-direction: column;
+    padding: 100px calc(var(--mantine-spacing-xl) * 1.5) 100px;
   }
 }
 
