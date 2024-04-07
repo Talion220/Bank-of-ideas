@@ -1,5 +1,5 @@
 import { Container, Title, Text } from "@mantine/core";
-import { AreaChart } from "@mantine/charts";
+import { AreaChart, BarChart } from "@mantine/charts";
 
 const dataIdeaPerDay = [
   {
@@ -32,6 +32,30 @@ const dataIdeaPerDay = [
   },
 ];
 
+const dataFilials = [
+  { filial: "ИА", filialIdeas: 5 },
+  { filial: "Алтайэнерго", filialIdeas: 1 },
+  { filial: "Бурятэнерго", filialIdeas: 3 },
+  { filial: "Красноярскэнерго", filialIdeas: 11 },
+  { filial: "Кузбассэнерго-РЭС", filialIdeas: 8 },
+  { filial: "Омскэнерго", filialIdeas: 5 },
+  { filial: "Хакасэнерго", filialIdeas: 7 },
+  { filial: "Читаэнерго", filialIdeas: 2 },
+  { filial: "Тываэнерго", filialIdeas: 4 },
+];
+
+const dataBusinessProcesses = [
+  { businessProcesses: "Бизнес процесс-1", businessProcessesIdeas: 3 },
+  { businessProcesses: "Бизнес процесс-2", businessProcessesIdeas: 1 },
+  { businessProcesses: "Бизнес процесс-3", businessProcessesIdeas: 15 },
+  { businessProcesses: "Бизнес процесс-4", businessProcessesIdeas: 2 },
+  { businessProcesses: "Бизнес процесс-5", businessProcessesIdeas: 0 },
+  { businessProcesses: "Бизнес процесс-6", businessProcessesIdeas: 2 },
+  { businessProcesses: "Бизнес процесс-7", businessProcessesIdeas: 5 },
+  { businessProcesses: "Бизнес процесс-8", businessProcessesIdeas: 4 },
+  { businessProcesses: "Бизнес процесс-9", businessProcessesIdeas: 2 },
+];
+
 export default function IdeasPerDay() {
   return (
     <Container size="xl">
@@ -41,12 +65,38 @@ export default function IdeasPerDay() {
       </Text>
       <AreaChart
         h={500}
-        yAxisLabel="Количество идей"
+        yAxisLabel="Количество идей за сегодня"
         tooltipAnimationDuration={200}
         data={dataIdeaPerDay}
         dataKey="date"
         withGradient
         series={[{ name: "ideas", label: "Идей", color: "blue" }]}
+      />
+      <Text py={30} fz="lg" ta="center">
+        По филиалам
+      </Text>
+      <BarChart
+        h={500}
+        data={dataFilials}
+        tooltipAnimationDuration={200}
+        dataKey="filial"
+        // xAxisLabel="Филиалы"
+        yAxisLabel="Количество идей за сегодня"
+        series={[{ name: "filialIdeas", label: "Идей", color: "purple" }]}
+      />
+      <Text p="100px 0 30px" fz="lg" ta="center">
+        По бизнес-процессам
+      </Text>
+      <BarChart
+        h={500}
+        data={dataBusinessProcesses}
+        tooltipAnimationDuration={200}
+        dataKey="businessProcesses"
+        // xAxisLabel="Бизнес процессы"
+        yAxisLabel="Количество идей"
+        series={[
+          { name: "businessProcessesIdeas", label: "Идей", color: "red" },
+        ]}
       />
     </Container>
   );
