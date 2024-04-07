@@ -6,7 +6,9 @@ export default function FooterLinks() {
   return (
     <footer className={classes.footer}>
       <Container size="xl" px="md" className={classes.inner}>
-        <Text size="sm">© Банк идей 2024. Все права защищены.</Text>
+        <Text size="sm" className={classes.text}>
+          © Банк идей 2024. Все права защищены.
+        </Text>
         <Anchor
           className={classes.link}
           href="https://google.com"

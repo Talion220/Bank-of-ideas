@@ -6,7 +6,7 @@
 .inner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column;
@@ -14,17 +14,8 @@
   }
 }
 
-.groups {
-  display: flex;
-  flex-wrap: wrap;
-
-  @media (max-width: $mantine-breakpoint-sm) {
-    display: none;
-  }
-}
-
-.wrapper {
-  width: rem(160px);
+.text {
+  color: var(--mantine-color-gray-6);
 }
 
 .link {
@@ -37,12 +28,4 @@
   &:hover {
     text-decoration: underline;
   }
-}
-
-.title {
-  font-size: var(--mantine-font-size-lg);
-  font-weight: 700;
-  font-family: Greycliff CF, var(--mantine-font-family);
-  margin-bottom: calc(var(--mantine-spacing-xs) / 2);
-  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
