@@ -1,8 +1,4 @@
 import {
-  UnstyledButton,
-  Badge,
-  AppShell,
-  Container,
   Text,
   Avatar,
   Group,
@@ -176,7 +172,7 @@ const rows = data.map((row) => {
 function UserMenu() {
   return (
     <Stack mt={40}>
-      <Flex justify="space-between" align="center">
+      <Flex justify="space-between" align="center" className={classes.section}>
         <Group wrap="nowrap">
           <Avatar src={avatar} size={94} />
           <div>
@@ -192,21 +188,22 @@ function UserMenu() {
           </div>
         </Group>
 
-        <Anchor component={NavLink} to="/alerts" className={classes.subLink}>
-          <Button radius={16}>
-            <Icons.Alert />
-            <Text fw={500} fz="md">
-              Уведомления
-            </Text>
-          </Button>
-        </Anchor>
+        <Button
+          radius={16}
+          component={NavLink}
+          to="/alerts"
+          className={classes.btn}
+        >
+          <Icons.Alert />
+          <Text>Уведомления</Text>
+        </Button>
       </Flex>
+
       <SegmentedControl
-        // orientation="vertical"
+        className={classes.navbar}
         fullWidth
         mt={20}
         color="blue"
-        // fz="lg"
         data={[
           "Все",
           "Мои предложения по улучшению",

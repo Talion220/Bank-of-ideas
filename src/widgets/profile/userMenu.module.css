@@ -1,22 +1,16 @@
 .navbar {
-  background-color: var(--mantine-color-body);
-  height: rem(700px);
-  width: rem(250px);
-
-  padding: var(--mantine-spacing-md);
-  padding-top: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  @media (max-width: $mantine-breakpoint-lg) {
+    flex-direction: column;
+    /* width: 450px; */
+  }
 }
 
 .section {
-  margin-left: calc(var(--mantine-spacing-md) * -1);
-  margin-right: calc(var(--mantine-spacing-md) * -1);
-  margin-bottom: var(--mantine-spacing-md);
-
-  &:not(:last-of-type) {
-    border-bottom: rem(1px) solid
-      light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  @media (max-width: 560px) {
+    flex-direction: column;
+    align-items: start !important;
   }
 }
 
@@ -64,4 +58,11 @@
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-weight: 500;
   font-size: var(--mantine-font-size-md);
+}
+.btn {
+  font-weight: 500;
+  font-size: var(--mantine-font-size-md);
+  @media (max-width: 560px) {
+    margin-top: 30px;
+  }
 }
