@@ -72,7 +72,7 @@ export default function IdeasPerDay() {
         withGradient
         series={[{ name: "ideas", label: "Идей", color: "blue" }]}
       />
-      <Text py={30} fz="lg" ta="center">
+      <Text p="100px 0 30px" fz="lg" ta="center">
         По филиалам
       </Text>
       <BarChart
