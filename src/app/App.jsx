@@ -18,6 +18,8 @@ import IdeasImplemented from "../pages/analytics/pages/IdeasImplemented";
 import AllIdeas from "../pages/analytics/pages/AllIdeas";
 import Documentation from "../pages/documentation/Documentation";
 import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
+import NewsPage from "../pages/newsPage/NewsPage";
+import IdeaPage from "../pages/ideaPage/IdeaPage";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="news" element={<News />} />
             </Route>
+            <Route path="idea1" element={<IdeaPage />} />
+            <Route path="news1" element={<NewsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
