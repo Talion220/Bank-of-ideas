@@ -11,7 +11,7 @@ export default function FooterLinks() {
         </Text>
         <Anchor
           className={classes.link}
-          href="https://google.com"
+          href="https://portal.rosseti-sib.ru/lineofactivity/IT/itrequests-new/"
           target="_blank"
           size="sm"
         >
