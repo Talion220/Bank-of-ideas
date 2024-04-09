@@ -9,6 +9,7 @@ import {
   Table,
   Title,
   SegmentedControl,
+  ScrollArea,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./userMenu.module.css";
@@ -211,8 +212,12 @@ function UserMenu() {
           "Мои рационализаторские предложения",
         ]}
       />
-
-      <Table.ScrollContainer h={500} mt={20}>
+      <ScrollArea
+        h={500}
+        mt={20}
+        onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+        classNames={{ scrollbar: classes.scroll }}
+      >
         <Table highlightOnHover stickyHeader verticalSpacing="lg">
           <Table.Thead>
             <Table.Tr>
@@ -235,7 +240,7 @@ function UserMenu() {
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
-      </Table.ScrollContainer>
+      </ScrollArea>
     </Stack>
   );
 }
