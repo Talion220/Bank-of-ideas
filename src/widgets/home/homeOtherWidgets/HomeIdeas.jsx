@@ -21,7 +21,6 @@ const data = [
     author: "Isaac Asimov",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/1",
   },
   {
     id: "2",
@@ -29,7 +28,6 @@ const data = [
     author: "Mary Shelley",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/2",
   },
   {
     id: "3",
@@ -37,7 +35,6 @@ const data = [
     author: "Stanislaw Lem",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/3",
   },
   {
     id: "4",
@@ -45,7 +42,6 @@ const data = [
     author: "Frank Herbert",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/4",
   },
   {
     id: "5",
@@ -53,7 +49,6 @@ const data = [
     author: "Ursula K. Le Guin",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
 ];
 
@@ -82,7 +77,8 @@ function HomeIdeas() {
         <Table.Td>
           <Anchor
             component={NavLink}
-            to={row.linkIdea}
+            to={`/idea/${row.id}`}
+            onClick={scrollToTop}
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}

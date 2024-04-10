@@ -31,7 +31,6 @@ const data = [
     views: "34",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/1",
   },
   {
     id: "2",
@@ -43,7 +42,6 @@ const data = [
     views: "86",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/2",
   },
   {
     id: "3",
@@ -55,7 +53,6 @@ const data = [
     views: "125",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/3",
   },
   {
     id: "4",
@@ -67,7 +64,6 @@ const data = [
     views: "6",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/4",
   },
   {
     id: "5",
@@ -79,7 +75,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
   {
     id: "6",
@@ -91,7 +86,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
   {
     id: "7",
@@ -103,7 +97,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
   {
     id: "8",
@@ -115,7 +108,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
   {
     id: "9",
@@ -127,7 +119,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
   {
     id: "10",
@@ -139,7 +130,6 @@ const data = [
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
-    linkIdea: "/idea/5",
   },
 ];
 
@@ -169,7 +159,7 @@ export default function SearchContent(props) {
         <Table.Td>
           <Anchor
             component={NavLink}
-            to={row.linkIdea}
+            to={`/idea/${row.id}`}
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}

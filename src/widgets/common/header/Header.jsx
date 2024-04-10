@@ -24,7 +24,7 @@ import classes from "./header.module.css";
 import { useDisclosure } from "@mantine/hooks";
 
 import { Icons } from "../../../shared/images/Icons";
-
+import scrollToTop from "../../../shared/utilits/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
 import { NavLink } from "react-router-dom";
 
@@ -70,7 +70,10 @@ function Header() {
           underline="never"
           className={classes.subLink}
           aria-label={item.title}
-          onClick={toggleLinksIdea}
+          onClick={() => {
+            toggleLinksIdea();
+            scrollToTop();
+          }}
         >
           {item.title}
         </Anchor>
@@ -87,7 +90,10 @@ function Header() {
           underline="never"
           className={classes.subLink}
           aria-label={item.title}
-          onClick={toggleLinksOther}
+          onClick={() => {
+            toggleLinksOther();
+            scrollToTop();
+          }}
         >
           {item.title}
         </Anchor>
@@ -101,6 +107,7 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/"
+          onClick={scrollToTop}
           underline="never"
           aria-label="Логотип Банк идей"
         >
@@ -117,6 +124,7 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/"
+          onClick={scrollToTop}
           underline="never"
           className={classes.link}
           aria-label="Главная"
@@ -164,6 +172,7 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/news"
+          onClick={scrollToTop}
           underline="never"
           className={classes.link}
           aria-label=" Новости"
@@ -211,6 +220,7 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/profile"
+          onClick={scrollToTop}
           underline="never"
           className={classes.link}
           aria-label="Аватар"
@@ -248,7 +258,10 @@ function Header() {
               component={NavLink}
               to="/"
               className={classes.link}
-              onClick={toggleDrawer}
+              onClick={() => {
+                toggleDrawer();
+                scrollToTop();
+              }}
               underline="never"
               aria-label="Главная"
               py={10}
@@ -278,7 +291,10 @@ function Header() {
               component={NavLink}
               to="/news"
               className={classes.link}
-              onClick={toggleDrawer}
+              onClick={() => {
+                toggleDrawer();
+                scrollToTop();
+              }}
               underline="never"
               aria-label="Новости"
               py={10}
@@ -308,7 +324,10 @@ function Header() {
               component={NavLink}
               to="/profile"
               className={classes.link}
-              onClick={toggleDrawer}
+              onClick={() => {
+                toggleDrawer();
+                scrollToTop();
+              }}
               underline="never"
               aria-label="Профиль"
               py={10}

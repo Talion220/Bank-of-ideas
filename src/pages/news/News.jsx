@@ -35,7 +35,6 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    linkNews: "/news/1",
   },
   {
     id: "2",
@@ -48,7 +47,6 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    linkNews: "/news/2",
   },
   {
     id: "3",
@@ -61,7 +59,6 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    linkNews: "/news/3",
   },
   {
     id: "4",
@@ -74,7 +71,6 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    linkNews: "/news/4",
   },
   {
     id: "5",
@@ -86,7 +82,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/5",
   },
   {
     id: "6",
@@ -98,7 +93,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/6",
   },
   {
     id: "7",
@@ -110,7 +104,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/7",
   },
   {
     id: "8",
@@ -122,7 +115,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/8",
   },
   {
     id: "9",
@@ -134,7 +126,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/9",
   },
   {
     id: "10",
@@ -146,7 +137,6 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    linkNews: "/news/10",
   },
 ];
 function News(props) {
@@ -158,7 +148,7 @@ function News(props) {
       p="md"
       radius={16}
       component={NavLink}
-      to={article.linkNews}
+      to={`/news/${article.id}`}
       className={classes.card}
     >
       <AspectRatio ratio={1920 / 1080}>

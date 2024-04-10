@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import NewsCover from "../../../shared/images/NewsCover.png";
 import classes from "./homeNews.module.css";
+import scrollToTop from "../../../shared/utilits/ScrollToTop";
 
 import { Table, Anchor, Image, Text, Group, Title, Flex } from "@mantine/core";
 
@@ -9,31 +10,26 @@ const data = [
     id: "1",
     title: "Foundation",
     cover: NewsCover,
-    link: "/news/1",
   },
   {
     id: "2",
     title: "Frankenstein",
     cover: NewsCover,
-    link: "/news/2",
   },
   {
     id: "3",
     title: "Solaris",
     cover: NewsCover,
-    link: "/news/3",
   },
   {
     id: "4",
     title: "Dune",
     cover: NewsCover,
-    link: "/news/4",
   },
   {
     id: "5",
     title: "The Left Hand of Darkness",
     cover: NewsCover,
-    link: "/news/5",
   },
 ];
 
@@ -44,10 +40,11 @@ function HomeNews() {
         <Table.Td>
           <Anchor
             component={NavLink}
-            to={row.link}
+            to={`/news/${row.id}`}
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}
+            onClick={scrollToTop}
           >
             <Flex align="center">
               <Image h={38} src={row.cover} radius="md" mr={10} />

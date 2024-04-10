@@ -3,15 +3,17 @@ import { MantineProvider } from "@mantine/core";
 import { theme } from "./Theme";
 
 import Search from "../pages/search/Search";
+import SearchShell from "../pages/search/SearchShell";
 import IdeaCreate from "../pages/ideaCreate/IdeaCreate";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../widgets/common/layout/Layout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 import Profile from "../pages/profile/Profile";
 import News from "../pages/news/News";
+import NewsShell from "../pages/news/NewsShell";
 import Home from "../pages/home/Home";
+import AnalyticsShell from "../pages/analytics/AnalyticsShell";
 import Analytics from "../pages/analytics/Analytics";
-import AnalyticsOverview from "../pages/analytics/AnalyticsOverview";
 import IdeasPerDay from "../pages/analytics/pages/IdeasPerDay";
 import IdeasPerEmployee from "../pages/analytics/pages/IdeasPerEmployee";
 import IdeasImplemented from "../pages/analytics/pages/IdeasImplemented";
@@ -29,10 +31,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="idea" element={<Search />} />
+              <Route path="idea" element={<SearchShell />}>
+                <Route index element={<Search />} />
+                <Route path=":id" element={<IdeaPage />} />
+              </Route>
               <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />} />
-              <Route path="analytics" element={<Analytics />}>
-                <Route index element={<AnalyticsOverview />} />
+              <Route path="analytics" element={<AnalyticsShell />}>
+                <Route index element={<Analytics />} />
                 <Route path="all-ideas" element={<AllIdeas />} />
                 <Route
                   path="ideas-implemented"
@@ -47,10 +52,12 @@ function App() {
               <Route path="documentation" element={<Documentation />} />
               <Route path="idea-create" element={<IdeaCreate />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="news" element={<News />} />
+              <Route path="news" element={<NewsShell />}>
+                <Route index element={<News />} />
+                <Route path=":id" element={<NewsPage />} />
+              </Route>
             </Route>
-            <Route path="idea1" element={<IdeaPage />} />
-            <Route path="news1" element={<NewsPage />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>

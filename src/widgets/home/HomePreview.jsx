@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useRef } from "react";
 
 import classes from "./homePreview.module.css";
+import scrollToTop from "../../shared/utilits/ScrollToTop";
 
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel } from "@mantine/carousel";
@@ -97,6 +98,7 @@ function HomePreview() {
             size="md"
             component={NavLink}
             to="/documentation"
+            onClick={scrollToTop}
           >
             Документация, инструкции
           </Button>
