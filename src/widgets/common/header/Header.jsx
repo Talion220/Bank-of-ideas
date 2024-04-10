@@ -36,7 +36,7 @@ const dropLinks = {
     },
     {
       title: "Наша база идей",
-      link: "/search",
+      link: "/idea",
     },
     {
       title: "Создать идею",

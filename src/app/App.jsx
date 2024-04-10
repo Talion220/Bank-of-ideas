@@ -29,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="search" element={<Search />} />
+              <Route path="idea" element={<Search />} />
               <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />} />
               <Route path="analytics" element={<Analytics />}>
                 <Route index element={<AnalyticsOverview />} />
