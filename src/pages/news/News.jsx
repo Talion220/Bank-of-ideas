@@ -149,6 +149,7 @@ function News(props) {
       radius={16}
       component={NavLink}
       to={`/news/${article.id}`}
+      onClick={scrollToTop}
       className={classes.card}
     >
       <AspectRatio ratio={1920 / 1080}>
