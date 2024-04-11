@@ -1,9 +1,20 @@
 import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import newsImg from "../../shared/images/newsImg.jpg";
-import { useParams } from "react-router-dom";
-import { Container, Image, AspectRatio, Avatar } from "@mantine/core";
-import ava from "../../shared/images/doma_by_xblakeking_dfuaqpz.png";
+import { useParams, NavLink } from "react-router-dom";
+import {
+  Title,
+  Text,
+  Container,
+  Image,
+  AspectRatio,
+  Avatar,
+  Flex,
+  Anchor,
+} from "@mantine/core";
+
+import classes from "./NewsPage.module.css";
+import scrollToTop from "../../shared/utilits/ScrollToTop";
 
 const data = [
   {
@@ -15,9 +26,10 @@ const data = [
     likes: "12",
     comments: "2",
     views: "34",
-    newsImg: ava,
+    newsImg:
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "2",
@@ -31,7 +43,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "3",
@@ -45,7 +57,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "4",
@@ -59,7 +71,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "5",
@@ -72,7 +84,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "6",
@@ -85,7 +97,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "7",
@@ -98,7 +110,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "8",
@@ -111,7 +123,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "9",
@@ -124,7 +136,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
   {
     id: "10",
@@ -137,7 +149,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
-    date: "11.04.2024",
+    date: "11 апреля 2024",
   },
 ];
 
@@ -146,17 +158,48 @@ function NewsPage() {
   const news = data.find((idea) => idea.id === id);
   return (
     <Container size="xl" mt={40}>
-      <h1>{news.title}</h1>
-      <Avatar src={news.avatar} />
-      <p>{news.author}</p>
-      <p>{news.date}</p>
+      <Title>{news.title}</Title>
+
+      <Flex gap="sm" align="center">
+        <Anchor
+          component={NavLink}
+          to="/profile"
+          onClick={scrollToTop}
+          c="dark"
+          className={classes.link}
+        >
+          <Flex align="center">
+            <Avatar size={20} src={news.avatar} />
+            <Text pl={10}>{news.author}</Text>
+          </Flex>
+        </Anchor>
+        <Text size="sm" c="dimmed">
+          •
+        </Text>
+        <Text size="sm" c="dimmed">
+          {news.date}
+        </Text>
+        <Text size="sm" c="dimmed">
+          •
+        </Text>
+        <Flex align="center" gap={5} size="sm" c="dimmed">
+          <Icons.IconEye />
+          <Text>{news.views}</Text>
+        </Flex>
+      </Flex>
+
+      <Flex align="center">
+        <Icons.IconLike />
+        {news.likes}
+      </Flex>
+      <Flex align="center">
+        <Icons.IconMessageCircle />
+        {news.comments}
+      </Flex>
+
       <AspectRatio ratio={1920 / 1080} mah={400}>
         <Image src={news.newsImg} radius={16} />
       </AspectRatio>
-
-      <p>{news.likes}</p>
-      <p>{news.comments}</p>
-      <p>{news.views}</p>
 
       <p>{news.text}</p>
     </Container>

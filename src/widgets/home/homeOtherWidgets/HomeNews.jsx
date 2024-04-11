@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import NewsCover from "../../../shared/images/NewsCover.png";
+import newsImg from "../../../shared/images/newsImg.jpg";
 import classes from "./homeNews.module.css";
 import scrollToTop from "../../../shared/utilits/ScrollToTop";
 
@@ -9,27 +9,27 @@ const data = [
   {
     id: "1",
     title: "Foundation",
-    cover: NewsCover,
+    cover: newsImg,
   },
   {
     id: "2",
     title: "Frankenstein",
-    cover: NewsCover,
+    cover: newsImg,
   },
   {
     id: "3",
     title: "Solaris",
-    cover: NewsCover,
+    cover: newsImg,
   },
   {
     id: "4",
     title: "Dune",
-    cover: NewsCover,
+    cover: newsImg,
   },
   {
     id: "5",
     title: "The Left Hand of Darkness",
-    cover: NewsCover,
+    cover: newsImg,
   },
 ];
 
