@@ -195,10 +195,7 @@ function News(props) {
 
       <Group wrap="nowrap" gap="xs">
         <Group gap="sm" wrap="nowrap">
-          <Avatar
-            size={20}
-            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
-          />
+          <Avatar size={20} src={avatar} />
           <Text size="sm">Иванова Анна Сергеевна</Text>
         </Group>
         <Text size="sm" c="dimmed">
@@ -222,10 +219,7 @@ function News(props) {
 
       <Group mt="xs" wrap="nowrap" gap="xs">
         <Group gap="xs" wrap="nowrap">
-          <Avatar
-            size={20}
-            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png"
-          />
+          <Avatar size={20} src={avatar} />
           <Text size="sm">Петрова Екатерина Владимировна</Text>
         </Group>
         <Text size="sm" c="dimmed">

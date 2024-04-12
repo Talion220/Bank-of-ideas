@@ -14,29 +14,25 @@ const topAuthors = [
     link: "/profile",
   },
   {
-    avatar:
-      "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png",
+    avatar: avatar,
     name: "Петрова Евгения Васильевна",
     // count: "1144",
     link: "/profile",
   },
   {
-    avatar:
-      "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+    avatar: avatar,
     name: "Иванов Иван Иванович",
     // count: "976",
     link: "/profile",
   },
   {
-    avatar:
-      "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-10.png",
+    avatar: avatar,
     name: "Сидоров Василий Григорьевич",
     // count: "934",
     link: "/profile",
   },
   {
-    avatar:
-      "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png",
+    avatar: avatar,
     name: "Фомин Денис Сергеевич",
     // count: "924",
     link: "/profile",

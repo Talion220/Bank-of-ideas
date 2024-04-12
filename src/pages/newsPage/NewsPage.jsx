@@ -2,6 +2,7 @@ import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import newsImg from "../../shared/images/newsImg.jpg";
 import { useParams, NavLink } from "react-router-dom";
+import { useState } from "react";
 import {
   Title,
   Text,
@@ -12,6 +13,10 @@ import {
   Flex,
   Anchor,
   Button,
+  Divider,
+  Group,
+  TextInput,
+  ActionIcon,
 } from "@mantine/core";
 
 import classes from "./NewsPage.module.css";
@@ -167,6 +172,7 @@ const data = [
 ];
 
 function NewsPage() {
+  const [clear, setClear] = useState("");
   const { id } = useParams();
   const news = data.find((idea) => idea.id === id);
   return (
@@ -202,8 +208,8 @@ function NewsPage() {
       <AspectRatio ratio={1920 / 1080} mah={400} my={20}>
         <Image src={news.newsImg} radius={16} />
       </AspectRatio>
-      <Text>{news.text}</Text>{" "}
-      <Flex gap="md" align="center" mt={10}>
+      <Text>{news.text}</Text>
+      <Flex gap="md" align="center" my="30px 20px">
         <Button variant="outline" radius="16">
           <Flex align="center" c="gray">
             <Icons.IconLike />
@@ -217,6 +223,73 @@ function NewsPage() {
           </Flex>
         </Button>
       </Flex>
+      <Divider my="sm" />
+      <Text fw={600} fz="lg" my={20}>
+        Комментарии
+      </Text>
+      <Flex gap="xs" pb={20}>
+        <Avatar src={avatar} alt="avatar" radius="xl" />
+        <TextInput
+          radius="xl"
+          size="md"
+          w="100%"
+          placeholder="Написать комментарий..."
+          rightSectionWidth={clear ? 76 : 44}
+          value={clear}
+          rightSectionPointerEvents="all"
+          onChange={(event) => setClear(event.currentTarget.value)}
+          rightSection={
+            <Flex>
+              <ActionIcon
+                size={32}
+                color="gray"
+                variant="transparent"
+                onClick={() => setClear("")}
+                style={{ display: clear ? undefined : "none" }}
+              >
+                <Icons.CloseButton />
+              </ActionIcon>
+              <ActionIcon size={32} radius="xl" variant="filled">
+                <Icons.IconArrowRight />
+              </ActionIcon>
+            </Flex>
+          }
+        />
+      </Flex>
+      <Group gap="xs" pb={20}>
+        <Group>
+          <Avatar src={avatar} alt="avatar" radius="xl" />
+          <div>
+            <Text size="md">Jacob Warnhalter</Text>
+            <Text size="xs" c="dimmed">
+              10 minutes ago
+            </Text>
+          </div>
+        </Group>
+        <Text pl={54} size="md">
+          This Pokémon likes to lick its palms that are sweetened by being
+          soaked in honey. Teddiursa concocts its own honey by blending fruits
+          and pollen collected by Beedrill. Blastoise has water spouts that
+          protrude from its shell. The water spouts are very accurate.
+        </Text>
+      </Group>
+      <Group gap="xs" pb={20}>
+        <Group>
+          <Avatar src={avatar} alt="avatar" radius="xl" />
+          <div>
+            <Text size="md">Jacob Warnhalter</Text>
+            <Text size="xs" c="dimmed">
+              10 minutes ago
+            </Text>
+          </div>
+        </Group>
+        <Text pl={54} size="md">
+          This Pokémon likes to lick its palms that are sweetened by being
+          soaked in honey. Teddiursa concocts its own honey by blending fruits
+          and pollen collected by Beedrill. Blastoise has water spouts that
+          protrude from its shell. The water spouts are very accurate.
+        </Text>
+      </Group>
     </Container>
   );
 }
