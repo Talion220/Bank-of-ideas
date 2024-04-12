@@ -17,6 +17,8 @@ import {
   Group,
   TextInput,
   ActionIcon,
+  Card,
+  Center,
 } from "@mantine/core";
 
 import classes from "./NewsPage.module.css";
@@ -172,6 +174,74 @@ const data = [
 ];
 
 function NewsPage() {
+  const cards = data.slice(0, 3).map((article) => (
+    <Card
+      key={article.id}
+      withBorder
+      radius="16"
+      p={0}
+      mb={20}
+      className={classes.card}
+    >
+      <Anchor
+        component={NavLink}
+        to={`/news/${article.id}`}
+        onClick={scrollToTop}
+        c="dark"
+        underline="none"
+      >
+        <Group wrap="nowrap" gap={0}>
+          <Image radius="16" src={article.newsImg} w={300} />
+          <Flex direction="column" className={classes.body}>
+            <Text className={classes.title} mt="xs">
+              {article.title}
+            </Text>
+            <Group pt={15} wrap="nowrap" gap="xs">
+              <Anchor
+                component={NavLink}
+                to="/profile"
+                onClick={scrollToTop}
+                c="dark"
+                className={classes.link}
+              >
+                <Group gap="xs" wrap="nowrap">
+                  <Avatar size={20} src={article.avatar} />
+                  <Text size="xs">{article.author}</Text>
+                </Group>
+              </Anchor>
+
+              <Text size="xs" c="dimmed">
+                •
+              </Text>
+              <Text size="xs" c="dimmed">
+                {article.date}
+              </Text>
+            </Group>
+            <Group pt={15} gap="lg">
+              <Center>
+                <Icons.IconLike />
+                <Text size="sm" className={classes.bodyText}>
+                  {article.likes}
+                </Text>
+              </Center>
+              <Center>
+                <Icons.IconMessageCircle />
+                <Text size="sm" className={classes.bodyText}>
+                  {article.comments}
+                </Text>
+              </Center>
+              <Center>
+                <Icons.IconEye />
+                <Text size="sm" className={classes.bodyText}>
+                  {article.views}
+                </Text>
+              </Center>
+            </Group>
+          </Flex>
+        </Group>
+      </Anchor>
+    </Card>
+  ));
   const [clear, setClear] = useState("");
   const { id } = useParams();
   const news = data.find((idea) => idea.id === id);
@@ -205,9 +275,11 @@ function NewsPage() {
           <Text size="sm">{news.views}</Text>
         </Flex>
       </Flex>
+
       <AspectRatio ratio={1920 / 1080} mah={400} my={20}>
         <Image src={news.newsImg} radius={16} />
       </AspectRatio>
+
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
         <Button variant="outline" radius="16">
@@ -223,7 +295,9 @@ function NewsPage() {
           </Flex>
         </Button>
       </Flex>
+
       <Divider my="sm" />
+
       <Text fw={600} fz="lg" my={20}>
         Комментарии
       </Text>
@@ -256,6 +330,7 @@ function NewsPage() {
           }
         />
       </Flex>
+
       <Group gap="xs" pb={20}>
         <Group>
           <Avatar src={avatar} alt="avatar" radius="xl" />
@@ -290,6 +365,14 @@ function NewsPage() {
           protrude from its shell. The water spouts are very accurate.
         </Text>
       </Group>
+
+      <Divider my="sm" />
+
+      <Text fw={600} fz="lg" my={20}>
+        Похожие новости
+      </Text>
+
+      {cards}
     </Container>
   );
 }
