@@ -23,6 +23,7 @@ import {
 
 import classes from "./NewsPage.module.css";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
+import { useDisclosure } from "@mantine/hooks";
 
 const data = [
   {
@@ -174,6 +175,8 @@ const data = [
 ];
 
 function NewsPage() {
+  const [liked, setLiked] = useDisclosure(false);
+
   const cards = data.slice(0, 3).map((article) => (
     <Card
       key={article.id}
@@ -197,18 +200,18 @@ function NewsPage() {
               {article.title}
             </Text>
             <Group pt={15} wrap="nowrap" gap="xs">
-              <Anchor
+              {/* <Anchor
                 component={NavLink}
                 to="/profile"
                 onClick={scrollToTop}
                 c="dark"
                 className={classes.link}
-              >
-                <Group gap="xs" wrap="nowrap">
-                  <Avatar size={20} src={article.avatar} />
-                  <Text size="xs">{article.author}</Text>
-                </Group>
-              </Anchor>
+              > */}
+              <Group gap="xs" wrap="nowrap">
+                <Avatar size={20} src={article.avatar} />
+                <Text size="xs">{article.author}</Text>
+              </Group>
+              {/* </Anchor> */}
 
               <Text size="xs" c="dimmed">
                 •
@@ -282,13 +285,21 @@ function NewsPage() {
 
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
-        <Button variant="outline" radius="16">
-          <Flex align="center" c="gray">
+        <Button
+          variant="light"
+          c={liked ? "red" : "gray"}
+          radius="16"
+          color="blue"
+          onClick={() => {
+            setLiked.toggle();
+          }}
+        >
+          <Flex align="center">
             <Icons.IconLike />
             <Text>{news.likes}</Text>
           </Flex>
         </Button>
-        <Button variant="outline" radius="16">
+        <Button variant="light" radius="16">
           <Flex align="center" c="gray">
             <Icons.IconMessageCircle />
             <Text>{news.comments}</Text>
@@ -302,7 +313,15 @@ function NewsPage() {
         Комментарии
       </Text>
       <Flex gap="xs" pb={20}>
-        <Avatar src={avatar} alt="avatar" radius="xl" />
+        <Anchor
+          component={NavLink}
+          to="/profile"
+          onClick={scrollToTop}
+          c="dark"
+          className={classes.link}
+        >
+          <Avatar src={avatar} alt="avatar" radius="xl" />
+        </Anchor>
         <TextInput
           radius="xl"
           size="md"
@@ -333,14 +352,31 @@ function NewsPage() {
 
       <Group gap="xs" pb={20}>
         <Group>
-          <Avatar src={avatar} alt="avatar" radius="xl" />
+          <Anchor
+            component={NavLink}
+            to="/profile"
+            onClick={scrollToTop}
+            c="dark"
+            className={classes.link}
+          >
+            <Avatar src={avatar} alt="avatar" radius="xl" />
+          </Anchor>
           <div>
-            <Text size="md">Jacob Warnhalter</Text>
-            <Text size="xs" c="dimmed">
+            <Anchor
+              component={NavLink}
+              to="/profile"
+              onClick={scrollToTop}
+              c="dark"
+              className={classes.link}
+            >
+              <Text size="md">Jacob Warnhalter</Text>
+            </Anchor>
+            <Text size="xs" c="dimmed" underline="none">
               10 minutes ago
             </Text>
           </div>
         </Group>
+
         <Text pl={54} size="md">
           This Pokémon likes to lick its palms that are sweetened by being
           soaked in honey. Teddiursa concocts its own honey by blending fruits
@@ -350,9 +386,25 @@ function NewsPage() {
       </Group>
       <Group gap="xs" pb={20}>
         <Group>
-          <Avatar src={avatar} alt="avatar" radius="xl" />
+          <Anchor
+            component={NavLink}
+            to="/profile"
+            onClick={scrollToTop}
+            c="dark"
+            className={classes.link}
+          >
+            <Avatar src={avatar} alt="avatar" radius="xl" />
+          </Anchor>
           <div>
-            <Text size="md">Jacob Warnhalter</Text>
+            <Anchor
+              component={NavLink}
+              to="/profile"
+              onClick={scrollToTop}
+              c="dark"
+              className={classes.link}
+            >
+              <Text size="md">Jacob Warnhalter</Text>
+            </Anchor>
             <Text size="xs" c="dimmed">
               10 minutes ago
             </Text>
