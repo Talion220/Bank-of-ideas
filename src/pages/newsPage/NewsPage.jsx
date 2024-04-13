@@ -251,7 +251,7 @@ function NewsPage() {
   return (
     <Container size="xl" mt={40}>
       <Title>{news.title}</Title>
-      <Flex gap="sm" align="center" mt={5}>
+      <Flex gap="sm" wrap="wrap" align="center" mt={5}>
         <Anchor
           component={NavLink}
           to="/profile"
@@ -421,7 +421,7 @@ function NewsPage() {
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Похожие новости
+        Последние новости
       </Text>
 
       {cards}

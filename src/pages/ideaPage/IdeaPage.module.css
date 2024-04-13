@@ -1,0 +1,19 @@
+.title {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.body {
+  padding: var(--mantine-spacing-md);
+}
+.bodyText {
+  margin-left: rem(7px);
+}
+.card {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: var(--mantine-shadow-md);
+  }
+}
