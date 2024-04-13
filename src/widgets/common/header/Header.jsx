@@ -62,43 +62,45 @@ function Header() {
   const [linksOpenedOther, { toggle: toggleLinksOther }] = useDisclosure(false);
 
   const ideaLinks = dropLinks.idea.map((item) => (
-    <UnstyledButton className={classes.subLinks} key={item.title}>
-      <Group wrap="nowrap" pl={20} align="flex-start">
-        <Anchor
-          component={NavLink}
-          to={item.link}
-          underline="never"
-          className={classes.subLink}
-          aria-label={item.title}
-          onClick={() => {
-            toggleLinksIdea();
-            scrollToTop();
-          }}
-        >
+    <Anchor
+      component={NavLink}
+      to={item.link}
+      key={item.title}
+      underline="never"
+      className={classes.subLink}
+      aria-label={item.title}
+      onClick={() => {
+        toggleLinksIdea();
+        scrollToTop();
+      }}
+    >
+      <UnstyledButton className={classes.subLinks}>
+        <Group wrap="nowrap" pl={20} align="flex-start">
           {item.title}
-        </Anchor>
-      </Group>
-    </UnstyledButton>
+        </Group>
+      </UnstyledButton>
+    </Anchor>
   ));
 
   const otherLinks = dropLinks.other.map((item) => (
-    <UnstyledButton w="100%" className={classes.subLinks} key={item.title}>
-      <Group wrap="nowrap" pl={20} align="flex-start">
-        <Anchor
-          component={NavLink}
-          to={item.link}
-          underline="never"
-          className={classes.subLink}
-          aria-label={item.title}
-          onClick={() => {
-            toggleLinksOther();
-            scrollToTop();
-          }}
-        >
+    <Anchor
+      component={NavLink}
+      to={item.link}
+      key={item.title}
+      underline="never"
+      className={classes.subLink}
+      aria-label={item.title}
+      onClick={() => {
+        toggleLinksOther();
+        scrollToTop();
+      }}
+    >
+      <UnstyledButton w="100%" className={classes.subLinks}>
+        <Group wrap="nowrap" pl={20} align="flex-start">
           {item.title}
-        </Anchor>
-      </Group>
-    </UnstyledButton>
+        </Group>
+      </UnstyledButton>
+    </Anchor>
   ));
 
   return (
