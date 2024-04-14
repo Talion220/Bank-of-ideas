@@ -259,7 +259,7 @@ function IdeaPage() {
     >
       <Anchor
         component={NavLink}
-        to={`/news/${article.id}`}
+        to={`/idea/${article.id}`}
         onClick={scrollToTop}
         c="dark"
         underline="none"
@@ -464,18 +464,12 @@ function IdeaPage() {
             <Text>{idea.likes}</Text>
           </Flex>
         </Button>
-        <Button variant="light" radius="16">
-          <Flex align="center" c="gray">
-            <Icons.IconMessageCircle />
-            <Text>{idea.comments}</Text>
-          </Flex>
-        </Button>
       </Flex>
 
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Комментарии
+        Комментарии • {idea.comments}
       </Text>
       <Flex gap="xs" pb={20}>
         <Anchor
@@ -586,7 +580,7 @@ function IdeaPage() {
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Последние идеи
+        Идеи по такому же бизнес процессу
       </Text>
 
       {cards}

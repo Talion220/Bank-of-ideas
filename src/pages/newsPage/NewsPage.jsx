@@ -299,18 +299,12 @@ function NewsPage() {
             <Text>{news.likes}</Text>
           </Flex>
         </Button>
-        <Button variant="light" radius="16">
-          <Flex align="center" c="gray">
-            <Icons.IconMessageCircle />
-            <Text>{news.comments}</Text>
-          </Flex>
-        </Button>
       </Flex>
 
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Комментарии
+        Комментарии • {news.comments}
       </Text>
       <Flex gap="xs" pb={20}>
         <Anchor
