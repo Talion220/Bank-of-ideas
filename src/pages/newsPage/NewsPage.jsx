@@ -24,6 +24,7 @@ import {
 import classes from "./NewsPage.module.css";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
 import { useDisclosure } from "@mantine/hooks";
+import { fetchUserData } from "../../api/news/test";
 
 const data = [
   {
@@ -175,6 +176,10 @@ const data = [
 ];
 
 function NewsPage() {
+  fetchUserData().then((userData) => {
+    console.log(userData);
+  });
+
   const [liked, setLiked] = useDisclosure(false);
 
   const cards = data.slice(0, 3).map((article) => (
@@ -278,10 +283,11 @@ function NewsPage() {
           <Text size="sm">{news.views}</Text>
         </Flex>
       </Flex>
-
-      <AspectRatio ratio={1920 / 1080} mah={400} my={20}>
-        <Image src={news.newsImg} radius={16} />
-      </AspectRatio>
+      <div style={{ display: "flex" }}>
+        <AspectRatio ratio={1920 / 500} style={{ flex: "0 0 100%" }} my={20}>
+          <Image src={news.newsImg} radius={16} />
+        </AspectRatio>
+      </div>
 
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
