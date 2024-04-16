@@ -67,12 +67,6 @@ function HomeStage() {
 
   return (
     <Container size="xl" py={100}>
-      {/* <Group justify="center">
-        <Badge variant="filled" size="lg">
-          Быстро. Просто. Доступно.
-        </Badge>
-      </Group> */}
-
       <Title order={2} className={classes.title} ta="center" mt="sm">
         Как это работает?
       </Title>

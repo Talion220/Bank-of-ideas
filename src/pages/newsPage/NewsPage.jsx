@@ -15,7 +15,7 @@ import {
   Button,
   Divider,
   Group,
-  TextInput,
+  Textarea,
   ActionIcon,
   Card,
   Center,
@@ -322,12 +322,13 @@ function NewsPage() {
         >
           <Avatar src={avatar} alt="avatar" radius="xl" />
         </Anchor>
-        <TextInput
-          radius="xl"
+        <Textarea
+          radius="16"
           size="md"
           w="100%"
           placeholder="Написать комментарий..."
           rightSectionWidth={clear ? 76 : 44}
+          autosize
           value={clear}
           rightSectionPointerEvents="all"
           onChange={(event) => setClear(event.currentTarget.value)}
