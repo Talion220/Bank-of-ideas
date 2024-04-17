@@ -22,6 +22,7 @@ import {
 } from "@mantine/core";
 
 import classes from "./NewsPage.module.css";
+import Comments from "../../widgets/ideasAndNewsPage/comments/Comments";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
 import { useDisclosure } from "@mantine/hooks";
 import { fetchUserData } from "../../api/news/test";
@@ -46,7 +47,6 @@ const data = [
     Английский перевод 1914 года, H. Rackham
     "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."`,
     likes: "12",
-    comments: "2",
     views: "34",
     newsImg:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
@@ -60,7 +60,6 @@ const data = [
     title: "Frankenstein",
     text: "Lorem ipsum",
     likes: "25",
-    comments: "4",
     views: "86",
     newsImg:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
@@ -74,7 +73,6 @@ const data = [
     title: "Solaris",
     text: "Lorem ipsum",
     likes: "65",
-    comments: "14",
     views: "125",
     newsImg:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
@@ -88,7 +86,6 @@ const data = [
     title: "Dune",
     text: "Lorem ipsum",
     likes: "4",
-    comments: "0",
     views: "6",
     newsImg:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
@@ -102,7 +99,6 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
@@ -115,7 +111,6 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
@@ -128,7 +123,6 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
@@ -141,7 +135,6 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
@@ -154,7 +147,6 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
@@ -167,13 +159,178 @@ const data = [
     title: "The Left Hand of Darkness",
     text: "Lorem ipsum",
     likes: "16",
-    comments: "1",
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
     date: "11 апреля 2024",
   },
 ];
+
+const newsComments = {
+  1: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 1",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: `      This Pokémon likes to lick its palms that are sweetened by being
+      soaked in honey. Teddiursa concocts its own honey by blending fruits
+      and pollen collected by Beedrill. Blastoise has water spouts that
+      protrude from its shell. The water spouts are very accurate.`,
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  2: [
+    // {
+    //   id: "1",
+    //   author: "Alice Johnson",
+    //   text: "Comment 3",
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
+    // {
+    //   id: "2",
+    //   author: "Bob Brown",
+    //   text: "Comment 4",
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
+  ],
+  3: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 5",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 6",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  4: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 7",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 8",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  5: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 9",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 10",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  6: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 11",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 12",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  7: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 13",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 14",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  8: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 15",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 16",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  9: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 17",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 18",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  10: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 19",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 20",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+};
 
 function NewsPage() {
   fetchUserData().then((userData) => {
@@ -253,6 +410,32 @@ function NewsPage() {
   const [clear, setClear] = useState("");
   const { id } = useParams();
   const news = data.find((idea) => idea.id === id);
+
+  const comments = newsComments[id];
+  function showComm() {
+    let commFill;
+
+    if (comments.length === 0) {
+      commFill = (
+        <Text m="120px 0 140px" ta="center" size="md">
+          Список комментариев пуст
+        </Text>
+      );
+    } else {
+      commFill = comments.map((index) => (
+        <Comments
+          key={index.id}
+          avatar={index.avatar}
+          author={index.author}
+          text={index.text}
+          time={index.time}
+        />
+      ));
+    }
+
+    return commFill;
+  }
+
   return (
     <Container size="xl" mt={40}>
       <Title>{news.title}</Title>
@@ -310,7 +493,7 @@ function NewsPage() {
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Комментарии • {news.comments}
+        Комментарии • {comments.length}
       </Text>
       <Flex gap="xs" pb={20}>
         <Anchor
@@ -351,73 +534,7 @@ function NewsPage() {
         />
       </Flex>
 
-      <Group gap="xs" pb={20}>
-        <Group>
-          <Anchor
-            component={NavLink}
-            to="/profile"
-            onClick={scrollToTop}
-            c="dark"
-            className={classes.link}
-          >
-            <Avatar src={avatar} alt="avatar" radius="xl" />
-          </Anchor>
-          <div>
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={scrollToTop}
-              c="dark"
-              className={classes.link}
-            >
-              <Text size="md">Jacob Warnhalter</Text>
-            </Anchor>
-            <Text size="xs" c="dimmed" underline="none">
-              10 minutes ago
-            </Text>
-          </div>
-        </Group>
-
-        <Text pl={54} size="md">
-          This Pokémon likes to lick its palms that are sweetened by being
-          soaked in honey. Teddiursa concocts its own honey by blending fruits
-          and pollen collected by Beedrill. Blastoise has water spouts that
-          protrude from its shell. The water spouts are very accurate.
-        </Text>
-      </Group>
-      <Group gap="xs" pb={20}>
-        <Group>
-          <Anchor
-            component={NavLink}
-            to="/profile"
-            onClick={scrollToTop}
-            c="dark"
-            className={classes.link}
-          >
-            <Avatar src={avatar} alt="avatar" radius="xl" />
-          </Anchor>
-          <div>
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={scrollToTop}
-              c="dark"
-              className={classes.link}
-            >
-              <Text size="md">Jacob Warnhalter</Text>
-            </Anchor>
-            <Text size="xs" c="dimmed">
-              10 minutes ago
-            </Text>
-          </div>
-        </Group>
-        <Text pl={54} size="md">
-          This Pokémon likes to lick its palms that are sweetened by being
-          soaked in honey. Teddiursa concocts its own honey by blending fruits
-          and pollen collected by Beedrill. Blastoise has water spouts that
-          protrude from its shell. The water spouts are very accurate.
-        </Text>
-      </Group>
+      {showComm()}
 
       <Divider my="sm" />
 

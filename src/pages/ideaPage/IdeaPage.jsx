@@ -238,39 +238,39 @@ const newsData = [
 
 const newsComments = {
   1: [
-    // {
-    //   id: "1",
-    //   author: "John Doe",
-    //   text: "Comment 1",
-    //   avatar: avatar,
-    //   time: "10 минут назад",
-    // },
-    // {
-    //   id: "2",
-    //   author: "Jane Smith",
-    //   text: `      This Pokémon likes to lick its palms that are sweetened by being
-    //   soaked in honey. Teddiursa concocts its own honey by blending fruits
-    //   and pollen collected by Beedrill. Blastoise has water spouts that
-    //   protrude from its shell. The water spouts are very accurate.`,
-    //   avatar: avatar,
-    //   time: "10 минут назад",
-    // },
-  ],
-  2: [
     {
       id: "1",
-      author: "Alice Johnson",
-      text: "Comment 3",
+      author: "John Doe",
+      text: "Comment 1",
       avatar: avatar,
       time: "10 минут назад",
     },
     {
       id: "2",
-      author: "Bob Brown",
-      text: "Comment 4",
+      author: "Jane Smith",
+      text: `      This Pokémon likes to lick its palms that are sweetened by being
+      soaked in honey. Teddiursa concocts its own honey by blending fruits
+      and pollen collected by Beedrill. Blastoise has water spouts that
+      protrude from its shell. The water spouts are very accurate.`,
       avatar: avatar,
       time: "10 минут назад",
     },
+  ],
+  2: [
+    // {
+    //   id: "1",
+    //   author: "Alice Johnson",
+    //   text: "Comment 3",
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
+    // {
+    //   id: "2",
+    //   author: "Bob Brown",
+    //   text: "Comment 4",
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
   ],
   3: [
     {
