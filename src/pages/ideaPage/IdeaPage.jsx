@@ -2,7 +2,7 @@ import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import { useParams, NavLink } from "react-router-dom";
 import { useState } from "react";
-import Comments from "../../widgets/ideas/comments/Comments";
+import Comments from "../../widgets/ideasAndNewsPage/comments/Comments";
 import {
   Title,
   Text,
