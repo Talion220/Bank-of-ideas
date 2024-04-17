@@ -22,7 +22,8 @@ import {
 } from "@mantine/core";
 
 import classes from "./NewsPage.module.css";
-import Comments from "../../widgets/ideasAndNewsPage/comments/Comments";
+
+import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
 import { useDisclosure } from "@mantine/hooks";
 import { fetchUserData } from "../../api/news/test";
@@ -412,29 +413,6 @@ function NewsPage() {
   const news = data.find((idea) => idea.id === id);
 
   const comments = newsComments[id];
-  function showComm() {
-    let commFill;
-
-    if (comments.length === 0) {
-      commFill = (
-        <Text m="120px 0 140px" ta="center" size="md">
-          Список комментариев пуст
-        </Text>
-      );
-    } else {
-      commFill = comments.map((index) => (
-        <Comments
-          key={index.id}
-          avatar={index.avatar}
-          author={index.author}
-          text={index.text}
-          time={index.time}
-        />
-      ));
-    }
-
-    return commFill;
-  }
 
   return (
     <Container size="xl" mt={40}>
@@ -534,7 +512,7 @@ function NewsPage() {
         />
       </Flex>
 
-      {showComm()}
+      {ShowComments(comments)}
 
       <Divider my="sm" />
 

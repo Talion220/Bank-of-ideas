@@ -2,7 +2,7 @@ import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import { useParams, NavLink } from "react-router-dom";
 import { useState } from "react";
-import Comments from "../../widgets/ideasAndNewsPage/comments/Comments";
+import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
 import {
   Title,
   Text,
@@ -495,29 +495,6 @@ function IdeaPage() {
   const idea = newsData.find((idea) => idea.id === id);
 
   const comments = newsComments[id];
-  function showComm() {
-    let commFill;
-
-    if (comments.length === 0) {
-      commFill = (
-        <Text m="120px 0 140px" ta="center" size="md">
-          Список комментариев пуст
-        </Text>
-      );
-    } else {
-      commFill = comments.map((index) => (
-        <Comments
-          key={index.id}
-          avatar={index.avatar}
-          author={index.author}
-          text={index.text}
-          time={index.time}
-        />
-      ));
-    }
-
-    return commFill;
-  }
 
   return (
     <Container size="xl" mt={40}>
@@ -689,7 +666,7 @@ function IdeaPage() {
         />
       </Flex>
 
-      {showComm()}
+      {ShowComments(comments)}
 
       <Divider my="sm" />
 
