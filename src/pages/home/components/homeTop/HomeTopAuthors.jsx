@@ -1,8 +1,8 @@
-import avatar from "../../../shared/images/avatar.png";
+import avatar from "../../../../shared/images/avatar.png";
 import styles from "./homeTopAll.module.css";
 import { NavLink } from "react-router-dom";
 
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../../shared/utilits/ScrollToTop";
 
 import { Avatar, Table, Group, Text, Anchor, Title, Flex } from "@mantine/core";
 

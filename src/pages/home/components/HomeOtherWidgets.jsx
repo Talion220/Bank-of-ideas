@@ -1,6 +1,5 @@
 import HomeIdeas from "./homeOtherWidgets/HomeIdeas";
 import HomeNews from "./homeOtherWidgets/HomeNews";
-import classes from "./homeOtherWidgets.module.css";
 import { Container, Flex } from "@mantine/core";
 
 function HomeOtherWidgets() {

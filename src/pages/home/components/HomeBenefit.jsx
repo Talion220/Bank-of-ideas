@@ -1,8 +1,8 @@
-import HomeBenefitImg1 from "../../shared/images/HomeBenefitImg1.jpg";
-import HomeBenefitImg2 from "../../shared/images/HomeBenefitImg2.jpg";
-import HomeBenefitImg3 from "../../shared/images/HomeBenefitImg3.jpg";
-import HomeBenefitImg4 from "../../shared/images/HomeBenefitImg4.jpg";
-import HomeBenefitImg5 from "../../shared/images/HomeBenefitImg5.png";
+import HomeBenefitImg1 from "../../../shared/images/HomeBenefitImg1.jpg";
+import HomeBenefitImg2 from "../../../shared/images/HomeBenefitImg2.jpg";
+import HomeBenefitImg3 from "../../../shared/images/HomeBenefitImg3.jpg";
+import HomeBenefitImg4 from "../../../shared/images/HomeBenefitImg4.jpg";
+import HomeBenefitImg5 from "../../../shared/images/HomeBenefitImg5.png";
 import classes from "./homeBenefit.module.css";
 
 import { Card, Grid, Image, Container, Text } from "@mantine/core";

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./homeIdeas.module.css";
-import avatar from "../../../shared/images/avatar.png";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import avatar from "../../../../shared/images/avatar.png";
+import scrollToTop from "../../../../shared/utilits/ScrollToTop";
 
 import {
   Table,

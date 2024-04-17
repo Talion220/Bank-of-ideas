@@ -221,7 +221,7 @@ function Profile() {
         <ScrollArea
           h={500}
           mt={20}
-          onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+          // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
           classNames={{ scrollbar: classes.scroll }}
         >
           <Table highlightOnHover stickyHeader verticalSpacing="lg">

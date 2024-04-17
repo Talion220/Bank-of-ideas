@@ -10,7 +10,7 @@ import {
   useMantineTheme,
   Image,
 } from "@mantine/core";
-import arrowStage from "../../shared/images/arrowStage.svg";
+import arrowStage from "../../../shared/images/arrowStage.svg";
 import classes from "./homeStage.module.css";
 
 const mockdata = [

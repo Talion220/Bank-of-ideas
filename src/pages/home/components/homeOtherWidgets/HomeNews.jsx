@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import newsImg from "../../../shared/images/newsImg.jpg";
+import newsImg from "../../../../shared/images/newsImg.jpg";
 import classes from "./homeNews.module.css";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../../shared/utilits/ScrollToTop";
 
 import { Table, Anchor, Image, Text, Group, Title, Flex } from "@mantine/core";
 
