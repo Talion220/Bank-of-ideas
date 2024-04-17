@@ -2,6 +2,7 @@ import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import { useParams, NavLink } from "react-router-dom";
 import { useState } from "react";
+import Comments from "../../widgets/ideas/comments/Comments";
 import {
   Title,
   Text,
@@ -25,28 +26,28 @@ import classes from "./IdeaPage.module.css";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
 import { useDisclosure } from "@mantine/hooks";
 
-const data = [
+const newsData = [
   {
     id: "1",
     author: "Isaac Asimov",
     title: "Foundation Lorem ipsum",
     category: "Предложение по улучшению",
     businessProcess: "Бизнес процесс 1",
-    problem: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    problem: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupinewsDatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     
     Английский перевод 1914 года, H. Rackham
     "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"`,
-    solution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    solution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupinewsDatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     Абзац 1.10.32 "de Finibus Bonorum et Malorum", написанный Цицероном в 45 году н.э.
     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae die reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     
     Английский перевод 1914 года, H. Rackham
     "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"`,
-    result: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    result: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupinewsDatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     Абзац 1.10.3tem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     
@@ -57,7 +58,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "12",
-    comments: "2",
     views: "34",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -77,7 +77,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "25",
-    comments: "4",
     views: "86",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -97,7 +96,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "65",
-    comments: "14",
     views: "125",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -117,7 +115,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "4",
-    comments: "0",
     views: "6",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -137,7 +134,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -157,7 +153,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -177,7 +172,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -197,7 +191,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -217,7 +210,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -237,7 +229,6 @@ const data = [
     file: "",
     status: "Внедрено",
     likes: "16",
-    comments: "1",
     views: "47",
     avatar: avatar,
     linkAuthor: "/profile",
@@ -245,10 +236,176 @@ const data = [
   },
 ];
 
+const newsComments = {
+  1: [
+    // {
+    //   id: "1",
+    //   author: "John Doe",
+    //   text: "Comment 1",
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
+    // {
+    //   id: "2",
+    //   author: "Jane Smith",
+    //   text: `      This Pokémon likes to lick its palms that are sweetened by being
+    //   soaked in honey. Teddiursa concocts its own honey by blending fruits
+    //   and pollen collected by Beedrill. Blastoise has water spouts that
+    //   protrude from its shell. The water spouts are very accurate.`,
+    //   avatar: avatar,
+    //   time: "10 минут назад",
+    // },
+  ],
+  2: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 3",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 4",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  3: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 5",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 6",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  4: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 7",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 8",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  5: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 9",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 10",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  6: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 11",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 12",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  7: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 13",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 14",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  8: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 15",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 16",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  9: [
+    {
+      id: "1",
+      author: "John Doe",
+      text: "Comment 17",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Jane Smith",
+      text: "Comment 18",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+  10: [
+    {
+      id: "1",
+      author: "Alice Johnson",
+      text: "Comment 19",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+    {
+      id: "2",
+      author: "Bob Brown",
+      text: "Comment 20",
+      avatar: avatar,
+      time: "10 минут назад",
+    },
+  ],
+};
+
 function IdeaPage() {
   const [liked, setLiked] = useDisclosure(false);
 
-  const cards = data.slice(0, 3).map((article) => (
+  const cards = newsData.slice(0, 3).map((article) => (
     <Card
       key={article.id}
       withBorder
@@ -288,7 +445,6 @@ function IdeaPage() {
                 to="/profile"
                 onClick={scrollToTop}
                 c="dark"
-                className={classes.link}
               > */}
               <Group gap="xs" wrap="nowrap">
                 <Avatar size={20} src={article.avatar} />
@@ -333,9 +489,36 @@ function IdeaPage() {
       </Anchor>
     </Card>
   ));
+
   const [clear, setClear] = useState("");
   const { id } = useParams();
-  const idea = data.find((idea) => idea.id === id);
+  const idea = newsData.find((idea) => idea.id === id);
+
+  const comments = newsComments[id];
+  function showComm() {
+    let commFill;
+
+    if (comments.length === 0) {
+      commFill = (
+        <Text m="120px 0 140px" ta="center" size="md">
+          Список комментариев пуст
+        </Text>
+      );
+    } else {
+      commFill = comments.map((index) => (
+        <Comments
+          key={index.id}
+          avatar={index.avatar}
+          author={index.author}
+          text={index.text}
+          time={index.time}
+        />
+      ));
+    }
+
+    return commFill;
+  }
+
   return (
     <Container size="xl" mt={40}>
       <Flex justify="space-between" align="center" wrap="wrap">
@@ -362,7 +545,6 @@ function IdeaPage() {
               to="/profile"
               onClick={scrollToTop}
               c="dark"
-              className={classes.link}
             >
               <Flex align="center">
                 <Avatar size={20} src={idea.avatar} />
@@ -439,7 +621,6 @@ function IdeaPage() {
             to="/profile"
             onClick={scrollToTop}
             c="dark"
-            className={classes.link}
           >
             <Flex gap="xs" align="center">
               <Avatar src={avatar} alt="avatar" radius="xl" />
@@ -469,7 +650,7 @@ function IdeaPage() {
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
-        Комментарии • {idea.comments}
+        Комментарии • {comments.length}
       </Text>
       <Flex gap="xs" pb={20}>
         <Anchor
@@ -477,7 +658,6 @@ function IdeaPage() {
           to="/profile"
           onClick={scrollToTop}
           c="dark"
-          className={classes.link}
         >
           <Avatar src={avatar} alt="avatar" radius="xl" />
         </Anchor>
@@ -509,73 +689,7 @@ function IdeaPage() {
         />
       </Flex>
 
-      <Group gap="xs" pb={20}>
-        <Group>
-          <Anchor
-            component={NavLink}
-            to="/profile"
-            onClick={scrollToTop}
-            c="dark"
-            className={classes.link}
-          >
-            <Avatar src={avatar} alt="avatar" radius="xl" />
-          </Anchor>
-          <div>
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={scrollToTop}
-              c="dark"
-              className={classes.link}
-            >
-              <Text size="md">Jacob Warnhalter</Text>
-            </Anchor>
-            <Text size="xs" c="dimmed" underline="none">
-              10 minutes ago
-            </Text>
-          </div>
-        </Group>
-
-        <Text pl={54} size="md">
-          This Pokémon likes to lick its palms that are sweetened by being
-          soaked in honey. Teddiursa concocts its own honey by blending fruits
-          and pollen collected by Beedrill. Blastoise has water spouts that
-          protrude from its shell. The water spouts are very accurate.
-        </Text>
-      </Group>
-      <Group gap="xs" pb={20}>
-        <Group>
-          <Anchor
-            component={NavLink}
-            to="/profile"
-            onClick={scrollToTop}
-            c="dark"
-            className={classes.link}
-          >
-            <Avatar src={avatar} alt="avatar" radius="xl" />
-          </Anchor>
-          <div>
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={scrollToTop}
-              c="dark"
-              className={classes.link}
-            >
-              <Text size="md">Jacob Warnhalter</Text>
-            </Anchor>
-            <Text size="xs" c="dimmed">
-              10 minutes ago
-            </Text>
-          </div>
-        </Group>
-        <Text pl={54} size="md">
-          This Pokémon likes to lick its palms that are sweetened by being
-          soaked in honey. Teddiursa concocts its own honey by blending fruits
-          and pollen collected by Beedrill. Blastoise has water spouts that
-          protrude from its shell. The water spouts are very accurate.
-        </Text>
-      </Group>
+      {showComm()}
 
       <Divider my="sm" />
 
