@@ -642,7 +642,7 @@ function IdeaPage() {
           radius="xl"
           size="md"
           w="100%"
-          placeholder="Написать комментарий..."
+          placeholder="Напишите комментарий..."
           rightSectionWidth={clear ? 76 : 44}
           value={clear}
           rightSectionPointerEvents="all"

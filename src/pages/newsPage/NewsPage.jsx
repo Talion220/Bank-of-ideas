@@ -484,13 +484,15 @@ function NewsPage() {
           <Avatar src={avatar} alt="avatar" radius="xl" />
         </Anchor>
         <Textarea
-          radius="16"
+          radius="sm"
           size="md"
-          w="100%"
-          placeholder="Написать комментарий..."
-          rightSectionWidth={clear ? 76 : 44}
           autosize
+          w="100%"
+          placeholder="Напишите комментарий..."
+          rightSectionWidth={clear ? 96 : 64}
           value={clear}
+          minRows={2}
+          maxRows={5}
           rightSectionPointerEvents="all"
           onChange={(event) => setClear(event.currentTarget.value)}
           rightSection={
