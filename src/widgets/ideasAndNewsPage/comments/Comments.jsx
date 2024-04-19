@@ -9,7 +9,9 @@ function Comments({ avatar, author, time, text }) {
         <Anchor
           component={NavLink}
           to="/profile"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           c="dark"
         >
           <Avatar src={avatar} alt="avatar" radius="xl" />
@@ -18,7 +20,9 @@ function Comments({ avatar, author, time, text }) {
           <Anchor
             component={NavLink}
             to="/profile"
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
             c="dark"
           >
             <Text size="md">{author}</Text>

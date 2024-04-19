@@ -109,7 +109,9 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           underline="never"
           aria-label="Логотип Банк идей"
         >
@@ -126,7 +128,9 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           underline="never"
           className={classes.link}
           aria-label="Главная"
@@ -174,7 +178,9 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/news"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           underline="never"
           className={classes.link}
           aria-label=" Новости"
@@ -222,7 +228,9 @@ function Header() {
         <Anchor
           component={NavLink}
           to="/profile"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           underline="never"
           className={classes.link}
           aria-label="Аватар"

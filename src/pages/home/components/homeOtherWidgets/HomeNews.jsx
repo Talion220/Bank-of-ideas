@@ -44,7 +44,9 @@ function HomeNews() {
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             <Flex align="center">
               <Image h={38} src={row.cover} radius="md" mr={10} />

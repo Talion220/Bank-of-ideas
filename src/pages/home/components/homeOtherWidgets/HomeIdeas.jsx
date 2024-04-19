@@ -63,7 +63,9 @@ function HomeIdeas() {
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             <Flex align="center">
               <Avatar src={row.avatar} mr={10} />
@@ -78,7 +80,9 @@ function HomeIdeas() {
           <Anchor
             component={NavLink}
             to={`/idea/${row.id}`}
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}

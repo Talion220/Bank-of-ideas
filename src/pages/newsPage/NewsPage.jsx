@@ -2,7 +2,7 @@ import { Icons } from "../../shared/images/Icons";
 import avatar from "../../shared/images/avatar.png";
 import newsImg from "../../shared/images/newsImg.jpg";
 import { useParams, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Title,
   Text,
@@ -24,7 +24,9 @@ import {
 import classes from "./NewsPage.module.css";
 
 import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
+import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToAnchor from "../../shared/utilits/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
 import { fetchUserData } from "../../api/news/test";
 
@@ -174,7 +176,7 @@ const newsComments = {
       author: "John Doe",
       text: "Comment 1",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
@@ -184,7 +186,7 @@ const newsComments = {
       and pollen collected by Beedrill. Blastoise has water spouts that
       protrude from its shell. The water spouts are very accurate.`,
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   2: [
@@ -193,14 +195,14 @@ const newsComments = {
     //   author: "Alice Johnson",
     //   text: "Comment 3",
     //   avatar: avatar,
-    //   time: "10 минут назад",
+    //   time: "18 апреля 2024",
     // },
     // {
     //   id: "2",
     //   author: "Bob Brown",
     //   text: "Comment 4",
     //   avatar: avatar,
-    //   time: "10 минут назад",
+    //   time: "18 апреля 2024",
     // },
   ],
   3: [
@@ -209,14 +211,14 @@ const newsComments = {
       author: "John Doe",
       text: "Comment 5",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Jane Smith",
       text: "Comment 6",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   4: [
@@ -225,14 +227,14 @@ const newsComments = {
       author: "Alice Johnson",
       text: "Comment 7",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Bob Brown",
       text: "Comment 8",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   5: [
@@ -241,14 +243,14 @@ const newsComments = {
       author: "John Doe",
       text: "Comment 9",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Jane Smith",
       text: "Comment 10",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   6: [
@@ -257,14 +259,14 @@ const newsComments = {
       author: "Alice Johnson",
       text: "Comment 11",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Bob Brown",
       text: "Comment 12",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   7: [
@@ -273,14 +275,14 @@ const newsComments = {
       author: "John Doe",
       text: "Comment 13",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Jane Smith",
       text: "Comment 14",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   8: [
@@ -289,14 +291,14 @@ const newsComments = {
       author: "Alice Johnson",
       text: "Comment 15",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Bob Brown",
       text: "Comment 16",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   9: [
@@ -305,14 +307,14 @@ const newsComments = {
       author: "John Doe",
       text: "Comment 17",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Jane Smith",
       text: "Comment 18",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
   10: [
@@ -321,14 +323,14 @@ const newsComments = {
       author: "Alice Johnson",
       text: "Comment 19",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
     {
       id: "2",
       author: "Bob Brown",
       text: "Comment 20",
       avatar: avatar,
-      time: "10 минут назад",
+      time: "18 апреля 2024",
     },
   ],
 };
@@ -352,7 +354,9 @@ function NewsPage() {
       <Anchor
         component={NavLink}
         to={`/news/${article.id}`}
-        onClick={scrollToTop}
+        onClick={() => {
+          scrollToTop();
+        }}
         c="dark"
         underline="none"
       >
@@ -366,7 +370,9 @@ function NewsPage() {
               {/* <Anchor
                 component={NavLink}
                 to="/profile"
-                onClick={scrollToTop}
+                onClick={() => {
+            scrollToTop();
+          }}
                 c="dark"
                 className={classes.link}
               > */}
@@ -408,11 +414,19 @@ function NewsPage() {
       </Anchor>
     </Card>
   ));
-  const [clear, setClear] = useState("");
+
   const { id } = useParams();
   const news = data.find((idea) => idea.id === id);
 
   const comments = newsComments[id];
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromLink = urlParams.get("fromLink");
+    if (fromLink === "true") {
+      scrollToAnchor("comments");
+    }
+  }, []);
 
   return (
     <Container size="xl" mt={40}>
@@ -421,7 +435,9 @@ function NewsPage() {
         <Anchor
           component={NavLink}
           to="/profile"
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
           c="dark"
           className={classes.link}
         >
@@ -461,60 +477,22 @@ function NewsPage() {
             setLiked.toggle();
           }}
         >
-          <Flex align="center">
+          <Flex align="center" gap={3}>
             <Icons.IconLike />
             <Text>{news.likes}</Text>
           </Flex>
         </Button>
       </Flex>
 
-      <Divider my="sm" />
+      <Divider id="comments" my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
         Комментарии • {comments.length}
       </Text>
-      <Flex gap="xs" pb={20}>
-        <Anchor
-          component={NavLink}
-          to="/profile"
-          onClick={scrollToTop}
-          c="dark"
-          className={classes.link}
-        >
-          <Avatar src={avatar} alt="avatar" radius="xl" />
-        </Anchor>
-        <Textarea
-          radius="sm"
-          size="md"
-          autosize
-          w="100%"
-          placeholder="Напишите комментарий..."
-          rightSectionWidth={clear ? 96 : 64}
-          value={clear}
-          minRows={2}
-          maxRows={5}
-          rightSectionPointerEvents="all"
-          onChange={(event) => setClear(event.currentTarget.value)}
-          rightSection={
-            <Flex>
-              <ActionIcon
-                size={32}
-                color="gray"
-                variant="transparent"
-                onClick={() => setClear("")}
-                style={{ display: clear ? undefined : "none" }}
-              >
-                <Icons.CloseButton />
-              </ActionIcon>
-              <ActionIcon size={32} radius="xl" variant="filled">
-                <Icons.IconArrowRight />
-              </ActionIcon>
-            </Flex>
-          }
-        />
-      </Flex>
 
-      {ShowComments(comments)}
+      <CommentsForm />
+
+      <ShowComments comments={comments} />
 
       <Divider my="sm" />
 

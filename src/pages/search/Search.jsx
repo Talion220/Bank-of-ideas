@@ -147,7 +147,9 @@ function Search() {
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             <Flex align="center">
               <Avatar src={row.avatar} mr={10} />

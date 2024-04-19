@@ -98,7 +98,9 @@ function HomePreview() {
             size="md"
             component={NavLink}
             to="/documentation"
-            onClick={scrollToTop}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             Документация, инструкции
           </Button>

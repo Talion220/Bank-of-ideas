@@ -1,5 +1,6 @@
 import classes from "./news.module.css";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToAnchor from "../../shared/utilits/ScrollToAnchor";
 import { useState } from "react";
 import {
   Container,
@@ -17,11 +18,13 @@ import {
   Group,
   Center,
   Divider,
+  Button,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
 import newsImg from "../../shared/images/newsImg.jpg";
 import avatar from "../../shared/images/avatar.png";
+import { useScrollIntoView } from "@mantine/hooks";
 
 const data = [
   {
@@ -35,6 +38,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "2",
@@ -47,6 +51,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "3",
@@ -59,6 +64,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "4",
@@ -71,6 +77,7 @@ const data = [
     newsImg:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "5",
@@ -82,6 +89,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "6",
@@ -93,6 +101,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "7",
@@ -104,6 +113,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "8",
@@ -115,6 +125,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "9",
@@ -126,6 +137,7 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
   {
     id: "10",
@@ -137,67 +149,122 @@ const data = [
     views: "47",
     newsImg: newsImg,
     linkAuthor: "/profile",
+    date: "18 апреля 2024",
   },
 ];
 function News(props) {
   const [clear, setClear] = useState("");
 
   const cards = data.map((article) => (
-    <Card
-      key={article.id}
-      p="md"
-      radius={16}
-      component={NavLink}
-      to={`/news/${article.id}`}
-      onClick={scrollToTop}
-      className={classes.card}
-    >
-      <AspectRatio ratio={1920 / 1080}>
+    <Card key={article.id} m="md" p={0} className={classes.card}>
+      <AspectRatio
+        component={NavLink}
+        to={`/news/${article.id}`}
+        onClick={() => {
+          scrollToTop();
+        }}
+        ratio={1920 / 1080}
+      >
         <Image radius={16} src={article.newsImg} />
       </AspectRatio>
-      <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
-        {article.date}
-      </Text>
-      <Text className={classes.title} mt={5}>
-        {article.title}
-      </Text>
-      <Group justify="space-between" gap="xs">
-        <Group gap="sm" wrap="nowrap">
-          <Avatar size={20} src={article.avatar} />
-          <Text size="sm" className={classes.author}>
-            {article.author}
-          </Text>
-        </Group>
 
-        <Group gap="lg">
-          <Center>
-            <Icons.IconLike />
-            <Text size="sm" className={classes.bodyText}>
-              {article.likes}
-            </Text>
-          </Center>
-          <Center>
-            <Icons.IconMessageCircle />
-            <Text size="sm" className={classes.bodyText}>
-              {article.comments}
-            </Text>
-          </Center>
-          <Center>
-            <Icons.IconEye />
-            <Text size="sm" className={classes.bodyText}>
-              {article.views}
-            </Text>
-          </Center>
-        </Group>
+      <Anchor
+        mt={10}
+        component={NavLink}
+        to={`/news/${article.id}`}
+        onClick={() => {
+          scrollToTop();
+        }}
+        className={classes.link}
+      >
+        <Text fw="bold" lineClamp={1}>
+          {article.title}
+        </Text>
+      </Anchor>
+
+      <Flex gap="sm" wrap="wrap" align="center" mt={5}>
+        <Anchor
+          component={NavLink}
+          to="/profile"
+          onClick={() => {
+            scrollToTop();
+          }}
+          c="dark"
+          className={classes.link}
+        >
+          <Flex align="center">
+            <Avatar size={20} src={article.avatar} />
+            <Text pl={10}>{article.author}</Text>
+          </Flex>
+        </Anchor>
+        <Text size="sm" c="dimmed">
+          •
+        </Text>
+        <Text size="sm" c="dimmed">
+          {article.date}
+        </Text>
+        <Text size="sm" c="dimmed">
+          •
+        </Text>
+        <Flex align="center" gap={5} size="sm" c="dimmed">
+          <Icons.IconEye />
+          <Text size="sm">{article.views}</Text>
+        </Flex>
+      </Flex>
+
+      <Group mt={10} gap="lg">
+        <Center>
+          <Button
+            variant="light"
+            // c={liked ? "red" : "gray"}
+            radius="16"
+            color="blue"
+            onClick={() => {
+              // setLiked.toggle();
+            }}
+          >
+            <Flex align="center" gap={3}>
+              <Icons.IconLike />
+              <Text>{article.likes}</Text>
+            </Flex>
+          </Button>
+        </Center>
+        <Center>
+          <Button
+            variant="light"
+            c="gray"
+            radius="16"
+            color="blue"
+            component={NavLink}
+            to={`/news/${article.id}?fromLink=true`}
+            onClick={() => {
+              scrollToTop();
+            }}
+          >
+            <Flex align="center" gap={3}>
+              <Icons.IconMessageCircle />
+              <Text>{article.comments}</Text>
+            </Flex>
+          </Button>
+        </Center>
       </Group>
 
-      <Divider my="sm" />
+      <Divider mt="sm" />
 
-      <Group wrap="nowrap" gap="xs">
-        <Group gap="sm" wrap="nowrap">
-          <Avatar size={20} src={avatar} />
-          <Text size="sm">Иванова Анна Сергеевна</Text>
-        </Group>
+      <Group wrap="nowrap" gap="xs" mt="xs">
+        <Anchor
+          component={NavLink}
+          to={`/profile`}
+          onClick={() => {
+            scrollToTop();
+          }}
+          className={classes.link}
+        >
+          <Group gap="sm" wrap="nowrap">
+            <Avatar size={20} src={avatar} />
+            <Text size="sm">Иванова Анна Сергеевна</Text>
+          </Group>
+        </Anchor>
         <Text size="sm" c="dimmed">
           •
         </Text>
@@ -217,11 +284,20 @@ function News(props) {
         ultricies ante vitae orci auctor ultrices.
       </Text>
 
-      <Group mt="xs" wrap="nowrap" gap="xs">
-        <Group gap="xs" wrap="nowrap">
-          <Avatar size={20} src={avatar} />
-          <Text size="sm">Петрова Екатерина Владимировна</Text>
-        </Group>
+      <Group wrap="nowrap" gap="xs" mt="xs">
+        <Anchor
+          component={NavLink}
+          to={`/profile`}
+          onClick={() => {
+            scrollToTop();
+          }}
+          className={classes.link}
+        >
+          <Group gap="sm" wrap="nowrap">
+            <Avatar size={20} src={avatar} />
+            <Text size="sm">Иванова Анна Сергеевна</Text>
+          </Group>
+        </Anchor>
         <Text size="sm" c="dimmed">
           •
         </Text>

@@ -1,7 +1,7 @@
 import Comments from "../../../widgets/ideasAndNewsPage/comments/Comments";
 import { Text } from "@mantine/core";
 
-export default function ShowComments(comments) {
+export default function ShowComments({ comments }) {
   let commFill;
 
   if (comments.length === 0) {

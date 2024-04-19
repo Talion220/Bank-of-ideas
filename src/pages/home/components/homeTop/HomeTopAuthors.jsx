@@ -49,7 +49,9 @@ function HomeTopAuthors() {
           underline="hover"
           className={styles.subLink}
           aria-label={item.title}
-          onClick={scrollToTop}
+          onClick={() => {
+            scrollToTop();
+          }}
         >
           <Group gap="sm">
             <Avatar size={40} src={item.avatar} radius={40} />

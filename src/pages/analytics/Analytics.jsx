@@ -55,7 +55,9 @@ function Analytics() {
       <Button
         component={NavLink}
         to={stat.link}
-        onClick={scrollToTop}
+        onClick={() => {
+          scrollToTop();
+        }}
         mt={"var(--mantine-spacing-md)"}
         c="blue"
         bg="white"
