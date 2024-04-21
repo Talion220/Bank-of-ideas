@@ -330,7 +330,12 @@ function Search() {
           </Flex>
         }
       />
-      <Table.ScrollContainer h={500} mt={30}>
+      <ScrollArea
+        h={500}
+        mt={20}
+        onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+        classNames={{ scrollbar: classes.scroll }}
+      >
         <Table highlightOnHover stickyHeader verticalSpacing="xs">
           <Table.Thead>
             <Table.Tr>
@@ -359,7 +364,7 @@ function Search() {
         <Center>
           <Loader size={50} />
         </Center>
-      </Table.ScrollContainer>
+      </ScrollArea>
     </Container>
   );
 }
