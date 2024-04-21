@@ -161,6 +161,17 @@ const mockServerConfig = {
           },
         ],
       },
+      {
+        path: "/search",
+        method: "get",
+        routes: [
+          {
+            data: {
+              ideas: [],
+            },
+          },
+        ],
+      },
     ],
   },
 };
