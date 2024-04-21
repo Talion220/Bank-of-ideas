@@ -16,6 +16,8 @@ import {
   Button,
   Select,
   Text,
+  Loader,
+  Center,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
@@ -354,6 +356,9 @@ function Search() {
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
+        <Center>
+          <Loader size={50} />
+        </Center>
       </Table.ScrollContainer>
     </Container>
   );

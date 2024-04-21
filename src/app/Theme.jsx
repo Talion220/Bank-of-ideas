@@ -3,8 +3,10 @@ import {
   rem,
   SegmentedControl,
   DEFAULT_THEME,
+  Loader,
 } from "@mantine/core";
 import "@mantine/charts/styles.css";
+import { RingLoader } from "../widgets/common/loader/Loader";
 
 export const theme = createTheme({
   white: "rgba(247, 250, 252, 1)",
@@ -29,6 +31,12 @@ export const theme = createTheme({
         indicator: {
           borderRadius: 16,
         },
+      },
+    }),
+    Loader: Loader.extend({
+      defaultProps: {
+        loaders: { ...Loader.defaultLoaders, ring: RingLoader },
+        type: "ring",
       },
     }),
   },
