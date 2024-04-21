@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../widgets/common/layout/Layout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 import Profile from "../pages/profile/Profile";
+import ProfileShell from "../pages/profile/ProfileShell";
+import Alerts from "../pages/profile/Alerts";
 import News from "../pages/news/News";
 import NewsShell from "../pages/news/NewsShell";
 import Home from "../pages/home/Home";
@@ -51,7 +53,10 @@ function App() {
               </Route>
               <Route path="documentation" element={<Documentation />} />
               <Route path="idea-create" element={<IdeaCreate />} />
-              <Route path="profile" element={<Profile />} />
+              <Route path="profile" element={<ProfileShell />}>
+                <Route index element={<Profile />} />
+                <Route path="alerts" element={<Alerts />} />
+              </Route>
               <Route path="news" element={<NewsShell />}>
                 <Route index element={<News />} />
                 <Route path=":id" element={<NewsPage />} />

@@ -11,6 +11,8 @@ import {
   SegmentedControl,
   ScrollArea,
   Container,
+  Center,
+  Loader,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./profile.module.css";
@@ -141,6 +143,9 @@ const rows = data.map((row) => {
           underline="hover"
           className={classes.subLink}
           aria-label={row.title}
+          onClick={() => {
+            scrollToTop();
+          }}
         >
           <Text fw={500} fz="md">
             {row.title}
@@ -198,8 +203,11 @@ function Profile() {
           <Button
             radius={16}
             component={NavLink}
-            to="/alerts"
+            to="alerts"
             className={classes.btn}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             <Icons.Alert />
             <Text>Уведомления</Text>
@@ -246,6 +254,9 @@ function Profile() {
             </Table.Thead>
             <Table.Tbody>{rows}</Table.Tbody>
           </Table>
+          <Center>
+            <Loader size={50} />
+          </Center>
         </ScrollArea>
       </Stack>
     </Container>
