@@ -262,14 +262,16 @@ function News(props) {
         >
           <Group gap="sm" wrap="nowrap">
             <Avatar size={20} src={avatar} />
-            <Text size="sm">Иванова Анна Сергеевна</Text>
+            <Text size="sm" fw="500">
+              Иванова Анна Сергеевна
+            </Text>
           </Group>
         </Anchor>
         <Text size="sm" c="dimmed">
           •
         </Text>
         <Text size="sm" c="dimmed">
-          Feb 6th
+          24 апреля 2024
         </Text>
       </Group>
       <Text size="sm" lineClamp={2}>
@@ -295,14 +297,16 @@ function News(props) {
         >
           <Group gap="sm" wrap="nowrap">
             <Avatar size={20} src={avatar} />
-            <Text size="sm">Иванова Анна Сергеевна</Text>
+            <Text size="sm" fw="500">
+              Иванова Анна Сергеевна
+            </Text>
           </Group>
         </Anchor>
         <Text size="sm" c="dimmed">
           •
         </Text>
         <Text size="sm" c="dimmed">
-          Feb 6th
+          18 апреля 2024
         </Text>
       </Group>
       <Text size="sm" lineClamp={2}>
