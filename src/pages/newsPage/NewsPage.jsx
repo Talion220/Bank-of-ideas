@@ -28,7 +28,7 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilits/ScrollToTop";
 import scrollToAnchor from "../../shared/utilits/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
-import { fetchUserData } from "../../api/news/test";
+import { getNewsData } from "../../api/news/news";
 
 const data = [
   {
@@ -346,38 +346,52 @@ const newsComments = {
 };
 
 function NewsPage() {
-  fetchUserData().then((userData) => {
-    console.log(userData);
-  });
+  const [newsData, setNewsData] = useState(null);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getNewsData();
+        setNewsData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   const [liked, setLiked] = useDisclosure(false);
 
-  const cards = data.slice(0, 3).map((article) => (
-    <Card
-      key={article.id}
-      withBorder
-      radius="16"
-      p={0}
-      mb={20}
-      className={classes.card}
-    >
-      <Anchor
-        component={NavLink}
-        to={`/news/${article.id}`}
-        onClick={() => {
-          scrollToTop();
-        }}
-        c="dark"
-        underline="none"
-      >
-        <Group wrap="nowrap" gap={0}>
-          <Image radius="16" src={article.newsImg} w={300} />
-          <Flex direction="column" className={classes.body}>
-            <Text className={classes.title} mt="xs">
-              {article.title}
-            </Text>
-            <Group pt={15} wrap="nowrap" gap="xs">
-              {/* <Anchor
+  const cards =
+    newsData && newsData.news
+      ? newsData.news.slice(0, 3).map((article) => (
+          <Card
+            key={article.id}
+            withBorder
+            radius="16"
+            p={0}
+            mb={20}
+            className={classes.card}
+          >
+            <Anchor
+              component={NavLink}
+              to={`/news/${article.id}`}
+              onClick={() => {
+                scrollToTop();
+              }}
+              c="dark"
+              underline="none"
+            >
+              <Group wrap="nowrap" gap={0}>
+                <Image radius="16" src={article.newsImg} w={300} />
+                <Flex direction="column" className={classes.body}>
+                  <Text className={classes.title} mt="xs">
+                    {article.title}
+                  </Text>
+                  <Group pt={15} wrap="nowrap" gap="xs">
+                    {/* <Anchor
                 component={NavLink}
                 to="/profile"
                 onClick={() => {
@@ -386,44 +400,45 @@ function NewsPage() {
                 c="dark"
                 className={classes.link}
               > */}
-              <Group gap="xs" wrap="nowrap">
-                <Avatar size={20} src={article.avatar} />
-                <Text size="xs">{article.author}</Text>
-              </Group>
-              {/* </Anchor> */}
+                    <Group gap="xs" wrap="nowrap">
+                      <Avatar size={20} src={article.avatar} />
+                      <Text size="xs">{article.author}</Text>
+                    </Group>
+                    {/* </Anchor> */}
 
-              <Text size="xs" c="dimmed">
-                •
-              </Text>
-              <Text size="xs" c="dimmed">
-                {article.date}
-              </Text>
-            </Group>
-            <Group pt={15} gap="lg">
-              <Center>
-                <Icons.IconLike />
-                <Text size="sm" className={classes.bodyText}>
-                  {article.likes}
-                </Text>
-              </Center>
-              <Center>
-                <Icons.IconMessageCircle />
-                <Text size="sm" className={classes.bodyText}>
-                  {article.comments}
-                </Text>
-              </Center>
-              <Center>
-                <Icons.IconEye />
-                <Text size="sm" className={classes.bodyText}>
-                  {article.views}
-                </Text>
-              </Center>
-            </Group>
-          </Flex>
-        </Group>
-      </Anchor>
-    </Card>
-  ));
+                    <Text size="xs" c="dimmed">
+                      •
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                      {article.date}
+                    </Text>
+                  </Group>
+                  <Group pt={15} gap="lg">
+                    <Center>
+                      <Icons.IconLike />
+                      <Text size="sm" className={classes.bodyText}>
+                        {article.likes}
+                      </Text>
+                    </Center>
+                    <Center>
+                      <Icons.IconMessageCircle />
+                      <Text size="sm" className={classes.bodyText}>
+                        {article.comments}
+                      </Text>
+                    </Center>
+                    <Center>
+                      <Icons.IconEye />
+                      <Text size="sm" className={classes.bodyText}>
+                        {article.views}
+                      </Text>
+                    </Center>
+                  </Group>
+                </Flex>
+              </Group>
+            </Anchor>
+          </Card>
+        ))
+      : null;
 
   const { id } = useParams();
   const news = data.find((idea) => idea.id === id);

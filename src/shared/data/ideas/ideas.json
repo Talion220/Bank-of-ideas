@@ -13,7 +13,7 @@
       "status": "Внедрено",
       "likes": "12",
       "views": "34",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -32,7 +32,7 @@
       "status": "Внедрено",
       "likes": "25",
       "views": "86",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -51,7 +51,7 @@
       "status": "Внедрено",
       "likes": "65",
       "views": "125",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -70,7 +70,7 @@
       "status": "Внедрено",
       "likes": "4",
       "views": "6",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -89,7 +89,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -108,7 +108,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -127,7 +127,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -146,7 +146,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -165,7 +165,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     },
@@ -184,7 +184,7 @@
       "status": "Внедрено",
       "likes": "16",
       "views": "47",
-      "avatar": "../../images/avatar.png",
+      "avatar": "/src/shared/images/avatar.png",
       "linkAuthor": "/profile",
       "date": "11 апреля 2024"
     }
