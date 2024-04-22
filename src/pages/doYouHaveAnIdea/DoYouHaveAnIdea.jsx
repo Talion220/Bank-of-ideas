@@ -1,4 +1,5 @@
 // import doYouHaveAnIdea from "../../shared/images/doYouHaveAnIdea.png";
+import scrollToTop from "../../shared/utilits/ScrollToTop";
 import styles from "./styles.module.scss";
 import { NavLink } from "react-router-dom";
 
@@ -38,6 +39,9 @@ function DoYouHaveAnIdea() {
                                 <NavLink
                                   to="/idea-create"
                                   className={styles.btn}
+                                  onClick={() => {
+                                    scrollToTop();
+                                  }}
                                 >
                                   Оформите предложение по улучшению
                                 </NavLink>
@@ -46,6 +50,9 @@ function DoYouHaveAnIdea() {
                                 <NavLink
                                   to="/idea-create"
                                   className={styles.btn}
+                                  onClick={() => {
+                                    scrollToTop();
+                                  }}
                                 >
                                   Оформите рациоанализаторское предложение
                                 </NavLink>
@@ -53,7 +60,13 @@ function DoYouHaveAnIdea() {
                             </ul>
                           </li>
                           <li>
-                            <NavLink to="/idea-create" className={styles.btn}>
+                            <NavLink
+                              to="/idea-create"
+                              className={styles.btn}
+                              onClick={() => {
+                                scrollToTop();
+                              }}
+                            >
                               Оформите рациоанализаторское предложение
                             </NavLink>
                           </li>
@@ -62,7 +75,13 @@ function DoYouHaveAnIdea() {
                     </ul>
                   </li>
                   <li>
-                    <NavLink to="/idea-create" className={styles.btn}>
+                    <NavLink
+                      to="/idea-create"
+                      className={styles.btn}
+                      onClick={() => {
+                        scrollToTop();
+                      }}
+                    >
                       Оформите лучшую практику
                     </NavLink>
                   </li>

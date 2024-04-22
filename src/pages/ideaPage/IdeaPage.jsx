@@ -557,7 +557,7 @@ function IdeaPage() {
         <Button
           my={10}
           component={NavLink}
-          to="/life-cycle"
+          to="life-cycle"
           onClick={() => {
             scrollToTop();
           }}

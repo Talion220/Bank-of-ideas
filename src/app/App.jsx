@@ -24,6 +24,8 @@ import Documentation from "../pages/documentation/Documentation";
 import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
 import NewsPage from "../pages/newsPage/NewsPage";
 import IdeaPage from "../pages/ideaPage/IdeaPage";
+import LifeCycle from "../pages/lifeCycle/LifeCycle";
+import NewsPageShell from "../pages/newsPage/NewsPageShell";
 
 function App() {
   return (
@@ -59,7 +61,10 @@ function App() {
               </Route>
               <Route path="news" element={<NewsShell />}>
                 <Route index element={<News />} />
-                <Route path=":id" element={<NewsPage />} />
+                <Route path=":id" element={<NewsPageShell />}>
+                  <Route index element={<NewsPage />} />
+                  <Route path="life-cycle" element={<LifeCycle />} />
+                </Route>
               </Route>
             </Route>
 

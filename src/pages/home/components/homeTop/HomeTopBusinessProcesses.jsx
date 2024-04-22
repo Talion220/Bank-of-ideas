@@ -36,7 +36,7 @@ function HomeTopBusinessProcesses() {
         <Table.Thead>
           <Table.Tr>
             <Table.Th>
-              <Title pb="xl">Топ бизенс процессов</Title>
+              <Title pb="xl">Топ бизнес процессов</Title>
             </Table.Th>
           </Table.Tr>
         </Table.Thead>

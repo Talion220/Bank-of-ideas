@@ -1,0 +1,156 @@
+{
+  "ideas-comments": {
+    "1": [
+      {
+        "id": "1",
+        "author": "John Doe",
+        "text": "Comment 1",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Jane Smith",
+        "text": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "3",
+        "author": "Jane Smith",
+        "text": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "2": [{}],
+    "3": [
+      {
+        "id": "1",
+        "author": "John Doe",
+        "text": "Comment 5",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Jane Smith",
+        "text": "Comment 6",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "4": [
+      {
+        "id": "1",
+        "author": "Alice Johnson",
+        "text": "Comment 7",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Bob Brown",
+        "text": "Comment 8",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "5": [
+      {
+        "id": "1",
+        "author": "John Doe",
+        "text": "Comment 9",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Jane Smith",
+        "text": "Comment 10",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "6": [
+      {
+        "id": "1",
+        "author": "Alice Johnson",
+        "text": "Comment 11",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Bob Brown",
+        "text": "Comment 12",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "7": [
+      {
+        "id": "1",
+        "author": "John Doe",
+        "text": "Comment 13",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Jane Smith",
+        "text": "Comment 14",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "8": [
+      {
+        "id": "1",
+        "author": "Alice Johnson",
+        "text": "Comment 15",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Bob Brown",
+        "text": "Comment 16",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "9": [
+      {
+        "id": "1",
+        "author": "John Doe",
+        "text": "Comment 17",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Jane Smith",
+        "text": "Comment 18",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ],
+    "10": [
+      {
+        "id": "1",
+        "author": "Alice Johnson",
+        "text": "Comment 19",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      },
+      {
+        "id": "2",
+        "author": "Bob Brown",
+        "text": "Comment 20",
+        "avatar": "../../images/avatar.png",
+        "date": "18 апреля 2024"
+      }
+    ]
+  }
+}
