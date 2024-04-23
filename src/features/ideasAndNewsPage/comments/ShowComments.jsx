@@ -17,7 +17,7 @@ export default function ShowComments({ comments }) {
         avatar={index.avatar}
         author={index.author}
         text={index.text}
-        time={index.time}
+        time={index.date}
       />
     ));
   }
