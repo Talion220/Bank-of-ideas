@@ -1,6 +1,7 @@
 import {
   Anchor,
   Avatar,
+  Button,
   Card,
   Center,
   Flex,
@@ -56,33 +57,56 @@ function LatestNews({ article }) {
                 <Text size="xs">{article.author}</Text>
               </Group>
             </Anchor>
-
             <Text size="xs" c="dimmed">
               •
             </Text>
             <Text size="xs" c="dimmed">
               {article.date}
             </Text>
-          </Group>
-          <Group pt={15} gap="lg">
-            <Center>
-              <Icons.IconLike />
-              <Text size="sm" className={classes.bodyText}>
-                {article.likes}
-              </Text>
-            </Center>
-            <Center>
-              <Icons.IconMessageCircle />
-              <Text size="sm" className={classes.bodyText}>
-                {article.comments.length}
-              </Text>
-            </Center>
-            <Center>
+            <Text size="xs" c="dimmed">
+              •
+            </Text>
+            <Flex align="center" gap={5} size="xs" c="dimmed">
               <Icons.IconEye />
-              <Text size="sm" className={classes.bodyText}>
-                {article.views}
-              </Text>
-            </Center>
+              <Text size="xs">{article.views}</Text>
+            </Flex>
+          </Group>
+
+          <Group pt={15} gap="lg">
+            <Button
+              variant="light"
+              // c={liked ? "red" : "gray"}
+              radius="16"
+              color="blue"
+              onClick={() => {
+                // setLiked.toggle();
+              }}
+            >
+              <Center>
+                <Icons.IconLike />
+                <Text size="sm" className={classes.bodyText}>
+                  {article.likes}
+                </Text>
+              </Center>
+            </Button>
+            <Button
+              variant="light"
+              c="gray"
+              radius="16"
+              color="blue"
+              component={NavLink}
+              to={`/news/${article.id}?fromLink=true`}
+              onClick={() => {
+                scrollToTop();
+              }}
+            >
+              <Center>
+                <Icons.IconMessageCircle />
+                <Text size="sm" className={classes.bodyText}>
+                  {article.comments.length}
+                </Text>
+              </Center>
+            </Button>
           </Group>
         </Flex>
       </Group>
