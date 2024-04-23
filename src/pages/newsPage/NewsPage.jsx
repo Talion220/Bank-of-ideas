@@ -140,10 +140,41 @@ function NewsPage() {
   if (loading) {
     return (
       <Container size="xl" mt={40}>
-        <Skeleton height={50} circle mb="xl" />
-        <Skeleton height={8} radius="xl" />
-        <Skeleton height={8} mt={6} radius="xl" />
-        <Skeleton height={8} mt={6} width="70%" radius="xl" />
+        <Skeleton height={44} radius={16} />
+        <Skeleton height={24} maw={600} mt={5} radius={16} />
+        <Skeleton height={340} my={30} radius={16} />
+        <Skeleton height={600} radius={16} />
+        <Skeleton height={34} mt={30} mb={20} maw={80} radius={16} />
+        <Skeleton height={28} my={20} radius={16} />
+        <Flex gap="xs" mb={20}>
+          <Skeleton height={38} circle />
+          <Skeleton height={66} radius={16} />
+        </Flex>
+        <Flex direction="column" gap="xs" mb={20}>
+          <Group>
+            <Skeleton height={38} circle />
+            <div>
+              <Skeleton height={20} mb={5} maw={150} radius={16} />
+              <Skeleton height={15} maw={91} radius={16} />
+            </div>
+          </Group>
+          <Skeleton height={50} radius={16} />
+        </Flex>
+        <Flex direction="column" gap="xs" mb={20}>
+          <Group>
+            <Skeleton height={38} circle />
+            <div>
+              <Skeleton height={20} mb={5} maw={150} radius={16} />
+              <Skeleton height={15} maw={91} radius={16} />
+            </div>
+          </Group>
+          <Skeleton height={50} radius={16} />
+        </Flex>
+
+        <Skeleton height={28} my={20} radius={16} />
+        <Skeleton height={225} mb={20} radius={16} />
+        <Skeleton height={225} mb={20} radius={16} />
+        <Skeleton height={225} mb={20} radius={16} />
       </Container>
     );
   }

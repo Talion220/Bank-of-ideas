@@ -13,15 +13,6 @@ const mockServerConfig = {
         ],
       },
       {
-        path: "/news-comments",
-        method: "get",
-        routes: [
-          {
-            file: "./src/shared/data/news/news-comments.json",
-          },
-        ],
-      },
-      {
         path: "/ideas",
         method: "get",
         routes: [
