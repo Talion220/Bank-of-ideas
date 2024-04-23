@@ -15,10 +15,10 @@
 .card {
   transition: transform 150ms ease, box-shadow 150ms ease;
 
-  /* &:hover {
+  &:hover {
     transform: scale(1.01);
     box-shadow: var(--mantine-shadow-md);
-  } */
+  }
 }
 .bodyText {
   margin-left: rem(7px);

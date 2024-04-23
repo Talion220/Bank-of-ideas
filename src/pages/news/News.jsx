@@ -1,6 +1,5 @@
 import classes from "./news.module.css";
 import scrollToTop from "../../shared/utilits/ScrollToTop";
-import scrollToAnchor from "../../shared/utilits/ScrollToAnchor";
 import { useState } from "react";
 import {
   Container,
@@ -24,7 +23,6 @@ import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
 import newsImg from "../../shared/images/newsImg.jpg";
 import avatar from "../../shared/images/avatar.png";
-import { useScrollIntoView } from "@mantine/hooks";
 
 const data = [
   {
@@ -156,7 +154,7 @@ function News(props) {
   const [clear, setClear] = useState("");
 
   const cards = data.map((article) => (
-    <Card key={article.id} m="md" p={0} className={classes.card}>
+    <Card key={article.id} m={0} p="md" radius={16} className={classes.card}>
       <AspectRatio
         component={NavLink}
         to={`/news/${article.id}`}
