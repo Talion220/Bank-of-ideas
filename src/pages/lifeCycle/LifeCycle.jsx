@@ -1,121 +1,119 @@
-import { Container, Title, Timeline, Text, Table } from "@mantine/core";
+import {
+  Container,
+  Title,
+  Timeline,
+  Text,
+  Table,
+  Center,
+  HoverCard,
+} from "@mantine/core";
+import { Icons } from "../../shared/images/Icons";
+
+const data = [{}];
+
+const expertsData = [
+  {
+    id: "1",
+    stage: true,
+    status: "На рассмотрении",
+    responsible: "Ильин И.И.",
+    date: "05.03.2024",
+    endDate: "12.03.2024",
+    actualDate: "11.03.2024",
+  },
+  {
+    id: "2",
+    stage: true,
+    status: "На рассмотрении",
+    responsible: "Федоров Ф.Ф.",
+    date: "05.03.2024",
+    endDate: "12.03.2024",
+    actualDate: "12.03.2024",
+  },
+  {
+    id: "3",
+    stage: false,
+    status: "На рассмотрении",
+    responsible: "Сидоров С.С.",
+    date: "05.03.2024",
+    endDate: "12.03.2024",
+    actualDate: "07.03.2024",
+  },
+];
 
 function LifeCycle() {
+  const experts = expertsData.map((index) => (
+    <Table withTableBorder withColumnBorders key={index.id} my={20}>
+      <Table.Tbody>
+        <Table.Tr>
+          <Table.Td>
+            <HoverCard width={130} shadow="md" radius="md">
+              <HoverCard.Target>
+                <Center c={index.stage ? "green" : "yellow"}>
+                  <Icons.IconCircle />
+                </Center>
+              </HoverCard.Target>
+              <HoverCard.Dropdown bg="gray.1">
+                <Text size="sm" ta="center">
+                  {index.stage ? "Завершено" : "Выполняется"}
+                </Text>
+              </HoverCard.Dropdown>
+            </HoverCard>
+          </Table.Td>
+          <Table.Td>
+            <Text fw={600}>Статус</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text fw={600}>Ответственный</Text>
+          </Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td></Table.Td>
+          <Table.Td>
+            <Text>{index.status}</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text>{index.responsible}</Text>
+          </Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td>
+            <Text fw={600}>Дата</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text fw={600}>Срок</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text fw={600}>Фактическая дата</Text>
+          </Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td>
+            <Text>{index.date}</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text>{index.endDate}</Text>
+          </Table.Td>
+          <Table.Td>
+            <Text>{index.actualDate}</Text>
+          </Table.Td>
+        </Table.Tr>
+      </Table.Tbody>
+    </Table>
+  ));
+
   return (
     <Container mt={40} size="xl">
       <Title mb={30}>Жизненный путь идеи: </Title>
 
       <Timeline active={1} bulletSize={24} lineWidth={2}>
-        <Timeline.Item title="New branch">
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Element position</Table.Th>
-                <Table.Th>Element name</Table.Th>
-                <Table.Th>Symbol</Table.Th>
-                <Table.Th>Atomic mass</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-            </Table.Tbody>
-          </Table>
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Element position</Table.Th>
-                <Table.Th>Element name</Table.Th>
-                <Table.Th>Symbol</Table.Th>
-                <Table.Th>Atomic mass</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-            </Table.Tbody>
-          </Table>
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Element position</Table.Th>
-                <Table.Th>Element name</Table.Th>
-                <Table.Th>Symbol</Table.Th>
-                <Table.Th>Atomic mass</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-              <Table.Tr>
-                <Table.Td>1</Table.Td>
-                <Table.Td>2</Table.Td>
-                <Table.Td>3</Table.Td>
-                <Table.Td>4</Table.Td>
-              </Table.Tr>
-            </Table.Tbody>
-          </Table>
+        <Timeline.Item title="Создание идеи"></Timeline.Item>
+        <Timeline.Item title="Публикация идеи">{experts}</Timeline.Item>
+        <Timeline.Item title="Заключения экспертов">{experts}</Timeline.Item>
+        <Timeline.Item title="Формирование итогового экспертного заключения">
+          {experts}
         </Timeline.Item>
-
-        <Timeline.Item title="Commits">
-          <Text c="dimmed" size="sm">
-            You&apos;ve pushed 23 commits to
-            <Text variant="link" component="span" inherit>
-              fix-notifications branch
-            </Text>
-          </Text>
-          <Text size="xs" mt={4}>
-            52 minutes ago
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title="Pull request" lineVariant="dashed">
-          <Text c="dimmed" size="sm">
-            You&apos;ve submitted a pull request
-            <Text variant="link" component="span" inherit>
-              Fix incorrect notification message (#187)
-            </Text>
-          </Text>
-          <Text size="xs" mt={4}>
-            34 minutes ago
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title="Code review">
-          <Text c="dimmed" size="sm">
-            <Text variant="link" component="span" inherit>
-              Robert Gluesticker
-            </Text>
-            left a code review on your pull request
-          </Text>
-          <Text size="xs" mt={4}>
-            12 minutes ago
-          </Text>
-        </Timeline.Item>
+        <Timeline.Item title="Внедрено">{experts}</Timeline.Item>
       </Timeline>
     </Container>
   );
