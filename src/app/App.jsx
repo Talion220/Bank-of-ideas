@@ -25,7 +25,7 @@ import DoYouHaveAnIdea from "../pages/doYouHaveAnIdea/DoYouHaveAnIdea";
 import NewsPage from "../pages/newsPage/NewsPage";
 import IdeaPage from "../pages/ideaPage/IdeaPage";
 import LifeCycle from "../pages/lifeCycle/LifeCycle";
-import NewsPageShell from "../pages/newsPage/NewsPageShell";
+import IdeaPageShell from "../pages/ideaPage/IdeaPageShell";
 
 function App() {
   return (
@@ -37,7 +37,10 @@ function App() {
               <Route index element={<Home />} />
               <Route path="idea" element={<SearchShell />}>
                 <Route index element={<Search />} />
-                <Route path=":id" element={<IdeaPage />} />
+                <Route path=":id" element={<IdeaPageShell />}>
+                  <Route index element={<IdeaPage />} />
+                  <Route path="life-cycle" element={<LifeCycle />} />
+                </Route>
               </Route>
               <Route path="do-you-have-an-idea" element={<DoYouHaveAnIdea />} />
               <Route path="analytics" element={<AnalyticsShell />}>
@@ -61,10 +64,7 @@ function App() {
               </Route>
               <Route path="news" element={<NewsShell />}>
                 <Route index element={<News />} />
-                <Route path=":id" element={<NewsPageShell />}>
-                  <Route index element={<NewsPage />} />
-                  <Route path="life-cycle" element={<LifeCycle />} />
-                </Route>
+                <Route path=":id" element={<NewsPage />} />
               </Route>
             </Route>
 

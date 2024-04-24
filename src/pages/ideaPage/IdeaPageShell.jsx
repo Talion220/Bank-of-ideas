@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-function NewsPageShell() {
+function IdeaPageShell() {
   return <Outlet />;
 }
 
-export default NewsPageShell;
+export default IdeaPageShell;
