@@ -21,15 +21,6 @@ const mockServerConfig = {
           },
         ],
       },
-      {
-        path: "/ideas-comments",
-        method: "get",
-        routes: [
-          {
-            file: "./src/shared/data/ideas/ideas-comments.json",
-          },
-        ],
-      },
     ],
   },
 };
