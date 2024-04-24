@@ -31,7 +31,7 @@ import { NavLink } from "react-router-dom";
 const dropLinks = {
   idea: [
     {
-      title: "У вас есть идея?",
+      title: "У Вас есть идея?",
       link: "/do-you-have-an-idea",
     },
     {

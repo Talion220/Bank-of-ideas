@@ -1,9 +1,11 @@
-
+import { Container, Title } from "@mantine/core";
 
 function Documentation() {
   return (
-    <div>Documentation</div>
-  )
+    <Container mt={40} size="xl">
+      <Title>Документация</Title>
+    </Container>
+  );
 }
 
 export default Documentation;

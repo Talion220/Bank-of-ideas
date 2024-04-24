@@ -71,7 +71,7 @@ function Analytics() {
   return (
     <Container className={classes.analytics} size="xl" mt={40}>
       <Title className={classes.heading} c="white">
-        Аналитика и статистика: ваши идеи в действии
+        Аналитика и статистика: Ваши идеи в действии
       </Title>
       <div className={classes.root}>{stats}</div>
     </Container>
