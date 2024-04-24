@@ -12,7 +12,7 @@ import {
 import { Icons } from "../../../shared/images/Icons";
 import { NavLink } from "react-router-dom";
 import classes from "./LatestNews.module.css";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 
 function LatestNews({ article }) {
   return (

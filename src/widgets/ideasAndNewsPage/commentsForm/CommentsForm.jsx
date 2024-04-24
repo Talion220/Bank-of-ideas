@@ -2,7 +2,7 @@ import { Flex, ActionIcon, Textarea, Avatar, Anchor } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
 
 function CommentsForm() {

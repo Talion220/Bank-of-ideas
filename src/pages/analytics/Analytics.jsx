@@ -1,7 +1,7 @@
 import classes from "./analyticsOverview.module.css";
 import { Button, Container, Flex, Text, Title } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 
 const data = [
   {

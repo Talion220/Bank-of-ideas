@@ -24,7 +24,7 @@ import classes from "./header.module.css";
 import { useDisclosure } from "@mantine/hooks";
 
 import { Icons } from "../../../shared/images/Icons";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
 import { NavLink } from "react-router-dom";
 

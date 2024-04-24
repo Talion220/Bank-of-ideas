@@ -1,5 +1,5 @@
 import classes from "./news.module.css";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 import { useState } from "react";
 import {
   Container,

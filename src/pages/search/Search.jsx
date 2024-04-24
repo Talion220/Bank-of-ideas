@@ -1,6 +1,6 @@
 import classes from "./search.module.css";
 
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 import { useState } from "react";
 import {
   Container,
@@ -331,7 +331,7 @@ function Search() {
         }
       />
       <ScrollArea
-        h={500}
+        h={516}
         mt={20}
         onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
         classNames={{ scrollbar: classes.scroll }}

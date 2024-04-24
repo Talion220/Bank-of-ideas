@@ -23,7 +23,7 @@ import {
 } from "@mantine/core";
 
 import classes from "./IdeaPage.module.css";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 import { useDisclosure } from "@mantine/hooks";
 
 const ideaData = [

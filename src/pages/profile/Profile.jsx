@@ -18,7 +18,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./profile.module.css";
 import avatar from "../../shared/images/avatar.png";
 import { Icons } from "../../shared/images/Icons";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 
 const data = [
   {

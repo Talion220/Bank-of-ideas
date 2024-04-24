@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useRef } from "react";
 
 import classes from "./homePreview.module.css";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel } from "@mantine/carousel";

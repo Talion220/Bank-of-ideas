@@ -1,5 +1,5 @@
 // import doYouHaveAnIdea from "../../shared/images/doYouHaveAnIdea.png";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 import styles from "./styles.module.scss";
 import { NavLink } from "react-router-dom";
 

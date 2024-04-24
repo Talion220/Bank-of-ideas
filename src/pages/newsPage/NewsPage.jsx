@@ -18,8 +18,8 @@ import {
 
 import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
 import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
-import scrollToTop from "../../shared/utilits/ScrollToTop";
-import scrollToAnchor from "../../shared/utilits/ScrollToAnchor";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
+import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
 import { getNewsData } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";

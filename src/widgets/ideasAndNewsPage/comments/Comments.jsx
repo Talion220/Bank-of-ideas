@@ -1,6 +1,6 @@
 import { Group, Text, Avatar, Anchor, Flex } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import scrollToTop from "../../../shared/utilits/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 
 function Comments({ avatar, author, time, text }) {
   return (
