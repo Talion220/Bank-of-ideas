@@ -10,7 +10,7 @@ import Layout from "../widgets/common/layout/Layout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 import Profile from "../pages/profile/Profile";
 import ProfileShell from "../pages/profile/ProfileShell";
-import Alerts from "../pages/profile/Alerts";
+import Alerts from "../pages/alerts/Alerts";
 import News from "../pages/news/News";
 import NewsShell from "../pages/news/NewsShell";
 import Home from "../pages/home/Home";

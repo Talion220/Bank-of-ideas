@@ -7,6 +7,7 @@ import {
   Title,
 } from "@mantine/core";
 import avatar from "../../shared/images/avatar.png";
+import classes from "./alerts.module.css";
 
 const alerts = [
   {
@@ -65,7 +66,12 @@ function Alerts() {
   return (
     <Container size="xl" mt={40}>
       <Title mb={30}>Уведомления</Title>
-      <Accordion radius={16} chevronPosition="right" variant="contained">
+      <Accordion
+        radius={16}
+        chevronPosition="right"
+        variant="contained"
+        classNames={{ control: classes.alerts }}
+      >
         {items}
       </Accordion>
     </Container>
