@@ -26,7 +26,7 @@ const lifeCycleData = [
     ],
     ideaPublishing: [
       {
-        isActive: false,
+        isActive: true,
         stage: true,
         status: "На рассмотрении",
         responsible: "Ильин И.И.",
@@ -47,6 +47,7 @@ const lifeCycleData = [
         actualDate: "11.03.2024",
       },
       {
+        isActive: false,
         id: "2",
         stage: true,
         status: "На рассмотрении",
@@ -56,6 +57,7 @@ const lifeCycleData = [
         actualDate: "12.03.2024",
       },
       {
+        isActive: false,
         id: "3",
         stage: false,
         status: "На рассмотрении",
@@ -335,10 +337,18 @@ function LifeCycle() {
   const activeCount = renderData.reduce((acc, curr) => {
     const keyData = data[curr.key];
     const count = keyData.reduce((acc, curr) => {
-      if (curr.isActive) {
+      if (curr.hasOwnProperty("isActive") && curr.isActive) {
         return acc + 1;
+      } else if (curr.hasOwnProperty("expertsData")) {
+        const expertsCount = curr.expertsData.reduce((acc, expert) => {
+          if (expert.hasOwnProperty("isActive") && expert.isActive) {
+            return acc + 1;
+          }
+          return acc;
+        }, 0);
+        return acc + expertsCount;
       } else {
-        return 0;
+        return acc;
       }
     }, 0);
     return acc + count;
