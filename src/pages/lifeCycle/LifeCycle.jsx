@@ -26,7 +26,7 @@ const lifeCycleData = [
     ],
     ideaPublishing: [
       {
-        isActive: true,
+        // isActive: true,
         stage: true,
         status: "На рассмотрении",
         responsible: "Ильин И.И.",
@@ -37,7 +37,7 @@ const lifeCycleData = [
     ],
     expertsData: [
       {
-        isActive: false,
+        // isActive: true,
         id: "1",
         stage: true,
         status: "На рассмотрении",
@@ -47,7 +47,6 @@ const lifeCycleData = [
         actualDate: "11.03.2024",
       },
       {
-        isActive: false,
         id: "2",
         stage: true,
         status: "На рассмотрении",
@@ -57,7 +56,6 @@ const lifeCycleData = [
         actualDate: "12.03.2024",
       },
       {
-        isActive: false,
         id: "3",
         stage: false,
         status: "На рассмотрении",
@@ -336,12 +334,14 @@ function LifeCycle() {
 
   const activeCount = renderData.reduce((acc, curr) => {
     const keyData = data[curr.key];
+    let foundActiveInExperts = false; // Флаг для отслеживания найденного активного элемента в expertsData
     const count = keyData.reduce((acc, curr) => {
       if (curr.hasOwnProperty("isActive") && curr.isActive) {
         return acc + 1;
-      } else if (curr.hasOwnProperty("expertsData")) {
+      } else if (curr.hasOwnProperty("expertsData") && !foundActiveInExperts) {
         const expertsCount = curr.expertsData.reduce((acc, expert) => {
           if (expert.hasOwnProperty("isActive") && expert.isActive) {
+            foundActiveInExperts = true; // Устанавливаем флаг, чтобы не учитывать дополнительные активные элементы в expertsData
             return acc + 1;
           }
           return acc;
