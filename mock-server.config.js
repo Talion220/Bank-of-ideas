@@ -1,3 +1,5 @@
+import { news } from "./src/shared/data/news/news";
+
 /** @type {import('mock-config-server').MockServerConfig} */
 const mockServerConfig = {
   rest: {
@@ -8,7 +10,16 @@ const mockServerConfig = {
         method: "get",
         routes: [
           {
-            file: "./src/shared/data/news/news.json",
+            data: news,
+          },
+        ],
+      },
+      {
+        path: "/news",
+        method: "put",
+        routes: [
+          {
+            data: news,
           },
         ],
       },

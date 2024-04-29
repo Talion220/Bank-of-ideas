@@ -21,7 +21,7 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
-import { getNewsData } from "../../api/news/news";
+import { getNewsData, addLike, removeLike } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
@@ -44,13 +44,14 @@ function NewsPage() {
     fetchData();
   }, []);
 
-  const [liked, setLiked] = useDisclosure(false);
-
   const { id } = useParams();
   let news = {};
   if (newsData.length > 0) {
     news = newsData.find((idea) => idea.id === id) || {};
   }
+
+  const [likeCount, setLikeCount] = useState(news.likes);
+  const [isLiked, setIsLiked] = useState(news.isLiked);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -142,11 +143,16 @@ function NewsPage() {
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
         <Like
-          liked={liked}
+          isLiked={isLiked}
           onLike={() => {
-            setLiked.toggle();
+            setIsLiked(!isLiked);
+            if (!isLiked) {
+              addLike(id).then((count) => setLikeCount(count));
+            } else {
+              removeLike(id).then((count) => setLikeCount(count));
+            }
           }}
-          getCount={news.likes}
+          getCount={likeCount}
         />
       </Flex>
 

@@ -1,12 +1,12 @@
 import { Button, Text, Flex } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 
-function Like({ liked, onLike, getCount }) {
+function Like({ isLiked, onLike, getCount }) {
   return (
     <div>
       <Button
         variant="light"
-        c={liked ? "red" : "gray"}
+        c={isLiked ? "red" : "gray"}
         color="blue"
         radius="16"
         onClick={onLike}
