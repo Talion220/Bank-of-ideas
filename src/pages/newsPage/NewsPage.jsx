@@ -23,6 +23,7 @@ import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
 import { getNewsData } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
+import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
 function NewsPage() {
   const [loading, setLoading] = useState(true);
@@ -140,20 +141,13 @@ function NewsPage() {
 
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
-        <Button
-          variant="light"
-          c={liked ? "red" : "gray"}
-          radius="16"
-          color="blue"
-          onClick={() => {
+        <Like
+          liked={liked}
+          onLike={() => {
             setLiked.toggle();
           }}
-        >
-          <Flex align="center" gap={3}>
-            <Icons.IconLike />
-            <Text>{news.likes}</Text>
-          </Flex>
-        </Button>
+          getCount={news.likes}
+        />
       </Flex>
 
       <Divider id="comments" my="sm" />
