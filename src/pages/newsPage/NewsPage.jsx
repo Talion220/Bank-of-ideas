@@ -21,7 +21,7 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import { useDisclosure } from "@mantine/hooks";
-import { getNewsData, addLike, removeLike } from "../../api/news/news";
+import { getNewsData, setLike } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
@@ -45,9 +45,10 @@ function NewsPage() {
   }, []);
 
   const { id } = useParams();
+
   let news = {};
   if (newsData.length > 0) {
-    news = newsData.find((idea) => idea.id === id) || {};
+    news = newsData.find((page) => page.id === parseInt(id)) || {};
   }
 
   const [likeCount, setLikeCount] = useState(news.likes);
@@ -147,11 +148,11 @@ function NewsPage() {
           onLike={() => {
             setIsLiked(!isLiked);
             if (!isLiked) {
-              addLike({ id, newsData, action: "add" }).then((post) =>
+              setLike({ id, action: "add" }).then((post) =>
                 setLikeCount(post.likes)
               );
             } else {
-              addLike({ id, newsData, action: "remove" }).then((post) =>
+              setLike({ id, action: "remove" }).then((post) =>
                 setLikeCount(post.likes)
               );
             }

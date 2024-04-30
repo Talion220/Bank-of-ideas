@@ -1,4 +1,5 @@
 import { news } from "./src/shared/data/news/news";
+import { ideas } from "./src/shared/data/ideas/ideas";
 
 /** @type {import('mock-config-server').MockServerConfig} */
 const mockServerConfig = {
@@ -22,9 +23,9 @@ const mockServerConfig = {
             data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const { id, news, action } = request.body;
+                const { id, action } = request.body;
 
-                const post = data.find((item) => item.id === String(id));
+                const post = data.find((item) => item.id === parseInt(id));
                 if (!post) {
                   setStatusCode(404);
                   return {
@@ -33,8 +34,13 @@ const mockServerConfig = {
                     message: "Пост не найден",
                   };
                 }
-                if (action === "add") post.likes += 1;
-                else post.likes -= 1;
+                if (action === "add") {
+                  post.likes += 1;
+                  post.isLiked = true;
+                } else {
+                  post.likes -= 1;
+                  post.isLiked = false;
+                }
                 return post;
               },
             },
@@ -46,7 +52,7 @@ const mockServerConfig = {
         method: "get",
         routes: [
           {
-            file: "./src/shared/data/ideas/ideas.json",
+            data: ideas,
           },
         ],
       },
