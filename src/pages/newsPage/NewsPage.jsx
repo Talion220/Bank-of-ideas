@@ -147,9 +147,13 @@ function NewsPage() {
           onLike={() => {
             setIsLiked(!isLiked);
             if (!isLiked) {
-              addLike(id).then((count) => setLikeCount(count));
+              addLike({ id, newsData, action: "add" }).then((post) =>
+                setLikeCount(post.likes)
+              );
             } else {
-              removeLike(id).then((count) => setLikeCount(count));
+              addLike({ id, newsData, action: "remove" }).then((post) =>
+                setLikeCount(post.likes)
+              );
             }
           }}
           getCount={likeCount}

@@ -20,6 +20,24 @@ const mockServerConfig = {
         routes: [
           {
             data: news,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { id, news, action } = request.body;
+
+                const post = data.find((item) => item.id === String(id));
+                if (!post) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Пост не найден",
+                  };
+                }
+                if (action === "add") post.likes += 1;
+                else post.likes -= 1;
+                return post;
+              },
+            },
           },
         ],
       },
