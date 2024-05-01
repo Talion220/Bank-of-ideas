@@ -1,9 +1,12 @@
 import axios from "axios";
 
-export const getNewsData = async (id) => {
+export const getPost = async (id) => {
   try {
     const response = await axios.get("http://localhost:31299/api/news", {
       params: id,
+      headers: {
+        action: "getPost",
+      },
     });
     const res = response.data;
     return res;
@@ -31,6 +34,9 @@ export const getLatestNews = async (id) => {
   try {
     const response = await axios.get("http://localhost:31299/api/news", {
       params: id,
+      headers: {
+        action: "getLatestNews",
+      },
     });
     const res = response.data;
     return res;

@@ -21,7 +21,7 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 // import { useNewsStore } from "../../data/stores/useNewsStore";
-import { getNewsData, setLike, getLatestNews } from "../../api/news/news";
+import { getPost, setLike, getLatestNews } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
@@ -36,7 +36,7 @@ function NewsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsData({ id });
+        const data = await getPost({ id });
         setNews(data);
         setLoading(false);
       } catch (error) {
@@ -47,11 +47,6 @@ function NewsPage() {
 
     fetchData();
   }, []);
-
-  // let news = {};
-  // if (newsData.length > 0) {
-  //   news = newsData.find((page) => page.id === parseInt(id)) || {};
-  // }
 
   const [likeCount, setLikeCount] = useState(news.likes);
   const [isLiked, setIsLiked] = useState(news.isLiked);

@@ -11,6 +11,31 @@ const mockServerConfig = {
         method: "get",
         routes: [
           {
+            entities: {
+              headers: { action: "getPost" },
+            },
+            data: news,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const id = request.query.id;
+
+                const post = data.find((item) => item.id === parseInt(id));
+                if (!post) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Пост не найден",
+                  };
+                }
+                return post;
+              },
+            },
+          },
+          {
+            entities: {
+              headers: { action: "getLatestNews" },
+            },
             data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
