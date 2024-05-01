@@ -68,7 +68,7 @@ export const news = [
       {
         id: 1,
         author: "John Doe",
-        text: "Comment 1",
+        text: "Comment 3",
         avatar: "/src/shared/images/avatar.png",
         date: "18 апреля 2024",
       },

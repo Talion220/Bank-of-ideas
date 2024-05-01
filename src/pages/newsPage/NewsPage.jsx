@@ -20,20 +20,24 @@ import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments"
 import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
-import { useDisclosure } from "@mantine/hooks";
-import { getNewsData, setLike } from "../../api/news/news";
+// import { useNewsStore } from "../../data/stores/useNewsStore";
+import { getNewsData, setLike, getLatestNews } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
 function NewsPage() {
   const [loading, setLoading] = useState(true);
-  const [newsData, setNewsData] = useState([]);
+  const [news, setNews] = useState({});
+
+  // const { loading, newsData, fetchData, likeCount, setLike, isLiked } = useNewsStore();
+
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsData();
-        setNewsData(data);
+        const data = await getNewsData({ id });
+        setNews(data);
         setLoading(false);
       } catch (error) {
         console.error("Error:", error);
@@ -44,12 +48,10 @@ function NewsPage() {
     fetchData();
   }, []);
 
-  const { id } = useParams();
-
-  let news = {};
-  if (newsData.length > 0) {
-    news = newsData.find((page) => page.id === parseInt(id)) || {};
-  }
+  // let news = {};
+  // if (newsData.length > 0) {
+  //   news = newsData.find((page) => page.id === parseInt(id)) || {};
+  // }
 
   const [likeCount, setLikeCount] = useState(news.likes);
   const [isLiked, setIsLiked] = useState(news.isLiked);
@@ -177,7 +179,7 @@ function NewsPage() {
         Последние новости
       </Text>
 
-      <ShowLatestNews data={newsData} />
+      {/* <ShowLatestNews data={getLatestNews({ id })} /> */}
     </Container>
   );
 }

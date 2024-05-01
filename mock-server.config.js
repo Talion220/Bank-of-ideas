@@ -1,5 +1,5 @@
-import { news } from "./src/shared/data/news/news";
-import { ideas } from "./src/shared/data/ideas/ideas";
+import { news } from "./src/data/mock/mockData/news/news";
+import { ideas } from "./src/data/mock/mockData/ideas/ideas";
 
 /** @type {import('mock-config-server').MockServerConfig} */
 const mockServerConfig = {
@@ -12,9 +12,26 @@ const mockServerConfig = {
         routes: [
           {
             data: news,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const id = request.query.id;
+
+                const post = data.find((item) => item.id === parseInt(id));
+                if (!post) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Пост не найден",
+                  };
+                }
+                return post;
+              },
+            },
           },
         ],
       },
+
       {
         path: "/news",
         method: "put",

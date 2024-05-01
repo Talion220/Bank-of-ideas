@@ -1,9 +1,12 @@
 import axios from "axios";
 
-export const getNewsData = async () => {
+export const getNewsData = async (id) => {
   try {
-    const response = await axios.get("http://localhost:31299/api/news");
-    return response.data;
+    const response = await axios.get("http://localhost:31299/api/news", {
+      params: id,
+    });
+    const res = response.data;
+    return res;
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
@@ -20,6 +23,19 @@ export const setLike = async ({ id, action }) => {
     return res;
   } catch (error) {
     console.error("Error fetching data:", error.message);
+    throw error;
+  }
+};
+
+export const getLatestNews = async (id) => {
+  try {
+    const response = await axios.get("http://localhost:31299/api/news", {
+      params: id,
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
     throw error;
   }
 };
