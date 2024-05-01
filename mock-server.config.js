@@ -55,8 +55,6 @@ const mockServerConfig = {
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
                   .slice(0, 3);
 
-                console.log(filteredNews);
-
                 if (!filteredNews) {
                   setStatusCode(404);
                   return {

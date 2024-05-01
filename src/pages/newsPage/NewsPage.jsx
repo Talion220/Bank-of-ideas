@@ -26,8 +26,11 @@ import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLates
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
 function NewsPage() {
-  const [loading, setLoading] = useState(true);
   const [news, setNews] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const [likeCount, setLikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
   // const { loading, newsData, fetchData, likeCount, setLike, isLiked } = useNewsStore();
 
@@ -39,6 +42,8 @@ function NewsPage() {
         const data = await getPost({ id });
         setNews(data);
         setLoading(false);
+        setLikeCount(data.likes);
+        setIsLiked(data.isLiked);
       } catch (error) {
         console.error("Error:", error);
         setLoading(false);
@@ -47,9 +52,6 @@ function NewsPage() {
 
     fetchData();
   }, [id]);
-
-  const [likeCount, setLikeCount] = useState(news.likes);
-  const [isLiked, setIsLiked] = useState(news.isLiked);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
