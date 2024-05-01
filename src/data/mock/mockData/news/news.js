@@ -133,7 +133,8 @@ export const news = [
     text: "Lorem ipsum",
     likes: 16,
     views: 47,
-    newsImg: "/src/shared/images/newsImg.jpg",
+    newsImg:
+      "https://images.unsplash.com/photo-1711656166064-1b18600c26fd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
     date: "2024-05-01T12:00:00",
@@ -169,7 +170,8 @@ export const news = [
     text: "Lorem ipsum",
     likes: 16,
     views: 47,
-    newsImg: "/src/shared/images/newsImg.jpg",
+    newsImg:
+      "https://images.unsplash.com/photo-1714428203754-7d5fbfc5f6c0?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
     date: "2024-05-01T12:00:00",
@@ -241,10 +243,11 @@ export const news = [
     text: "Lorem ipsum",
     likes: 16,
     views: 47,
-    newsImg: "/src/shared/images/newsImg.jpg",
+    newsImg:
+      "https://images.unsplash.com/photo-1713560625744-46175f1b4a37?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00",
+    date: "2024-05-01T17:00:00",
     comments: [
       {
         id: 1,
@@ -277,10 +280,11 @@ export const news = [
     text: "Lorem ipsum",
     likes: 16,
     views: 47,
-    newsImg: "/src/shared/images/newsImg.jpg",
+    newsImg:
+      "https://images.unsplash.com/photo-1714362444851-05da5fa55efe?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00",
+    date: "2024-05-01T18:00:00",
     comments: [
       {
         id: 1,
@@ -313,10 +317,11 @@ export const news = [
     text: "Lorem ipsum",
     likes: 16,
     views: 47,
-    newsImg: "/src/shared/images/newsImg.jpg",
+    newsImg:
+      "https://images.unsplash.com/photo-1714362444974-72dedd0d3bfa?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00",
+    date: "2024-05-01T19:00:00",
     comments: [
       {
         id: 1,

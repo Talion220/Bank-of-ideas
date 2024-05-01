@@ -1,5 +1,6 @@
 import { news } from "./src/data/mock/mockData/news/news";
 import { ideas } from "./src/data/mock/mockData/ideas/ideas";
+import moment from "moment";
 
 /** @type {import('mock-config-server').MockServerConfig} */
 const mockServerConfig = {
@@ -41,8 +42,22 @@ const mockServerConfig = {
               response: (data, { request, setStatusCode }) => {
                 const id = request.query.id;
 
-                const post = data.find((item) => item.id === parseInt(id));
-                if (!post) {
+                const currentDate = data.find(
+                  (item) => item.id === parseInt(id)
+                )?.date;
+
+                const filteredNews = data
+                  .filter(
+                    (item) =>
+                      item.id !== parseInt(id) ||
+                      data.filter((n) => n.date > currentDate).length > 1
+                  )
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .slice(0, 3);
+
+                console.log(filteredNews);
+
+                if (!filteredNews) {
                   setStatusCode(404);
                   return {
                     code: 404,
@@ -50,7 +65,7 @@ const mockServerConfig = {
                     message: "Пост не найден",
                   };
                 }
-                return post;
+                return filteredNews;
               },
             },
           },

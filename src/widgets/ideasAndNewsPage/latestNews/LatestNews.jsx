@@ -27,7 +27,7 @@ function LatestNews({ article }) {
           c="dark"
           underline="none"
         >
-          <Image radius="16" src={article.newsImg} w={300} />
+          <Image radius="16" src={article.newsImg} h={300} w={300} />
         </Anchor>
         <Flex direction="column" className={classes.body}>
           <Anchor

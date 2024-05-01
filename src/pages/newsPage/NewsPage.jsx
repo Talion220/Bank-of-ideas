@@ -46,7 +46,7 @@ function NewsPage() {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const [likeCount, setLikeCount] = useState(news.likes);
   const [isLiked, setIsLiked] = useState(news.isLiked);
@@ -174,7 +174,7 @@ function NewsPage() {
         Последние новости
       </Text>
 
-      {/* <ShowLatestNews data={getLatestNews({ id })} /> */}
+      <ShowLatestNews data={getLatestNews({ id })} />
     </Container>
   );
 }
