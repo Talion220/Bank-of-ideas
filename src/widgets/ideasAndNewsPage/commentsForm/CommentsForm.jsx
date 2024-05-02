@@ -54,7 +54,7 @@ function CommentsForm({ id }) {
               radius="xl"
               variant="filled"
               onClick={() => {
-                const date = new Date().toISOString().split("T")[0];
+                const date = new Date().toISOString();
                 postComment({ id, avatar, author, text, date });
                 setText("");
               }}
