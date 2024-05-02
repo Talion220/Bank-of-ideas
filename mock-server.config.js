@@ -60,7 +60,7 @@ const mockServerConfig = {
                   return {
                     code: 404,
                     success: false,
-                    message: "Пост не найден",
+                    message: "Последние новости не найдены",
                   };
                 }
                 return filteredNews;
@@ -117,16 +117,26 @@ const mockServerConfig = {
 
                 const post = data.find((item) => item.id === parseInt(id));
 
-                console.log(date);
-
                 if (!post) {
                   setStatusCode(404);
                   return {
                     code: 404,
                     success: false,
-                    message: "Пост не найден",
+                    message: "Комментарий не найден",
                   };
                 }
+
+                const newComment = {
+                  id: post.comments.length + 1,
+                  author: author,
+                  text: text,
+                  avatar: avatar,
+                  date: date,
+                };
+
+                post.comments.push(newComment);
+
+                console.log(post);
 
                 return post;
               },
