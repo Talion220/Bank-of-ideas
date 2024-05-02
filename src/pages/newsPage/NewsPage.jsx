@@ -166,7 +166,7 @@ function NewsPage() {
         Комментарии • {news.comments.length}
       </Text>
 
-      <CommentsForm />
+      <CommentsForm id={id} />
 
       <ShowComments comments={news.comments} />
 

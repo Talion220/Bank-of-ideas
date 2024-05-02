@@ -4,9 +4,12 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
+import { postComment } from "../../../api/news/news";
 
-function CommentsForm() {
-  const [clear, setClear] = useState("");
+const author = "Иванов Иван Иванович";
+
+function CommentsForm({ id }) {
+  const [text, setText] = useState("");
   return (
     <Flex gap="xs" pb={20}>
       <Anchor
@@ -25,24 +28,37 @@ function CommentsForm() {
         autosize
         w="100%"
         placeholder="Напишите комментарий..."
-        rightSectionWidth={clear ? 96 : 64}
-        value={clear}
+        rightSectionWidth={text ? 96 : 64}
+        value={text}
         minRows={2}
         maxRows={5}
         rightSectionPointerEvents="all"
-        onChange={(event) => setClear(event.currentTarget.value)}
+        onChange={(event) => {
+          setText(event.currentTarget.value);
+        }}
         rightSection={
           <Flex>
             <ActionIcon
               size={32}
               color="gray"
               variant="transparent"
-              onClick={() => setClear("")}
-              style={{ display: clear ? undefined : "none" }}
+              onClick={() => {
+                setText("");
+              }}
+              style={{ display: text ? undefined : "none" }}
             >
               <Icons.CloseButton />
             </ActionIcon>
-            <ActionIcon size={32} radius="xl" variant="filled">
+            <ActionIcon
+              size={32}
+              radius="xl"
+              variant="filled"
+              onClick={() => {
+                const date = new Date().toISOString().split("T")[0];
+                postComment({ id, avatar, author, text, date });
+                setText("");
+              }}
+            >
               <Icons.IconArrowRight />
             </ActionIcon>
           </Flex>

@@ -103,6 +103,38 @@ const mockServerConfig = {
         ],
       },
       {
+        path: "/news",
+        method: "post",
+        routes: [
+          {
+            data: news,
+            // entities: {
+            //   headers: { action: "postComment" },
+            // },
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { id, avatar, author, text, date } = request.body;
+
+                const post = data.find((item) => item.id === parseInt(id));
+
+                console.log(post);
+
+                if (!post) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Пост не найден",
+                  };
+                }
+
+                return post;
+              },
+            },
+          },
+        ],
+      },
+      {
         path: "/ideas",
         method: "get",
         routes: [
