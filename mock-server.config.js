@@ -108,9 +108,9 @@ const mockServerConfig = {
         routes: [
           {
             data: news,
-            // entities: {
-            //   headers: { action: "postComment" },
-            // },
+            entities: {
+              headers: { action: "postComment" },
+            },
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const { id, avatar, author, text, date } = request.body;

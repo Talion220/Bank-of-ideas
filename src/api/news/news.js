@@ -36,16 +36,21 @@ export const setLike = async ({ id, action }) => {
 
 export const postComment = async ({ id, avatar, author, text, date }) => {
   try {
-    const response = await axios.post("", {
-      id,
-      avatar,
-      author,
-      text,
-      date,
-      headers: {
-        action: "postComment",
+    const response = await axios.post(
+      "",
+      {
+        id,
+        avatar,
+        author,
+        text,
+        date,
       },
-    });
+      {
+        headers: {
+          action: "postComment",
+        },
+      }
+    );
     const res = response.data;
     return res;
   } catch (error) {
@@ -56,12 +61,16 @@ export const postComment = async ({ id, avatar, author, text, date }) => {
 
 export const getLatestNews = async (id) => {
   try {
-    const response = await axios.get("", {
-      params: id,
-      headers: {
-        action: "getLatestNews",
+    const response = await axios.get(
+      "",
+      {
+        params: id,
+        headers: {
+          action: "getLatestNews",
+        },
       },
-    });
+      {}
+    );
     const res = response.data;
     return res;
   } catch (error) {
