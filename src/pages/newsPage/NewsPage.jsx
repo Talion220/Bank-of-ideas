@@ -20,38 +20,48 @@ import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments"
 import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
-// import { useNewsStore } from "../../data/stores/useNewsStore";
+import useNewsStore from "../../data/stores/useNewsStore";
 import { getPost, setLike, getLatestNews } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
 function NewsPage() {
-  const [news, setNews] = useState({});
-  const [loading, setLoading] = useState(true);
+  // const [news, setNews] = useState({});
+  // const [loading, setLoading] = useState(true);
 
-  const [likeCount, setLikeCount] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
+  // const [likeCount, setLikeCount] = useState(0);
+  // const [isLiked, setIsLiked] = useState(false);
 
   // const { loading, newsData, fetchData, likeCount, setLike, isLiked } = useNewsStore();
 
+  const { loading, getData, news, likeCount, isLiked } = useNewsStore(
+    (state) => ({
+      loading: state.loading,
+      news: state.news,
+      likeCount: state.likeCount,
+      isLiked: state.isLiked,
+      getData: state.getData,
+    })
+  );
+
   const { id } = useParams();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getPost({ id });
-        setNews(data);
-        setLoading(false);
-        setLikeCount(data.likes);
-        setIsLiked(data.isLiked);
-      } catch (error) {
-        console.error("Error:", error);
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await getPost({ id });
+  //       setNews(data);
+  //       setLoading(false);
+  //       setLikeCount(data.likes);
+  //       setIsLiked(data.isLiked);
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, [id]);
+  //   fetchData();
+  // }, [id]);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);

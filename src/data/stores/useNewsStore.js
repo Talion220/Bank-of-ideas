@@ -1,24 +1,36 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-import { getNewsData, setLike } from "../../api/news/news";
+import { getPost, setLike } from "../../api/news/news";
+import { useParams } from "react-router-dom";
 
 const useNewsStore = create((set) => ({
-  loading: true,
-  id: () => ({ id } = useParams()),
-  newsData: [],
+  loading: false,
+  news: {},
   likeCount: 0,
   isLiked: false,
-  getData: async () => {
+  id: () => {
+    const { id } = useParams();
+    return id;
+  },
+  getData: async (set) => {
     try {
-      const data = await getNewsData();
-      set({ newsData: data, loading: false });
+      set({ loading: true });
+      const id = useParams().id;
+      const data = await getPost({ id });
+      set({
+        news: data,
+        loading: false,
+        likeCount: data.likes,
+        isLiked: data.isLiked,
+      });
     } catch (error) {
       console.error("Error:", error);
+    } finally {
       set({ loading: false });
     }
   },
-  getCurrentNews: {},
+
   setLike: async (id, action) => {
     try {
       const post = await setLike({ id, action });

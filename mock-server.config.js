@@ -137,8 +137,6 @@ const mockServerConfig = {
                 post.comments.push(newComment);
 
                 console.log(post);
-
-                return post;
               },
             },
           },
