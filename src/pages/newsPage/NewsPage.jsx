@@ -1,5 +1,6 @@
 import { Icons } from "../../shared/images/Icons";
 import { useParams, NavLink } from "react-router-dom";
+import { shallow } from "zustand/shallow";
 import { useEffect, useState } from "react";
 import {
   Title,
@@ -21,7 +22,6 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import useNewsStore from "../../data/stores/useNewsStore";
-import { getPost, setLike, getLatestNews } from "../../api/news/news";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
@@ -32,19 +32,26 @@ function NewsPage() {
   // const [likeCount, setLikeCount] = useState(0);
   // const [isLiked, setIsLiked] = useState(false);
 
-  // const { loading, newsData, fetchData, likeCount, setLike, isLiked } = useNewsStore();
+  const { id } = useParams();
 
-  const { loading, getData, news, likeCount, isLiked } = useNewsStore(
-    (state) => ({
+  const { loading, getData, news, likeCount, isLiked, clickLike, getLatest } =
+    useNewsStore((state) => ({
       loading: state.loading,
+      getData: state.getData,
       news: state.news,
       likeCount: state.likeCount,
       isLiked: state.isLiked,
-      getData: state.getData,
-    })
-  );
+      clickLike: state.clickLike,
+      getLatest: state.getLatest,
+      // id: state.id,
+    }));
 
-  const { id } = useParams();
+  // console.log(id);
+  // console.log(loading);
+
+  useEffect(() => {
+    getData(id);
+  }, [id]);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -154,39 +161,28 @@ function NewsPage() {
       <Flex gap="md" align="center" my="30px 20px">
         <Like
           isLiked={isLiked}
-          onLike={() => {
-            setIsLiked(!isLiked);
-            if (!isLiked) {
-              setLike({ id, action: "add" }).then((post) =>
-                setLikeCount(post.likes)
-              );
-            } else {
-              setLike({ id, action: "remove" }).then((post) =>
-                setLikeCount(post.likes)
-              );
-            }
-          }}
+          onLike={() => clickLike(id)}
           getCount={likeCount}
         />
       </Flex>
 
       <Divider id="comments" my="sm" />
 
-      <Text fw={600} fz="lg" my={20}>
+      {/*<Text fw={600} fz="lg" my={20}>
         Комментарии • {news.comments.length}
-      </Text>
+      </Text> 
 
       <CommentsForm id={id} />
 
-      <ShowComments comments={news.comments} />
+       <ShowComments comments={news.comments} /> 
 
       <Divider my="sm" />
 
       <Text fw={600} fz="lg" my={20}>
         Последние новости
-      </Text>
+      </Text>*/}
 
-      <ShowLatestNews data={getLatestNews({ id })} />
+      {/* <ShowLatestNews data={getLatest({ id })} /> */}
     </Container>
   );
 }

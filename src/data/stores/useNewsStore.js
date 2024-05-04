@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-import { getPost, setLike } from "../../api/news/news";
+import { getLatestNews, getPost, setLike } from "../../api/news/news";
 import { useParams } from "react-router-dom";
 
 const useNewsStore = create((set) => ({
@@ -9,15 +9,15 @@ const useNewsStore = create((set) => ({
   news: {},
   likeCount: 0,
   isLiked: false,
-  id: () => {
-    const { id } = useParams();
-    return id;
-  },
-  getData: async (set) => {
+  // id: () => {
+  //   const { id } = useParams();
+  //   return id;
+  // },
+  getData: async (id) => {
+    set({ loading: true });
     try {
-      set({ loading: true });
-      const id = useParams().id;
       const data = await getPost({ id });
+      console.log(id);
       set({
         news: data,
         loading: false,
@@ -31,13 +31,21 @@ const useNewsStore = create((set) => ({
     }
   },
 
-  setLike: async (id, action) => {
-    try {
-      const post = await setLike({ id, action });
-      set({ likeCount: post.likes });
-    } catch (error) {
-      console.error("Error:", error);
-    }
+  clickLike: async (id) => {
+    set((state) => {
+      const newIsLiked = !state.isLiked;
+      const action = newIsLiked ? "add" : "remove";
+      try {
+        setLike({ id, action }).then((post) =>
+          set({ likeCount: post.likes, isLiked: newIsLiked })
+        );
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    });
+  },
+  getLatest: async (id) => {
+    return await getLatestNews({ id });
   },
 }));
 

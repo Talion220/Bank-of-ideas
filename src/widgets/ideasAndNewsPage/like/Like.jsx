@@ -2,6 +2,8 @@ import { Button, Text, Flex } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 
 function Like({ isLiked, onLike, getCount }) {
+  console.log(isLiked);
+  console.log(getCount);
   return (
     <div>
       <Button
