@@ -4,7 +4,7 @@ import { useShallow } from "zustand/react/shallow";
 import { getLatestNews, getPost, setLike } from "../../api/news/news";
 import { useParams } from "react-router-dom";
 
-const useNewsStore = create((set) => ({
+const useNewsStore = create((set, get) => ({
   loading: false,
   news: {},
   likeCount: 0,
@@ -32,17 +32,15 @@ const useNewsStore = create((set) => ({
   },
 
   clickLike: async (id) => {
-    set((state) => {
-      const newIsLiked = !state.isLiked;
-      const action = newIsLiked ? "add" : "remove";
-      try {
-        setLike({ id, action }).then((post) =>
-          set({ likeCount: post.likes, isLiked: newIsLiked })
-        );
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    });
+    const newIsLiked = !get().isLiked;
+    const action = newIsLiked ? "add" : "remove";
+    try {
+      setLike({ id, action }).then((post) =>
+        set({ likeCount: post.likes, isLiked: newIsLiked })
+      );
+    } catch (error) {
+      console.error("Error:", error);
+    }
   },
   getLatest: async (id) => {
     return await getLatestNews({ id });

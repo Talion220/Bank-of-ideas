@@ -34,17 +34,16 @@ function NewsPage() {
 
   const { id } = useParams();
 
-  const { loading, getData, news, likeCount, isLiked, clickLike, getLatest } =
-    useNewsStore((state) => ({
-      loading: state.loading,
-      getData: state.getData,
-      news: state.news,
-      likeCount: state.likeCount,
-      isLiked: state.isLiked,
-      clickLike: state.clickLike,
-      getLatest: state.getLatest,
-      // id: state.id,
-    }));
+  const { loading, getData, news, getLatest } = useNewsStore((state) => ({
+    loading: state.loading,
+    getData: state.getData,
+    news: state.news,
+    likeCount: state.likeCount,
+    isLiked: state.isLiked,
+    clickLike: state.clickLike,
+    getLatest: state.getLatest,
+    // id: state.id,
+  }));
 
   // console.log(id);
   // console.log(loading);
@@ -159,11 +158,7 @@ function NewsPage() {
 
       <Text>{news.text}</Text>
       <Flex gap="md" align="center" my="30px 20px">
-        <Like
-          isLiked={isLiked}
-          onLike={() => clickLike(id)}
-          getCount={likeCount}
-        />
+        <Like id={id} />
       </Flex>
 
       <Divider id="comments" my="sm" />
