@@ -26,12 +26,6 @@ import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLates
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
 function NewsPage() {
-  // const [news, setNews] = useState({});
-  // const [loading, setLoading] = useState(true);
-
-  // const [likeCount, setLikeCount] = useState(0);
-  // const [isLiked, setIsLiked] = useState(false);
-
   const { id } = useParams();
 
   const { loading, getData, news, getLatest } = useNewsStore((state) => ({
@@ -52,23 +46,6 @@ function NewsPage() {
     getData(id);
   }, [id]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const data = await getPost({ id });
-  //       setNews(data);
-  //       setLoading(false);
-  //       setLikeCount(data.likes);
-  //       setIsLiked(data.isLiked);
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [id]);
-
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const fromLink = urlParams.get("fromLink");
@@ -77,7 +54,7 @@ function NewsPage() {
     }
   }, [id, loading]);
 
-  if (loading) {
+  if (loading || news === undefined || Object.keys(news).length === 0) {
     return (
       <Container size="xl" mt={40}>
         <Skeleton height={44} radius={16} />
@@ -117,69 +94,71 @@ function NewsPage() {
         <Skeleton height={225} mb={20} radius={16} />
       </Container>
     );
-  }
-
-  return (
-    <Container size="xl" mt={40}>
-      <Title>{news.title}</Title>
-      <Flex gap="sm" wrap="wrap" align="center" mt={5}>
-        <Anchor
-          component={NavLink}
-          to="/profile"
-          onClick={() => {
-            scrollToTop();
-          }}
-          c="dark"
-        >
-          <Flex align="center">
-            <Avatar size={20} src={news.avatar} />
-            <Text pl={10}>{news.author}</Text>
+  } else {
+    return (
+      <Container size="xl" mt={40}>
+        <Title>{news.title}</Title>
+        <Flex gap="sm" wrap="wrap" align="center" mt={5}>
+          <Anchor
+            component={NavLink}
+            to="/profile"
+            onClick={() => {
+              scrollToTop();
+            }}
+            c="dark"
+          >
+            <Flex align="center">
+              <Avatar size={20} src={news.avatar} />
+              <Text pl={10}>{news.author}</Text>
+            </Flex>
+          </Anchor>
+          <Text size="sm" c="dimmed">
+            •
+          </Text>
+          <Text size="sm" c="dimmed">
+            {news.date}
+          </Text>
+          <Text size="sm" c="dimmed">
+            •
+          </Text>
+          <Flex align="center" gap={5} size="sm" c="dimmed">
+            <Icons.IconEye />
+            <Text size="sm">{news.views}</Text>
           </Flex>
-        </Anchor>
-        <Text size="sm" c="dimmed">
-          •
-        </Text>
-        <Text size="sm" c="dimmed">
-          {news.date}
-        </Text>
-        <Text size="sm" c="dimmed">
-          •
-        </Text>
-        <Flex align="center" gap={5} size="sm" c="dimmed">
-          <Icons.IconEye />
-          <Text size="sm">{news.views}</Text>
         </Flex>
-      </Flex>
-      <div style={{ display: "flex" }}>
-        <AspectRatio ratio={1920 / 500} style={{ flex: "0 0 100%" }} my={20}>
-          <Image src={news.newsImg} radius={16} />
-        </AspectRatio>
-      </div>
+        <div style={{ display: "flex" }}>
+          <AspectRatio ratio={1920 / 500} style={{ flex: "0 0 100%" }} my={20}>
+            <Image src={news.newsImg} radius={16} />
+          </AspectRatio>
+        </div>
 
-      <Text>{news.text}</Text>
-      <Flex gap="md" align="center" my="30px 20px">
-        <Like id={id} />
-      </Flex>
+        <Text>{news.text}</Text>
+        <Flex gap="md" align="center" my="30px 20px">
+          <Like id={id} />
+        </Flex>
 
-      <Divider id="comments" my="sm" />
+        <Divider id="comments" my="sm" />
 
-      {/*<Text fw={600} fz="lg" my={20}>
-        Комментарии • {news.comments.length}
-      </Text> 
+        {console.log(news.title)}
 
-      <CommentsForm id={id} />
+        <Text fw={600} fz="lg" my={20}>
+          Комментарии • {news.comments.length}
+        </Text>
 
-       <ShowComments comments={news.comments} /> 
+        <CommentsForm id={id} />
 
-      <Divider my="sm" />
+        <ShowComments comments={news.comments} />
 
-      <Text fw={600} fz="lg" my={20}>
-        Последние новости
-      </Text>*/}
+        <Divider my="sm" />
 
-      {/* <ShowLatestNews data={getLatest({ id })} /> */}
-    </Container>
-  );
+        <Text fw={600} fz="lg" my={20}>
+          Последние новости
+        </Text>
+
+        {/* <ShowLatestNews data={getLatest({ id })} /> */}
+      </Container>
+    );
+  }
 }
 
 export default NewsPage;

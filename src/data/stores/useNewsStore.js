@@ -17,7 +17,6 @@ const useNewsStore = create((set, get) => ({
     set({ loading: true });
     try {
       const data = await getPost({ id });
-      console.log(id);
       set({
         news: data,
         loading: false,
@@ -30,7 +29,6 @@ const useNewsStore = create((set, get) => ({
       set({ loading: false });
     }
   },
-
   clickLike: async (id) => {
     const newIsLiked = !get().isLiked;
     const action = newIsLiked ? "add" : "remove";
