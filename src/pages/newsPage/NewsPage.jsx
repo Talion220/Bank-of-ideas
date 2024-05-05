@@ -32,9 +32,6 @@ function NewsPage() {
     loading: state.loading,
     getData: state.getData,
     news: state.news,
-    likeCount: state.likeCount,
-    isLiked: state.isLiked,
-    clickLike: state.clickLike,
     getLatest: state.getLatest,
     // id: state.id,
   }));
@@ -147,7 +144,7 @@ function NewsPage() {
 
         <CommentsForm id={id} />
 
-        <ShowComments comments={news.comments} />
+        <ShowComments />
 
         <Divider my="sm" />
 
@@ -155,7 +152,7 @@ function NewsPage() {
           Последние новости
         </Text>
 
-        {/* <ShowLatestNews data={getLatest({ id })} /> */}
+        <ShowLatestNews id={id} />
       </Container>
     );
   }

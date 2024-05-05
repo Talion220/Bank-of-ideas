@@ -5,10 +5,14 @@ import { useState } from "react";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
 import { postComment } from "../../../api/news/news";
+import useNewsStore from "../../../data/stores/useNewsStore";
 
 const author = "Иванов Иван Иванович";
 
 function CommentsForm({ id }) {
+  const { getData } = useNewsStore((state) => ({
+    getData: state.getData,
+  }));
   const [text, setText] = useState("");
   return (
     <Flex gap="xs" pb={20}>
@@ -56,6 +60,7 @@ function CommentsForm({ id }) {
               onClick={() => {
                 const date = new Date().toISOString();
                 postComment({ id, avatar, author, text, date });
+                getData(id);
                 setText("");
               }}
             >

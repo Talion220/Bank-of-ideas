@@ -1,7 +1,12 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-import { getLatestNews, getPost, setLike } from "../../api/news/news";
+import {
+  getLatestNews,
+  getPost,
+  setLike,
+  postComment,
+} from "../../api/news/news";
 import { useParams } from "react-router-dom";
 
 const useNewsStore = create((set, get) => ({
@@ -9,6 +14,7 @@ const useNewsStore = create((set, get) => ({
   news: {},
   likeCount: 0,
   isLiked: false,
+  comments: [],
   // id: () => {
   //   const { id } = useParams();
   //   return id;
@@ -19,6 +25,7 @@ const useNewsStore = create((set, get) => ({
       const data = await getPost({ id });
       set({
         news: data,
+        comments: data.comments,
         loading: false,
         likeCount: data.likes,
         isLiked: data.isLiked,
@@ -40,6 +47,25 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
+  commUpd: () => {
+    const news = get().news;
+    set({ comments: news.comments });
+    console.log(news.comments);
+  },
+  // postComm: async (id) => {
+  //   const date = new Date().toISOString();
+  //   try {
+  //     postComment({
+  //       id,
+  //       avatar: get().news.avatar,
+  //       author: get().news.author,
+  //       text,
+  //       date,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // },
   getLatest: async (id) => {
     return await getLatestNews({ id });
   },

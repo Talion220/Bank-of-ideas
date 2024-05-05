@@ -42,9 +42,7 @@ const mockServerConfig = {
               response: (data, { request, setStatusCode }) => {
                 const id = request.query.id;
 
-                const currentDate = data.find(
-                  (item) => item.id === parseInt(id)
-                )?.date;
+                const currentDate = new Date();
 
                 const filteredNews = data
                   .filter(
@@ -136,7 +134,7 @@ const mockServerConfig = {
 
                 post.comments.push(newComment);
 
-                console.log(post);
+                return post.comments;
               },
             },
           },
