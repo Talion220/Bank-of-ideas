@@ -1,3 +1,6 @@
+# Bank of ideas
 ## Start project
-<p>npm run dev</p>
-<p>npm run watch</p>
+    npm i  
+    npm run dev    
+    npm run watch
+Open http://localhost:5173
