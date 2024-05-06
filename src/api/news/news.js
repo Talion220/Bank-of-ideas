@@ -4,6 +4,22 @@ const NEWS_URL = "http://localhost:31299/api/news";
 
 axios.defaults.baseURL = NEWS_URL;
 
+export const getPosts = async () => {
+  try {
+    const response = await axios.get("", {
+      // params: id,
+      headers: {
+        action: "getPosts",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
+
 export const getPost = async (id) => {
   try {
     const response = await axios.get("", {

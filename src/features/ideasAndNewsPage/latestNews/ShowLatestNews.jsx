@@ -12,7 +12,9 @@ const ShowLatestNews = ({ id }) => {
       setPost(res);
     });
   }, [id]);
-  console.log(id);
+
+  console.log(post.map((article) => article.id));
+
   return post.map((article) => (
     <LatestNews key={article.id} article={article} />
   ));

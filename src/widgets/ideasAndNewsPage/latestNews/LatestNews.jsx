@@ -13,6 +13,7 @@ import { Icons } from "../../../shared/images/Icons";
 import { NavLink } from "react-router-dom";
 import classes from "./LatestNews.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
+import Like from "../../../widgets/ideasAndNewsPage/like/Like";
 
 function LatestNews({ article }) {
   return (
@@ -71,24 +72,8 @@ function LatestNews({ article }) {
               <Text size="xs">{article.views}</Text>
             </Flex>
           </Group>
-
           <Group pt={15} gap="lg">
-            <Button
-              variant="light"
-              // c={liked ? "red" : "gray"}
-              radius="16"
-              color="blue"
-              onClick={() => {
-                // setLiked.toggle();
-              }}
-            >
-              <Center>
-                <Icons.IconLike />
-                <Text size="sm" className={classes.bodyText}>
-                  {article.likes}
-                </Text>
-              </Center>
-            </Button>
+            <Like id={article.id} />
             <Button
               variant="light"
               c="gray"

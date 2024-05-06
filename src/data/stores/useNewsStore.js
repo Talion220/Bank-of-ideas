@@ -6,19 +6,26 @@ import {
   getPost,
   setLike,
   postComment,
+  getPosts,
 } from "../../api/news/news";
 import { useParams } from "react-router-dom";
 
 const useNewsStore = create((set, get) => ({
   loading: false,
   news: {},
-  likeCount: 0,
-  isLiked: false,
   comments: [],
   // id: () => {
   //   const { id } = useParams();
   //   return id;
   // },
+  getAllNews: async () => {
+    try {
+      const data = await getPosts();
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  },
   getData: async (id) => {
     set({ loading: true });
     try {
@@ -36,7 +43,9 @@ const useNewsStore = create((set, get) => ({
       set({ loading: false });
     }
   },
-  clickLike: async (id) => {
+  likeCount: 0,
+  isLiked: false,
+  clickLike: (id) => {
     const newIsLiked = !get().isLiked;
     const action = newIsLiked ? "add" : "remove";
     try {
