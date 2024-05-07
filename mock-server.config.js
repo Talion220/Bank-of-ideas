@@ -166,6 +166,24 @@ const mockServerConfig = {
         routes: [
           {
             data: ideas,
+            entities: {
+              headers: { action: "getIdeas" },
+            },
+            data: news,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const getIdeas = data;
+                if (!getIdeas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+                return getIdeas;
+              },
+            },
           },
         ],
       },

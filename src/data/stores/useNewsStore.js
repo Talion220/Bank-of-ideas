@@ -21,6 +21,14 @@ const useNewsStore = create((set, get) => ({
   getAllNews: async () => {
     try {
       const data = await getPosts();
+      const updatedLikes = data.reduce((acc, post) => {
+        acc[post.id] = { isLiked: post.isLiked, count: post.likes };
+        return acc;
+      }, {});
+      set({
+        news: data,
+        likes: updatedLikes,
+      });
       return data;
     } catch (error) {
       console.error("Error:", error);
@@ -34,8 +42,10 @@ const useNewsStore = create((set, get) => ({
         news: data,
         comments: data.comments,
         loading: false,
-        likeCount: data.likes,
-        isLiked: data.isLiked,
+        likes: {
+          ...get().likes,
+          [id]: { isLiked: data.isLiked, count: data.likes },
+        },
       });
     } catch (error) {
       console.error("Error:", error);
@@ -43,14 +53,18 @@ const useNewsStore = create((set, get) => ({
       set({ loading: false });
     }
   },
-  likeCount: 0,
-  isLiked: false,
-  clickLike: (id) => {
-    const newIsLiked = !get().isLiked;
+  likes: {},
+  clickLike: async (id) => {
+    const newIsLiked = !get().likes[id]?.isLiked;
     const action = newIsLiked ? "add" : "remove";
     try {
       setLike({ id, action }).then((post) =>
-        set({ likeCount: post.likes, isLiked: newIsLiked })
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [id]: { isLiked: newIsLiked, count: post.likes },
+          },
+        }))
       );
     } catch (error) {
       console.error("Error:", error);

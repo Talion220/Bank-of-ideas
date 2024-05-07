@@ -271,6 +271,22 @@ function Search() {
                   ]}
                 />
                 <Select
+                  label="По филиалам"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  radius={16}
+                  data={[
+                    "Все",
+                    "Филиал 1",
+                    "Филиал 2",
+                    "Филиал 3",
+                    "Филиал 4",
+                    "Филиал 5",
+                    "Филиал 6",
+                  ]}
+                />
+                <Select
                   label="По просмотрам"
                   defaultValue="Все"
                   allowDeselect={false}
@@ -283,25 +299,12 @@ function Search() {
                   ]}
                 />
                 <Select
-                  label="По голосам"
+                  label="По лайкам"
                   defaultValue="Все"
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
-                  data={["Все", "Больше всего голосов", "Меньше всего голосов"]}
-                />
-                <Select
-                  label="По стадии"
-                  defaultValue="Все"
-                  allowDeselect={false}
-                  comboboxProps={{ withinPortal: false }}
-                  radius={16}
-                  data={[
-                    "Все",
-                    "Поданные идеи",
-                    "Одобренные идеи",
-                    "Внедренные идеи",
-                  ]}
+                  data={["Все", "Больше всего лайков", "Меньше всего лайков"]}
                 />
                 <Select
                   label="По статусу"
@@ -349,7 +352,7 @@ function Search() {
                 <Title fz="lg">Статус</Title>
               </Table.Th>
               <Table.Th>
-                <Title fz="lg">Голоса</Title>
+                <Title fz="lg">Лайки</Title>
               </Table.Th>
               <Table.Th>
                 <Title fz="lg">Комментарии</Title>

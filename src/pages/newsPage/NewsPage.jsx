@@ -36,9 +36,6 @@ function NewsPage() {
     // id: state.id,
   }));
 
-  // console.log(id);
-  // console.log(loading);
-
   useEffect(() => {
     getData(id);
   }, [id]);

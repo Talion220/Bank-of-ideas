@@ -1,13 +1,20 @@
 import { Button, Text, Flex } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import useNewsStore from "../../../data/stores/useNewsStore";
+import { Loader } from "@mantine/core";
 
 function Like({ id }) {
-  const { likeCount, isLiked, clickLike } = useNewsStore((state) => ({
-    likeCount: state.likeCount,
-    isLiked: state.isLiked,
+  const { likes, clickLike } = useNewsStore((state) => ({
+    likes: state.likes,
     clickLike: state.clickLike,
   }));
+
+  const isLiked = likes[id]?.isLiked || false;
+  const likeCount = likes[id]?.count || 0;
+
+  if (!isLiked && !likeCount) {
+    return <Loader />;
+  }
   return (
     <div>
       <Button
