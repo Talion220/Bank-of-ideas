@@ -26,7 +26,6 @@ const useNewsStore = create((set, get) => ({
         return acc;
       }, {});
       set({
-        news: data,
         likes: updatedLikes,
       });
       return data;
@@ -58,7 +57,7 @@ const useNewsStore = create((set, get) => ({
     const newIsLiked = !get().likes[id]?.isLiked;
     const action = newIsLiked ? "add" : "remove";
     try {
-      setLike({ id, action }).then((post) =>
+      await setLike({ id, action }).then((post) =>
         set((state) => ({
           likes: {
             ...state.likes,
@@ -73,7 +72,6 @@ const useNewsStore = create((set, get) => ({
   commUpd: () => {
     const news = get().news;
     set({ comments: news.comments });
-    console.log(news.comments);
   },
   // postComm: async (id) => {
   //   const date = new Date().toISOString();
@@ -90,7 +88,19 @@ const useNewsStore = create((set, get) => ({
   //   }
   // },
   getLatest: async (id) => {
-    return await getLatestNews({ id });
+    try {
+      const latestNews = await getLatestNews({ id });
+      const updatedLikes = latestNews.reduce((acc, post) => {
+        acc[post.id] = { isLiked: post.isLiked, count: post.likes };
+        return acc;
+      }, {});
+      set({
+        likes: updatedLikes,
+      });
+      return latestNews;
+    } catch (error) {
+      console.error("Error:", error);
+    }
   },
 }));
 
