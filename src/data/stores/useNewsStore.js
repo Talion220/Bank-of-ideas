@@ -58,14 +58,13 @@ const useNewsStore = create((set, get) => ({
     const newIsLiked = !get().likes[id]?.isLiked;
     const action = newIsLiked ? "add" : "remove";
     try {
-      await setLike({ id, action }).then((post) =>
-        set((state) => ({
-          likes: {
-            ...state.likes,
-            [id]: { isLiked: newIsLiked, count: post.likes },
-          },
-        }))
-      );
+      const data = await setLike({ id, action });
+      set((state) => ({
+        likes: {
+          ...state.likes,
+          [id]: { isLiked: newIsLiked, count: data.likes },
+        },
+      }));
     } catch (error) {
       console.error("Error:", error);
     }
