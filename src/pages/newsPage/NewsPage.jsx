@@ -28,11 +28,11 @@ import Like from "../../widgets/ideasAndNewsPage/like/Like";
 function NewsPage() {
   const { id } = useParams();
 
-  const { loading, getData, news, getLatest } = useNewsStore((state) => ({
+  const { loading, getData, news, likes } = useNewsStore((state) => ({
     loading: state.loading,
     getData: state.getData,
     news: state.news,
-    getLatest: state.getLatest,
+    likes: state.likes,
     // id: state.id,
   }));
 

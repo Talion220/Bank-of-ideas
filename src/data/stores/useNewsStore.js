@@ -14,6 +14,7 @@ const useNewsStore = create((set, get) => ({
   loading: false,
   news: {},
   comments: [],
+  likes: {},
   // id: () => {
   //   const { id } = useParams();
   //   return id;
@@ -21,12 +22,13 @@ const useNewsStore = create((set, get) => ({
   getAllNews: async () => {
     try {
       const data = await getPosts();
-      const updatedLikes = data.reduce((acc, post) => {
-        acc[post.id] = { isLiked: post.isLiked, count: post.likes };
-        return acc;
-      }, {});
-      set({
-        likes: updatedLikes,
+      data.forEach((post) => {
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [post.id]: { isLiked: post.isLiked, count: post.likes },
+          },
+        }));
       });
       return data;
     } catch (error) {
@@ -52,7 +54,6 @@ const useNewsStore = create((set, get) => ({
       set({ loading: false });
     }
   },
-  likes: {},
   clickLike: async (id) => {
     const newIsLiked = !get().likes[id]?.isLiked;
     const action = newIsLiked ? "add" : "remove";
@@ -90,12 +91,13 @@ const useNewsStore = create((set, get) => ({
   getLatest: async (id) => {
     try {
       const latestNews = await getLatestNews({ id });
-      const updatedLikes = latestNews.reduce((acc, post) => {
-        acc[post.id] = { isLiked: post.isLiked, count: post.likes };
-        return acc;
-      }, {});
-      set({
-        likes: updatedLikes,
+      latestNews.forEach((post) => {
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [post.id]: { isLiked: post.isLiked, count: post.likes },
+          },
+        }));
       });
       return latestNews;
     } catch (error) {
