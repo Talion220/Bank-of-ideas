@@ -242,7 +242,10 @@ function News() {
           total={Math.ceil(total / limit)}
           boundaries={3}
           defaultValue={currentPage}
-          onChange={setCurrentPage}
+          onChange={(page) => {
+            scrollToTop();
+            setCurrentPage(page);
+          }}
         />
       </Flex>
     </Container>
