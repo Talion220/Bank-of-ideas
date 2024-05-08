@@ -13,10 +13,10 @@ const useNewsStore = create((set, get) => ({
   //   const { id } = useParams();
   //   return id;
   // },
-  getAllNews: async () => {
+  getAllNews: async (page, limit) => {
     try {
-      const data = await getPosts();
-      data.forEach((post) => {
+      const data = await getPosts({ page, limit });
+      data.posts.forEach((post) => {
         set((state) => ({
           likes: {
             ...state.likes,

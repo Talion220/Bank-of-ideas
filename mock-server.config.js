@@ -18,7 +18,9 @@ const mockServerConfig = {
             data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const posts = data;
+                const { page, limit } = request.query;
+                const skip = (parseInt(page) - 1) * parseInt(limit);
+                const posts = data.slice(skip, skip + parseInt(limit));
                 if (!posts) {
                   setStatusCode(404);
                   return {
@@ -27,7 +29,11 @@ const mockServerConfig = {
                     message: "Новости не найдены",
                   };
                 }
-                return posts;
+                // console.log(posts);
+                return {
+                  total: data.length,
+                  posts: posts,
+                };
               },
             },
           },

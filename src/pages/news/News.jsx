@@ -25,23 +25,29 @@ import { Icons } from "../../shared/images/Icons";
 import useNewsStore from "../../data/stores/useNewsStore";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 
-function News(props) {
+function News() {
   const { getAllNews } = useNewsStore((state) => ({
     getAllNews: state.getAllNews,
   }));
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const limit = 10;
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getAllNews();
-        setData(res);
+        const res = await getAllNews(currentPage, limit);
+        setData(res.posts);
+        setTotal(res.total);
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     getData();
-  }, []);
+    console.log(currentPage);
+  }, [currentPage]);
 
   const [clear, setClear] = useState("");
 
@@ -226,12 +232,19 @@ function News(props) {
             </ActionIcon>
           </Flex>
         }
-        {...props}
       />
 
       <SimpleGrid mt={30} cols={{ base: 1, sm: 2 }}>
         {cards}
       </SimpleGrid>
+      <Flex justify="flex-start" mt={30}>
+        <Pagination
+          total={Math.ceil(total / limit)}
+          boundaries={3}
+          defaultValue={currentPage}
+          onChange={setCurrentPage}
+        />
+      </Flex>
     </Container>
   );
 }
