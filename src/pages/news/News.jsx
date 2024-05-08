@@ -18,6 +18,7 @@ import {
   Center,
   Divider,
   Button,
+  Pagination,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";

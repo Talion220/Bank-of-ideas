@@ -7,7 +7,6 @@ axios.defaults.baseURL = NEWS_URL;
 export const getPosts = async () => {
   try {
     const response = await axios.get("", {
-      // params: id,
       headers: {
         action: "getPosts",
       },

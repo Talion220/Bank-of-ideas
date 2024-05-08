@@ -59,8 +59,9 @@ function CommentsForm({ id }) {
               variant="filled"
               onClick={() => {
                 const date = new Date().toISOString();
-                postComment({ id, avatar, author, text, date });
-                getData(id);
+                postComment({ id, avatar, author, text, date }).then((res) =>
+                  getData(id)
+                );
                 setText("");
               }}
             >

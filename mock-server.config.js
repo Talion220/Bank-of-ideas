@@ -169,7 +169,6 @@ const mockServerConfig = {
             entities: {
               headers: { action: "getIdeas" },
             },
-            data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const getIdeas = data;

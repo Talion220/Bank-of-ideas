@@ -242,7 +242,7 @@ export const news = [
     title: "Post 8",
     text: "Lorem ipsum",
     likes: 16,
-    views: 47,
+    views: 48,
     newsImg:
       "https://images.unsplash.com/photo-1713560625744-46175f1b4a37?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
@@ -278,8 +278,8 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title: "Post 9",
     text: "Lorem ipsum",
-    likes: 16,
-    views: 47,
+    likes: 11,
+    views: 37,
     newsImg:
       "https://images.unsplash.com/photo-1714362444851-05da5fa55efe?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
@@ -315,8 +315,8 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title: "Post 10",
     text: "Lorem ipsum",
-    likes: 16,
-    views: 47,
+    likes: 22,
+    views: 41,
     newsImg:
       "https://images.unsplash.com/photo-1714362444974-72dedd0d3bfa?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
