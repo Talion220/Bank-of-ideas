@@ -4,11 +4,16 @@ const NEWS_URL = "http://localhost:31299/api/news";
 
 axios.defaults.baseURL = NEWS_URL;
 
-export const getPosts = async ({ page, limit }) => {
+export const getPosts = async ({ page, limit, inputValue }) => {
   try {
-    const response = await axios.get(`?page=${page}&limit=${limit}`, {
+    const response = await axios.get("", {
       headers: {
         action: "getPosts",
+      },
+      params: {
+        page,
+        limit,
+        inputValue,
       },
     });
     const res = response.data;

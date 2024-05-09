@@ -5,6 +5,7 @@ import {
   Container,
   Title,
   TextInput,
+  Autocomplete,
   ActionIcon,
   Flex,
   Anchor,
@@ -30,6 +31,8 @@ function News() {
     getAllNews: state.getAllNews,
   }));
 
+  const [inputValue, setInputValue] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
   const [total, setTotal] = useState(0);
   const limit = 10;
@@ -37,7 +40,7 @@ function News() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getAllNews(currentPage, limit);
+        const res = await getAllNews(currentPage, limit, inputValue);
         setData(res.posts);
         setTotal(res.total);
       } catch (error) {
@@ -47,9 +50,7 @@ function News() {
 
     getData();
     console.log(currentPage);
-  }, [currentPage]);
-
-  const [clear, setClear] = useState("");
+  }, [currentPage, inputValue]);
 
   const cards = data.map((article) => (
     <Card key={article.id} m={0} p="md" radius={16} className={classes.card}>
@@ -211,23 +212,43 @@ function News() {
         radius="xl"
         size="xl"
         placeholder="Искать новости..."
-        rightSectionWidth={clear ? 102 : 60}
+        rightSectionWidth={inputValue ? 102 : 60}
         leftSection={<Icons.IconSearch />}
-        value={clear}
+        value={inputValue}
         rightSectionPointerEvents="all"
-        onChange={(event) => setClear(event.currentTarget.value)}
+        onChange={(event) => setInputValue(event.currentTarget.value)}
         rightSection={
           <Flex>
             <ActionIcon
               size={42}
               color="gray"
               variant="transparent"
-              onClick={() => setClear("")}
-              style={{ display: clear ? undefined : "none" }}
+              onClick={() => setInputValue("")}
+              style={{ display: inputValue ? undefined : "none" }}
             >
               <Icons.CloseButton />
             </ActionIcon>
-            <ActionIcon size={42} radius="xl" variant="filled">
+            <ActionIcon
+              size={42}
+              radius="xl"
+              variant="filled"
+              onClick={() => {
+                const getData = async () => {
+                  try {
+                    const res = await getAllNews(
+                      currentPage,
+                      limit,
+                      inputValue
+                    );
+                    setData(res.posts);
+                    setTotal(res.total);
+                  } catch (error) {
+                    console.error("Error:", error);
+                  }
+                };
+                getData();
+              }}
+            >
               <Icons.IconArrowRight />
             </ActionIcon>
           </Flex>

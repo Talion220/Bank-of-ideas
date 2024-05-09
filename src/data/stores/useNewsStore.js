@@ -13,9 +13,9 @@ const useNewsStore = create((set, get) => ({
   //   const { id } = useParams();
   //   return id;
   // },
-  getAllNews: async (page, limit) => {
+  getAllNews: async (page, limit, inputValue) => {
     try {
-      const data = await getPosts({ page, limit });
+      const data = await getPosts({ page, limit, inputValue });
       data.posts.forEach((post) => {
         set((state) => ({
           likes: {
