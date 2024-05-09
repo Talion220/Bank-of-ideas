@@ -21,13 +21,18 @@ const mockServerConfig = {
                 const { page, limit, inputValue } = request.query;
                 let posts;
                 let totalPosts;
+                const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
                   console.log(inputValue);
-                  posts = [];
-                  totalPosts = 0;
+                  const searchData = data.filter((index) => {
+                    return index.title
+                      .toLowerCase()
+                      .includes(inputValue.toLowerCase());
+                  });
+                  posts = searchData.slice(skip, skip + parseInt(limit));
+                  totalPosts = searchData.length;
                 } else {
                   totalPosts = data.length;
-                  const skip = (parseInt(page) - 1) * parseInt(limit);
                   posts = data.slice(skip, skip + parseInt(limit));
                 }
 
