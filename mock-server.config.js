@@ -23,11 +23,10 @@ const mockServerConfig = {
                 let totalPosts;
                 const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
-                  console.log(inputValue);
                   const searchData = data.filter((index) => {
                     return index.title
                       .toLowerCase()
-                      .includes(inputValue.toLowerCase());
+                      .includes(inputValue.trim().toLowerCase());
                   });
                   posts = searchData.slice(skip, skip + parseInt(limit));
                   totalPosts = searchData.length;
@@ -47,6 +46,7 @@ const mockServerConfig = {
                 return {
                   total: totalPosts,
                   posts: posts,
+                  value: inputValue,
                 };
               },
             },

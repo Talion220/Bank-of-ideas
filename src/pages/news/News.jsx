@@ -37,19 +37,26 @@ function News() {
   const [total, setTotal] = useState(0);
   const limit = 10;
   const [data, setData] = useState([]);
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await getAllNews(currentPage, limit, inputValue);
-        setData(res.posts);
-        setTotal(res.total);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+  const [inputQueryValue, setInputQueryValue] = useState("");
 
+  const getData = async () => {
+    try {
+      const res = await getAllNews(currentPage, limit, inputValue);
+      setData(res.posts);
+      setTotal(res.total);
+      console.log(total);
+      console.log(currentPage * limit);
+      if (inputQueryValue !== inputValue) {
+        setCurrentPage(1);
+      }
+      setInputQueryValue(inputValue);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
     getData();
-    console.log(currentPage);
   }, [currentPage, inputValue]);
 
   const cards = data.map((article) => (
@@ -233,19 +240,6 @@ function News() {
               radius="xl"
               variant="filled"
               onClick={() => {
-                const getData = async () => {
-                  try {
-                    const res = await getAllNews(
-                      currentPage,
-                      limit,
-                      inputValue
-                    );
-                    setData(res.posts);
-                    setTotal(res.total);
-                  } catch (error) {
-                    console.error("Error:", error);
-                  }
-                };
                 getData();
               }}
             >
@@ -262,7 +256,8 @@ function News() {
         <Pagination
           total={Math.ceil(total / limit)}
           boundaries={3}
-          defaultValue={currentPage}
+          defaultValue={1}
+          value={currentPage}
           onChange={(page) => {
             scrollToTop();
             setCurrentPage(page);
