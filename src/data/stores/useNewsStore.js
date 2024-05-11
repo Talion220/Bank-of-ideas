@@ -63,9 +63,9 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  getLatest: async (id) => {
+  getLatest: async (id, count) => {
     try {
-      const latestNews = await getLatestNews({ id });
+      const latestNews = await getLatestNews({ id, count });
       latestNews.forEach((post) => {
         set((state) => ({
           likes: {

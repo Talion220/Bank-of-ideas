@@ -80,7 +80,7 @@ const mockServerConfig = {
             data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const id = request.query.id;
+                const { id, count } = request.query;
 
                 const currentDate = new Date();
 
@@ -91,7 +91,7 @@ const mockServerConfig = {
                       data.filter((n) => n.date > currentDate).length > 1
                   )
                   .sort((a, b) => new Date(b.date) - new Date(a.date))
-                  .slice(0, 3);
+                  .slice(0, count);
 
                 if (!filteredNews) {
                   setStatusCode(404);

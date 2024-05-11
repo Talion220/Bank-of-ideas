@@ -149,7 +149,7 @@ function NewsPage() {
           Последние новости
         </Text>
 
-        <ShowLatestNews id={id} />
+        <ShowLatestNews id={id} from={"newsPage"} count={3} />
       </Container>
     );
   }

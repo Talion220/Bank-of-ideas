@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import LatestNews from "../../../widgets/ideasAndNewsPage/latestNews/LatestNews";
 import useNewsStore from "../../../data/stores/useNewsStore";
+import HomeLatestNews from "../../../widgets/homeLarestNews/HomeLatestNews";
 
-const ShowLatestNews = ({ id }) => {
+const ShowLatestNews = ({ id, from, count }) => {
   const { getLatest } = useNewsStore((state) => ({
     getLatest: state.getLatest,
   }));
   const [post, setPost] = useState([]);
   useEffect(() => {
-    getLatest(id).then((res) => {
+    getLatest(id, count).then((res) => {
       setPost(res);
     });
   }, [id]);
-
-  return post.map((article) => (
-    <LatestNews key={article.id} article={article} />
-  ));
+  if (from === "newsPage") {
+    return post.map((article) => (
+      <LatestNews key={article.id} article={article} />
+    ));
+  } else if (from === "homePage") {
+    return post.map((article) => (
+      <HomeLatestNews key={article.id} article={article} />
+    ));
+  }
 };
 
 export default ShowLatestNews;

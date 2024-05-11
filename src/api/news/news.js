@@ -80,18 +80,14 @@ export const postComment = async ({ id, avatar, author, text, date }) => {
   }
 };
 
-export const getLatestNews = async (id) => {
+export const getLatestNews = async ({ id, count }) => {
   try {
-    const response = await axios.get(
-      "",
-      {
-        params: id,
-        headers: {
-          action: "getLatestNews",
-        },
+    const response = await axios.get("", {
+      params: { id, count },
+      headers: {
+        action: "getLatestNews",
       },
-      {}
-    );
+    });
     const res = response.data;
     return res;
   } catch (error) {
