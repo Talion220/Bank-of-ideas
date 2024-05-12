@@ -37,7 +37,7 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  getData: async (id) => {
+  getNewsPage: async (id) => {
     set({ loading: true });
     try {
       const data = await getPost({ id });

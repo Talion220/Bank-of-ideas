@@ -28,11 +28,11 @@ import { useShallow } from "zustand/react/shallow";
 function NewsPage() {
   const { id } = useParams();
 
-  const { loading, getData, news, commentsLength, idNews, getId } =
+  const { loading, getNewsPage, news, commentsLength, idNews, getId } =
     useNewsStore(
       useShallow((state) => ({
         loading: state.loading,
-        getData: state.getData,
+        getNewsPage: state.getNewsPage,
         news: state.news,
         commentsLength: state.commentsLength,
         // idNews: state.idNews,
@@ -43,7 +43,7 @@ function NewsPage() {
   useEffect(() => {
     // getId(id);
     // console.log(idNews);
-    getData(id);
+    getNewsPage(id);
   }, [id]);
 
   useEffect(() => {
