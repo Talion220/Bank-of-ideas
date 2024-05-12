@@ -20,9 +20,14 @@ function HomeLatestNews({ article }) {
         <AspectRatio ratio={16 / 9} style={{ width: "100px" }}>
           <Image src={article.newsImg} radius="md" />
         </AspectRatio>
-        <Text ml={15} fw={500} fz="md">
-          {article.title}
-        </Text>
+        <Flex direction="column">
+          <Text ml={15} fw={500} fz="md">
+            {article.title}
+          </Text>
+          <Text ml={15} size="sm" c="dimmed">
+            {article.date}
+          </Text>
+        </Flex>
       </Flex>
     </Anchor>
   );

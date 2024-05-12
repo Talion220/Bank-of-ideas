@@ -55,12 +55,12 @@ export const setLike = async ({ id, action }) => {
   }
 };
 
-export const getComments = async (id) => {
+export const getLatestComments = async (id) => {
   try {
     const response = await axios.get("", {
       params: id,
       headers: {
-        action: "getComments",
+        action: "getLatestComments",
       },
     });
     const res = response.data;
