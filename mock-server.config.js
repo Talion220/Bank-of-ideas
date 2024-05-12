@@ -177,7 +177,6 @@ const mockServerConfig = {
                 const { id, avatar, author, text, date } = request.body;
 
                 const post = data.find((item) => item.id === parseInt(id));
-                console.log(post);
 
                 if (!post) {
                   setStatusCode(404);

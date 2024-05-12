@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import LatestNews from "../../../widgets/ideasAndNewsPage/latestNews/LatestNews";
 import useNewsStore from "../../../data/stores/useNewsStore";
-import HomeLatestNews from "../../../widgets/homeLarestNews/HomeLatestNews";
+import HomeLatestNews from "../../../widgets/homeLatestNews/HomeLatestNews";
 import { useShallow } from "zustand/react/shallow";
 
 const ShowLatestNews = ({ id, from, count }) => {
