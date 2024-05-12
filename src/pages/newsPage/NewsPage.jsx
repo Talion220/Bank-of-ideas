@@ -28,10 +28,10 @@ import { useShallow } from "zustand/react/shallow";
 function NewsPage() {
   const { id } = useParams();
 
-  const { loading, getNewsPage, news, commentsLength, idNews, getId } =
+  const { NewsPageLoading, getNewsPage, news, commentsLength, idNews, getId } =
     useNewsStore(
       useShallow((state) => ({
-        loading: state.loading,
+        NewsPageLoading: state.NewsPageLoading,
         getNewsPage: state.getNewsPage,
         news: state.news,
         commentsLength: state.commentsLength,
@@ -52,9 +52,9 @@ function NewsPage() {
     if (fromLink === "true") {
       scrollToAnchor("comments");
     }
-  }, [id, loading]);
+  }, [id, NewsPageLoading]);
 
-  if (loading || news === undefined || Object.keys(news).length === 0) {
+  if (NewsPageLoading || news === undefined || Object.keys(news).length === 0) {
     return (
       <Container size="xl" mt={40}>
         <Skeleton height={44} radius={16} />

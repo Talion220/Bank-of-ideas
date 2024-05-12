@@ -10,11 +10,13 @@ import {
 } from "../../api/news/news";
 
 const useNewsStore = create((set, get) => ({
-  loading: false,
+  NewsPageLoading: false,
+  AllNewsLoading: false,
   news: {},
   comments: [],
   commentsLength: 0,
   likes: {},
+  allNewsData: [],
   // idNews: null,
   // getId: (id) => {
   //   set({
@@ -22,6 +24,7 @@ const useNewsStore = create((set, get) => ({
   //   });
   // },
   getAllNews: async (page, limit, inputValue) => {
+    set({ AllNewsLoading: true });
     try {
       const data = await getPosts({ page, limit, inputValue });
       data.posts.forEach((post) => {
@@ -31,21 +34,28 @@ const useNewsStore = create((set, get) => ({
             [post.id]: { isLiked: post.isLiked, count: post.likes },
           },
         }));
+        set({
+          allNewsData: data.posts,
+          AllNewsLoading: false,
+        });
+        console.log(get().allNewsData);
       });
       return data;
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      set({ AllNewsLoading: false });
     }
   },
   getNewsPage: async (id) => {
-    set({ loading: true });
+    set({ NewsPageLoading: true });
     try {
       const data = await getPost({ id });
       set({
         news: data,
         comments: data.comments,
         commentsLength: data.comments.length,
-        loading: false,
+        NewsPageLoading: false,
         likes: {
           ...get().likes,
           [id]: { isLiked: data.isLiked, count: data.likes },
@@ -54,7 +64,7 @@ const useNewsStore = create((set, get) => ({
     } catch (error) {
       console.error("Error:", error);
     } finally {
-      set({ loading: false });
+      set({ NewsPageLoading: false });
     }
   },
   clickLike: async (id) => {
