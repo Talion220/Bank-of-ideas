@@ -85,29 +85,26 @@ function News() {
         }
       />
 
-      {AllNewsLoading ||
-      allNewsData == [] ||
-      Object.keys(allNewsData).length === 0 ||
-      total === 0 ? (
+      {AllNewsLoading ? (
         <Container size="xl" mt={40}>
-          {total === 0 ? (
-            <Text mt={200} c="dimmed" v align="center" size="xl">
-              Новости не найдены...
-            </Text>
-          ) : (
-            <SimpleGrid mt={30} cols={{ base: 1, sm: 2 }}>
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-              <Skeleton h={605} maw={604} radius={16} />
-            </SimpleGrid>
-          )}
+          <SimpleGrid mt={30} cols={{ base: 1, sm: 2 }}>
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+            <Skeleton h={605} maw={604} radius={16} />
+          </SimpleGrid>
+        </Container>
+      ) : total === 0 ? (
+        <Container size="xl" mt={40}>
+          <Text mt={200} c="dimmed" v align="center" size="xl">
+            Новости не найдены...
+          </Text>
         </Container>
       ) : (
         <>

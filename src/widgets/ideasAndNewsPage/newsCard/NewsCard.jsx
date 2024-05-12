@@ -12,7 +12,6 @@ import {
   Text,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-
 import classes from "./news.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import Like from "../like/Like";
