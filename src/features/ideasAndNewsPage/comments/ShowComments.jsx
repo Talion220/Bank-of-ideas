@@ -8,6 +8,8 @@ export default function ShowComments() {
     comments: state.comments,
   }));
 
+  console.log("comments");
+
   if (comments.length === 0) {
     return (
       <Text m="120px 0 140px" ta="center" size="md">

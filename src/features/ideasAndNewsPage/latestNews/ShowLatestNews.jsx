@@ -7,6 +7,7 @@ const ShowLatestNews = ({ id, from, count }) => {
   const { getLatest } = useNewsStore((state) => ({
     getLatest: state.getLatest,
   }));
+  console.log("latest");
   const [post, setPost] = useState([]);
   useEffect(() => {
     getLatest(id, count).then((res) => {

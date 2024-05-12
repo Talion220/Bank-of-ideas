@@ -28,13 +28,16 @@ import Like from "../../widgets/ideasAndNewsPage/like/Like";
 function NewsPage() {
   const { id } = useParams();
 
-  const { loading, getData, news, likes } = useNewsStore((state) => ({
-    loading: state.loading,
-    getData: state.getData,
-    news: state.news,
-    likes: state.likes,
-    // id: state.id,
-  }));
+  const { loading, getData, news, commentsLength, likes } = useNewsStore(
+    (state) => ({
+      loading: state.loading,
+      getData: state.getData,
+      news: state.news,
+      commentsLength: state.commentsLength,
+      likes: state.likes,
+      // id: state.id,
+    })
+  );
 
   useEffect(() => {
     getData(id);
@@ -133,10 +136,10 @@ function NewsPage() {
 
         <Divider id="comments" my="sm" />
 
-        {console.log(news.title)}
+        {console.log("news")}
 
         <Text fw={600} fz="lg" my={20}>
-          Комментарии • {news.comments.length}
+          Комментарии • {commentsLength}
         </Text>
 
         <CommentsForm id={id} />

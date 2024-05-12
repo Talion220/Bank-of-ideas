@@ -10,8 +10,8 @@ import useNewsStore from "../../../data/stores/useNewsStore";
 const author = "Иванов Иван Иванович";
 
 function CommentsForm({ id }) {
-  const { getData } = useNewsStore((state) => ({
-    getData: state.getData,
+  const { getComms } = useNewsStore((state) => ({
+    getComms: state.getComms,
   }));
   const [text, setText] = useState("");
   return (
@@ -60,7 +60,7 @@ function CommentsForm({ id }) {
               onClick={() => {
                 const date = new Date().toISOString();
                 postComment({ id, avatar, author, text, date }).then((res) =>
-                  getData(id)
+                  getComms(id)
                 );
                 setText("");
               }}
