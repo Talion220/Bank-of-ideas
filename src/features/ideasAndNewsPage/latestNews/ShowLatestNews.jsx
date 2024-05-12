@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import LatestNews from "../../../widgets/ideasAndNewsPage/latestNews/LatestNews";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import HomeLatestNews from "../../../widgets/homeLarestNews/HomeLatestNews";
+import { useShallow } from "zustand/react/shallow";
 
 const ShowLatestNews = ({ id, from, count }) => {
-  const { getLatest } = useNewsStore((state) => ({
-    getLatest: state.getLatest,
-  }));
+  const { getLatest } = useNewsStore(
+    useShallow((state) => ({
+      getLatest: state.getLatest,
+    }))
+  );
   console.log("latest");
   const [post, setPost] = useState([]);
   useEffect(() => {

@@ -2,11 +2,14 @@ import Comments from "../../../widgets/ideasAndNewsPage/comments/Comments";
 import { Text } from "@mantine/core";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { useEffect } from "react";
+import { useShallow } from "zustand/react/shallow";
 
 export default function ShowComments() {
-  const { comments } = useNewsStore((state) => ({
-    comments: state.comments,
-  }));
+  const { comments } = useNewsStore(
+    useShallow((state) => ({
+      comments: state.comments,
+    }))
+  );
 
   console.log("comments");
 

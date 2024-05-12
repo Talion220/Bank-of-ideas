@@ -73,30 +73,29 @@ const mockServerConfig = {
               },
             },
           },
-          {
-            entities: {
-              headers: { action: "getComments" },
-            },
-            data: news,
-            interceptors: {
-              response: (data, { request, setStatusCode }) => {
-                const id = request.query.id;
+          // {
+          //   entities: {
+          //     headers: { action: "getComments" },
+          //   },
+          //   data: news,
+          //   interceptors: {
+          //     response: (data, { request, setStatusCode }) => {
+          //       const id = request.query.id;
 
-                const post = data.find((item) => item.id === parseInt(id));
-                const comments = post.comments;
-                console.log(comments);
-                if (!post) {
-                  setStatusCode(404);
-                  return {
-                    code: 404,
-                    success: false,
-                    message: "Пост не найден",
-                  };
-                }
-                return comments;
-              },
-            },
-          },
+          //       const post = data.find((item) => item.id === parseInt(id));
+          //       const comments = post.comments;
+          //       if (!post) {
+          //         setStatusCode(404);
+          //         return {
+          //           code: 404,
+          //           success: false,
+          //           message: "Пост не найден",
+          //         };
+          //       }
+          //       return comments;
+          //     },
+          //   },
+          // },
           {
             entities: {
               headers: { action: "getLatestNews" },
@@ -178,6 +177,7 @@ const mockServerConfig = {
                 const { id, avatar, author, text, date } = request.body;
 
                 const post = data.find((item) => item.id === parseInt(id));
+                console.log(post);
 
                 if (!post) {
                   setStatusCode(404);

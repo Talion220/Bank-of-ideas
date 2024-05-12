@@ -6,9 +6,8 @@ import {
   getPost,
   setLike,
   getPosts,
-  getComments,
+  postComment,
 } from "../../api/news/news";
-import { useParams } from "react-router-dom";
 
 const useNewsStore = create((set, get) => ({
   loading: false,
@@ -16,9 +15,11 @@ const useNewsStore = create((set, get) => ({
   comments: [],
   commentsLength: 0,
   likes: {},
-  // id: () => {
-  //   const { id } = useParams();
-  //   return id;
+  // idNews: null,
+  // getId: (id) => {
+  //   set({
+  //     idNews: id,
+  //   });
   // },
   getAllNews: async (page, limit, inputValue) => {
     try {
@@ -71,9 +72,21 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  getComms: async (id) => {
+  // getComms: async (id) => {
+  //   try {
+  //     const data = await getComments({ id });
+  //     set({
+  //       comments: data,
+  //       commentsLength: data.length,
+  //     });
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // },
+  postComm: async (id, avatar, author, text, date) => {
     try {
-      const data = await getComments({ id });
+      const data = await postComment({ id, avatar, author, text, date });
       set({
         comments: data,
         commentsLength: data.length,

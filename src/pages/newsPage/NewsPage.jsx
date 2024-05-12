@@ -1,6 +1,5 @@
 import { Icons } from "../../shared/images/Icons";
 import { useParams, NavLink } from "react-router-dom";
-import { shallow } from "zustand/shallow";
 import { useEffect, useState } from "react";
 import {
   Title,
@@ -24,22 +23,26 @@ import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import useNewsStore from "../../data/stores/useNewsStore";
 import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
+import { useShallow } from "zustand/react/shallow";
 
 function NewsPage() {
   const { id } = useParams();
 
-  const { loading, getData, news, commentsLength, likes } = useNewsStore(
-    (state) => ({
-      loading: state.loading,
-      getData: state.getData,
-      news: state.news,
-      commentsLength: state.commentsLength,
-      likes: state.likes,
-      // id: state.id,
-    })
-  );
+  const { loading, getData, news, commentsLength, idNews, getId } =
+    useNewsStore(
+      useShallow((state) => ({
+        loading: state.loading,
+        getData: state.getData,
+        news: state.news,
+        commentsLength: state.commentsLength,
+        // idNews: state.idNews,
+        // getId: state.getId,
+      }))
+    );
 
   useEffect(() => {
+    // getId(id);
+    // console.log(idNews);
     getData(id);
   }, [id]);
 
