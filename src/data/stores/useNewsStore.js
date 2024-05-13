@@ -17,16 +17,22 @@ const useNewsStore = create((set, get) => ({
   commentsLength: 0,
   likes: {},
   allNewsData: [],
+  totalPosts: 0,
+  limitPosts: 10,
   // idNews: null,
   // getId: (id) => {
   //   set({
   //     idNews: id,
   //   });
   // },
-  getAllNews: async (page, limit, inputValue) => {
+  getAllNews: async (page, inputValue) => {
     set({ AllNewsLoading: true });
     try {
-      const data = await getPosts({ page, limit, inputValue });
+      const data = await getPosts({
+        page,
+        limit: get().limitPosts,
+        inputValue,
+      });
       data.posts.forEach((post) => {
         set((state) => ({
           likes: {
@@ -34,12 +40,14 @@ const useNewsStore = create((set, get) => ({
             [post.id]: { isLiked: post.isLiked, count: post.likes },
           },
         }));
-        set({
-          allNewsData: data.posts,
-          AllNewsLoading: false,
-        });
-        console.log(get().allNewsData);
       });
+      set({
+        allNewsData: data.posts,
+        totalPosts: data.total,
+        AllNewsLoading: false,
+      });
+
+      console.log(get().allNewsData);
       return data;
     } catch (error) {
       console.error("Error:", error);

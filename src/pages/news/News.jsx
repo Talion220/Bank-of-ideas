@@ -16,25 +16,22 @@ import useNewsStore from "../../data/stores/useNewsStore";
 import ShowNews from "../../features/news/ShowNews";
 
 function News() {
-  const { getAllNews, AllNewsLoading, allNewsData } = useNewsStore((state) => ({
-    getAllNews: state.getAllNews,
-    AllNewsLoading: state.AllNewsLoading,
-    allNewsData: state.allNewsData,
-  }));
+  const { getAllNews, AllNewsLoading, limitPosts, allNewsData, totalPosts } =
+    useNewsStore((state) => ({
+      getAllNews: state.getAllNews,
+      AllNewsLoading: state.AllNewsLoading,
+      allNewsData: state.allNewsData,
+      totalPosts: state.totalPosts,
+      limitPosts: state.limitPosts,
+    }));
 
   const [inputValue, setInputValue] = useState("");
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const limit = 10;
   const [inputQueryValue, setInputQueryValue] = useState("");
 
   const getData = async () => {
     try {
-      const res = await getAllNews(currentPage, limit, inputValue);
-      setTotal(res.total);
-      // console.log(total);
-      // console.log(currentPage * limit);
+      await getAllNews(currentPage, inputValue);
       if (inputQueryValue !== inputValue) {
         setCurrentPage(1);
       }
@@ -100,9 +97,9 @@ function News() {
             <Skeleton h={605} maw={604} radius={16} />
           </SimpleGrid>
         </Container>
-      ) : total === 0 ? (
+      ) : totalPosts === 0 ? (
         <Container size="xl" mt={40}>
-          <Text mt={200} c="dimmed" v align="center" size="xl">
+          <Text mt={200} c="dimmed" align="center" size="xl">
             Новости не найдены...
           </Text>
         </Container>
@@ -113,7 +110,7 @@ function News() {
           </SimpleGrid>
           <Flex justify="flex-start" mt={30}>
             <Pagination
-              total={Math.ceil(total / limit)}
+              total={Math.ceil(totalPosts / limitPosts)}
               boundaries={3}
               defaultValue={1}
               value={currentPage}
