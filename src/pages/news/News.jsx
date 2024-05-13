@@ -26,16 +26,16 @@ function News() {
     }));
 
   const [inputValue, setInputValue] = useState("");
+  const [inputPrevValue, setInputPrevValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [inputQueryValue, setInputQueryValue] = useState("");
 
   const getData = async () => {
     try {
       await getAllNews(currentPage, inputValue);
-      if (inputQueryValue !== inputValue) {
+      if (inputPrevValue !== inputValue) {
         setCurrentPage(1);
       }
-      setInputQueryValue(inputValue);
+      setInputPrevValue(inputValue);
     } catch (error) {
       console.error("Error:", error);
     }
