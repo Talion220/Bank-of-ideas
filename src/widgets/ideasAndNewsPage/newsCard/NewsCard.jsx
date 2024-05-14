@@ -16,9 +16,9 @@ import classes from "./news.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import Like from "../like/Like";
 import { Icons } from "../../../shared/images/Icons";
-import NewsComments from "./comments/NewsComments";
+import ShowNewsCardComments from "../../../features/news/showNewsCardComments/ShowNewsCardComments";
 
-function NewsCard({ article }) {
+function NewsCard({ article, index }) {
   return (
     <Card m={0} p="md" radius={16} className={classes.card}>
       <AspectRatio
@@ -100,7 +100,7 @@ function NewsCard({ article }) {
 
       <Divider mt="sm" />
 
-      <NewsComments article={article} />
+      <ShowNewsCardComments id={index} />
     </Card>
   );
 }

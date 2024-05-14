@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { Icons } from "../../shared/images/Icons";
 import useNewsStore from "../../data/stores/useNewsStore";
-import ShowNews from "../../features/news/ShowNews";
+import ShowNews from "../../features/news/showNews/ShowNews";
 
 function News() {
   const { getAllNews, AllNewsLoading, limitPosts, allNewsData, totalPosts } =

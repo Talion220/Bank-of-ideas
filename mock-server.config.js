@@ -21,6 +21,7 @@ const mockServerConfig = {
                 const { page, limit, inputValue } = request.query;
                 let posts;
                 let totalPosts;
+                let comments;
                 const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
                   const searchData = data.filter((index) => {
@@ -30,9 +31,18 @@ const mockServerConfig = {
                   });
                   posts = searchData.slice(skip, skip + parseInt(limit));
                   totalPosts = searchData.length;
+
+                  comments = posts.map((post) => {
+                    const lastTwoComments = post.comments.slice(-2);
+                    return lastTwoComments;
+                  });
                 } else {
                   totalPosts = data.length;
                   posts = data.slice(skip, skip + parseInt(limit));
+                  comments = posts.map((post) => {
+                    const lastTwoComments = post.comments.slice(-2);
+                    return lastTwoComments;
+                  });
                 }
 
                 if (!posts) {
@@ -47,6 +57,7 @@ const mockServerConfig = {
                   total: totalPosts,
                   posts: posts,
                   value: inputValue,
+                  comments: comments,
                 };
               },
             },
@@ -75,7 +86,7 @@ const mockServerConfig = {
           },
           // {
           //   entities: {
-          //     headers: { action: "getComments" },
+          //     headers: { action: "getLatestComments" },
           //   },
           //   data: news,
           //   interceptors: {

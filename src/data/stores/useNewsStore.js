@@ -19,6 +19,7 @@ const useNewsStore = create((set, get) => ({
   allNewsData: [],
   totalPosts: 0,
   limitPosts: 10,
+  latestCommentsNewsCard: [],
   // idNews: null,
   // getId: (id) => {
   //   set({
@@ -44,6 +45,7 @@ const useNewsStore = create((set, get) => ({
       set({
         allNewsData: data.posts,
         totalPosts: data.total,
+        latestCommentsNewsCard: data.comments,
         AllNewsLoading: false,
       });
 
@@ -90,18 +92,6 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  // getComms: async (id) => {
-  //   try {
-  //     const data = await getComments({ id });
-  //     set({
-  //       comments: data,
-  //       commentsLength: data.length,
-  //     });
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // },
   postComm: async (id, avatar, author, text, date) => {
     try {
       const data = await postComment({ id, avatar, author, text, date });

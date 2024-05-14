@@ -55,22 +55,6 @@ export const setLike = async ({ id, action }) => {
   }
 };
 
-export const getLatestComments = async (id) => {
-  try {
-    const response = await axios.get("", {
-      params: id,
-      headers: {
-        action: "getLatestComments",
-      },
-    });
-    const res = response.data;
-    return res;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
-};
-
 export const postComment = async ({ id, avatar, author, text, date }) => {
   try {
     const response = await axios.post(
