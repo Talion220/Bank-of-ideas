@@ -7,10 +7,6 @@ export default function ShowNewsCardComments({ id }) {
     latestCommentsNewsCard: state.latestCommentsNewsCard,
   }));
 
-  console.log(id);
-  console.log(latestCommentsNewsCard);
-  console.log(latestCommentsNewsCard[id]);
-
   if (latestCommentsNewsCard[id].length === 0) {
     return (
       <Center my={58}>

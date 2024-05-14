@@ -134,7 +134,7 @@ function NewsPage() {
 
         <Text>{news.text}</Text>
         <Flex gap="md" align="center" my="30px 20px">
-          <Like id={id} />
+          <Like id={id} from={"news"} />
         </Flex>
 
         <Divider id="comments" my="sm" />

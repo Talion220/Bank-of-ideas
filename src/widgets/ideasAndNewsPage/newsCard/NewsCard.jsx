@@ -77,7 +77,7 @@ function NewsCard({ article, index }) {
       </Flex>
 
       <Group mt={10} gap="lg">
-        <Like id={article.id} />
+        <Like id={article.id} from={"news"} />
         <Center>
           <Button
             variant="light"

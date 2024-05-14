@@ -2,11 +2,9 @@ import axios from "axios";
 
 const NEWS_URL = "http://localhost:31299/api/news";
 
-axios.defaults.baseURL = NEWS_URL;
-
 export const getPosts = async ({ page, limit, inputValue }) => {
   try {
-    const response = await axios.get("", {
+    const response = await axios.get(NEWS_URL, {
       headers: {
         action: "getPosts",
       },
@@ -27,7 +25,7 @@ export const getPosts = async ({ page, limit, inputValue }) => {
 
 export const getPost = async (id) => {
   try {
-    const response = await axios.get("", {
+    const response = await axios.get(NEWS_URL, {
       params: id,
       headers: {
         action: "getPost",
@@ -43,7 +41,7 @@ export const getPost = async (id) => {
 
 export const setLike = async ({ id, action }) => {
   try {
-    const response = await axios.put("", {
+    const response = await axios.put(NEWS_URL, {
       id,
       action,
     });
@@ -58,7 +56,7 @@ export const setLike = async ({ id, action }) => {
 export const postComment = async ({ id, avatar, author, text, date }) => {
   try {
     const response = await axios.post(
-      "",
+      NEWS_URL,
       {
         id,
         avatar,
@@ -82,7 +80,7 @@ export const postComment = async ({ id, avatar, author, text, date }) => {
 
 export const getLatestNews = async ({ id, count }) => {
   try {
-    const response = await axios.get("", {
+    const response = await axios.get(NEWS_URL, {
       params: { id, count },
       headers: {
         action: "getLatestNews",

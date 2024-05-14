@@ -84,29 +84,6 @@ const mockServerConfig = {
               },
             },
           },
-          // {
-          //   entities: {
-          //     headers: { action: "getLatestComments" },
-          //   },
-          //   data: news,
-          //   interceptors: {
-          //     response: (data, { request, setStatusCode }) => {
-          //       const id = request.query.id;
-
-          //       const post = data.find((item) => item.id === parseInt(id));
-          //       const comments = post.comments;
-          //       if (!post) {
-          //         setStatusCode(404);
-          //         return {
-          //           code: 404,
-          //           success: false,
-          //           message: "Пост не найден",
-          //         };
-          //       }
-          //       return comments;
-          //     },
-          //   },
-          // },
           {
             entities: {
               headers: { action: "getLatestNews" },
@@ -221,20 +198,93 @@ const mockServerConfig = {
           {
             data: ideas,
             entities: {
-              headers: { action: "getIdeas" },
+              headers: { action: "getIdea" },
             },
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const getIdeas = data;
-                if (!getIdeas) {
+                const id = request.query.id;
+                const idea = data.find((item) => item.id === parseInt(id));
+                if (!idea) {
                   setStatusCode(404);
                   return {
                     code: 404,
                     success: false,
-                    message: "Идеи не найдены",
+                    message: "Идея не найдена",
                   };
                 }
-                return getIdeas;
+                return idea;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/ideas",
+        method: "put",
+        routes: [
+          {
+            data: ideas,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { id, action } = request.body;
+
+                const idea = data.find((item) => item.id === parseInt(id));
+                if (!idea) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Пост не найден",
+                  };
+                }
+                if (action === "add") {
+                  idea.likes += 1;
+                  idea.isLiked = true;
+                } else {
+                  idea.likes -= 1;
+                  idea.isLiked = false;
+                }
+                return idea;
+              },
+            },
+          },
+        ],
+      },
+      {
+        path: "/ideas",
+        method: "post",
+        routes: [
+          {
+            data: ideas,
+            entities: {
+              headers: { action: "postComment" },
+            },
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { id, avatar, author, text, date } = request.body;
+
+                const idea = data.find((item) => item.id === parseInt(id));
+
+                if (!idea) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Комментарий не найден",
+                  };
+                }
+
+                const newComment = {
+                  id: idea.comments.length + 1,
+                  author: author,
+                  text: text,
+                  avatar: avatar,
+                  date: date,
+                };
+
+                idea.comments.push(newComment);
+
+                return idea.comments;
               },
             },
           },

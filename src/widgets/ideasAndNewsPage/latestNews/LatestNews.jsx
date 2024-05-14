@@ -73,7 +73,7 @@ function LatestNews({ article }) {
             </Flex>
           </Group>
           <Group pt={15} gap="lg">
-            <Like id={article.id} />
+            <Like id={article.id} from={"news"} />
             <Button
               variant="light"
               c="gray"

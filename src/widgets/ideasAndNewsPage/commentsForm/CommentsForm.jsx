@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
-import { postComment } from "../../../api/news/news";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { useShallow } from "zustand/react/shallow";
 

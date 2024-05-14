@@ -2,12 +2,19 @@ import { Button, Text, Flex } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { Loader } from "@mantine/core";
+import useIdeasStore from "../../../data/stores/useIdeasStore";
 
-function Like({ id }) {
-  const { likes, clickLike } = useNewsStore((state) => ({
-    likes: state.likes,
-    clickLike: state.clickLike,
-  }));
+function Like({ id, from }) {
+  const { likes, clickLike } =
+    from === "news"
+      ? useNewsStore((state) => ({
+          likes: state.likes,
+          clickLike: state.clickLike,
+        }))
+      : useIdeasStore((state) => ({
+          likes: state.likes,
+          clickLike: state.clickLike,
+        }));
 
   const isLiked = likes[id]?.isLiked || false;
   const likeCount = likes[id]?.count || 0;
