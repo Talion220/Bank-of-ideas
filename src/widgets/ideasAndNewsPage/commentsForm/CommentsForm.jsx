@@ -6,15 +6,24 @@ import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import avatar from "../../../shared/images/avatar.png";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { useShallow } from "zustand/react/shallow";
+import useIdeasStore from "../../../data/stores/useIdeasStore";
 
 const author = "Иванов Иван Иванович";
 
-function CommentsForm({ id }) {
-  const { postComm } = useNewsStore(
-    useShallow((state) => ({
-      postComm: state.postComm,
-    }))
-  );
+function CommentsForm({ id, from }) {
+  const { postComm } =
+    from === "news"
+      ? useNewsStore(
+          useShallow((state) => ({
+            postComm: state.postComm,
+          }))
+        )
+      : useIdeasStore(
+          useShallow((state) => ({
+            postComm: state.postComm,
+          }))
+        );
+
   const [text, setText] = useState("");
   return (
     <Flex gap="xs" pb={20}>

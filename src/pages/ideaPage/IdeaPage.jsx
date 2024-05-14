@@ -299,10 +299,10 @@ function IdeaPage() {
         <Text fw={600} fz="lg" my={20}>
           Комментарии • {commentsLength}
         </Text>
-        {/* 
-        <CommentsForm id={id} />
 
-        <ShowComments /> */}
+        <CommentsForm id={id} from={"idea"} />
+
+        <ShowComments from={"idea"} />
 
         <Divider my="sm" />
 

@@ -3,13 +3,21 @@ import { Text } from "@mantine/core";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { useEffect } from "react";
 import { useShallow } from "zustand/react/shallow";
+import useIdeasStore from "../../../data/stores/useIdeasStore";
 
-export default function ShowComments() {
-  const { comments } = useNewsStore(
-    useShallow((state) => ({
-      comments: state.comments,
-    }))
-  );
+export default function ShowComments({ from }) {
+  const { comments } =
+    from === "news"
+      ? useNewsStore(
+          useShallow((state) => ({
+            comments: state.comments,
+          }))
+        )
+      : useIdeasStore(
+          useShallow((state) => ({
+            comments: state.comments,
+          }))
+        );
 
   console.log("comments");
 

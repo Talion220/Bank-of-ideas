@@ -145,9 +145,9 @@ function NewsPage() {
           Комментарии • {commentsLength}
         </Text>
 
-        <CommentsForm id={id} />
+        <CommentsForm id={id} from={"news"} />
 
-        <ShowComments />
+        <ShowComments from={"news"} />
 
         <Divider my="sm" />
 
