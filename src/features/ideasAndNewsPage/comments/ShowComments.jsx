@@ -28,14 +28,16 @@ export default function ShowComments({ from }) {
       </Text>
     );
   } else {
-    return comments.map((index) => (
-      <Comments
-        key={index.id}
-        avatar={index.avatar}
-        author={index.author}
-        text={index.text}
-        time={index.date}
-      />
-    ));
+    return comments
+      .reverse()
+      .map((index) => (
+        <Comments
+          key={index.id}
+          avatar={index.avatar}
+          author={index.author}
+          text={index.text}
+          time={index.date}
+        />
+      ));
   }
 }
