@@ -21,6 +21,7 @@ import useIdeasStore from "../../data/stores/useIdeasStore";
 import { useShallow } from "zustand/react/shallow";
 import { useEffect } from "react";
 import ShowSameIdeas from "../../features/ideasAndNewsPage/showSameIdeas/ShowSameIdeas";
+import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 
 function IdeaPage() {
   const { id } = useParams();
@@ -41,6 +42,14 @@ function IdeaPage() {
     // console.log(idIdea);
     getIdeaPage(id);
   }, [id]);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromLink = urlParams.get("fromLink");
+    if (fromLink === "true") {
+      scrollToAnchor("comments");
+    }
+  }, [id, IdeaPageLoading]);
 
   if (IdeaPageLoading || idea === undefined || Object.keys(idea).length === 0) {
     return (
@@ -203,7 +212,7 @@ function IdeaPage() {
           <Like id={id} from={"idea"} />
         </Flex>
 
-        <Divider my="sm" />
+        <Divider id="comments" my="sm" />
 
         <Text fw={600} fz="lg" my={20}>
           Комментарии • {commentsLength}

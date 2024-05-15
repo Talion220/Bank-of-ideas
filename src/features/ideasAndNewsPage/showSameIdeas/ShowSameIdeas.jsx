@@ -9,7 +9,6 @@ const ShowSameIdeas = ({ id }) => {
       getSame: state.getSame,
     }))
   );
-  console.log("same");
   const [ideas, setIdeas] = useState([]);
   useEffect(() => {
     getSame(id).then((res) => {
