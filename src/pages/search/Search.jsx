@@ -241,7 +241,7 @@ function Search() {
             </ActionIcon>
 
             <Popover
-              transitionProps={{ transition: "rotate-right", duration: 150 }}
+              transitionProps={{ transition: "pop", duration: 150 }}
               width={300}
               radius={16}
               position="bottom"
@@ -307,6 +307,18 @@ function Search() {
                   data={["Все", "Больше всего лайков", "Меньше всего лайков"]}
                 />
                 <Select
+                  label="По комментариям"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  radius={16}
+                  data={[
+                    "Все",
+                    "Больше всего комментариве",
+                    "Меньше всего комментариев",
+                  ]}
+                />
+                <Select
                   label="По статусу"
                   defaultValue="Все"
                   allowDeselect={false}
@@ -322,6 +334,19 @@ function Search() {
                     "На доработке",
                     "Отложена",
                     "Отклонена",
+                  ]}
+                />
+                <Select
+                  label="По бизнес процессу"
+                  defaultValue="Все"
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  radius={16}
+                  data={[
+                    "Все",
+                    "Предложение по улучшению",
+                    "Рационализаторское предложение",
+                    "Лучшая практика",
                   ]}
                 />
               </Popover.Dropdown>

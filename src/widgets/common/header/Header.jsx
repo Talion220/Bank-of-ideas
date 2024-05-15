@@ -247,7 +247,7 @@ function Header() {
         closeButtonProps={{ "aria-label": "Закрыть меню" }}
         size="70%"
         title={
-          <Text size="lg" fw={700}>
+          <Text size="lg" fw={700} pt={20}>
             Навигация
           </Text>
         }
@@ -255,12 +255,12 @@ function Header() {
         hiddenFrom="sm"
         zIndex={1000000}
         transitionProps={{
-          transition: "rotate-left",
+          transition: "fade-left",
           duration: 150,
           timingFunction: "linear",
         }}
       >
-        <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
+        <ScrollArea h={`calc(100vh - ${rem(100)})`} mx="-md">
           <Divider my="sm" />
 
           <Stack gap={0} px={20}>
