@@ -5,7 +5,7 @@ function HomeNews() {
   return (
     <Flex direction="column" align="center">
       <Title pb={15}>Последние новости</Title>
-      <ShowLatestNews id={null} from={"homePage"} count={5} />
+      <ShowLatestNews id={null} from={"homePage"} />
     </Flex>
   );
 }

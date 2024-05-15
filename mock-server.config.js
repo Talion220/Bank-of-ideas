@@ -96,7 +96,6 @@ const mockServerConfig = {
 
                 const filteredNews = data
                   .filter((item) => item.id !== parseInt(id))
-                  .reverse()
                   .slice(0, count);
 
                 if (!filteredNews) {

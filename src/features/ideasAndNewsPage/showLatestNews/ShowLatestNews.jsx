@@ -5,7 +5,7 @@ import HomeLatestNews from "../../../widgets/homeLatestNews/HomeLatestNews";
 import { useShallow } from "zustand/react/shallow";
 import { Center, Text } from "@mantine/core";
 
-const ShowLatestNews = ({ id, from, count }) => {
+const ShowLatestNews = ({ id, from }) => {
   const { getLatest } = useNewsStore(
     useShallow((state) => ({
       getLatest: state.getLatest,
@@ -14,7 +14,7 @@ const ShowLatestNews = ({ id, from, count }) => {
   console.log("latest");
   const [post, setPost] = useState([]);
   useEffect(() => {
-    getLatest(id, count).then((res) => {
+    getLatest(id).then((res) => {
       setPost(res);
     });
   }, [id]);

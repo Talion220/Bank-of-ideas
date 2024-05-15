@@ -20,6 +20,7 @@ const useNewsStore = create((set, get) => ({
   totalPosts: 0,
   limitPosts: 10,
   latestCommentsNewsCard: [],
+  countLatestNews: 5,
   // idNews: null,
   // getId: (id) => {
   //   set({
@@ -104,9 +105,12 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  getLatest: async (id, count) => {
+  getLatest: async (id) => {
     try {
-      const latestNews = await getLatestNews({ id, count });
+      const latestNews = await getLatestNews({
+        id,
+        count: get().countLatestNews,
+      });
       latestNews.forEach((post) => {
         set((state) => ({
           likes: {
