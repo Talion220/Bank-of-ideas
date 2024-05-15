@@ -3,6 +3,7 @@ import LatestNews from "../../../widgets/ideasAndNewsPage/latestNews/LatestNews"
 import useNewsStore from "../../../data/stores/useNewsStore";
 import HomeLatestNews from "../../../widgets/homeLatestNews/HomeLatestNews";
 import { useShallow } from "zustand/react/shallow";
+import { Center, Text } from "@mantine/core";
 
 const ShowLatestNews = ({ id, from, count }) => {
   const { getLatest } = useNewsStore(
@@ -17,7 +18,13 @@ const ShowLatestNews = ({ id, from, count }) => {
       setPost(res);
     });
   }, [id]);
-  if (from === "newsPage") {
+  if (post.length === 0) {
+    return (
+      <Center my={100}>
+        <Text c="dimmed">Похоже, других новостей пока нет...</Text>
+      </Center>
+    );
+  } else if (from === "newsPage") {
     return post.map((article) => (
       <LatestNews key={article.id} article={article} />
     ));
