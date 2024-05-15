@@ -227,16 +227,12 @@ const mockServerConfig = {
                 const currentBusinessProcess = data[id - 1].businessProcess;
                 console.log(currentBusinessProcess);
 
-                const currentDate = new Date();
-
-                const filteredIdeas = data
-                  .filter(
-                    (item) =>
-                      item.id !== parseInt(id) ||
-                      data.filter((n) => n.date > currentDate).length > 1
-                  )
-                  .sort((a, b) => new Date(b.date) - new Date(a.date))
-                  .slice(0, count);
+                const sortedIdeas = data.filter(
+                  (item) =>
+                    item.businessProcess === currentBusinessProcess &&
+                    item.id !== parseInt(id)
+                );
+                const filteredIdeas = sortedIdeas.slice(0, count);
 
                 if (!filteredIdeas) {
                   setStatusCode(404);
