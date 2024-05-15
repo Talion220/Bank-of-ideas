@@ -48,6 +48,14 @@ function CommentsForm({ id, from }) {
         minRows={2}
         maxRows={5}
         rightSectionPointerEvents="all"
+        onKeyDown={(event) => {
+          if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            const date = new Date().toISOString();
+            postComm(id, avatar, author, text, date);
+            setText("");
+          }
+        }}
         onChange={(event) => {
           setText(event.currentTarget.value);
         }}

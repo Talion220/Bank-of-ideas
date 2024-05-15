@@ -56,6 +56,12 @@ function News() {
         leftSection={<Icons.IconSearch />}
         value={inputValue}
         rightSectionPointerEvents="all"
+        // onKeyDown={(event) => {
+        //   if (event.key === "Enter") {
+        //     event.preventDefault();
+        //     getData();
+        //   }
+        // }}
         onChange={(event) => setInputValue(event.currentTarget.value)}
         rightSection={
           <Flex>
