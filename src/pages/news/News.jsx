@@ -73,7 +73,9 @@ function News() {
               radius="xl"
               variant="filled"
               onClick={() => {
-                getData();
+                if (inputPrevValue !== inputValue) {
+                  getData();
+                }
               }}
             >
               <Icons.IconArrowRight />

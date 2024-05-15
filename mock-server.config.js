@@ -31,20 +31,14 @@ const mockServerConfig = {
                   });
                   posts = searchData.slice(skip, skip + parseInt(limit));
                   totalPosts = searchData.length;
-
-                  comments = posts.map((post) => {
-                    const lastTwoComments = post.comments.reverse().slice(0, 2);
-                    console.log(lastTwoComments);
-                    return lastTwoComments;
-                  });
                 } else {
                   totalPosts = data.length;
                   posts = data.slice(skip, skip + parseInt(limit));
-                  comments = posts.map((post) => {
-                    const lastTwoComments = post.comments.reverse().slice(0, 2);
-                    return lastTwoComments;
-                  });
                 }
+                comments = posts.map((post) => {
+                  const lastTwoComments = post.comments.slice(-2).reverse();
+                  return lastTwoComments;
+                });
 
                 if (!posts) {
                   setStatusCode(404);
@@ -219,7 +213,6 @@ const mockServerConfig = {
               response: (data, { request, setStatusCode }) => {
                 const { id, count } = request.query;
                 const currentBusinessProcess = data[id - 1].businessProcess;
-                console.log(currentBusinessProcess);
 
                 const sortedIdeas = data.filter(
                   (item) =>
