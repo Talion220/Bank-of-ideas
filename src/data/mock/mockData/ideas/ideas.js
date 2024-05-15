@@ -19,7 +19,7 @@ export const ideas = [
     views: 34,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-15-01T15:00:00.126Z",
+    date: "2024-06-01T15:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -61,7 +61,7 @@ export const ideas = [
     views: 86,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-14-01T16:00:00.126Z",
+    date: "2024-07-01T16:00:00.126Z",
     comments: [],
   },
   {
@@ -81,7 +81,7 @@ export const ideas = [
     views: 125,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-13-01T17:00:00.126Z",
+    date: "2024-08-01T17:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -123,7 +123,7 @@ export const ideas = [
     views: 6,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-12-01T18:00:00.126Z",
+    date: "2024-09-01T18:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -165,7 +165,7 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-11-01T12:00:00.126Z",
+    date: "2024-10-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -207,7 +207,7 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-10-01T12:00:00.126Z",
+    date: "2024-11-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -249,7 +249,7 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-09-01T12:00:00.126Z",
+    date: "2024-12-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -291,7 +291,7 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-08-01T12:00:00.126Z",
+    date: "2024-13-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -333,7 +333,7 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-07-01T12:00:00.126Z",
+    date: "2024-14-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -375,7 +375,49 @@ export const ideas = [
     views: 47,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-06-01T12:00:00.126Z",
+    date: "2024-15-01T12:00:00.126Z",
+    comments: [
+      {
+        id: 1,
+        author: "John Doe",
+        text: "Comment 1",
+        avatar: "/src/shared/images/avatar.png",
+        date: "2024-05-01T12:00:00.126Z",
+      },
+      {
+        id: 2,
+        author: "Jane Smith",
+        text: "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        avatar: "/src/shared/images/avatar.png",
+        date: "2024-05-01T12:00:00.126Z",
+      },
+      {
+        id: 3,
+        author: "Jane Smith",
+        text: "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        avatar: "/src/shared/images/avatar.png",
+        date: "2024-05-01T12:00:00.126Z",
+      },
+    ],
+  },
+  {
+    id: 11,
+    author: "Ursula K. Le Guin",
+    title: "Idea 10",
+    category: "Лучшая практика",
+    businessProcess: "Бизнес процесс 1",
+    problem: "problem",
+    solution: "solution",
+    result: "result",
+    note: "note",
+    coauthors: "Иванов Иван Иванович",
+    file: "",
+    status: "Внедрено",
+    likes: 16,
+    views: 47,
+    avatar: "/src/shared/images/avatar.png",
+    linkAuthor: "/profile",
+    date: "2024-16-01T12:00:00.126Z",
     comments: [
       {
         id: 1,

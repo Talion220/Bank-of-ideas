@@ -232,7 +232,7 @@ const mockServerConfig = {
                     item.businessProcess === currentBusinessProcess &&
                     item.id !== parseInt(id)
                 );
-                const filteredIdeas = sortedIdeas.slice(0, count);
+                const filteredIdeas = sortedIdeas.reverse().slice(0, count);
 
                 if (!filteredIdeas) {
                   setStatusCode(404);
