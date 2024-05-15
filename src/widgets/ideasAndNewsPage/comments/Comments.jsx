@@ -1,4 +1,4 @@
-import { Group, Text, Avatar, Anchor, Flex } from "@mantine/core";
+import { Group, Text, Avatar, Anchor, Flex, Spoiler } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 
@@ -33,9 +33,17 @@ function Comments({ avatar, author, time, text }) {
         </div>
       </Group>
 
-      <Text pl={54} size="md">
-        {text}
-      </Text>
+      <Spoiler
+        ml={54}
+        size="md"
+        maxHeight={120}
+        showLabel="Показать полностью..."
+        hideLabel="Показать меньше."
+      >
+        <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
+          {text}
+        </div>
+      </Spoiler>
     </Flex>
   );
 }

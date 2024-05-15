@@ -153,7 +153,6 @@ const mockServerConfig = {
                 const { id, avatar, author, text, date } = request.body;
 
                 const post = data.find((item) => item.id === parseInt(id));
-
                 if (!post) {
                   setStatusCode(404);
                   return {
@@ -170,9 +169,7 @@ const mockServerConfig = {
                   avatar: avatar,
                   date: date,
                 };
-
                 post.comments.push(newComment);
-
                 return post.comments;
               },
             },
