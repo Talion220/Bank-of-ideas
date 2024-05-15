@@ -1,5 +1,5 @@
 import { Flex, Title } from "@mantine/core";
-import ShowLatestNews from "../../../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
+import ShowLatestNews from "../../../../features/ideasAndNewsPage/showLatestNews/ShowLatestNews";
 
 function HomeNews() {
   return (

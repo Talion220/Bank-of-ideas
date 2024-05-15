@@ -12,18 +12,15 @@ import {
   Button,
   Divider,
   Group,
-  Card,
-  Center,
   Badge,
   Skeleton,
 } from "@mantine/core";
-
-import classes from "./IdeaPage.module.css";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import useIdeasStore from "../../data/stores/useIdeasStore";
 import { useShallow } from "zustand/react/shallow";
 import { useEffect } from "react";
+import ShowSameIdeas from "../../features/ideasAndNewsPage/showSameIdeas/ShowSameIdeas";
 
 function IdeaPage() {
   const { id } = useParams();
@@ -45,94 +42,6 @@ function IdeaPage() {
     getIdeaPage(id);
   }, [id]);
 
-  // const cards = ideaData.slice(0, 3).map((article) => (
-  //   <Card
-  //     key={article.id}
-  //     withBorder
-  //     radius="16"
-  //     p={0}
-  //     mb={20}
-  //     className={classes.card}
-  //   >
-  //     <Anchor
-  //       component={NavLink}
-  //       to={`/idea/${article.id}`}
-  //       onClick={() => {
-  //         scrollToTop();
-  //       }}
-  //       c="dark"
-  //       underline="none"
-  //     >
-  //       <Group wrap="nowrap" gap={0}>
-  //         <Flex direction="column" className={classes.body}>
-  //           <Badge
-  //             size="sm"
-  //             variant="gradient"
-  //             gradient={{ from: "blue", to: "indigo", deg: 135 }}
-  //           >
-  //             {article.category}
-  //           </Badge>
-  //           <Text className={classes.title} mt="xs">
-  //             {article.title}
-  //           </Text>
-  //           <Flex gap="sm" mt="xs">
-  //             <Text size="sm">Статус:</Text>
-  //             <Badge size="md" variant="light" color="blue">
-  //               {article.status}
-  //             </Badge>
-  //           </Flex>
-  //           <Group pt={15} wrap="nowrap" gap="xs">
-  //             {/* <Anchor
-  //               component={NavLink}
-  //               to="/profile"
-  //               onClick={() => {
-  //           scrollToTop();
-  //         }}
-  //               c="dark"
-  //             > */}
-  //             <Group gap="xs" wrap="nowrap">
-  //               <Avatar size={20} src={article.avatar} />
-  //               <Text size="sm">{article.author}</Text>
-  //             </Group>
-  //             {/* </Anchor> */}
-  //             <Text size="sm" c="dimmed">
-  //               •
-  //             </Text>
-  //             <Text size="sm" c="dimmed">
-  //               {article.businessProcess}
-  //             </Text>
-  //             <Text size="sm" c="dimmed">
-  //               •
-  //             </Text>
-  //             <Text size="sm" c="dimmed">
-  //               {article.date}
-  //             </Text>
-  //           </Group>
-  //           <Group pt={15} gap="lg">
-  //             <Center>
-  //               <Icons.IconLike />
-  //               <Text size="sm" className={classes.bodyText}>
-  //                 {article.likes}
-  //               </Text>
-  //             </Center>
-  //             <Center>
-  //               <Icons.IconMessageCircle />
-  //               <Text size="sm" className={classes.bodyText}>
-  //                 {article.comments}
-  //               </Text>
-  //             </Center>
-  //             <Center>
-  //               <Icons.IconEye />
-  //               <Text size="sm" className={classes.bodyText}>
-  //                 {article.views}
-  //               </Text>
-  //             </Center>
-  //           </Group>
-  //         </Flex>
-  //       </Group>
-  //     </Anchor>
-  //   </Card>
-  // ));
   if (IdeaPageLoading || idea === undefined || Object.keys(idea).length === 0) {
     return (
       <Container size="xl" mt={40}>
@@ -310,7 +219,7 @@ function IdeaPage() {
           Идеи по такому же бизнес процессу
         </Text>
 
-        {/* {cards} */}
+        <ShowSameIdeas id={id} />
       </Container>
     );
   }

@@ -73,22 +73,18 @@ export const postComment = async ({ id, avatar, author, text, date }) => {
   }
 };
 
-// export const getLatestNews = async (id) => {
-//   try {
-//     const response = await axios.get(
-//       IDEAS_URL,
-//       {
-//         params: id,
-//         headers: {
-//           action: "getLatestNews",
-//         },
-//       },
-//       {}
-//     );
-//     const res = response.data;
-//     return res;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     throw error;
-//   }
-// };
+export const getSameIdeas = async ({ id, count }) => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      params: { id, count },
+      headers: {
+        action: "getSameIdeas",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};

@@ -21,7 +21,7 @@ import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsFo
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import useNewsStore from "../../data/stores/useNewsStore";
-import ShowLatestNews from "../../features/ideasAndNewsPage/latestNews/ShowLatestNews";
+import ShowLatestNews from "../../features/ideasAndNewsPage/showLatestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 import { useShallow } from "zustand/react/shallow";
 

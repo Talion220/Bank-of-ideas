@@ -216,6 +216,40 @@ const mockServerConfig = {
               },
             },
           },
+          {
+            entities: {
+              headers: { action: "getSameIdeas" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { id, count } = request.query;
+                const currentBusinessProcess = data[id - 1].businessProcess;
+                console.log(currentBusinessProcess);
+
+                const currentDate = new Date();
+
+                const filteredIdeas = data
+                  .filter(
+                    (item) =>
+                      item.id !== parseInt(id) ||
+                      data.filter((n) => n.date > currentDate).length > 1
+                  )
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .slice(0, count);
+
+                if (!filteredIdeas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи по такому же бизнесс процессу не найдены",
+                  };
+                }
+                return filteredIdeas;
+              },
+            },
+          },
         ],
       },
       {

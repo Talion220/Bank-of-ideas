@@ -2,7 +2,7 @@ export const ideas = [
   {
     id: 1,
     author: "Isaac Asimov",
-    title: "Foundation Lorem ipsum",
+    title: "Idea 1",
     category: "Предложение по улучшению",
     businessProcess: "Бизнес процесс 1",
     problem:
@@ -19,7 +19,7 @@ export const ideas = [
     views: 34,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-04-01T12:00:00.126Z",
+    date: "2024-04-01T15:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -47,7 +47,7 @@ export const ideas = [
   {
     id: 2,
     author: "Mary Shelley",
-    title: "Frankenstein",
+    title: "Idea 2",
     category: "Предложение по улучшению",
     businessProcess: "Бизнес процесс 1",
     problem: "problem",
@@ -61,13 +61,13 @@ export const ideas = [
     views: 86,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-04-01T12:00:00.126Z",
+    date: "2024-04-01T16:00:00.126Z",
     comments: [],
   },
   {
     id: 3,
     author: "Stanislaw Lem",
-    title: "Solaris",
+    title: "Idea 3",
     category: "Предложение по улучшению",
     businessProcess: "Бизнес процесс 1",
     problem: "problem",
@@ -81,7 +81,7 @@ export const ideas = [
     views: 125,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-04-01T12:00:00.126Z",
+    date: "2024-04-01T17:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -109,7 +109,7 @@ export const ideas = [
   {
     id: 4,
     author: "Frank Herbert",
-    title: "Dune",
+    title: "Idea 4",
     category: "Предложение по улучшению",
     businessProcess: "Бизнес процесс 1",
     problem: "problem",
@@ -123,7 +123,7 @@ export const ideas = [
     views: 6,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-04-01T12:00:00.126Z",
+    date: "2024-04-01T18:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -151,9 +151,9 @@ export const ideas = [
   {
     id: 5,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 5",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 2",
     problem: "problem",
     solution: "solution",
     result: "result",
@@ -193,9 +193,9 @@ export const ideas = [
   {
     id: 6,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 6",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 2",
     problem: "problem",
     solution: "solution",
     result: "result",
@@ -235,9 +235,9 @@ export const ideas = [
   {
     id: 7,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 7",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 3",
     problem: "problem",
     solution: "solution",
     result: "result",
@@ -277,9 +277,9 @@ export const ideas = [
   {
     id: 8,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 8",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 4",
     problem: "problem",
     solution: "solution",
     result: "result",
@@ -319,9 +319,9 @@ export const ideas = [
   {
     id: 9,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 9",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 3",
     problem: "problem",
     solution: "solution",
     result: "result",
@@ -361,9 +361,9 @@ export const ideas = [
   {
     id: 10,
     author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
+    title: "Idea 10",
     category: "Предложение по улучшению",
-    businessProcess: "Бизнес процесс 1",
+    businessProcess: "Бизнес процесс 5",
     problem: "problem",
     solution: "solution",
     result: "result",

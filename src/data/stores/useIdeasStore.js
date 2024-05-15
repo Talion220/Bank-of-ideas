@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import {
-  //   getLatestIdeas,
+  getSameIdeas,
   getIdea,
   setLike,
   //   getIdeas,
@@ -18,6 +18,8 @@ const useIdeasStore = create((set, get) => ({
   allIdeasData: [],
   totalIdeas: 0,
   limitIdeas: 10,
+  countSameIdeas: 3,
+  businessProcess: "",
   // idIdeas: null,
   // getId: (id) => {
   //   set({
@@ -62,6 +64,7 @@ const useIdeasStore = create((set, get) => ({
         idea: data,
         comments: data.comments,
         commentsLength: data.comments.length,
+        businessProcess: data.businessProcess,
         IdeaPageLoading: false,
         likes: {
           ...get().likes,
@@ -101,22 +104,22 @@ const useIdeasStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  //   getLatest: async (id, count) => {
-  //     try {
-  //       const latestIdeas = await getLatestIdeas({ id, count });
-  //       latestIdeas.forEach((post) => {
-  //         set((state) => ({
-  //           likes: {
-  //             ...state.likes,
-  //             [post.id]: { isLiked: post.isLiked, count: post.likes },
-  //           },
-  //         }));
-  //       });
-  //       return latestIdeas;
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   },
+  getSame: async (id) => {
+    try {
+      const sameIdeas = await getSameIdeas({ id, count: get().countSameIdeas });
+      sameIdeas.forEach((idea) => {
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [idea.id]: { isLiked: idea.isLiked, count: idea.likes },
+          },
+        }));
+      });
+      return sameIdeas;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  },
 }));
 
 export default useIdeasStore;
