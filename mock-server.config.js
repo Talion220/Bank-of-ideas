@@ -15,7 +15,7 @@ const mockServerConfig = {
             entities: {
               headers: { action: "getPosts" },
             },
-            data: news,
+            data: news.reverse(),
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const { page, limit, inputValue } = request.query;
@@ -93,15 +93,9 @@ const mockServerConfig = {
               response: (data, { request, setStatusCode }) => {
                 const { id, count } = request.query;
 
-                const currentDate = new Date();
-
                 const filteredNews = data
-                  .filter(
-                    (item) =>
-                      item.id !== parseInt(id) ||
-                      data.filter((n) => n.date > currentDate).length > 1
-                  )
-                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .filter((item) => item.id !== parseInt(id))
+                  .reverse()
                   .slice(0, count);
 
                 if (!filteredNews) {

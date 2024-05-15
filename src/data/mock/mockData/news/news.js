@@ -11,7 +11,7 @@ export const news = [
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: true,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-01-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -48,7 +48,7 @@ export const news = [
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-02-01T12:00:00.126Z",
     comments: [],
   },
   {
@@ -63,7 +63,7 @@ export const news = [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-03-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -100,7 +100,7 @@ export const news = [
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-04-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -160,7 +160,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714428203754-7d5fbfc5f6c0?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-06-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -196,7 +196,7 @@ export const news = [
     newsImg: "/src/shared/images/newsImg.jpg",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-07-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -233,7 +233,7 @@ export const news = [
       "https://images.unsplash.com/photo-1713560625744-46175f1b4a37?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T17:00:00.126Z",
+    date: "2024-08-01T17:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -270,7 +270,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714362444851-05da5fa55efe?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T18:00:00.126Z",
+    date: "2024-09-01T18:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -307,7 +307,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714362444974-72dedd0d3bfa?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T19:00:00.126Z",
+    date: "2024-10-01T19:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -344,7 +344,7 @@ export const news = [
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: true,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-11-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -381,7 +381,7 @@ export const news = [
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-12-01T12:00:00.126Z",
     comments: [],
   },
   {
@@ -396,7 +396,7 @@ export const news = [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-13-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -433,7 +433,7 @@ export const news = [
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-14-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -470,7 +470,7 @@ export const news = [
       "https://images.unsplash.com/photo-1711656166064-1b18600c26fd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-15-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -507,7 +507,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714428203754-7d5fbfc5f6c0?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-16-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -543,7 +543,7 @@ export const news = [
     newsImg: "/src/shared/images/newsImg.jpg",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-17-01T12:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -580,7 +580,7 @@ export const news = [
       "https://images.unsplash.com/photo-1713560625744-46175f1b4a37?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T17:00:00.126Z",
+    date: "2024-18-01T17:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -617,7 +617,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714362444851-05da5fa55efe?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T18:00:00.126Z",
+    date: "2024-19-01T18:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -654,7 +654,7 @@ export const news = [
       "https://images.unsplash.com/photo-1714362444974-72dedd0d3bfa?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T19:00:00.126Z",
+    date: "2024-20-01T19:00:00.126Z",
     comments: [
       {
         id: 1,
@@ -691,7 +691,7 @@ export const news = [
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-21-01T12:00:00.126Z",
     comments: [],
   },
   {
@@ -706,7 +706,7 @@ export const news = [
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     linkAuthor: "/profile",
     isLiked: false,
-    date: "2024-05-01T12:00:00.126Z",
+    date: "2024-22-01T12:00:00.126Z",
     comments: [],
   },
 ];
