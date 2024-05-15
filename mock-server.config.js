@@ -33,14 +33,15 @@ const mockServerConfig = {
                   totalPosts = searchData.length;
 
                   comments = posts.map((post) => {
-                    const lastTwoComments = post.comments.slice(-2);
+                    const lastTwoComments = post.comments.reverse().slice(0, 2);
+                    console.log(lastTwoComments);
                     return lastTwoComments;
                   });
                 } else {
                   totalPosts = data.length;
                   posts = data.slice(skip, skip + parseInt(limit));
                   comments = posts.map((post) => {
-                    const lastTwoComments = post.comments.slice(-2);
+                    const lastTwoComments = post.comments.reverse().slice(0, 2);
                     return lastTwoComments;
                   });
                 }
