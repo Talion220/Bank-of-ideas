@@ -40,27 +40,89 @@ function IdeaCreate() {
   };
 
   const form = useForm({
+    initialValues: {
+      category: category,
+      ideaTitle: "",
+      businessProcesses: null,
+      problem: "",
+      solution: "",
+      result: "",
+      note: "",
+      coauthors: "",
+    },
     validate: {
-      Category: isNotEmpty("Выберите категорию идеи"),
-      Name: hasLength({ min: 2 }, "Название должно быть больше 2-х символов"),
-      BusinessProcesses: isNotEmpty("Выберите бизнес процесс"),
-      Problem: isNotEmpty("Опишите проблему"),
-      Solution: isNotEmpty("Опишите решение"),
-      Result: isNotEmpty("Опишите результат"),
+      category: isNotEmpty("Выберите категорию идеи"),
+      ideaTitle: (value) =>
+        value.length < 2 ? "Название должно быть больше 2-х символов" : null,
+      businessProcesses: isNotEmpty("Выберите бизнес процесс"),
+      problem: isNotEmpty("Опишите проблему"),
+      solution: isNotEmpty("Опишите решение"),
+      result: isNotEmpty("Опишите результат"),
     },
   });
+
+  const handleError = (errors) => {
+    if (errors.category) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Выберите категорию",
+        color: "red",
+        classNames: classes,
+      });
+    }
+    if (errors.ideaTitle) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Введите название идеи",
+        color: "red",
+        classNames: classes,
+      });
+    }
+    if (errors.businessProcesses) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Выберите бизнес-процесс",
+        color: "red",
+        classNames: classes,
+      });
+    }
+    if (errors.problem) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Опишите проблему",
+        color: "red",
+        classNames: classes,
+      });
+    }
+    if (errors.solution) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Опишите решение",
+        color: "red",
+        classNames: classes,
+      });
+    }
+    if (errors.result) {
+      notifications.show({
+        title: "Ошибка",
+        message: "Опишите результат",
+        color: "red",
+        classNames: classes,
+      });
+    }
+  };
 
   return (
     <Container size="lg" mt={40}>
       <Center>
-        <Title mb={40}>Создать новую идею</Title>
+        <Title mb={40}>Создать идею</Title>
       </Center>
 
       <Box
         component="form"
         maw={800}
         mx="auto"
-        onSubmit={form.onSubmit(() => {})}
+        onSubmit={form.onSubmit(console.log, handleError)}
       >
         <Select
           label="Категория идеи"
@@ -72,7 +134,7 @@ function IdeaCreate() {
           ]}
           defaultValue={category}
           clearable
-          {...form.getInputProps("Category")}
+          {...form.getInputProps("category")}
           radius={12}
           size="md"
           mt="md"
@@ -82,7 +144,7 @@ function IdeaCreate() {
           label="Название предложения"
           placeholder="Коротко опишите название Вашей идеи..."
           withAsterisk
-          {...form.getInputProps("Name")}
+          {...form.getInputProps("ideaTitle")}
           radius={12}
           size="md"
           mt="md"
@@ -99,7 +161,7 @@ function IdeaCreate() {
             "Бизнес-процесс 6",
           ]}
           clearable
-          {...form.getInputProps("BusinessProcesses")}
+          {...form.getInputProps("businessProcesses")}
           radius={12}
           size="md"
           mt="md"
@@ -111,7 +173,7 @@ function IdeaCreate() {
           label="Проблема"
           autosize
           minRows={4}
-          {...form.getInputProps("Problem")}
+          {...form.getInputProps("problem")}
           radius={12}
           size="md"
           mt="md"
@@ -122,7 +184,7 @@ function IdeaCreate() {
           label="Решение"
           autosize
           minRows={4}
-          {...form.getInputProps("Solution")}
+          {...form.getInputProps("solution")}
           radius={12}
           size="md"
           mt="md"
@@ -133,7 +195,7 @@ function IdeaCreate() {
           label="Результат"
           autosize
           minRows={4}
-          {...form.getInputProps("Result")}
+          {...form.getInputProps("result")}
           radius={12}
           size="md"
           mt="md"
@@ -144,6 +206,7 @@ function IdeaCreate() {
           label="Примечание"
           autosize
           minRows={4}
+          {...form.getInputProps("note")}
           radius={12}
           size="md"
           mt="md"
@@ -152,6 +215,7 @@ function IdeaCreate() {
         <TextInput
           label="Соавторы"
           placeholder="Укажите соавторов..."
+          {...form.getInputProps("coauthors")}
           // withAsterisk
           radius={12}
           size="md"
@@ -194,7 +258,6 @@ function IdeaCreate() {
             size="md"
             onClick={() =>
               notifications.show({
-                title: "Уведомление",
                 message: "Ваша идея опубликована",
                 classNames: classes,
               })
@@ -202,7 +265,15 @@ function IdeaCreate() {
           >
             Опубликовать
           </Button>
-          <Button radius={12} size="md" color="red">
+          <Button
+            radius={12}
+            size="md"
+            color="red"
+            onClick={() => {
+              form.reset();
+              console.log(category);
+            }}
+          >
             Отменить
           </Button>
         </Group>

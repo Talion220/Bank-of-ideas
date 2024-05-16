@@ -21,7 +21,7 @@ const useIdeasStore = create((set, get) => ({
   limitIdeas: 10,
   countSameIdeas: 3,
   businessProcess: "",
-  category: "",
+  category: null,
   setCategory: (category) => {
     set({
       category,

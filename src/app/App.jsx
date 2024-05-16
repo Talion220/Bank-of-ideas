@@ -31,7 +31,7 @@ import { Notifications } from "@mantine/notifications";
 function App() {
   return (
     <MantineProvider theme={theme}>
-      <Notifications />
+      <Notifications limit={7} />
       <div className="App">
         <BrowserRouter>
           <Routes>

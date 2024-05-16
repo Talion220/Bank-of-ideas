@@ -72,7 +72,7 @@ function DoYouHaveAnIdea() {
                               to="/idea-create"
                               className={styles.btn}
                               onClick={() => {
-                                setCategory("Рациоанализаторское предложение");
+                                setCategory("Рационализаторское предложение");
                                 scrollToTop();
                               }}
                             >
