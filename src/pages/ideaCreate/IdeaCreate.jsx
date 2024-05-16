@@ -1,6 +1,7 @@
 import { Dropzone, MIME_TYPES } from "@mantine/dropzone";
 import { Icons } from "../../shared/images/Icons";
-// import { notifications } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
+import classes from "./ideaCreate.module.css";
 import {
   Box,
   Button,
@@ -23,8 +24,13 @@ import {
   matches,
 } from "@mantine/form";
 import { useState, useRef } from "react";
+import useIdeasStore from "../../data/stores/useIdeasStore";
 
 function IdeaCreate() {
+  const { category } = useIdeasStore((state) => ({
+    category: state.category,
+  }));
+
   const [file, setFile] = useState(null);
   const resetRef = useRef(null);
 
@@ -64,6 +70,7 @@ function IdeaCreate() {
             "Рационализаторское предложение",
             "Лучшая практика",
           ]}
+          defaultValue={category}
           clearable
           {...form.getInputProps("Category")}
           radius={12}
@@ -181,7 +188,18 @@ function IdeaCreate() {
         )}
 
         <Group justify="flex-end" mt="md">
-          <Button type="submit" radius={12} size="md">
+          <Button
+            type="submit"
+            radius={12}
+            size="md"
+            onClick={() =>
+              notifications.show({
+                title: "Уведомление",
+                message: "Ваша идея опубликована",
+                classNames: classes,
+              })
+            }
+          >
             Опубликовать
           </Button>
           <Button radius={12} size="md" color="red">

@@ -26,10 +26,12 @@ import NewsPage from "../pages/newsPage/NewsPage";
 import IdeaPage from "../pages/ideaPage/IdeaPage";
 import LifeCycle from "../pages/lifeCycle/LifeCycle";
 import IdeaPageShell from "../pages/ideaPage/IdeaPageShell";
+import { Notifications } from "@mantine/notifications";
 
 function App() {
   return (
     <MantineProvider theme={theme}>
+      <Notifications />
       <div className="App">
         <BrowserRouter>
           <Routes>

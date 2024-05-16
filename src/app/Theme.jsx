@@ -6,6 +6,7 @@ import {
   Loader,
 } from "@mantine/core";
 import "@mantine/charts/styles.css";
+import "@mantine/notifications/styles.css";
 import { RingLoader } from "../widgets/common/loader/Loader";
 
 export const theme = createTheme({

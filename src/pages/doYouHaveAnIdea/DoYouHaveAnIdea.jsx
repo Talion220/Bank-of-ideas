@@ -1,9 +1,13 @@
 // import doYouHaveAnIdea from "../../shared/images/doYouHaveAnIdea.png";
+import useIdeasStore from "../../data/stores/useIdeasStore";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import styles from "./styles.module.scss";
 import { NavLink } from "react-router-dom";
 
 function DoYouHaveAnIdea() {
+  const { setCategory } = useIdeasStore((state) => ({
+    setCategory: state.setCategory,
+  }));
   return (
     <div className={styles.doYouHaveAnIdea}>
       <nav className={styles.nav}>
@@ -40,6 +44,7 @@ function DoYouHaveAnIdea() {
                                   to="/idea-create"
                                   className={styles.btn}
                                   onClick={() => {
+                                    setCategory("Предложение по улучшению");
                                     scrollToTop();
                                   }}
                                 >
@@ -51,6 +56,9 @@ function DoYouHaveAnIdea() {
                                   to="/idea-create"
                                   className={styles.btn}
                                   onClick={() => {
+                                    setCategory(
+                                      "Рационализаторское предложение"
+                                    );
                                     scrollToTop();
                                   }}
                                 >
@@ -64,6 +72,7 @@ function DoYouHaveAnIdea() {
                               to="/idea-create"
                               className={styles.btn}
                               onClick={() => {
+                                setCategory("Рациоанализаторское предложение");
                                 scrollToTop();
                               }}
                             >
@@ -79,6 +88,7 @@ function DoYouHaveAnIdea() {
                       to="/idea-create"
                       className={styles.btn}
                       onClick={() => {
+                        setCategory("Лучшая практика");
                         scrollToTop();
                       }}
                     >
