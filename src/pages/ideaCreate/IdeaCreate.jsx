@@ -25,10 +25,14 @@ import {
 } from "@mantine/form";
 import { useState, useRef } from "react";
 import useIdeasStore from "../../data/stores/useIdeasStore";
+import { useNavigate } from "react-router-dom";
+import scrollToTop from "../../shared/utilities/ScrollToTop";
 
 function IdeaCreate() {
-  const { category } = useIdeasStore((state) => ({
+  const { category, setCategory, postNewIdea } = useIdeasStore((state) => ({
     category: state.category,
+    setCategory: state.setCategory,
+    postNewIdea: state.postNewIdea,
   }));
 
   const [file, setFile] = useState(null);
@@ -39,7 +43,23 @@ function IdeaCreate() {
     resetRef.current?.();
   };
 
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    console.log(form.errors);
+
+    notifications.show({
+      message: "Ваша идея опубликована",
+      classNames: classes,
+    });
+
+    // navigate("/idea");
+    // scrollToTop();
+  };
+
   const form = useForm({
+    mode: "uncontrolled",
+    validateInputOnChange: true,
     initialValues: {
       category: category,
       ideaTitle: "",
@@ -53,7 +73,7 @@ function IdeaCreate() {
     validate: {
       category: isNotEmpty("Выберите категорию идеи"),
       ideaTitle: (value) =>
-        value.length < 2 ? "Название должно быть больше 2-х символов" : null,
+        value.length < 3 ? "Название должно быть больше 2-х символов" : null,
       businessProcesses: isNotEmpty("Выберите бизнес процесс"),
       problem: isNotEmpty("Опишите проблему"),
       solution: isNotEmpty("Опишите решение"),
@@ -256,12 +276,17 @@ function IdeaCreate() {
             type="submit"
             radius={12}
             size="md"
-            onClick={() =>
-              notifications.show({
-                message: "Ваша идея опубликована",
-                classNames: classes,
-              })
-            }
+            // onClick={() => {
+            //   handleSubmit();
+            // const val = form.getValues();
+            // console.log(val);
+            // postNewIdea()
+            // notifications.show({
+            //   message: "Ваша идея опубликована",
+            //   classNames: classes,
+            // });
+            // form.reset();
+            // }}
           >
             Опубликовать
           </Button>
@@ -270,8 +295,8 @@ function IdeaCreate() {
             size="md"
             color="red"
             onClick={() => {
+              setCategory(null);
               form.reset();
-              console.log(category);
             }}
           >
             Отменить
