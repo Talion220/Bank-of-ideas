@@ -6,6 +6,7 @@ import {
   setLike,
   //   getIdeas,
   postComment,
+  postIdea,
 } from "../../api/ideas/ideas";
 
 const useIdeasStore = create((set, get) => ({
@@ -92,9 +93,9 @@ const useIdeasStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  postComm: async (id, avatar, author, text, date) => {
+  postComm: async (id, avatar, author, text) => {
     try {
-      const data = await postComment({ id, avatar, author, text, date });
+      const data = await postComment({ id, avatar, author, text });
       set({
         comments: data,
         commentsLength: data.length,
@@ -116,6 +117,41 @@ const useIdeasStore = create((set, get) => ({
         }));
       });
       return sameIdeas;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  },
+  postNewIdea: async (
+    author,
+    avatar,
+    title,
+    category,
+    businessProcess,
+    problem,
+    solution,
+    result,
+    note,
+    coauthors,
+    file
+  ) => {
+    try {
+      const data = await postIdea({
+        author,
+        avatar,
+        title,
+        category,
+        businessProcess,
+        problem,
+        solution,
+        result,
+        note,
+        coauthors,
+        file,
+      });
+      set({
+        allIdeasData: data,
+      });
+      return data;
     } catch (error) {
       console.error("Error:", error);
     }

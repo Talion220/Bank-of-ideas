@@ -707,6 +707,21 @@ export const news = [
     linkAuthor: "/profile",
     isLiked: false,
     date: "2024-22-01T12:00:00.126Z",
-    comments: [],
+    comments: [
+      {
+        id: 1,
+        author: "John Doe",
+        text: "Comment 1",
+        avatar: "/src/shared/images/avatar.png",
+        date: "2024-22-01T12:00:00.126Z",
+      },
+      {
+        id: 2,
+        author: "Jane Smith",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupiideaDatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' Абзац 1.10.32 'de Finibus Bonorum et Malorum', написанный Цицероном в 45 году н.э. 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae die reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?' Английский перевод 1914 года, H. Rackham 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.",
+        avatar: "/src/shared/images/avatar.png",
+        date: "2024-23-01T12:00:00.126Z",
+      },
+    ],
   },
 ];

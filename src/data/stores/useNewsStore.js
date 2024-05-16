@@ -93,9 +93,9 @@ const useNewsStore = create((set, get) => ({
       console.error("Error:", error);
     }
   },
-  postComm: async (id, avatar, author, text, date) => {
+  postComm: async (id, avatar, author, text) => {
     try {
-      const data = await postComment({ id, avatar, author, text, date });
+      const data = await postComment({ id, avatar, author, text });
       set({
         comments: data,
         commentsLength: data.length,

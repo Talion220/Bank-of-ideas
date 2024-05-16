@@ -150,7 +150,7 @@ const mockServerConfig = {
             },
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const { id, avatar, author, text, date } = request.body;
+                const { id, avatar, author, text } = request.body;
 
                 const post = data.find((item) => item.id === parseInt(id));
                 if (!post) {
@@ -164,10 +164,10 @@ const mockServerConfig = {
 
                 const newComment = {
                   id: post.comments.length + 1,
-                  author: author,
-                  text: text,
-                  avatar: avatar,
-                  date: date,
+                  author,
+                  text,
+                  avatar,
+                  date: new Date().toISOString(),
                 };
                 post.comments.push(newComment);
                 return post.comments;
@@ -275,7 +275,7 @@ const mockServerConfig = {
             },
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const { id, avatar, author, text, date } = request.body;
+                const { id, avatar, author, text } = request.body;
 
                 const idea = data.find((item) => item.id === parseInt(id));
 
@@ -290,15 +290,75 @@ const mockServerConfig = {
 
                 const newComment = {
                   id: idea.comments.length + 1,
-                  author: author,
-                  text: text,
-                  avatar: avatar,
-                  date: date,
+                  author,
+                  text,
+                  avatar,
+                  date: new Date().toISOString(),
                 };
 
                 idea.comments.push(newComment);
 
                 return idea.comments;
+              },
+            },
+          },
+          {
+            data: ideas,
+            entities: {
+              headers: { action: "postIdea" },
+            },
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const {
+                  author,
+                  avatar,
+                  title,
+                  category,
+                  businessProcess,
+                  problem,
+                  solution,
+                  result,
+                  note,
+                  coauthors,
+                  file,
+                } = request.body;
+
+                if (
+                  !author ||
+                  !title ||
+                  !category ||
+                  !businessProcess ||
+                  !problem ||
+                  !solution ||
+                  !result
+                ) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Недостаточно данных",
+                  };
+                }
+
+                const newIdea = {
+                  id: data.length + 1,
+                  author,
+                  avatar,
+                  title,
+                  category,
+                  businessProcess,
+                  problem,
+                  solution,
+                  result,
+                  note,
+                  coauthors,
+                  file,
+                  date: new Date().toISOString(),
+                };
+
+                data.push(newIdea);
+                console.log(data[data.length - 1]);
+                return data;
               },
             },
           },

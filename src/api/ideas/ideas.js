@@ -88,3 +88,46 @@ export const getSameIdeas = async ({ id, count }) => {
     throw error;
   }
 };
+
+export const postIdea = async ({
+  author,
+  avatar,
+  title,
+  category,
+  businessProcess,
+  problem,
+  solution,
+  result,
+  note,
+  coauthors,
+  file,
+}) => {
+  try {
+    const response = await axios.post(
+      IDEAS_URL,
+      {
+        author,
+        avatar,
+        title,
+        category,
+        businessProcess,
+        problem,
+        solution,
+        result,
+        note,
+        coauthors,
+        file,
+      },
+      {
+        headers: {
+          action: "postIdea",
+        },
+      }
+    );
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    throw error;
+  }
+};

@@ -51,8 +51,8 @@ function CommentsForm({ id, from }) {
         onKeyDown={(event) => {
           if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
-            const date = new Date().toISOString();
-            postComm(id, avatar, author, text, date);
+            // const date = new Date().toISOString();
+            postComm(id, avatar, author, text);
             setText("");
           }
         }}
