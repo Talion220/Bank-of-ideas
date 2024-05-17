@@ -155,8 +155,13 @@ const useIdeasStore = create((set, get) => ({
         file,
       });
       set({
-        allIdeasData: data,
+        allIdeasData: [...get().allIdeasData, data],
+        likes: {
+          ...get().likes,
+          [data.id]: { isLiked: data.isLiked, count: data.likes },
+        },
       });
+      console.log(get().likes);
       return data;
     } catch (error) {
       console.error("Error:", error);

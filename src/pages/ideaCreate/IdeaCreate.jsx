@@ -48,11 +48,6 @@ function IdeaCreate() {
   const handleSubmit = () => {
     console.log(form.errors);
 
-    notifications.show({
-      message: "Ваша идея опубликована",
-      classNames: classes,
-    });
-
     // navigate("/idea");
     // scrollToTop();
   };
@@ -82,6 +77,7 @@ function IdeaCreate() {
   });
 
   const handleError = (errors) => {
+    console.log(typeof errors);
     if (errors.category) {
       notifications.show({
         title: "Ошибка",
@@ -130,7 +126,17 @@ function IdeaCreate() {
         classNames: classes,
       });
     }
+    // if (Object.keys(errors).length === 0) {
+    //   notifications.show({
+    //     message: "Ваша идея опубликована",
+    //     classNames: classes,
+    //   });
+    // }
   };
+
+  const avatar = "/src/shared/images/avatar.png";
+  const author = "Иванов Иван Иванович";
+  // const file = "";
 
   return (
     <Container size="lg" mt={40}>
@@ -142,7 +148,33 @@ function IdeaCreate() {
         component="form"
         maw={800}
         mx="auto"
-        onSubmit={form.onSubmit(console.log, handleError)}
+        // onSubmit={form.onSubmit(console.log, handleError)}
+        onSubmit={form.onSubmit((values) => {
+          const {
+            category,
+            ideaTitle,
+            businessProcesses,
+            problem,
+            solution,
+            result,
+            note,
+            coauthors,
+          } = values;
+          console.log(values);
+          postNewIdea(
+            author,
+            avatar,
+            ideaTitle,
+            category,
+            businessProcesses,
+            problem,
+            solution,
+            result,
+            note,
+            coauthors,
+            file
+          );
+        })}
       >
         <Select
           label="Категория идеи"

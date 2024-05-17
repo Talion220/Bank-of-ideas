@@ -351,14 +351,19 @@ const mockServerConfig = {
                   solution,
                   result,
                   note,
+                  status: "Опубликована",
+                  likes: 0,
+                  isLiked: false,
+                  views: 0,
                   coauthors,
                   file,
                   date: new Date().toISOString(),
+                  comments: [],
                 };
 
                 data.push(newIdea);
                 console.log(data[data.length - 1]);
-                return data;
+                return data[data.length - 1];
               },
             },
           },
