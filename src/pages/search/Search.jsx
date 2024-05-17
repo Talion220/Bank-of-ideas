@@ -168,6 +168,9 @@ function Search() {
             underline="hover"
             className={classes.subLink}
             aria-label={row.title}
+            onClick={() => {
+              scrollToTop();
+            }}
           >
             <Text fw={500} fz="md">
               {row.title}

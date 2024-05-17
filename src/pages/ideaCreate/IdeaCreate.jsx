@@ -134,10 +134,7 @@ function IdeaCreate() {
         component="form"
         maw={800}
         mx="auto"
-        // onSubmit={form.onSubmit(console.log, handleError)}
         onSubmit={form.onSubmit((values) => {
-          // handleError(form.errors);
-          // console.log(form.errors);
           const {
             category,
             ideaTitle,
