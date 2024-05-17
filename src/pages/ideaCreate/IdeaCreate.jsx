@@ -45,13 +45,6 @@ function IdeaCreate() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    console.log(form.errors);
-
-    // navigate("/idea");
-    // scrollToTop();
-  };
-
   const form = useForm({
     mode: "uncontrolled",
     validateInputOnChange: true,
@@ -77,7 +70,6 @@ function IdeaCreate() {
   });
 
   const handleError = (errors) => {
-    console.log(typeof errors);
     if (errors.category) {
       notifications.show({
         title: "Ошибка",
@@ -126,12 +118,6 @@ function IdeaCreate() {
         classNames: classes,
       });
     }
-    // if (Object.keys(errors).length === 0) {
-    //   notifications.show({
-    //     message: "Ваша идея опубликована",
-    //     classNames: classes,
-    //   });
-    // }
   };
 
   const avatar = "/src/shared/images/avatar.png";
@@ -150,6 +136,8 @@ function IdeaCreate() {
         mx="auto"
         // onSubmit={form.onSubmit(console.log, handleError)}
         onSubmit={form.onSubmit((values) => {
+          // handleError(form.errors);
+          // console.log(form.errors);
           const {
             category,
             ideaTitle,
@@ -160,7 +148,6 @@ function IdeaCreate() {
             note,
             coauthors,
           } = values;
-          console.log(values);
           postNewIdea(
             author,
             avatar,
@@ -174,7 +161,13 @@ function IdeaCreate() {
             coauthors,
             file
           );
-        })}
+          notifications.show({
+            message: "Ваша идея опубликована",
+            classNames: classes,
+          });
+          navigate("/idea");
+          scrollToTop();
+        }, handleError)}
       >
         <Select
           label="Категория идеи"
@@ -304,22 +297,7 @@ function IdeaCreate() {
         )}
 
         <Group justify="flex-end" mt="md">
-          <Button
-            type="submit"
-            radius={12}
-            size="md"
-            // onClick={() => {
-            //   handleSubmit();
-            // const val = form.getValues();
-            // console.log(val);
-            // postNewIdea()
-            // notifications.show({
-            //   message: "Ваша идея опубликована",
-            //   classNames: classes,
-            // });
-            // form.reset();
-            // }}
-          >
+          <Button type="submit" radius={12} size="md">
             Опубликовать
           </Button>
           <Button
