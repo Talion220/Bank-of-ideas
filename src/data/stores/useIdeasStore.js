@@ -4,7 +4,7 @@ import {
   getSameIdeas,
   getIdea,
   setLike,
-  //   getIdeas,
+  getIdeas,
   postComment,
   postIdea,
 } from "../../api/ideas/ideas";
@@ -33,36 +33,36 @@ const useIdeasStore = create((set, get) => ({
   //     idIdeas: id,
   //   });
   // },
-  //   getAllIdeas: async (page, inputValue) => {
-  //     set({ AllIdeasLoading: true });
-  //     try {
-  //       const data = await getIdeas({
-  //         page,
-  //         limit: get().limitIdeas,
-  //         inputValue,
-  //       });
-  //       data.posts.forEach((post) => {
-  //         set((state) => ({
-  //           likes: {
-  //             ...state.likes,
-  //             [post.id]: { isLiked: post.isLiked, count: post.likes },
-  //           },
-  //         }));
-  //       });
-  //       set({
-  //         allIdeasData: data.posts,
-  //         totalIdeas: data.total,
-  //         AllIdeasLoading: false,
-  //       });
+  getAllIdeas: async (page, inputValue) => {
+    set({ AllIdeasLoading: true });
+    try {
+      const data = await getIdeas({
+        page,
+        limit: get().limitIdeas,
+        inputValue,
+      });
+      data.ideas.forEach((idea) => {
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [idea.id]: { isLiked: idea.isLiked, count: idea.likes },
+          },
+        }));
+      });
+      set({
+        allIdeasData: data.ideas,
+        totalIdeas: data.total,
+        AllIdeasLoading: false,
+      });
 
-  //       console.log(get().allIdeasData);
-  //       return data;
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     } finally {
-  //       set({ AllIdeasLoading: false });
-  //     }
-  //   },
+      console.log(get().allIdeasData);
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ AllIdeasLoading: false });
+    }
+  },
   getIdeaPage: async (id) => {
     set({ IdeaPageLoading: true });
     try {

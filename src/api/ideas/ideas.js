@@ -2,10 +2,14 @@ import axios from "axios";
 
 const IDEAS_URL = "http://localhost:31299/api/ideas";
 
-export const getIdeas = async () => {
+export const getIdeas = async ({ page, limit, inputValue }) => {
   try {
     const response = await axios.get(IDEAS_URL, {
-      // params: id,
+      params: {
+        page,
+        limit,
+        inputValue,
+      },
       headers: {
         action: "getIdeas",
       },

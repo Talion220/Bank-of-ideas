@@ -16,14 +16,14 @@ import useNewsStore from "../../data/stores/useNewsStore";
 import ShowNews from "../../features/news/showNews/ShowNews";
 
 function News() {
-  const { getAllNews, AllNewsLoading, limitPosts, allNewsData, totalPosts } =
-    useNewsStore((state) => ({
+  const { getAllNews, AllNewsLoading, limitPosts, totalPosts } = useNewsStore(
+    (state) => ({
       getAllNews: state.getAllNews,
       AllNewsLoading: state.AllNewsLoading,
-      allNewsData: state.allNewsData,
       totalPosts: state.totalPosts,
       limitPosts: state.limitPosts,
-    }));
+    })
+  );
 
   const [inputValue, setInputValue] = useState("");
   const [inputPrevValue, setInputPrevValue] = useState("");

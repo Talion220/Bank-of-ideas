@@ -181,6 +181,46 @@ const mockServerConfig = {
         method: "get",
         routes: [
           {
+            entities: {
+              headers: { action: "getIdeas" },
+            },
+            data: ideas.reverse(),
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { page, limit, inputValue } = request.query;
+                let ideas;
+                let totalIdeas;
+                const skip = (parseInt(page) - 1) * parseInt(limit);
+                if (inputValue) {
+                  const searchData = data.filter((index) => {
+                    return index.title
+                      .toLowerCase()
+                      .includes(inputValue.trim().toLowerCase());
+                  });
+                  ideas = searchData.slice(skip, skip + parseInt(limit));
+                  totalIdeas = searchData.length;
+                } else {
+                  totalIdeas = data.length;
+                  ideas = data.slice(skip, skip + parseInt(limit));
+                }
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+                return {
+                  total: totalIdeas,
+                  ideas: ideas,
+                  value: inputValue,
+                };
+              },
+            },
+          },
+          {
             data: ideas,
             entities: {
               headers: { action: "getIdea" },

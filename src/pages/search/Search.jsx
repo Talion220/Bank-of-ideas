@@ -1,7 +1,6 @@
 import classes from "./search.module.css";
-
-import scrollToTop from "../../shared/utilities/ScrollToTop";
-import { useState } from "react";
+import ShowIdeas from "../../features/ideas/ShowIdeas";
+import { useEffect, useState } from "react";
 import {
   Container,
   Title,
@@ -10,8 +9,6 @@ import {
   ActionIcon,
   Table,
   Flex,
-  Anchor,
-  Avatar,
   Popover,
   Button,
   Select,
@@ -21,185 +18,39 @@ import {
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
-import avatar from "../../shared/images/avatar.png";
-
-const data = [
-  {
-    id: "1",
-    author: "Isaac Asimov",
-    title: "Foundation",
-    status: "Внедрено",
-    votes: "12",
-    comments: "2",
-    views: "34",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "2",
-    author: "Mary Shelley",
-    title: "Frankenstein",
-    status: "Внедрено",
-    votes: "25",
-    comments: "4",
-    views: "86",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "3",
-    author: "Stanislaw Lem",
-    title: "Solaris",
-    status: "Внедрено",
-    votes: "65",
-    comments: "14",
-    views: "125",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "4",
-    author: "Frank Herbert",
-    title: "Dune",
-    status: "Внедрено",
-    votes: "4",
-    comments: "0",
-    views: "6",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "5",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "6",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "7",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "8",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "9",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-  {
-    id: "10",
-    author: "Ursula K. Le Guin",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-  },
-];
+import useIdeasStore from "../../data/stores/useIdeasStore";
 
 function Search() {
-  const [clear, setClear] = useState("");
+  const { getAllIdeas, AllIdeasLoading, limitIdeas, allIdeasData, totalIdeas } =
+    useIdeasStore((state) => ({
+      getAllIdeas: state.getAllIdeas,
+      AllIdeasLoading: state.AllIdeasLoading,
+      allIdeasData: state.allIdeasData,
+      totalIdeas: state.totalIdeas,
+      limitIdeas: state.limitIdeas,
+    }));
 
-  const rows = data.map((row) => {
-    return (
-      <Table.Tr key={row.id}>
-        <Table.Td>
-          <Anchor
-            component={NavLink}
-            to={row.linkAuthor}
-            underline="hover"
-            className={classes.subLink}
-            aria-label={row.title}
-            onClick={() => {
-              scrollToTop();
-            }}
-          >
-            <Flex align="center">
-              <Avatar src={row.avatar} mr={10} />
-              <Text fw={500} fz="md">
-                {row.author}
-              </Text>
-            </Flex>
-          </Anchor>
-        </Table.Td>
-        <Table.Td>
-          <Anchor
-            component={NavLink}
-            to={`/idea/${row.id}`}
-            underline="hover"
-            className={classes.subLink}
-            aria-label={row.title}
-            onClick={() => {
-              scrollToTop();
-            }}
-          >
-            <Text fw={500} fz="md">
-              {row.title}
-            </Text>
-          </Anchor>
-        </Table.Td>
-        <Table.Td>
-          <Text fw={500} fz="md">
-            {row.status}
-          </Text>
-        </Table.Td>
-        <Table.Td>
-          <Text fw={500} fz="md">
-            {row.votes}
-          </Text>
-        </Table.Td>
-        <Table.Td>
-          <Text fw={500} fz="md">
-            {row.comments}
-          </Text>
-        </Table.Td>
-        <Table.Td>
-          <Text fw={500} fz="md">
-            {row.views}
-          </Text>
-        </Table.Td>
-      </Table.Tr>
-    );
-  });
+  const [inputValue, setInputValue] = useState("");
+  const [inputPrevValue, setInputPrevValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const getData = async () => {
+    try {
+      await getAllIdeas(currentPage, inputValue);
+      if (inputPrevValue !== inputValue) {
+        setCurrentPage(1);
+      }
+      setInputPrevValue(inputValue);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [currentPage, inputValue]);
+
+  const [clear, setClear] = useState("");
 
   return (
     <Container size="xl" mt={40}>
@@ -207,7 +58,7 @@ function Search() {
         <div>
           <Title>Изучайте идеи компании</Title>
           <Text mt={20} c="dimmed">
-            1,000 идей
+            Всего идей: {allIdeasData.length}
           </Text>
         </div>
         <Button
@@ -391,7 +242,9 @@ function Search() {
               </Table.Th>
             </Table.Tr>
           </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
+          <Table.Tbody>
+            <ShowIdeas />
+          </Table.Tbody>
         </Table>
         <Center>
           <Loader size={50} />
