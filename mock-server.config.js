@@ -15,16 +15,17 @@ const mockServerConfig = {
             entities: {
               headers: { action: "getPosts" },
             },
-            data: news.reverse(),
+            data: news,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const { page, limit, inputValue } = request.query;
                 let posts;
                 let totalPosts;
                 let comments;
+                const reversedNews = [...data].reverse();
                 const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
-                  const searchData = data.filter((index) => {
+                  const searchData = reversedNews.filter((index) => {
                     return index.title
                       .toLowerCase()
                       .includes(inputValue.trim().toLowerCase());
@@ -32,8 +33,8 @@ const mockServerConfig = {
                   posts = searchData.slice(skip, skip + parseInt(limit));
                   totalPosts = searchData.length;
                 } else {
-                  totalPosts = data.length;
-                  posts = data.slice(skip, skip + parseInt(limit));
+                  totalPosts = reversedNews.length;
+                  posts = reversedNews.slice(skip, skip + parseInt(limit));
                 }
                 comments = posts.map((post) => {
                   const lastTwoComments = post.comments.slice(-2).reverse();
@@ -87,8 +88,8 @@ const mockServerConfig = {
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const { id, count } = request.query;
-
-                const filteredNews = data
+                const reversedNews = [...data].reverse();
+                const filteredNews = reversedNews
                   .filter((item) => item.id !== parseInt(id))
                   .slice(0, count);
 
@@ -184,15 +185,16 @@ const mockServerConfig = {
             entities: {
               headers: { action: "getIdeas" },
             },
-            data: ideas.reverse(),
+            data: ideas,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
                 const { page, limit, inputValue } = request.query;
                 let ideas;
                 let totalIdeas;
+                const reversedData = [...data].reverse();
                 const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
-                  const searchData = data.filter((index) => {
+                  const searchData = reversedData.filter((index) => {
                     return index.title
                       .toLowerCase()
                       .includes(inputValue.trim().toLowerCase());
@@ -200,8 +202,8 @@ const mockServerConfig = {
                   ideas = searchData.slice(skip, skip + parseInt(limit));
                   totalIdeas = searchData.length;
                 } else {
-                  totalIdeas = data.length;
-                  ideas = data.slice(skip, skip + parseInt(limit));
+                  totalIdeas = reversedData.length;
+                  ideas = reversedData.slice(skip, skip + parseInt(limit));
                 }
 
                 if (!ideas) {
@@ -256,6 +258,7 @@ const mockServerConfig = {
                     item.businessProcess === currentBusinessProcess &&
                     item.id !== parseInt(id)
                 );
+                // console.log(sortedIdeas);
                 const filteredIdeas = sortedIdeas.reverse().slice(0, count);
 
                 if (!filteredIdeas) {
@@ -402,7 +405,6 @@ const mockServerConfig = {
                 };
 
                 data.push(newIdea);
-                console.log(data[data.length - 1]);
                 return data[data.length - 1];
               },
             },
