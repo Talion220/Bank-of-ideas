@@ -58,7 +58,7 @@ function Search() {
         <div>
           <Title>Изучайте идеи компании</Title>
           <Text mt={20} c="dimmed">
-            Всего идей: {allIdeasData.length}
+            Всего идей найдено: {totalIdeas}
           </Text>
         </div>
         <Button
