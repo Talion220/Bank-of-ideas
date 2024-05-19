@@ -68,6 +68,7 @@ const mockServerConfig = {
                 const id = request.query.id;
 
                 const post = data.find((item) => item.id === parseInt(id));
+                post.views += 1;
                 if (!post) {
                   setStatusCode(404);
                   return {
@@ -231,6 +232,7 @@ const mockServerConfig = {
               response: (data, { request, setStatusCode }) => {
                 const id = request.query.id;
                 const idea = data.find((item) => item.id === parseInt(id));
+                idea.views += 1;
                 if (!idea) {
                   setStatusCode(404);
                   return {
