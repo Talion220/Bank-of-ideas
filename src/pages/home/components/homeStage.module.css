@@ -8,7 +8,7 @@
 }
 
 .arrow {
-  max-width: rem(500px);
+  max-width: rem(200px);
   @media (max-width: $mantine-breakpoint-xs) {
     max-width: 100%;
   }

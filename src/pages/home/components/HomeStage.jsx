@@ -75,7 +75,7 @@ function HomeStage() {
         Узнайте больше о процессах, которые пройдет ваша идея перед публикацией
       </Text>
 
-      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
+      <SimpleGrid cols={{ base: 1, md: 5 }} spacing="xl" mt={50}>
         {features}
       </SimpleGrid>
     </Container>
