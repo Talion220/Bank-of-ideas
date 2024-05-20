@@ -20,7 +20,7 @@ export const ideas = [
     views: 34,
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
-    date: "2024-01-06T15:00:00.126Z",
+    date: "2023-01-06T15:00:00.126Z",
     comments: [
       {
         id: 1,

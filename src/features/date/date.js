@@ -1,4 +1,4 @@
-import { format, formatDistanceToNow } from "date-fns";
+import { format, formatDistanceToNow, isThisYear } from "date-fns";
 import { ru } from "date-fns/locale";
 
 function formatDate(time) {
@@ -8,13 +8,13 @@ function formatDate(time) {
 
   if (now - date < 24 * 60 * 60 * 1000) {
     formattedDate = formatDistanceToNow(date, { addSuffix: true, locale: ru });
+  } else if (now - date < 2 * 24 * 60 * 60 * 1000) {
+    formattedDate = `вчера в ${format(date, "HH:mm", { locale: ru })}`;
   } else {
-    if (now - date < 2 * 24 * 60 * 60 * 1000) {
-      formattedDate = `вчера в ${format(date, "HH:mm", { locale: ru })}`;
-    } else {
-      formattedDate = format(date, "dd.MM.yyyy HH:mm", { locale: ru });
-    }
+    const dateFormat = isThisYear(date) ? "d MMMM" : "d MMMM yyyy";
+    formattedDate = format(date, `${dateFormat} 'в' HH:mm`, { locale: ru });
   }
+
   return formattedDate;
 }
 
