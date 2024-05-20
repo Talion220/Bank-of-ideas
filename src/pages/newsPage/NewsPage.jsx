@@ -24,6 +24,7 @@ import useNewsStore from "../../data/stores/useNewsStore";
 import ShowLatestNews from "../../features/ideasAndNewsPage/showLatestNews/ShowLatestNews";
 import Like from "../../widgets/ideasAndNewsPage/like/Like";
 import { useShallow } from "zustand/react/shallow";
+import formatDate from "../../features/date/date";
 
 function NewsPage() {
   const { id } = useParams();
@@ -53,6 +54,8 @@ function NewsPage() {
       scrollToAnchor("comments");
     }
   }, [id, NewsPageLoading]);
+
+  let date;
 
   if (NewsPageLoading || news === undefined || Object.keys(news).length === 0) {
     return (
@@ -95,6 +98,7 @@ function NewsPage() {
       </Container>
     );
   } else {
+    date = formatDate(news.date);
     return (
       <Container size="xl" mt={40}>
         <Title>{news.title}</Title>
@@ -116,7 +120,7 @@ function NewsPage() {
             •
           </Text>
           <Text size="sm" c="dimmed">
-            {news.date}
+            {date}
           </Text>
           <Text size="sm" c="dimmed">
             •

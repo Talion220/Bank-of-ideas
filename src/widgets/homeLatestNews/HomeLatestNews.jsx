@@ -2,8 +2,11 @@ import { Anchor, Flex, Text, Image, AspectRatio, Divider } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./homeLatestNews.module.css";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
+import formatDate from "../../features/date/date";
 
 function HomeLatestNews({ article }) {
+  const date = formatDate(article.date);
+
   return (
     <Anchor
       component={NavLink}
@@ -25,7 +28,7 @@ function HomeLatestNews({ article }) {
             {article.title}
           </Text>
           <Text ml={15} size="sm" c="dimmed">
-            {article.date}
+            {date}
           </Text>
         </Flex>
       </Flex>

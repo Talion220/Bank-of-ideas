@@ -1,8 +1,10 @@
 import { Group, Text, Avatar, Anchor, Flex, Spoiler } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
+import formatDate from "../../../features/date/date";
 
 function Comments({ avatar, author, time, text }) {
+  const date = formatDate(time);
   return (
     <Flex direction="column" gap="xs" pb={20}>
       <Group>
@@ -28,7 +30,7 @@ function Comments({ avatar, author, time, text }) {
             <Text size="md">{author}</Text>
           </Anchor>
           <Text size="xs" c="dimmed" underline="none">
-            {time}
+            {date}
           </Text>
         </div>
       </Group>

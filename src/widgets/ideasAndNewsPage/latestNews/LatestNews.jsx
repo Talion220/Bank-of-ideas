@@ -14,8 +14,10 @@ import { NavLink } from "react-router-dom";
 import classes from "./LatestNews.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import Like from "../../../widgets/ideasAndNewsPage/like/Like";
+import formatDate from "../../../features/date/date";
 
 function LatestNews({ article }) {
+  const date = formatDate(article.date);
   return (
     <Card withBorder radius="16" p={0} mb={20} className={classes.card}>
       <Group wrap="nowrap" gap={0}>
@@ -62,7 +64,7 @@ function LatestNews({ article }) {
               •
             </Text>
             <Text size="xs" c="dimmed">
-              {article.date}
+              {date}
             </Text>
             <Text size="xs" c="dimmed">
               •

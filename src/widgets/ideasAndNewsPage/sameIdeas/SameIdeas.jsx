@@ -14,8 +14,10 @@ import {
 import { Icons } from "../../../shared/images/Icons";
 import classes from "./sameIdeas.module.css";
 import Like from "../like/Like";
+import formatDate from "../../../features/date/date";
 
 export default function SameIdeas({ article }) {
+  const date = formatDate(article.date);
   return (
     <Card
       key={article.id}
@@ -77,7 +79,7 @@ export default function SameIdeas({ article }) {
               •
             </Text>
             <Text size="sm" c="dimmed">
-              {article.date}
+              {date}
             </Text>
             <Text size="xs" c="dimmed">
               •

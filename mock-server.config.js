@@ -1,6 +1,5 @@
 import { news } from "./src/data/mock/mockData/news/news";
 import { ideas } from "./src/data/mock/mockData/ideas/ideas";
-import moment from "moment";
 
 /** @type {import('mock-config-server').MockServerConfig} */
 const mockServerConfig = {

@@ -2,8 +2,10 @@ import { Anchor, Avatar, Group, Text } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import scrollToTop from "../../../../shared/utilities/ScrollToTop";
 import classes from "./newsCardComments.module.css";
+import formatDate from "../../../../features/date/date";
 
 export default function NewsCardComments({ article }) {
+  const date = formatDate(article.date);
   return (
     <>
       <Group wrap="nowrap" gap="xs" mt="xs">
@@ -26,7 +28,7 @@ export default function NewsCardComments({ article }) {
           •
         </Text>
         <Text size="sm" c="dimmed">
-          {article.date}
+          {date}
         </Text>
       </Group>
       <Text size="sm" lineClamp={2}>

@@ -22,6 +22,7 @@ import { useShallow } from "zustand/react/shallow";
 import { useEffect } from "react";
 import ShowSameIdeas from "../../features/ideasAndNewsPage/showSameIdeas/ShowSameIdeas";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
+import formatDate from "../../features/date/date";
 
 function IdeaPage() {
   const { id } = useParams();
@@ -50,6 +51,8 @@ function IdeaPage() {
       scrollToAnchor("comments");
     }
   }, [id, IdeaPageLoading]);
+
+  let date;
 
   if (IdeaPageLoading || idea === undefined || Object.keys(idea).length === 0) {
     return (
@@ -92,6 +95,7 @@ function IdeaPage() {
       </Container>
     );
   } else {
+    date = formatDate(idea.date);
     return (
       <Container size="xl" mt={40}>
         <Flex justify="space-between" align="center" wrap="wrap">
@@ -136,7 +140,7 @@ function IdeaPage() {
                 •
               </Text>
               <Text size="sm" c="dimmed">
-                {idea.date}
+                {date}
               </Text>
               <Text size="sm" c="dimmed">
                 •

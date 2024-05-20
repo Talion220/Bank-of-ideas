@@ -17,8 +17,10 @@ import scrollToTop from "../../../shared/utilities/ScrollToTop";
 import Like from "../like/Like";
 import { Icons } from "../../../shared/images/Icons";
 import ShowNewsCardComments from "../../../features/news/showNewsCardComments/ShowNewsCardComments";
+import formatDate from "../../../features/date/date";
 
 function NewsCard({ article, index }) {
+  const date = formatDate(article.date);
   return (
     <Card m={0} p="md" radius={16} className={classes.card}>
       <AspectRatio
@@ -65,7 +67,7 @@ function NewsCard({ article, index }) {
           •
         </Text>
         <Text size="sm" c="dimmed">
-          {article.date}
+          {date}
         </Text>
         <Text size="sm" c="dimmed">
           •
