@@ -5,7 +5,7 @@ import HomeBenefitImg4 from "../../../shared/images/HomeBenefitImg4.jpg";
 import HomeBenefitImg5 from "../../../shared/images/HomeBenefitImg5.png";
 import classes from "./homeBenefit.module.css";
 
-import { Card, Grid, Image, Container, Text } from "@mantine/core";
+import { Card, Grid, Image, Container, Text, Title } from "@mantine/core";
 
 const content = [
   {
@@ -47,6 +47,9 @@ function HomeBenefit() {
 
   return (
     <Container size="xl" py={100}>
+      <Title ta="center" pb={50}>
+        Преимущества быть с нами
+      </Title>
       <Grid gutter={0}>{features}</Grid>
     </Container>
   );

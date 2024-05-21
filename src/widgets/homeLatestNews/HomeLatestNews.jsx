@@ -26,7 +26,7 @@ function HomeLatestNews({ article }) {
       className={classes.card}
     >
       <div>
-        <Text className={classes.category} size="xs">
+        <Text className={classes.date} size="xs">
           {date}
         </Text>
         <Title order={3} className={classes.title}>
@@ -41,6 +41,7 @@ function HomeLatestNews({ article }) {
         to={`/news/${article.id}`}
         variant="white"
         color="dark"
+        size="lg"
       >
         Подробнее...
       </Button>

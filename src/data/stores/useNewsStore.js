@@ -20,7 +20,7 @@ const useNewsStore = create((set, get) => ({
   totalPosts: 0,
   limitPosts: 10,
   latestCommentsNewsCard: [],
-  countLatestNews: 5,
+  countLatestNews: 6,
   // idNews: null,
   // getId: (id) => {
   //   set({
