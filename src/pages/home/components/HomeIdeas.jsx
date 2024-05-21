@@ -9,33 +9,35 @@ function HomeIdeas() {
       <Title ta="center" pb={50}>
         Последние идеи
       </Title>
-      <Table>
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>
-              <Title fz="lg">ФИО автора</Title>
-            </Table.Th>
-            <Table.Th>
-              <Title fz="lg">Название идеи</Title>
-            </Table.Th>
-            <Table.Th>
-              <Title fz="lg">Статус</Title>
-            </Table.Th>
-            <Table.Th>
-              <Title fz="lg">Лайки</Title>
-            </Table.Th>
-            <Table.Th>
-              <Title fz="lg">Комментарии</Title>
-            </Table.Th>
-            <Table.Th>
-              <Title fz="lg">Просмотры</Title>
-            </Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>
-          <ShowLatestIdeas />
-        </Table.Tbody>
-      </Table>
+      <Table.ScrollContainer>
+        <Table>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>
+                <Title fz="lg">ФИО автора</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Название идеи</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Статус</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Лайки</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Комментарии</Title>
+              </Table.Th>
+              <Table.Th>
+                <Title fz="lg">Просмотры</Title>
+              </Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            <ShowLatestIdeas />
+          </Table.Tbody>
+        </Table>
+      </Table.ScrollContainer>
       <Button
         radius={16}
         mt={20}
