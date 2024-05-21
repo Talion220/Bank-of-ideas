@@ -7,6 +7,7 @@ import {
   getIdeas,
   postComment,
   postIdea,
+  getLatestIdeas,
 } from "../../api/ideas/ideas";
 
 const useIdeasStore = create((set, get) => ({
@@ -27,6 +28,7 @@ const useIdeasStore = create((set, get) => ({
       category,
     });
   },
+  countLatestIdeas: 5,
   // idIdeas: null,
   // getId: (id) => {
   //   set({
@@ -163,6 +165,16 @@ const useIdeasStore = create((set, get) => ({
       });
       console.log(get().likes);
       return data;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  },
+  getLatest: async () => {
+    try {
+      const latestIdeas = await getLatestIdeas({
+        count: get().countLatestIdeas,
+      });
+      return latestIdeas;
     } catch (error) {
       console.error("Error:", error);
     }

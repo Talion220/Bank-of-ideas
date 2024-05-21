@@ -135,3 +135,18 @@ export const postIdea = async ({
     throw error;
   }
 };
+export const getLatestIdeas = async ({ count }) => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      params: { count },
+      headers: {
+        action: "getLatestIdeas",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};

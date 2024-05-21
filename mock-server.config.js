@@ -274,6 +274,29 @@ const mockServerConfig = {
               },
             },
           },
+          {
+            entities: {
+              headers: { action: "getLatestIdeas" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const count = request.query.count;
+                const reversedIdeas = [...data].reverse();
+                const filteredIdeas = reversedIdeas.slice(0, count);
+
+                if (!filteredIdeas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Последние идеи не найдены",
+                  };
+                }
+                return filteredIdeas;
+              },
+            },
+          },
         ],
       },
       {
