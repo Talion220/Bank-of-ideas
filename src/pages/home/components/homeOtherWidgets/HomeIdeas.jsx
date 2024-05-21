@@ -104,7 +104,7 @@ function HomeIdeas() {
         <Table.Thead>
           <Table.Tr>
             <Table.Th>
-              <Title pb={15}>Наша база идей</Title>
+              <Title pb={15}>Последние идеи</Title>
             </Table.Th>
           </Table.Tr>
         </Table.Thead>
