@@ -1,6 +1,15 @@
 import styles from "./homeTopAll.module.css";
 
-import { Center, Table, Text, Flex, Title } from "@mantine/core";
+import {
+  Center,
+  Table,
+  Text,
+  Flex,
+  Title,
+  Divider,
+  Group,
+  Anchor,
+} from "@mantine/core";
 
 const topBusinessProcesses = [
   {
@@ -22,28 +31,27 @@ const topBusinessProcesses = [
 
 function HomeTopFilials() {
   const rows = topBusinessProcesses.map((item) => (
-    <Table.Tr key={item.title}>
-      <Table.Td>
-        <Text className={styles.text}>{item.title}</Text>
-      </Table.Td>
-    </Table.Tr>
+    <Anchor
+      key={item.title}
+      underline="hover"
+      className={styles.subLink}
+      aria-label={item.title}
+    >
+      <Divider my="sm" />
+      <Group gap="sm">
+        <Text p="7px 0 8px" className={styles.text}>
+          {item.title}
+        </Text>
+      </Group>
+    </Anchor>
   ));
 
   return (
-    // <Flex align="center" direction="column">
-    <Table.ScrollContainer w={500} mr={20}>
-      <Table verticalSpacing="sm" horizontalSpacing="md">
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>
-              <Title pb="xl">Топ филиалов</Title>
-            </Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
-    </Table.ScrollContainer>
-    // {/* </Flex> */}
+    <Center mt={50}>
+      <Flex align="start" direction="column">
+        {rows}
+      </Flex>
+    </Center>
   );
 }
 
