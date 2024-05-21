@@ -1,25 +1,46 @@
 import HomeTopAuthors from "./homeTop/HomeTopAuthors";
 import HomeTopFilials from "./homeTop/HomeTopFilials";
 import HomeTopBusinessProcesses from "./homeTop/HomeTopBusinessProcesses";
+import { Icons } from "../../../shared/images/Icons";
 
-import { Grid, Container, Flex } from "@mantine/core";
+import { Grid, Container, Flex, Tabs, rem, Title, Center } from "@mantine/core";
 
 function HomeTop() {
   return (
     <Container size="xl" py={100}>
-      {/* <Grid gutter={0}>
-        <Grid.Col pt={40} span={{ base: 12, md: 12, lg: 12 }}> */}
-      <HomeTopAuthors />
-      <Flex justify="space-between" wrap="wrap">
-        {/* </Grid.Col>
-        <Grid.Col pt={40} span={{ base: 12, md: 6, lg: 5 }}> */}
-        <HomeTopFilials />
-        {/* </Grid.Col>
-        <Grid.Col pt={40} span={{ base: 12, md: 6, lg: 5 }}> */}
-        <HomeTopBusinessProcesses />
-        {/* </Grid.Col>
-      </Grid> */}
-      </Flex>
+      <Title ta="center" pb={50}>
+        Наши лидеры
+      </Title>
+      <Center>
+        <Tabs variant="pills" radius="md" defaultValue="authors">
+          <Tabs.List>
+            <Tabs.Tab value="authors" leftSection={<Icons.User />}>
+              Лучшие авторы
+            </Tabs.Tab>
+            <Tabs.Tab value="filials" leftSection={<Icons.Filials />}>
+              Лучшие филиалы
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="businessProcesses"
+              leftSection={<Icons.BusinessProcesses />}
+            >
+              Лучшие бизнес-процессы
+            </Tabs.Tab>
+          </Tabs.List>
+
+          <Tabs.Panel value="authors">
+            <HomeTopAuthors />
+          </Tabs.Panel>
+
+          <Tabs.Panel value="filials">
+            <HomeTopFilials />
+          </Tabs.Panel>
+
+          <Tabs.Panel value="businessProcesses">
+            <HomeTopBusinessProcesses />
+          </Tabs.Panel>
+        </Tabs>
+      </Center>
     </Container>
   );
 }

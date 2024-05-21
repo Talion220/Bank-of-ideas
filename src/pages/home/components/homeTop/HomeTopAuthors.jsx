@@ -4,7 +4,17 @@ import { NavLink } from "react-router-dom";
 
 import scrollToTop from "../../../../shared/utilities/ScrollToTop";
 
-import { Avatar, Table, Group, Text, Anchor, Title, Flex } from "@mantine/core";
+import {
+  Avatar,
+  Table,
+  Group,
+  Text,
+  Anchor,
+  Title,
+  Flex,
+  Divider,
+  Center,
+} from "@mantine/core";
 
 const topAuthors = [
   {
@@ -41,43 +51,31 @@ const topAuthors = [
 
 function HomeTopAuthors() {
   const rows = topAuthors.map((item) => (
-    <Table.Tr key={item.name}>
-      <Table.Td>
-        <Anchor
-          component={NavLink}
-          to={item.link}
-          underline="hover"
-          className={styles.subLink}
-          aria-label={item.title}
-          onClick={() => {
-            scrollToTop();
-          }}
-        >
-          <Group gap="sm">
-            <Avatar size={40} src={item.avatar} radius={40} />
-            <Text className={styles.text}>{item.name}</Text>
-          </Group>
-        </Anchor>
-      </Table.Td>
-    </Table.Tr>
+    <Anchor
+      key={item.name}
+      component={NavLink}
+      to={item.link}
+      underline="hover"
+      className={styles.subLink}
+      aria-label={item.title}
+      onClick={() => {
+        scrollToTop();
+      }}
+    >
+      <Divider my="sm" />
+      <Group gap="sm">
+        <Avatar size={40} src={item.avatar} radius={40} />
+        <Text className={styles.text}>{item.name}</Text>
+      </Group>
+    </Anchor>
   ));
 
   return (
-    // <Flex align="center" direction="column">
-
-    <Table.ScrollContainer maw={700}>
-      <Table verticalSpacing="sm" horizontalSpacing="md">
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>
-              <Title pb="xl">Топ авторов</Title>
-            </Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
-    </Table.ScrollContainer>
-    // </Flex>
+    <Center mt={50}>
+      <Flex align="start" direction="column">
+        {rows}
+      </Flex>
+    </Center>
   );
 }
 
