@@ -4,6 +4,7 @@ import useNewsStore from "../../../data/stores/useNewsStore";
 import HomeLatestNews from "../../../widgets/homeLatestNews/HomeLatestNews";
 import { useShallow } from "zustand/react/shallow";
 import { Center, Text } from "@mantine/core";
+import { Carousel } from "@mantine/carousel";
 
 const ShowLatestNews = ({ id, from }) => {
   const { getLatest } = useNewsStore(
@@ -30,7 +31,9 @@ const ShowLatestNews = ({ id, from }) => {
     ));
   } else if (from === "homePage") {
     return post.map((article) => (
-      <HomeLatestNews key={article.id} article={article} />
+      <Carousel.Slide key={article.id}>
+        <HomeLatestNews article={article} />
+      </Carousel.Slide>
     ));
   }
 };

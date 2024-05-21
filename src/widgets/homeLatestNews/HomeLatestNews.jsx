@@ -1,4 +1,14 @@
-import { Anchor, Flex, Text, Image, AspectRatio, Divider } from "@mantine/core";
+import {
+  Anchor,
+  Flex,
+  Text,
+  Image,
+  AspectRatio,
+  Divider,
+  Paper,
+  Button,
+  Title,
+} from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./homeLatestNews.module.css";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
@@ -8,31 +18,33 @@ function HomeLatestNews({ article }) {
   const date = formatDate(article.date);
 
   return (
-    <Anchor
-      component={NavLink}
-      to={`/news/${article.id}`}
-      underline="hover"
-      className={classes.subLink}
-      aria-label={article.title}
-      onClick={() => {
-        scrollToTop();
-      }}
+    <Paper
+      shadow="md"
+      p="xl"
+      radius="md"
+      style={{ backgroundImage: `url(${article.newsImg})` }}
+      className={classes.card}
     >
-      <Divider my="sm" />
-      <Flex justify="flex-start" align="center">
-        <AspectRatio ratio={16 / 9} style={{ width: "100px" }}>
-          <Image src={article.newsImg} radius="md" />
-        </AspectRatio>
-        <Flex direction="column">
-          <Text ml={15} fw={500} fz="md">
-            {article.title}
-          </Text>
-          <Text ml={15} size="sm" c="dimmed">
-            {date}
-          </Text>
-        </Flex>
-      </Flex>
-    </Anchor>
+      <div>
+        <Text className={classes.category} size="xs">
+          {date}
+        </Text>
+        <Title order={3} className={classes.title}>
+          {article.title}
+        </Title>
+      </div>
+      <Button
+        component={NavLink}
+        onClick={() => {
+          scrollToTop();
+        }}
+        to={`/news/${article.id}`}
+        variant="white"
+        color="dark"
+      >
+        Подробнее...
+      </Button>
+    </Paper>
   );
 }
 

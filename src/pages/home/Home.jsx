@@ -2,7 +2,8 @@ import HomePreview from "./components/HomePreview";
 import HomeBenefit from "./components/HomeBenefit";
 import HomeStage from "./components/HomeStage";
 import HomeTop from "./components/HomeTop";
-import HomeOtherWidgets from "./components/HomeOtherWidgets";
+import HomeNews from "./components/HomeNews";
+import HomeIdeas from "./components/HomeIdeas";
 
 function Home() {
   return (
@@ -11,7 +12,8 @@ function Home() {
       <HomeStage />
       <HomeTop />
       <HomeBenefit />
-      <HomeOtherWidgets />
+      <HomeNews />
+      <HomeIdeas />
     </>
   );
 }
