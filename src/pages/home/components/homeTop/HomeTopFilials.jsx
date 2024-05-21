@@ -11,7 +11,7 @@ import {
   Anchor,
 } from "@mantine/core";
 
-const topBusinessProcesses = [
+const topFilials = [
   {
     title: "Филиал 1",
   },
@@ -30,7 +30,7 @@ const topBusinessProcesses = [
 ];
 
 function HomeTopFilials() {
-  const rows = topBusinessProcesses.map((item) => (
+  const rows = topFilials.map((item) => (
     <Anchor
       key={item.title}
       underline="hover"
