@@ -38,6 +38,7 @@ function HomeLatestNews({ article }) {
         onClick={() => {
           scrollToTop();
         }}
+        radius={16}
         to={`/news/${article.id}`}
         variant="white"
         color="dark"

@@ -10,15 +10,15 @@ function HomeNews() {
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const autoplay = useRef(Autoplay({ delay: 2500 }));
   return (
-    <Container size="xl">
+    <Container size="xl" py={100}>
       <Title ta="center" pb={50}>
         Последние новости
       </Title>
       <Carousel
-        slideSize={{ base: "100%", sm: "100%" }}
+        slideSize={{ base: "100%", sm: "50%" }}
         slideGap={{ base: rem(2), sm: "xl" }}
         align="start"
-        slidesToScroll={mobile ? 1 : 1}
+        slidesToScroll={mobile ? 1 : 2}
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
