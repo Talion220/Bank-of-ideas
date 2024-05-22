@@ -8,6 +8,7 @@ import {
   postComment,
   postIdea,
   getLatestIdeas,
+  getHomeStatistics,
 } from "../../api/ideas/ideas";
 
 const useIdeasStore = create((set, get) => ({
@@ -175,6 +176,16 @@ const useIdeasStore = create((set, get) => ({
         count: get().countLatestIdeas,
       });
       return latestIdeas;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  },
+  getHomeStats: async () => {
+    try {
+      const statistics = await getHomeStatistics({
+        count: get().countLatestIdeas,
+      });
+      return statistics;
     } catch (error) {
       console.error("Error:", error);
     }

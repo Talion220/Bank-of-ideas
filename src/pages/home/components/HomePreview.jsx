@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import classes from "./homePreview.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
@@ -24,24 +24,7 @@ import "@mantine/carousel/styles.css";
 import swiper1 from "../../../shared/images/slider1.jpg";
 import swiper2 from "../../../shared/images/slider2.jpg";
 import swiper3 from "../../../shared/images/slider3.jpg";
-
-const data = [
-  {
-    image: swiper1,
-    count: 2500,
-    title: "Идей подано",
-  },
-  {
-    image: swiper2,
-    count: 1500,
-    title: "Идей одобрено",
-  },
-  {
-    image: swiper3,
-    count: 500,
-    title: "Идей внедрено",
-  },
-];
+import useIdeasStore from "../../../data/stores/useIdeasStore";
 
 function Card({ image, count, title }) {
   return (
@@ -60,14 +43,40 @@ function Card({ image, count, title }) {
           {count}
         </Title>
       </div>
-      {/* <Button variant="white" color="dark">
-        Подробнее
-      </Button> */}
     </Paper>
   );
 }
 
 function HomePreview() {
+  const { getHomeStats } = useIdeasStore((state) => ({
+    getHomeStats: state.getHomeStats,
+  }));
+
+  const [homeStats, sethomeStats] = useState({});
+
+  const data = [
+    {
+      image: swiper1,
+      count: homeStats.total,
+      title: "Идей подано",
+    },
+    {
+      image: swiper2,
+      count: homeStats.approved,
+      title: "Идей одобрено",
+    },
+    {
+      image: swiper3,
+      count: homeStats.implemented,
+      title: "Идей внедрено",
+    },
+  ];
+
+  useEffect(() => {
+    getHomeStats().then((statistics) => {
+      sethomeStats(statistics);
+    });
+  }, []);
   const autoplay = useRef(Autoplay({ delay: 2500 }));
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);

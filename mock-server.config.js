@@ -297,6 +297,37 @@ const mockServerConfig = {
               },
             },
           },
+          {
+            entities: {
+              headers: { action: "getHomeStatistics" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                let approved = data.filter(
+                  (item) => item.status === "Одобрено"
+                );
+                let implemented = data.filter(
+                  (item) => item.status === "Внедрено"
+                );
+                const filteredIdeas = {
+                  total: data.length,
+                  approved: approved.length,
+                  implemented: implemented.length,
+                };
+
+                if (!filteredIdeas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Последние идеи не найдены",
+                  };
+                }
+                return filteredIdeas;
+              },
+            },
+          },
         ],
       },
       {

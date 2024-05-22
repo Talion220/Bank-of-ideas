@@ -150,3 +150,17 @@ export const getLatestIdeas = async ({ count }) => {
     throw error;
   }
 };
+export const getHomeStatistics = async () => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      headers: {
+        action: "getHomeStatistics",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
