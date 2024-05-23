@@ -203,7 +203,10 @@ const mockServerConfig = {
                   totalIdeas = searchData.length;
                 } else {
                   totalIdeas = reversedData.length;
-                  ideas = reversedData.slice(skip, skip + parseInt(limit));
+                  ideas = reversedData.slice(
+                    0,
+                    parseInt(page) * parseInt(limit)
+                  );
                 }
 
                 if (!ideas) {
@@ -303,7 +306,7 @@ const mockServerConfig = {
             },
             data: ideas,
             interceptors: {
-              response: (data, { request, setStatusCode }) => {
+              response: (data, { setStatusCode }) => {
                 let approved = data.filter(
                   (item) => item.status === "Одобрено"
                 );

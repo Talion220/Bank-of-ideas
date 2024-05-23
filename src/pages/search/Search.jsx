@@ -1,6 +1,6 @@
 import classes from "./search.module.css";
 import ShowIdeas from "../../features/ideas/showIdeas/ShowIdeas";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Container,
   Title,
@@ -33,12 +33,33 @@ function Search() {
   const [inputValue, setInputValue] = useState("");
   const [inputPrevValue, setInputPrevValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const prevPage = useRef(1);
+
+  const viewport = useRef(null);
+
+  function handleScroll() {
+    const { scrollTop, scrollHeight, clientHeight } = viewport.current;
+    if (
+      viewport.current &&
+      scrollTop + clientHeight >= scrollHeight - 50 &&
+      prevPage.current === currentPage &&
+      totalIdeas > currentPage * limitIdeas &&
+      !AllIdeasLoading
+    ) {
+      setCurrentPage((val) => val + 1);
+      prevPage.current = currentPage + 1;
+      console.log(`Scroll Position: ${scrollTop}`);
+      console.log(`Scroll Height: ${scrollHeight}`);
+      console.log(`Client Height: ${clientHeight}`);
+    }
+  }
 
   const getData = async () => {
     try {
       await getAllIdeas(currentPage, inputValue);
       if (inputPrevValue !== inputValue) {
         setCurrentPage(1);
+        prevPage.current = 1;
       }
       setInputPrevValue(inputValue);
     } catch (error) {
@@ -229,9 +250,10 @@ function Search() {
         }
       />
       <ScrollArea
+        viewportRef={viewport}
         h={516}
         mt={20}
-        onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+        onScrollPositionChange={handleScroll}
         classNames={{ scrollbar: classes.scroll }}
       >
         <Table highlightOnHover stickyHeader verticalSpacing="xs">
@@ -261,9 +283,11 @@ function Search() {
             <ShowIdeas />
           </Table.Tbody>
         </Table>
-        <Center>
-          <Loader size={50} />
-        </Center>
+        {totalIdeas < currentPage * limitIdeas ? null : (
+          <Center>
+            <Loader size={50} />
+          </Center>
+        )}
       </ScrollArea>
     </Container>
   );
