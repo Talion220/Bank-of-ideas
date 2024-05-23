@@ -52,6 +52,14 @@ function Search() {
 
   const [clear, setClear] = useState("");
 
+  const [selectTime, setSelectTime] = useState("За все время");
+  const [selectFilials, setSelectFilials] = useState("Все");
+  const [selectViews, setSelectViews] = useState("Все");
+  const [selectLikes, setSelectLikes] = useState("Все");
+  const [selectComments, setSelectComments] = useState("Все");
+  const [selectStatus, setSelectStatus] = useState("Все");
+  const [selectBusinessProcess, setSelectBusinessProcess] = useState("Все");
+
   return (
     <Container size="xl" mt={40}>
       <Flex justify="space-between">
@@ -112,7 +120,8 @@ function Search() {
               <Popover.Dropdown>
                 <Select
                   label="По времени"
-                  defaultValue="За все время" //дефалт велью должен меняться
+                  value={selectTime}
+                  onChange={setSelectTime}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -126,7 +135,8 @@ function Search() {
                 />
                 <Select
                   label="По филиалам"
-                  defaultValue="Все"
+                  value={selectFilials}
+                  onChange={setSelectFilials}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -142,7 +152,8 @@ function Search() {
                 />
                 <Select
                   label="По просмотрам"
-                  defaultValue="Все"
+                  value={selectViews}
+                  onChange={setSelectViews}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -154,7 +165,8 @@ function Search() {
                 />
                 <Select
                   label="По лайкам"
-                  defaultValue="Все"
+                  value={selectLikes}
+                  onChange={setSelectLikes}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -162,7 +174,8 @@ function Search() {
                 />
                 <Select
                   label="По комментариям"
-                  defaultValue="Все"
+                  value={selectComments}
+                  onChange={setSelectComments}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -174,7 +187,8 @@ function Search() {
                 />
                 <Select
                   label="По статусу"
-                  defaultValue="Все"
+                  value={selectStatus}
+                  onChange={setSelectStatus}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
@@ -193,7 +207,8 @@ function Search() {
                 />
                 <Select
                   label="По бизнес процессу"
-                  defaultValue="Все"
+                  value={selectBusinessProcess}
+                  onChange={setSelectBusinessProcess}
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
