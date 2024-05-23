@@ -16,13 +16,13 @@ import {
   Skeleton,
 } from "@mantine/core";
 
-import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
-import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
+import ShowComments from "../../features/common/comments/ShowComments";
+import CommentsForm from "../../widgets/common/commentsForm/CommentsForm";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import useNewsStore from "../../data/stores/useNewsStore";
-import ShowLatestNews from "../../features/ideasAndNewsPage/showLatestNews/ShowLatestNews";
-import Like from "../../widgets/ideasAndNewsPage/like/Like";
+import ShowLatestNews from "../../features/news/showLatestNews/ShowLatestNews";
+import Like from "../../widgets/common/like/Like";
 import { useShallow } from "zustand/react/shallow";
 import formatDate from "../../features/date/date";
 

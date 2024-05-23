@@ -1,5 +1,5 @@
 import { Title, Flex, Table, Container, Button } from "@mantine/core";
-import ShowLatestIdeas from "../../../features/showLatestIdeas/ShowLatestIdeas";
+import ShowLatestIdeas from "../../../features/ideas/showLatestIdeas/ShowLatestIdeas";
 import { NavLink } from "react-router-dom";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
 

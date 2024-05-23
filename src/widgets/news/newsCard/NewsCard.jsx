@@ -14,7 +14,7 @@ import {
 import { NavLink } from "react-router-dom";
 import classes from "./news.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
-import Like from "../like/Like";
+import Like from "../../common/like/Like";
 import { Icons } from "../../../shared/images/Icons";
 import ShowNewsCardComments from "../../../features/news/showNewsCardComments/ShowNewsCardComments";
 import formatDate from "../../../features/date/date";

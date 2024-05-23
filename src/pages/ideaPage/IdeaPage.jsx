@@ -1,7 +1,7 @@
 import { Icons } from "../../shared/images/Icons";
 import { useParams, NavLink } from "react-router-dom";
-import ShowComments from "../../features/ideasAndNewsPage/comments/ShowComments";
-import CommentsForm from "../../widgets/ideasAndNewsPage/commentsForm/CommentsForm";
+import ShowComments from "../../features/common/comments/ShowComments";
+import CommentsForm from "../../widgets/common/commentsForm/CommentsForm";
 import {
   Title,
   Text,
@@ -15,12 +15,12 @@ import {
   Badge,
   Skeleton,
 } from "@mantine/core";
-import Like from "../../widgets/ideasAndNewsPage/like/Like";
+import Like from "../../widgets/common/like/Like";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
 import useIdeasStore from "../../data/stores/useIdeasStore";
 import { useShallow } from "zustand/react/shallow";
 import { useEffect } from "react";
-import ShowSameIdeas from "../../features/ideasAndNewsPage/showSameIdeas/ShowSameIdeas";
+import ShowSameIdeas from "../../features/ideas/showSameIdeas/ShowSameIdeas";
 import scrollToAnchor from "../../shared/utilities/ScrollToAnchor";
 import formatDate from "../../features/date/date";
 

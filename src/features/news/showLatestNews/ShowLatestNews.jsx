@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import LatestNews from "../../../widgets/ideasAndNewsPage/latestNews/LatestNews";
+import LatestNews from "../../../widgets/news/latestNews/LatestNews";
 import useNewsStore from "../../../data/stores/useNewsStore";
-import HomeLatestNews from "../../../widgets/homeLatestNews/HomeLatestNews";
+import HomeLatestNews from "../../../widgets/news/homeLatestNews/HomeLatestNews";
 import { useShallow } from "zustand/react/shallow";
 import { Center, Text } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";

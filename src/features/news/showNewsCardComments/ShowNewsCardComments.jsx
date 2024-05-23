@@ -1,6 +1,6 @@
 import { Center, Text } from "@mantine/core";
 import useNewsStore from "../../../data/stores/useNewsStore";
-import NewsCardComments from "../../../widgets/ideasAndNewsPage/newsCard/comments/NewsCardComments";
+import NewsCardComments from "../../../widgets/news/newsCard/comments/NewsCardComments";
 
 export default function ShowNewsCardComments({ id }) {
   const { latestCommentsNewsCard } = useNewsStore((state) => ({

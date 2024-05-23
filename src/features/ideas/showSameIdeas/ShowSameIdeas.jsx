@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useShallow } from "zustand/react/shallow";
 import useIdeasStore from "../../../data/stores/useIdeasStore";
-import SameIdeas from "../../../widgets/ideasAndNewsPage/sameIdeas/SameIdeas";
+import SameIdeas from "../../../widgets/ideas/sameIdeas/SameIdeas";
 import { Center, Text } from "@mantine/core";
 
 const ShowSameIdeas = ({ id }) => {

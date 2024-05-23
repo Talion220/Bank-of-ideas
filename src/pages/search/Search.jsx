@@ -1,5 +1,5 @@
 import classes from "./search.module.css";
-import ShowIdeas from "../../features/ideas/ShowIdeas";
+import ShowIdeas from "../../features/ideas/showIdeas/ShowIdeas";
 import { useEffect, useState } from "react";
 import {
   Container,

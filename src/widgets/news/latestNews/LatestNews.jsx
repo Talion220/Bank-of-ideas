@@ -13,7 +13,7 @@ import { Icons } from "../../../shared/images/Icons";
 import { NavLink } from "react-router-dom";
 import classes from "./LatestNews.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
-import Like from "../../../widgets/ideasAndNewsPage/like/Like";
+import Like from "../../common/like/Like";
 import formatDate from "../../../features/date/date";
 
 function LatestNews({ article }) {

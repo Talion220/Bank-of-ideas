@@ -1,5 +1,5 @@
-import useIdeasStore from "../../data/stores/useIdeasStore";
-import IdeasCard from "../../widgets/ideasAndNewsPage/ideasCard/IdeasCard";
+import useIdeasStore from "../../../data/stores/useIdeasStore";
+import IdeasCard from "../../../widgets/ideas/ideasCard/IdeasCard";
 
 export default function ShowIdeas() {
   const { allIdeasData } = useIdeasStore((state) => ({

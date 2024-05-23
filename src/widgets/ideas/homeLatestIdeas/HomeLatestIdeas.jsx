@@ -1,7 +1,7 @@
 import { Anchor, Avatar, Flex, Table, Text } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./homeLatestIdeas.module.css";
-import scrollToTop from "../../shared/utilities/ScrollToTop";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
 
 export default function HomeLatestIdeas({ article }) {
   return (

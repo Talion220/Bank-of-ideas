@@ -1,5 +1,5 @@
 import useNewsStore from "../../../data/stores/useNewsStore";
-import NewsCard from "../../../widgets/ideasAndNewsPage/newsCard/NewsCard";
+import NewsCard from "../../../widgets/news/newsCard/NewsCard";
 
 export default function ShowNews() {
   const { allNewsData } = useNewsStore((state) => ({

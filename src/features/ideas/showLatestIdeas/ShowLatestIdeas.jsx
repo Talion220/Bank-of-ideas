@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useShallow } from "zustand/react/shallow";
 import { Center, Table, Text } from "@mantine/core";
-import useIdeasStore from "../../data/stores/useIdeasStore";
-import HomeLatestIdeas from "../../widgets/homeLatestIdeas/HomeLatestIdeas";
+import useIdeasStore from "../../../data/stores/useIdeasStore";
+import HomeLatestIdeas from "../../../widgets/ideas/homeLatestIdeas/HomeLatestIdeas";
 
 const ShowLatestIdeas = () => {
   const { getLatest } = useIdeasStore(

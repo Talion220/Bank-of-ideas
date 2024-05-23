@@ -1,5 +1,5 @@
 import { Container, Flex, Title, rem, useMantineTheme } from "@mantine/core";
-import ShowLatestNews from "../../../features/ideasAndNewsPage/showLatestNews/ShowLatestNews";
+import ShowLatestNews from "../../../features/news/showLatestNews/ShowLatestNews";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import Autoplay from "embla-carousel-autoplay";

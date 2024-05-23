@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import classes from "./sameIdeas.module.css";
-import Like from "../like/Like";
+import Like from "../../common/like/Like";
 import formatDate from "../../../features/date/date";
 
 export default function SameIdeas({ article }) {

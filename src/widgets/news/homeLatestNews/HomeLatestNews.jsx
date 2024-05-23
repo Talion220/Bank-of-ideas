@@ -11,8 +11,8 @@ import {
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./homeLatestNews.module.css";
-import scrollToTop from "../../shared/utilities/ScrollToTop";
-import formatDate from "../../features/date/date";
+import scrollToTop from "../../../shared/utilities/ScrollToTop";
+import formatDate from "../../../features/date/date";
 
 function HomeLatestNews({ article }) {
   const date = formatDate(article.date);

@@ -1,4 +1,4 @@
-import Comments from "../../../widgets/ideasAndNewsPage/comments/Comments";
+import Comments from "../../../widgets/common/comments/Comments";
 import { Text } from "@mantine/core";
 import useNewsStore from "../../../data/stores/useNewsStore";
 import { useEffect } from "react";
