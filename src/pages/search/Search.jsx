@@ -48,9 +48,6 @@ function Search() {
     ) {
       setCurrentPage((val) => val + 1);
       prevPage.current = currentPage + 1;
-      console.log(`Scroll Position: ${scrollTop}`);
-      console.log(`Scroll Height: ${scrollHeight}`);
-      console.log(`Client Height: ${clientHeight}`);
     }
   }
 
@@ -71,9 +68,7 @@ function Search() {
     getData();
   }, [currentPage, inputValue]);
 
-  const [clear, setClear] = useState("");
-
-  const [selectTime, setSelectTime] = useState("За все время");
+  const [selectTime, setSelectTime] = useState("Все");
   const [selectFilials, setSelectFilials] = useState("Все");
   const [selectViews, setSelectViews] = useState("Все");
   const [selectLikes, setSelectLikes] = useState("Все");
@@ -106,19 +101,19 @@ function Search() {
         radius="xl"
         size="xl"
         placeholder="Искать идеи..."
-        rightSectionWidth={clear ? 230 : 188}
+        rightSectionWidth={inputValue ? 230 : 188}
         leftSection={<Icons.IconSearch />}
-        value={clear}
+        value={inputValue}
         rightSectionPointerEvents="all"
-        onChange={(event) => setClear(event.currentTarget.value)}
+        onChange={(event) => setInputValue(event.currentTarget.value)}
         rightSection={
           <Flex>
             <ActionIcon
               size={42}
               color="gray"
               variant="transparent"
-              onClick={() => setClear("")}
-              style={{ display: clear ? undefined : "none" }}
+              onClick={() => setInputValue("")}
+              style={{ display: inputValue ? undefined : "none" }}
             >
               <Icons.CloseButton />
             </ActionIcon>
@@ -146,13 +141,7 @@ function Search() {
                   allowDeselect={false}
                   comboboxProps={{ withinPortal: false }}
                   radius={16}
-                  data={[
-                    "За все время",
-                    "За год",
-                    "За месяц",
-                    "За неделю",
-                    "За день",
-                  ]}
+                  data={["Все", "За год", "За месяц", "За неделю", "За день"]}
                 />
                 <Select
                   label="По филиалам"

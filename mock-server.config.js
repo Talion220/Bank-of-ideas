@@ -199,7 +199,7 @@ const mockServerConfig = {
                       .toLowerCase()
                       .includes(inputValue.trim().toLowerCase());
                   });
-                  ideas = searchData.slice(skip, skip + parseInt(limit));
+                  ideas = searchData.slice(0, parseInt(page) * parseInt(limit));
                   totalIdeas = searchData.length;
                 } else {
                   totalIdeas = reversedData.length;
