@@ -53,7 +53,18 @@ function Search() {
 
   const getData = async () => {
     try {
-      await getAllIdeas(currentPage, inputValue);
+      await getAllIdeas(
+        currentPage,
+        inputValue,
+        selectTime,
+        selectCategory,
+        selectFilials,
+        selectViews,
+        selectLikes,
+        selectComments,
+        selectStatus,
+        selectBusinessProcess
+      );
       if (inputPrevValue !== inputValue) {
         setCurrentPage(1);
         prevPage.current = 1;
@@ -64,17 +75,29 @@ function Search() {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, [currentPage, inputValue]);
-
   const [selectTime, setSelectTime] = useState("Все");
+  const [selectCategory, setSelectCategory] = useState("Все");
   const [selectFilials, setSelectFilials] = useState("Все");
   const [selectViews, setSelectViews] = useState("Все");
   const [selectLikes, setSelectLikes] = useState("Все");
   const [selectComments, setSelectComments] = useState("Все");
   const [selectStatus, setSelectStatus] = useState("Все");
   const [selectBusinessProcess, setSelectBusinessProcess] = useState("Все");
+
+  useEffect(() => {
+    getData();
+  }, [
+    currentPage,
+    inputValue,
+    selectTime,
+    selectCategory,
+    selectFilials,
+    selectViews,
+    selectLikes,
+    selectComments,
+    selectStatus,
+    selectBusinessProcess,
+  ]);
 
   return (
     <Container size="xl" mt={40}>
@@ -144,6 +167,20 @@ function Search() {
                   data={["Все", "За год", "За месяц", "За неделю", "За день"]}
                 />
                 <Select
+                  label="По категории"
+                  value={selectCategory}
+                  onChange={setSelectCategory}
+                  allowDeselect={false}
+                  comboboxProps={{ withinPortal: false }}
+                  radius={16}
+                  data={[
+                    "Все",
+                    "Предложение по улучшению",
+                    "Рационализаторское предложение",
+                    "Лучшая практика",
+                  ]}
+                />
+                <Select
                   label="По филиалам"
                   value={selectFilials}
                   onChange={setSelectFilials}
@@ -152,12 +189,15 @@ function Search() {
                   radius={16}
                   data={[
                     "Все",
-                    "Филиал 1",
-                    "Филиал 2",
-                    "Филиал 3",
-                    "Филиал 4",
-                    "Филиал 5",
-                    "Филиал 6",
+                    "ИА",
+                    "Алтайэнерго",
+                    "Бурятэнерго",
+                    "Красноярскэнерго",
+                    "Кузбассэнерго-РЭС",
+                    "Омскэнерго",
+                    "Хакасэнерго",
+                    "Читаэнерго",
+                    "Тываэнерго",
                   ]}
                 />
                 <Select
@@ -191,7 +231,7 @@ function Search() {
                   radius={16}
                   data={[
                     "Все",
-                    "Больше всего комментариве",
+                    "Больше всего комментариев",
                     "Меньше всего комментариев",
                   ]}
                 />
@@ -204,15 +244,15 @@ function Search() {
                   radius={16}
                   data={[
                     "Все",
-                    "Опубликована",
+                    "Опубликовано",
                     "На рассмотрении",
                     "На формировании итогового экспертного заключения",
-                    "Одобрена",
+                    "Одобрено",
                     "На внедрении",
-                    "Внедрена",
+                    "Внедрено",
                     "На доработке",
-                    "Отложена",
-                    "Отклонена",
+                    "Отложено",
+                    "Отклонено",
                   ]}
                 />
                 <Select
@@ -224,9 +264,13 @@ function Search() {
                   radius={16}
                   data={[
                     "Все",
-                    "Предложение по улучшению",
-                    "Рационализаторское предложение",
-                    "Лучшая практика",
+                    "Бизнес-процесс 1",
+                    "Бизнес-процесс 2",
+                    "Бизнес-процесс 3",
+                    "Бизнес-процесс 4",
+                    "Бизнес-процесс 5",
+                    "Бизнес-процесс 6",
+                    "Бизнес-процесс 7",
                   ]}
                 />
               </Popover.Dropdown>
@@ -243,7 +287,7 @@ function Search() {
         h={516}
         mt={20}
         onScrollPositionChange={handleScroll}
-        classNames={{ scrollbar: classes.scroll }}
+        // classNames={{ scrollbar: classes.scroll }}
       >
         <Table highlightOnHover stickyHeader verticalSpacing="xs">
           <Table.Thead>

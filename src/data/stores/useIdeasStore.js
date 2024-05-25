@@ -36,13 +36,32 @@ const useIdeasStore = create((set, get) => ({
   //     idIdeas: id,
   //   });
   // },
-  getAllIdeas: async (page, inputValue) => {
+  getAllIdeas: async (
+    page,
+    inputValue,
+    selectTime,
+    selectCategory,
+    selectFilials,
+    selectViews,
+    selectLikes,
+    selectComments,
+    selectStatus,
+    selectBusinessProcess
+  ) => {
     set({ AllIdeasLoading: true });
     try {
       const data = await getIdeas({
         page,
         limit: get().limitIdeas,
         inputValue,
+        selectTime,
+        selectCategory,
+        selectFilials,
+        selectViews,
+        selectLikes,
+        selectComments,
+        selectStatus,
+        selectBusinessProcess,
       });
       data.ideas.forEach((idea) => {
         set((state) => ({

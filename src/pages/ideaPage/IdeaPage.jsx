@@ -134,6 +134,12 @@ function IdeaPage() {
                 •
               </Text>
               <Text size="sm" c="dimmed">
+                {idea.filial}
+              </Text>
+              <Text size="sm" c="dimmed">
+                •
+              </Text>
+              <Text size="sm" c="dimmed">
                 {idea.businessProcess}
               </Text>
               <Text size="sm" c="dimmed">

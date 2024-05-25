@@ -188,26 +188,112 @@ const mockServerConfig = {
             data: ideas,
             interceptors: {
               response: (data, { request, setStatusCode }) => {
-                const { page, limit, inputValue } = request.query;
-                let ideas;
-                let totalIdeas;
-                const reversedData = [...data].reverse();
-                const skip = (parseInt(page) - 1) * parseInt(limit);
+                const {
+                  page,
+                  limit,
+                  inputValue,
+                  selectTime,
+                  selectCategory,
+                  selectFilials,
+                  selectViews,
+                  selectLikes,
+                  selectComments,
+                  selectStatus,
+                  selectBusinessProcess,
+                } = request.query;
+
+                let filteredData = [...data].reverse();
+
                 if (inputValue) {
-                  const searchData = reversedData.filter((index) => {
-                    return index.title
+                  filteredData = filteredData.filter((idea) =>
+                    idea.title
                       .toLowerCase()
-                      .includes(inputValue.trim().toLowerCase());
-                  });
-                  ideas = searchData.slice(0, parseInt(page) * parseInt(limit));
-                  totalIdeas = searchData.length;
-                } else {
-                  totalIdeas = reversedData.length;
-                  ideas = reversedData.slice(
-                    0,
-                    parseInt(page) * parseInt(limit)
+                      .includes(inputValue.trim().toLowerCase())
                   );
                 }
+
+                if (selectTime && selectTime !== "Все") {
+                  const now = new Date();
+                  filteredData = filteredData.filter((idea) => {
+                    const ideaDate = new Date(idea.date);
+                    switch (selectTime) {
+                      case "За год":
+                        return now - ideaDate <= 365 * 24 * 60 * 60 * 1000;
+                      case "За месяц":
+                        return now - ideaDate <= 30 * 24 * 60 * 60 * 1000;
+                      case "За неделю":
+                        return now - ideaDate <= 7 * 24 * 60 * 60 * 1000;
+                      case "За день":
+                        return now - ideaDate <= 24 * 60 * 60 * 1000;
+                      default:
+                        return true;
+                    }
+                  });
+                }
+
+                if (selectCategory && selectCategory !== "Все") {
+                  filteredData = filteredData.filter(
+                    (idea) => idea.category === selectCategory
+                  );
+                }
+
+                if (selectFilials && selectFilials !== "Все") {
+                  filteredData = filteredData.filter(
+                    (idea) => idea.filial === selectFilials
+                  );
+                }
+
+                if (selectViews && selectViews !== "Все") {
+                  filteredData = filteredData.sort((a, b) => {
+                    if (selectViews === "Больше всего просмотров") {
+                      return b.views - a.views;
+                    } else if (selectViews === "Меньше всего просмотров") {
+                      return a.views - b.views;
+                    }
+                    return 0;
+                  });
+                }
+
+                if (selectLikes && selectLikes !== "Все") {
+                  filteredData = filteredData.sort((a, b) => {
+                    if (selectLikes === "Больше всего лайков") {
+                      return b.likes - a.likes;
+                    } else if (selectLikes === "Меньше всего лайков") {
+                      return a.likes - b.likes;
+                    }
+                    return 0;
+                  });
+                }
+
+                if (selectComments && selectComments !== "Все") {
+                  filteredData = filteredData.sort((a, b) => {
+                    if (selectComments === "Больше всего комментариев") {
+                      return b.comments.length - a.comments.length;
+                    } else if (selectComments === "Меньше всего комментариев") {
+                      return a.comments.length - b.comments.length;
+                    }
+                    return 0;
+                  });
+                }
+
+                if (selectStatus && selectStatus !== "Все") {
+                  filteredData = filteredData.filter(
+                    (idea) => idea.status === selectStatus
+                  );
+                }
+
+                // Фильтрация по бизнес процессу
+                if (selectBusinessProcess && selectBusinessProcess !== "Все") {
+                  filteredData = filteredData.filter(
+                    (idea) => idea.businessProcess === selectBusinessProcess
+                  );
+                }
+
+                const totalIdeas = filteredData.length;
+                const ideas = filteredData.slice(
+                  0,
+                  parseInt(page) * parseInt(limit)
+                );
 
                 if (!ideas) {
                   setStatusCode(404);
@@ -217,6 +303,7 @@ const mockServerConfig = {
                     message: "Идеи не найдены",
                   };
                 }
+
                 return {
                   total: totalIdeas,
                   ideas: ideas,
@@ -447,6 +534,7 @@ const mockServerConfig = {
                   avatar,
                   title,
                   category,
+                  filial: "Красноярскэнерго",
                   businessProcess,
                   problem,
                   solution,
@@ -458,6 +546,7 @@ const mockServerConfig = {
                   views: 0,
                   coauthors,
                   file,
+                  linkAuthor: "/profile",
                   date: new Date().toISOString(),
                   comments: [],
                 };
