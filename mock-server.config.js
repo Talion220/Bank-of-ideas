@@ -282,7 +282,6 @@ const mockServerConfig = {
                   );
                 }
 
-                // Фильтрация по бизнес процессу
                 if (selectBusinessProcess && selectBusinessProcess !== "Все") {
                   filteredData = filteredData.filter(
                     (idea) => idea.businessProcess === selectBusinessProcess

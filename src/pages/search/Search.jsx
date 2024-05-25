@@ -15,6 +15,8 @@ import {
   Text,
   Loader,
   Center,
+  SimpleGrid,
+  Skeleton,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { Icons } from "../../shared/images/Icons";
@@ -151,7 +153,22 @@ function Search() {
               shadow="md"
             >
               <Popover.Target>
-                <Button c="gray" variant="transparent" radius={12}>
+                <Button
+                  c={
+                    selectTime !== "Все" ||
+                    selectCategory !== "Все" ||
+                    selectFilials !== "Все" ||
+                    selectViews !== "Все" ||
+                    selectLikes !== "Все" ||
+                    selectComments !== "Все" ||
+                    selectStatus !== "Все" ||
+                    selectBusinessProcess !== "Все"
+                      ? "blue"
+                      : "gray"
+                  }
+                  variant="transparent"
+                  radius={12}
+                >
                   Фильтры
                   <Icons.IconAdjustments />
                 </Button>
@@ -282,46 +299,64 @@ function Search() {
           </Flex>
         }
       />
-      <ScrollArea
-        viewportRef={viewport}
-        h={516}
-        mt={20}
-        onScrollPositionChange={handleScroll}
-        // classNames={{ scrollbar: classes.scroll }}
-      >
-        <Table highlightOnHover stickyHeader verticalSpacing="xs">
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>
-                <Title fz="lg">ФИО автора</Title>
-              </Table.Th>
-              <Table.Th>
-                <Title fz="lg">Название идеи</Title>
-              </Table.Th>
-              <Table.Th>
-                <Title fz="lg">Статус</Title>
-              </Table.Th>
-              <Table.Th>
-                <Title fz="lg">Лайки</Title>
-              </Table.Th>
-              <Table.Th>
-                <Title fz="lg">Комментарии</Title>
-              </Table.Th>
-              <Table.Th>
-                <Title fz="lg">Просмотры</Title>
-              </Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            <ShowIdeas />
-          </Table.Tbody>
-        </Table>
-        {totalIdeas < currentPage * limitIdeas ? null : (
-          <Center>
-            <Loader size={50} />
-          </Center>
-        )}
-      </ScrollArea>
+      {AllIdeasLoading && allIdeasData.length === 0 ? (
+        <SimpleGrid mt={30} cols={{ base: 1, sm: 1 }}>
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+          <Skeleton h={60} maw={1288} radius={16} />
+        </SimpleGrid>
+      ) : totalIdeas === 0 ? (
+        <Text mt={200} c="dimmed" align="center" size="xl">
+          Идеи не найдены...
+        </Text>
+      ) : (
+        <ScrollArea
+          viewportRef={viewport}
+          h={516}
+          mt={20}
+          onScrollPositionChange={handleScroll}
+          classNames={{ scrollbar: classes.scroll }}
+        >
+          <Table highlightOnHover stickyHeader verticalSpacing="xs">
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>
+                  <Title fz="lg">ФИО автора</Title>
+                </Table.Th>
+                <Table.Th>
+                  <Title fz="lg">Название идеи</Title>
+                </Table.Th>
+                <Table.Th>
+                  <Title fz="lg">Статус</Title>
+                </Table.Th>
+                <Table.Th>
+                  <Title fz="lg">Лайки</Title>
+                </Table.Th>
+                <Table.Th>
+                  <Title fz="lg">Комментарии</Title>
+                </Table.Th>
+                <Table.Th>
+                  <Title fz="lg">Просмотры</Title>
+                </Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+
+            <Table.Tbody>
+              <ShowIdeas />
+            </Table.Tbody>
+          </Table>
+          {totalIdeas < currentPage * limitIdeas ? null : (
+            <Center>
+              <Loader size={50} />
+            </Center>
+          )}
+        </ScrollArea>
+      )}
     </Container>
   );
 }
