@@ -81,8 +81,6 @@ const useIdeasStore = create((set, get) => ({
         totalIdeas: data.total,
         AllIdeasLoading: false,
       });
-
-      console.log(get().allIdeasData);
       return data;
     } catch (error) {
       console.error("Error:", error);
@@ -112,8 +110,6 @@ const useIdeasStore = create((set, get) => ({
         totalIdeasProfile: data.total,
         AllIdeasProfileLoading: false,
       });
-
-      console.log(get().allIdeasData);
       return data;
     } catch (error) {
       console.error("Error:", error);

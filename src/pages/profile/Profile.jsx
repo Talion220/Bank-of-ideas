@@ -13,170 +13,66 @@ import {
   Container,
   Center,
   Loader,
+  SimpleGrid,
+  Skeleton,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./profile.module.css";
 import avatar from "../../shared/images/avatar.png";
 import { Icons } from "../../shared/images/Icons";
 import scrollToTop from "../../shared/utilities/ScrollToTop";
-
-const data = [
-  {
-    id: "1",
-    title: "Foundation",
-    status: "Внедрено",
-    votes: "12",
-    comments: "2",
-    views: "34",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/1",
-  },
-  {
-    id: "2",
-    title: "Frankenstein",
-    status: "Внедрено",
-    votes: "25",
-    comments: "4",
-    views: "86",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/2",
-  },
-  {
-    id: "3",
-    title: "Solaris",
-    status: "Внедрено",
-    votes: "65",
-    comments: "14",
-    views: "125",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/3",
-  },
-  {
-    id: "4",
-    title: "Dune",
-    status: "Внедрено",
-    votes: "4",
-    comments: "0",
-    views: "6",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/4",
-  },
-  {
-    id: "5",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-  {
-    id: "6",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-  {
-    id: "7",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-  {
-    id: "8",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-  {
-    id: "9",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-  {
-    id: "10",
-    title: "The Left Hand of Darkness",
-    status: "Внедрено",
-    votes: "16",
-    comments: "1",
-    views: "47",
-    avatar: avatar,
-    linkAuthor: "/profile",
-    linkIdea: "/idea/5",
-  },
-];
-
-const rows = data.map((row) => {
-  return (
-    <Table.Tr key={row.id}>
-      <Table.Td>
-        <Anchor
-          component={NavLink}
-          to={row.linkIdea}
-          underline="hover"
-          className={classes.subLink}
-          aria-label={row.title}
-          onClick={() => {
-            scrollToTop();
-          }}
-        >
-          <Text fw={500} fz="md">
-            {row.title}
-          </Text>
-        </Anchor>
-      </Table.Td>
-      <Table.Td>
-        <Text fw={500} fz="md">
-          {row.status}
-        </Text>
-      </Table.Td>
-      <Table.Td>
-        <Text fw={500} fz="md">
-          {row.votes}
-        </Text>
-      </Table.Td>
-      <Table.Td>
-        <Text fw={500} fz="md">
-          {row.comments}
-        </Text>
-      </Table.Td>
-      <Table.Td>
-        <Text fw={500} fz="md">
-          {row.views}
-        </Text>
-      </Table.Td>
-    </Table.Tr>
-  );
-});
+import ShowIdeas from "../../features/ideas/showIdeas/ShowIdeas";
+import { useEffect, useRef, useState } from "react";
+import useIdeasStore from "../../data/stores/useIdeasStore";
 
 function Profile() {
+  const {
+    getProfileIdeas,
+    AllIdeasProfileLoading,
+    limitIdeas,
+    allIdeasProfileData,
+    totalIdeasProfile,
+  } = useIdeasStore((state) => ({
+    getProfileIdeas: state.getProfileIdeas,
+    AllIdeasProfileLoading: state.AllIdeasProfileLoading,
+    allIdeasProfileData: state.allIdeasProfileData,
+    totalIdeasProfile: state.totalIdeasProfile,
+    limitIdeas: state.limitIdeas,
+  }));
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const prevPage = useRef(1);
+
+  const viewport = useRef(null);
+
+  function handleScroll() {
+    const { scrollTop, scrollHeight, clientHeight } = viewport.current;
+    if (
+      viewport.current &&
+      scrollTop + clientHeight >= scrollHeight - 50 &&
+      prevPage.current === currentPage &&
+      totalIdeasProfile > currentPage * limitIdeas &&
+      !AllIdeasProfileLoading
+    ) {
+      setCurrentPage((val) => val + 1);
+      prevPage.current = currentPage + 1;
+    }
+  }
+
+  const getData = async () => {
+    try {
+      await getProfileIdeas(currentPage, selectCategory);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const [selectCategory, setSelectCategory] = useState("Все");
+
+  useEffect(() => {
+    getData();
+  }, [currentPage, selectCategory]);
+
   return (
     <Container size="xl">
       <Stack mt={40}>
@@ -219,45 +115,70 @@ function Profile() {
           fullWidth
           mt={20}
           color="blue"
+          value={selectCategory}
+          onChange={setSelectCategory}
           data={[
             "Все",
-            "Предложения по улучшению",
-            "Лучшие практики",
-            "Рационализаторские предложения",
+            "Предложение по улучшению",
+            "Лучшая практика",
+            "Рационализаторское предложение",
           ]}
         />
-        <ScrollArea
-          h={500}
-          mt={20}
-          // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
-          classNames={{ scrollbar: classes.scroll }}
-        >
-          <Table highlightOnHover stickyHeader verticalSpacing="lg">
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>
-                  <Title fz="lg">Название идеи</Title>
-                </Table.Th>
-                <Table.Th>
-                  <Title fz="lg">Статус</Title>
-                </Table.Th>
-                <Table.Th>
-                  <Title fz="lg">Голоса</Title>
-                </Table.Th>
-                <Table.Th>
-                  <Title fz="lg">Комментарии</Title>
-                </Table.Th>
-                <Table.Th>
-                  <Title fz="lg">Просмотры</Title>
-                </Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>{rows}</Table.Tbody>
-          </Table>
-          <Center>
-            <Loader size={50} />
-          </Center>
-        </ScrollArea>
+        {AllIdeasProfileLoading && allIdeasProfileData.length === 0 ? (
+          <SimpleGrid mt={30} cols={{ base: 1, sm: 1 }}>
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+            <Skeleton h={60} maw={1288} radius={16} />
+          </SimpleGrid>
+        ) : totalIdeasProfile === 0 ? (
+          <Text mt={200} c="dimmed" align="center" size="xl">
+            Идеи не найдены...
+          </Text>
+        ) : (
+          <ScrollArea
+            viewportRef={viewport}
+            h={500}
+            mt={20}
+            // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+            onScrollPositionChange={handleScroll}
+            classNames={{ scrollbar: classes.scroll }}
+          >
+            <Table highlightOnHover stickyHeader verticalSpacing="lg">
+              <Table.Thead>
+                <Table.Tr>
+                  <Table.Th>
+                    <Title fz="lg">Название идеи</Title>
+                  </Table.Th>
+                  <Table.Th>
+                    <Title fz="lg">Статус</Title>
+                  </Table.Th>
+                  <Table.Th>
+                    <Title fz="lg">Лайки</Title>
+                  </Table.Th>
+                  <Table.Th>
+                    <Title fz="lg">Комментарии</Title>
+                  </Table.Th>
+                  <Table.Th>
+                    <Title fz="lg">Просмотры</Title>
+                  </Table.Th>
+                </Table.Tr>
+              </Table.Thead>
+              <Table.Tbody>
+                <ShowIdeas from="profile" />
+              </Table.Tbody>
+            </Table>
+            {totalIdeasProfile < currentPage * limitIdeas ? null : (
+              <Center>
+                <Loader size={50} />
+              </Center>
+            )}
+          </ScrollArea>
+        )}
       </Stack>
     </Container>
   );

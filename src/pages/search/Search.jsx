@@ -347,7 +347,7 @@ function Search() {
             </Table.Thead>
 
             <Table.Tbody>
-              <ShowIdeas />
+              <ShowIdeas from="search" />
             </Table.Tbody>
           </Table>
           {totalIdeas < currentPage * limitIdeas ? null : (
