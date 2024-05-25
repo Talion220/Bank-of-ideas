@@ -9,6 +9,7 @@ import {
   postIdea,
   getLatestIdeas,
   getHomeStatistics,
+  getMyIdeas,
 } from "../../api/ideas/ideas";
 
 const useIdeasStore = create((set, get) => ({
@@ -30,6 +31,10 @@ const useIdeasStore = create((set, get) => ({
     });
   },
   countLatestIdeas: 5,
+  user: "Иванов Иван Иванович",
+  allIdeasProfileData: [],
+  totalIdeasProfile: 0,
+  AllIdeasProfileLoading: false,
   // idIdeas: null,
   // getId: (id) => {
   //   set({
@@ -75,6 +80,37 @@ const useIdeasStore = create((set, get) => ({
         allIdeasData: data.ideas,
         totalIdeas: data.total,
         AllIdeasLoading: false,
+      });
+
+      console.log(get().allIdeasData);
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ AllIdeasLoading: false });
+    }
+  },
+  getProfileIdeas: async (page, selectCategory) => {
+    set({ AllIdeasProfileLoading: true });
+    try {
+      const data = await getMyIdeas({
+        page,
+        limit: get().limitIdeas,
+        selectCategory,
+        user: get().user,
+      });
+      data.ideas.forEach((idea) => {
+        set((state) => ({
+          likes: {
+            ...state.likes,
+            [idea.id]: { isLiked: idea.isLiked, count: idea.likes },
+          },
+        }));
+      });
+      set({
+        allIdeasProfileData: data.ideas,
+        totalIdeasProfile: data.total,
+        AllIdeasProfileLoading: false,
       });
 
       console.log(get().allIdeasData);

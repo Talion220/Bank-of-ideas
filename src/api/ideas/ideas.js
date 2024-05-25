@@ -42,6 +42,27 @@ export const getIdeas = async ({
   }
 };
 
+export const getMyIdeas = async ({ page, limit, selectCategory, user }) => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      params: {
+        page,
+        limit,
+        selectCategory,
+        user,
+      },
+      headers: {
+        action: "getMyIdeas",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
+
 export const getIdea = async (id) => {
   try {
     const response = await axios.get(IDEAS_URL, {

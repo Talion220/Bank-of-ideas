@@ -312,6 +312,47 @@ const mockServerConfig = {
             },
           },
           {
+            entities: {
+              headers: { action: "getMyIdeas" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const { page, limit, selectCategory, user } = request.query;
+
+                let filteredData = [...data]
+                  .reverse()
+                  .filter((idea) => idea.author === user);
+
+                if (selectCategory && selectCategory !== "Все") {
+                  filteredData = filteredData.filter(
+                    (idea) => idea.category === selectCategory
+                  );
+                }
+
+                const totalIdeas = filteredData.length;
+                const ideas = filteredData.slice(
+                  0,
+                  parseInt(page) * parseInt(limit)
+                );
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+
+                return {
+                  total: totalIdeas,
+                  ideas: ideas,
+                };
+              },
+            },
+          },
+          {
             data: ideas,
             entities: {
               headers: { action: "getIdea" },
