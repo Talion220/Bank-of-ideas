@@ -19,7 +19,7 @@ export default function HomeLatestIdeas({ article }) {
         >
           <Flex align="center">
             <Avatar src={article.avatar} mr={10} />
-            <Tooltip
+            <Tooltip.Floating
               color="gray.3"
               multiline
               w={220}
@@ -31,7 +31,7 @@ export default function HomeLatestIdeas({ article }) {
               <Text fw={500} fz="md" maw={280} truncate="end">
                 {article.author}
               </Text>
-            </Tooltip>
+            </Tooltip.Floating>
           </Flex>
         </Anchor>
       </Table.Td>
@@ -46,7 +46,7 @@ export default function HomeLatestIdeas({ article }) {
             scrollToTop();
           }}
         >
-          <Tooltip
+          <Tooltip.Floating
             color="gray.3"
             multiline
             transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -56,11 +56,11 @@ export default function HomeLatestIdeas({ article }) {
             <Text fw={500} fz="md" maw={180} truncate="end">
               {article.title}
             </Text>
-          </Tooltip>
+          </Tooltip.Floating>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Tooltip
+        <Tooltip.Floating
           color="gray.3"
           multiline
           transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -70,7 +70,7 @@ export default function HomeLatestIdeas({ article }) {
           <Text fw={500} fz="md" maw={180} truncate="end">
             {article.status}
           </Text>
-        </Tooltip>
+        </Tooltip.Floating>
       </Table.Td>
       <Table.Td>
         <Text fw={500} fz="md">

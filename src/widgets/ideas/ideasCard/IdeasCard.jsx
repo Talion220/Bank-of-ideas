@@ -20,7 +20,7 @@ function IdeasCard({ article, from }) {
           >
             <Flex align="center">
               <Avatar src={article.avatar} mr={10} />
-              <Tooltip
+              <Tooltip.Floating
                 color="gray.3"
                 multiline
                 transitionProps={{
@@ -33,7 +33,7 @@ function IdeasCard({ article, from }) {
                 <Text fw={500} fz="md" maw={280} truncate="end">
                   {article.author}
                 </Text>
-              </Tooltip>
+              </Tooltip.Floating>
             </Flex>
           </Anchor>
         </Table.Td>
@@ -49,7 +49,7 @@ function IdeasCard({ article, from }) {
             scrollToTop();
           }}
         >
-          <Tooltip
+          <Tooltip.Floating
             color="gray.3"
             multiline
             transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -59,11 +59,11 @@ function IdeasCard({ article, from }) {
             <Text fw={500} fz="md" maw={180} truncate="end">
               {article.title}
             </Text>
-          </Tooltip>
+          </Tooltip.Floating>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Tooltip
+        <Tooltip.Floating
           color="gray.3"
           multiline
           transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -73,7 +73,7 @@ function IdeasCard({ article, from }) {
           <Text fw={500} fz="md" maw={180} truncate="end">
             {article.status}
           </Text>
-        </Tooltip>
+        </Tooltip.Floating>
       </Table.Td>
       <Table.Td>
         <Text fw={500} fz="md">
