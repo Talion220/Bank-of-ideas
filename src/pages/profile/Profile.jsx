@@ -142,9 +142,8 @@ function Profile() {
         ) : (
           <ScrollArea
             viewportRef={viewport}
-            h={500}
+            h={516}
             mt={20}
-            // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
             onScrollPositionChange={handleScroll}
             classNames={{ scrollbar: classes.scroll }}
           >

@@ -12,6 +12,6 @@
     color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
   }
 }
-.scroll {
+.scroll[data-orientation="vertical"] {
   top: 42px;
 }

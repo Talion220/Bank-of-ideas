@@ -1,4 +1,12 @@
-import { Title, Flex, Table, Container, Button } from "@mantine/core";
+import {
+  Title,
+  Flex,
+  Table,
+  Container,
+  Button,
+  ScrollArea,
+} from "@mantine/core";
+import classes from "./homeIdeas.module.css";
 import ShowLatestIdeas from "../../../features/ideas/showLatestIdeas/ShowLatestIdeas";
 import { NavLink } from "react-router-dom";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
@@ -9,7 +17,7 @@ function HomeIdeas() {
       <Title ta="center" pb={50}>
         Последние идеи
       </Title>
-      <Table.ScrollContainer>
+      <ScrollArea mt={20} classNames={{ scrollbar: classes.scroll }}>
         <Table>
           <Table.Thead>
             <Table.Tr>
@@ -37,7 +45,7 @@ function HomeIdeas() {
             <ShowLatestIdeas />
           </Table.Tbody>
         </Table>
-      </Table.ScrollContainer>
+      </ScrollArea>
       <Button
         radius={16}
         mt={20}
