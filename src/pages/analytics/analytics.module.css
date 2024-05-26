@@ -1,0 +1,25 @@
+.analytics {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--mantine-radius-md);
+  background-image: linear-gradient(
+    -60deg,
+    var(--mantine-color-blue-4) 0%,
+    var(--mantine-color-blue-7) 100%
+  );
+}
+
+.heading {
+  padding: 0 calc(var(--mantine-spacing-xl) * 1.5) 0;
+}
+
+.root {
+  display: flex;
+  padding: 150px calc(var(--mantine-spacing-xl) * 1.5) 150px;
+  @media (max-width: $mantine-breakpoint-md) {
+    flex-direction: column;
+    padding: 100px calc(var(--mantine-spacing-xl) * 1.5) 100px;
+  }
+}
