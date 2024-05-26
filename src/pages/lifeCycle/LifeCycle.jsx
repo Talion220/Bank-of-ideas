@@ -334,14 +334,14 @@ function LifeCycle() {
 
   const activeCount = renderData.reduce((acc, curr) => {
     const keyData = data[curr.key];
-    let foundActiveInExperts = false; // Флаг для отслеживания найденного активного элемента в expertsData
+    let foundActiveInExperts = false;
     const count = keyData.reduce((acc, curr) => {
       if (curr.hasOwnProperty("isActive") && curr.isActive) {
         return acc + 1;
       } else if (curr.hasOwnProperty("expertsData") && !foundActiveInExperts) {
         const expertsCount = curr.expertsData.reduce((acc, expert) => {
           if (expert.hasOwnProperty("isActive") && expert.isActive) {
-            foundActiveInExperts = true; // Устанавливаем флаг, чтобы не учитывать дополнительные активные элементы в expertsData
+            foundActiveInExperts = true;
             return acc + 1;
           }
           return acc;

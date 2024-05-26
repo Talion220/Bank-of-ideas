@@ -1,4 +1,4 @@
-import { Anchor, Avatar, Flex, Table, Text } from "@mantine/core";
+import { Anchor, Avatar, Flex, Table, Text, Tooltip } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./ideasCard.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
@@ -20,9 +20,20 @@ function IdeasCard({ article, from }) {
           >
             <Flex align="center">
               <Avatar src={article.avatar} mr={10} />
-              <Text fw={500} fz="md">
-                {article.author}
-              </Text>
+              <Tooltip
+                color="gray.3"
+                multiline
+                transitionProps={{
+                  transition: "pop-bottom-left",
+                  duration: 200,
+                }}
+                c="black"
+                label={article.author}
+              >
+                <Text fw={500} fz="md" maw={280} truncate="end">
+                  {article.author}
+                </Text>
+              </Tooltip>
             </Flex>
           </Anchor>
         </Table.Td>
@@ -38,15 +49,31 @@ function IdeasCard({ article, from }) {
             scrollToTop();
           }}
         >
-          <Text fw={500} fz="md">
-            {article.title}
-          </Text>
+          <Tooltip
+            color="gray.3"
+            multiline
+            transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
+            c="black"
+            label={article.title}
+          >
+            <Text fw={500} fz="md" maw={180} truncate="end">
+              {article.title}
+            </Text>
+          </Tooltip>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Text fw={500} fz="md">
-          {article.status}
-        </Text>
+        <Tooltip
+          color="gray.3"
+          multiline
+          transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
+          c="black"
+          label={article.status}
+        >
+          <Text fw={500} fz="md" maw={180} truncate="end">
+            {article.status}
+          </Text>
+        </Tooltip>
       </Table.Td>
       <Table.Td>
         <Text fw={500} fz="md">
