@@ -1,4 +1,4 @@
-import { Container, Title } from "@mantine/core";
+import { Container, Loader, Title } from "@mantine/core";
 import ShowAnalytics from "../../features/analytics/ShowAnalytics";
 import classes from "./analytics.module.css";
 

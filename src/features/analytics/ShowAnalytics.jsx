@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useAnalyticsStore from "../../data/stores/useAnalyticsStore";
 import AnalyticsCard from "../../widgets/analytics/AnalyticsCard";
+import { Loader, Skeleton } from "@mantine/core";
 
 export default function ShowAnalytics() {
   const { getMainAnalytics, mainAnalytics, mainAnalyticsLoading } =
@@ -48,9 +49,14 @@ export default function ShowAnalytics() {
       link: "/analytics/ideas-per-day",
     },
   ];
+  let content;
+  if (mainAnalyticsLoading) {
+    content = <Loader my={150} mx={48} size="xl" color="white" />;
+  } else {
+    content = data.map((item, index) => (
+      <AnalyticsCard key={index} data={item} />
+    ));
+  }
 
-  const stats = data.map((item, index) => (
-    <AnalyticsCard key={index} data={item} />
-  ));
-  return stats;
+  return content;
 }
