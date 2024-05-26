@@ -353,6 +353,62 @@ const mockServerConfig = {
             },
           },
           {
+            entities: {
+              headers: { action: "getAnalytics" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { setStatusCode }) => {
+                ideasData = [...data];
+                const implemented = ideasData.filter(
+                  (index) => index.status === "Внедрено"
+                );
+                const activeUsers = ideasData
+                  .map((item) => item.author)
+                  .filter(
+                    (author, index, authorsArray) =>
+                      authorsArray.indexOf(author) === index
+                  );
+                ideasPerEmployee = (
+                  ideasData.length / activeUsers.length
+                ).toFixed(2);
+
+                const currentDate = new Date().toISOString();
+                const sortedIdeas = ideasData.sort((a, b) => {
+                  return new Date(b.date) - new Date(a.date);
+                });
+
+                const earliestDate = new Date(
+                  sortedIdeas[sortedIdeas.length - 1].date
+                );
+                const latestDate = new Date(currentDate);
+
+                const totalIdeas = sortedIdeas.length;
+
+                const timeDifference = latestDate - earliestDate;
+                const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+                const ideasPerDay = (totalIdeas / daysDifference).toFixed(2);
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+
+                return {
+                  allIdeas: ideasData.length,
+                  ideasImplemented: implemented.length,
+                  ideasPerEmployee: ideasPerEmployee,
+                  ideasPerDay: ideasPerDay,
+                };
+              },
+            },
+          },
+          {
             data: ideas,
             entities: {
               headers: { action: "getIdea" },
