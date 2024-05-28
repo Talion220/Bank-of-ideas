@@ -445,7 +445,6 @@ const mockServerConfig = {
                     item.businessProcess === currentBusinessProcess &&
                     item.id !== parseInt(id)
                 );
-                // console.log(sortedIdeas);
                 const filteredIdeas = sortedIdeas.reverse().slice(0, count);
 
                 if (!filteredIdeas) {
