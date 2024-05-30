@@ -86,9 +86,10 @@ function HomePreview() {
     </Carousel.Slide>
   ));
   return (
-    <Container size="xl" px="md" my={100}>
+    <Container size="xl" px="md" my={200}>
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing={30} verticalSpacing={50}>
         <Flex
+          data-aos="zoom-in-right"
           styles={classes.homePreviewContent}
           direction="column"
           justify="center"
@@ -114,7 +115,7 @@ function HomePreview() {
             Документация, инструкции
           </Button>
         </Flex>
-        <div className="slider">
+        <div data-aos="zoom-in-right" className="slider">
           <Carousel
             slideSize={{ base: "100%", sm: "100%" }}
             slideGap={{ base: "xl", sm: 2 }}

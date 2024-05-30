@@ -3,15 +3,15 @@ import HomeTopFilials from "./homeTop/HomeTopFilials";
 import HomeTopBusinessProcesses from "./homeTop/HomeTopBusinessProcesses";
 import { Icons } from "../../../shared/images/Icons";
 
-import { Grid, Container, Flex, Tabs, rem, Title, Center } from "@mantine/core";
+import { Container, Tabs, Title, Center } from "@mantine/core";
 
 function HomeTop() {
   return (
     <Container size="xl" py={100}>
-      <Title ta="center" pb={50}>
+      <Title data-aos="zoom-in-right" ta="center" pb={50}>
         Наши лидеры
       </Title>
-      <Center>
+      <Center data-aos="zoom-in-right">
         <Tabs variant="pills" radius="md" defaultValue="authors">
           <Tabs.List>
             <Tabs.Tab value="authors" leftSection={<Icons.User />}>

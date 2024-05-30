@@ -11,10 +11,11 @@ function HomeNews() {
   const autoplay = useRef(Autoplay({ delay: 2500 }));
   return (
     <Container size="xl" py={100}>
-      <Title ta="center" pb={50}>
+      <Title data-aos="zoom-in-right" ta="center" pb={50}>
         Последние новости
       </Title>
       <Carousel
+        data-aos="zoom-in-right"
         slideSize={{ base: "100%", sm: "50%" }}
         slideGap={{ base: rem(2), sm: "xl" }}
         align="start"

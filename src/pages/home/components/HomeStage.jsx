@@ -67,15 +67,32 @@ function HomeStage() {
 
   return (
     <Container size="xl" py={100}>
-      <Title order={2} className={classes.title} ta="center" mt="sm">
+      <Title
+        data-aos="zoom-in-right"
+        order={2}
+        className={classes.title}
+        ta="center"
+        mt="sm"
+      >
         Как это работает?
       </Title>
 
-      <Text c="dimmed" className={classes.description} ta="center" mt="md">
+      <Text
+        data-aos="zoom-in-right"
+        c="dimmed"
+        className={classes.description}
+        ta="center"
+        mt="md"
+      >
         Узнайте больше о процессах, которые пройдет ваша идея перед публикацией
       </Text>
 
-      <SimpleGrid cols={{ base: 1, md: 5 }} spacing="xl" mt={50}>
+      <SimpleGrid
+        data-aos="zoom-in-right"
+        cols={{ base: 1, md: 5 }}
+        spacing="xl"
+        mt={50}
+      >
         {features}
       </SimpleGrid>
     </Container>

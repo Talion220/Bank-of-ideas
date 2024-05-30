@@ -27,8 +27,11 @@ import IdeaPage from "../pages/ideaPage/IdeaPage";
 import LifeCycle from "../pages/lifeCycle/LifeCycle";
 import IdeaPageShell from "../pages/ideaPage/IdeaPageShell";
 import { Notifications } from "@mantine/notifications";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  AOS.init();
   return (
     <MantineProvider theme={theme}>
       <Notifications limit={7} />

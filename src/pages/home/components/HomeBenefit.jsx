@@ -47,10 +47,12 @@ function HomeBenefit() {
 
   return (
     <Container size="xl" py={100}>
-      <Title ta="center" pb={50}>
+      <Title data-aos="zoom-in-right" ta="center" pb={50}>
         Преимущества быть с нами
       </Title>
-      <Grid gutter={0}>{features}</Grid>
+      <Grid data-aos="zoom-in-right" gutter={0}>
+        {features}
+      </Grid>
     </Container>
   );
 }
