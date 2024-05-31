@@ -14,6 +14,7 @@ import {
   Flex,
   Divider,
   Center,
+  ScrollArea,
 } from "@mantine/core";
 
 const topAuthors = [
@@ -51,30 +52,35 @@ const topAuthors = [
 
 function HomeTopAuthors() {
   const rows = topAuthors.map((item) => (
-    <Anchor
-      key={item.name}
-      component={NavLink}
-      to={item.link}
-      underline="hover"
-      className={styles.subLink}
-      aria-label={item.title}
-      onClick={() => {
-        scrollToTop();
-      }}
-    >
-      <Divider my="sm" />
-      <Group gap="sm">
-        <Avatar size={40} src={item.avatar} radius={40} />
-        <Text className={styles.text}>{item.name}</Text>
-      </Group>
-    </Anchor>
+    <Table.Tr key={item.name}>
+      <Table.Td>
+        <Anchor
+          component={NavLink}
+          to={item.link}
+          underline="hover"
+          className={styles.subLink}
+          aria-label={item.title}
+          onClick={() => {
+            scrollToTop();
+          }}
+        >
+          <Group gap="sm">
+            <Avatar size={40} src={item.avatar} radius={40} />
+            <Text className={styles.text}>{item.name}</Text>
+          </Group>
+        </Anchor>
+      </Table.Td>
+    </Table.Tr>
   ));
 
   return (
     <Center mt={50}>
-      <Flex align="start" direction="column">
-        {rows}
-      </Flex>
+      <ScrollArea mt={20}>
+        <Table>
+          <Table.Thead></Table.Thead>
+          <Table.Tbody>{rows}</Table.Tbody>
+        </Table>
+      </ScrollArea>
     </Center>
   );
 }

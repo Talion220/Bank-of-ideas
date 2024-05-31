@@ -9,6 +9,7 @@ import {
   Divider,
   Group,
   Anchor,
+  ScrollArea,
 } from "@mantine/core";
 
 const topBusinessProcesses = [
@@ -31,26 +32,25 @@ const topBusinessProcesses = [
 
 function HomeTopBusinessProcesses() {
   const rows = topBusinessProcesses.map((item) => (
-    <Anchor
-      key={item.title}
-      underline="hover"
-      className={styles.subLink}
-      aria-label={item.title}
-    >
-      <Divider my="sm" />
-      <Group gap="sm">
-        <Text p="7px 0 8px" className={styles.text}>
-          {item.title}
-        </Text>
-      </Group>
-    </Anchor>
+    <Table.Tr key={item.title}>
+      <Table.Td>
+        <Group gap="sm">
+          <Text p="7px 0 8px" className={styles.text}>
+            {item.title}
+          </Text>
+        </Group>
+      </Table.Td>
+    </Table.Tr>
   ));
 
   return (
     <Center mt={50}>
-      <Flex align="start" direction="column">
-        {rows}
-      </Flex>
+      <ScrollArea mt={20}>
+        <Table>
+          <Table.Thead></Table.Thead>
+          <Table.Tbody>{rows}</Table.Tbody>
+        </Table>
+      </ScrollArea>
     </Center>
   );
 }

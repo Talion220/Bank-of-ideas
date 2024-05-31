@@ -24,7 +24,6 @@
     "date-fns": "^3.6.0",
     "embla-carousel-autoplay": "^8.0.1",
     "embla-carousel-react": "^8.0.1",
-    "fullpage.js": "^4.0.22",
     "mock-config-server": "^3.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
