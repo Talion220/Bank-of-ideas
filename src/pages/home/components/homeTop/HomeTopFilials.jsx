@@ -1,32 +1,22 @@
 import styles from "./homeTopAll.module.css";
 
-import {
-  Center,
-  Table,
-  Text,
-  Flex,
-  Title,
-  Divider,
-  Group,
-  Anchor,
-  ScrollArea,
-} from "@mantine/core";
+import { Center, Table, Text, Group, ScrollArea } from "@mantine/core";
 
 const topFilials = [
   {
-    title: "Филиал 1",
+    title: "Красноярскэнерго",
   },
   {
-    title: "Филиал 2",
+    title: "Омскэнерго",
   },
   {
-    title: "Филиал 3",
+    title: "Алтайэнерго",
   },
   {
-    title: "Филиал 4",
+    title: "ИА",
   },
   {
-    title: "Филиал 5",
+    title: "Читаэнерго",
   },
 ];
 
