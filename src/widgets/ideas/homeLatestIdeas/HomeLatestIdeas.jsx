@@ -88,28 +88,5 @@ export default function HomeLatestIdeas({ article }) {
         </Text>
       </Table.Td>
     </Table.Tr>
-
-    // <Group pt={15} wrap="nowrap" gap="xs">
-
-    //   <Text size="sm" c="dimmed">
-    //     •
-    //   </Text>
-    //   <Text size="sm" c="dimmed">
-    //     {article.businessProcess}
-    //   </Text>
-    //   <Text size="sm" c="dimmed">
-    //     •
-    //   </Text>
-    //   <Text size="sm" c="dimmed">
-    //     {date}
-    //   </Text>
-    //   <Text size="xs" c="dimmed">
-    //     •
-    //   </Text>
-    //   <Flex align="center" gap={5} size="xs" c="dimmed">
-    //     <Icons.IconEye />
-    //     <Text size="xs">{article.views}</Text>
-    //   </Flex>
-    // </Group>
   );
 }

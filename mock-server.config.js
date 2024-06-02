@@ -20,7 +20,6 @@ const mockServerConfig = {
                 const { page, limit, inputValue } = request.query;
                 let posts;
                 let totalPosts;
-                let comments;
                 const reversedNews = [...data].reverse();
                 const skip = (parseInt(page) - 1) * parseInt(limit);
                 if (inputValue) {
@@ -35,11 +34,10 @@ const mockServerConfig = {
                   totalPosts = reversedNews.length;
                   posts = reversedNews.slice(skip, skip + parseInt(limit));
                 }
-                comments = posts.map((post) => {
+                const comments = posts.map((post) => {
                   const lastTwoComments = post.comments.slice(-2).reverse();
                   return lastTwoComments;
                 });
-
                 if (!posts) {
                   setStatusCode(404);
                   return {
@@ -107,7 +105,6 @@ const mockServerConfig = {
           },
         ],
       },
-
       {
         path: "/news",
         method: "put",
