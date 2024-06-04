@@ -5,6 +5,8 @@ import { getAnalytics } from "../../api/analytics/analytics";
 const useAnalyticsStore = create((set, get) => ({
   mainAnalyticsLoading: false,
   mainAnalytics: {},
+  allIdeasLoading: false,
+  allIdeas: {},
   getMainAnalytics: async () => {
     set({ mainAnalyticsLoading: true });
     try {
@@ -18,6 +20,21 @@ const useAnalyticsStore = create((set, get) => ({
       console.error("Error:", error);
     } finally {
       set({ mainAnalyticsLoading: false });
+    }
+  },
+  getAllIdeas: async () => {
+    set({ allIdeasLoading: true });
+    try {
+      const data = await getAllIdeas();
+      set({
+        allIdeas: data,
+        allIdeasLoading: false,
+      });
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ allIdeasLoading: false });
     }
   },
 }));
