@@ -14,3 +14,16 @@ export const getAnalytics = async () => {
     throw error;
   }
 };
+
+export const getAllIdeas = async () => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      headers: { action: "getAllIdeas" },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};

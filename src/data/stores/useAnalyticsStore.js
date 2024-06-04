@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { getAnalytics } from "../../api/analytics/analytics";
+import { getAllIdeas, getAnalytics } from "../../api/analytics/analytics";
 
 const useAnalyticsStore = create((set, get) => ({
   mainAnalyticsLoading: false,
@@ -22,7 +22,7 @@ const useAnalyticsStore = create((set, get) => ({
       set({ mainAnalyticsLoading: false });
     }
   },
-  getAllIdeas: async () => {
+  loadAllIdeas: async () => {
     set({ allIdeasLoading: true });
     try {
       const data = await getAllIdeas();
