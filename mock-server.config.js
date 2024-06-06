@@ -566,7 +566,7 @@ const mockServerConfig = {
                     }
                   }
                 });
-
+                console.log(ideasImplementedFilials);
                 if (!ideas) {
                   setStatusCode(404);
                   return {
