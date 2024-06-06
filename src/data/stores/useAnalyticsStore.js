@@ -1,12 +1,18 @@
 import { create } from "zustand";
 
-import { getAllIdeas, getAnalytics } from "../../api/analytics/analytics";
+import {
+  getAllIdeas,
+  getAnalytics,
+  getIdeasImplemented,
+} from "../../api/analytics/analytics";
 
 const useAnalyticsStore = create((set, get) => ({
   mainAnalyticsLoading: false,
   mainAnalytics: {},
   allIdeasAnalyticsLoading: false,
   allIdeasAnalyticsData: {},
+  ideasImplementedAnalyticsLoading: false,
+  ideasImplementedAnalyticsData: {},
   getMainAnalytics: async () => {
     set({ mainAnalyticsLoading: true });
     try {
@@ -35,6 +41,21 @@ const useAnalyticsStore = create((set, get) => ({
       console.error("Error:", error);
     } finally {
       set({ allIdeasAnalyticsLoading: false });
+    }
+  },
+  getIdeasImplementedAnalytics: async () => {
+    set({ ideasImplementedAnalyticsLoading: true });
+    try {
+      const data = await getIdeasImplemented();
+      set({
+        ideasImplementedAnalyticsData: data,
+        ideasImplementedAnalyticsLoading: false,
+      });
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ ideasImplementedAnalyticsLoading: false });
     }
   },
 }));

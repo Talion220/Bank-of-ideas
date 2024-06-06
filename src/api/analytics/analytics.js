@@ -27,3 +27,16 @@ export const getAllIdeas = async () => {
     throw error;
   }
 };
+
+export const getIdeasImplemented = async () => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      headers: { action: "getIdeasImplemented" },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
