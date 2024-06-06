@@ -1,5 +1,7 @@
 import { BarChart } from "@mantine/charts";
-import { Container, Title, Text } from "@mantine/core";
+import { Container, Title, Text, Skeleton } from "@mantine/core";
+import useAnalyticsStore from "../../../data/stores/useAnalyticsStore";
+import { useEffect } from "react";
 
 const dataFilials = [
   { filial: "ИА", filialIdeas: 12 },
@@ -26,35 +28,55 @@ const dataBusinessProcesses = [
 ];
 
 export default function AllIdeas() {
+  const {
+    getAllIdeasAnalytics,
+    allIdeasAnalyticsData,
+    allIdeasAnalyticsLoading,
+  } = useAnalyticsStore((state) => ({
+    getAllIdeasAnalytics: state.getAllIdeasAnalytics,
+    allIdeasAnalyticsData: state.allIdeasAnalyticsData,
+    allIdeasAnalyticsLoading: state.allIdeasAnalyticsLoading,
+  }));
+
+  useEffect(() => {
+    getAllIdeasAnalytics();
+  }, []);
+
   return (
     <Container size="xl">
       <Title ta="center">Всего идей подано</Title>
-      <Text py={30} fz="lg" ta="center">
-        По филиалам
-      </Text>
-      <BarChart
-        h={500}
-        data={dataFilials}
-        tooltipAnimationDuration={200}
-        dataKey="filial"
-        // xAxisLabel="Филиалы"
-        yAxisLabel="Количество идей"
-        series={[{ name: "filialIdeas", label: "Идей", color: "pink" }]}
-      />
-      <Text p="100px 0 30px" fz="lg" ta="center">
-        По бизнес-процессам
-      </Text>
-      <BarChart
-        h={500}
-        data={dataBusinessProcesses}
-        tooltipAnimationDuration={200}
-        dataKey="businessProcesses"
-        // xAxisLabel="Бизнес процессы"
-        yAxisLabel="Количество идей"
-        series={[
-          { name: "businessProcessesIdeas", label: "Идей", color: "blue" },
-        ]}
-      />
+      {allIdeasAnalyticsLoading ? (
+        <Skeleton height={650} my={30} radius={16} />
+      ) : (
+        <>
+          <Text py={30} fz="lg" ta="center">
+            По филиалам
+          </Text>
+          <BarChart
+            h={650}
+            data={allIdeasAnalyticsData.allIdeasFilials}
+            tooltipAnimationDuration={200}
+            dataKey="filial"
+            // xAxisLabel="Филиалы"
+            yAxisLabel="Количество идей"
+            series={[{ name: "filialIdeas", label: "Идей", color: "pink" }]}
+          />
+          <Text p="100px 0 30px" fz="lg" ta="center">
+            По бизнес-процессам
+          </Text>
+          <BarChart
+            h={650}
+            data={dataBusinessProcesses}
+            tooltipAnimationDuration={200}
+            dataKey="businessProcesses"
+            // xAxisLabel="Бизнес процессы"
+            yAxisLabel="Количество идей"
+            series={[
+              { name: "businessProcessesIdeas", label: "Идей", color: "blue" },
+            ]}
+          />
+        </>
+      )}
     </Container>
   );
 }

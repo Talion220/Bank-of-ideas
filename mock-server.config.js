@@ -406,6 +406,52 @@ const mockServerConfig = {
             },
           },
           {
+            entities: {
+              headers: { action: "getAllIdeas" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { setStatusCode }) => {
+                const allIdeasFilials = [
+                  { filial: "ИА", filialIdeas: 0 },
+                  { filial: "Алтайэнерго", filialIdeas: 0 },
+                  { filial: "Бурятэнерго", filialIdeas: 0 },
+                  { filial: "Красноярскэнерго", filialIdeas: 0 },
+                  { filial: "Кузбассэнерго", filialIdeas: 0 },
+                  { filial: "Омскэнерго", filialIdeas: 0 },
+                  { filial: "Хакасэнерго", filialIdeas: 0 },
+                  { filial: "Читаэнерго", filialIdeas: 0 },
+                  { filial: "Тываэнерго", filialIdeas: 0 },
+                ];
+
+                data.forEach((idea) => {
+                  const filialIndex = allIdeasFilials.findIndex(
+                    (filial) => filial.filial === idea.filial
+                  );
+                  if (filialIndex !== -1) {
+                    allIdeasFilials[filialIndex].filialIdeas += 1;
+                  }
+                });
+
+                const allIdeasBusinessProcesses = 0;
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+
+                return {
+                  allIdeasFilials: allIdeasFilials,
+                  allIdeasBusinessProcesses: allIdeasBusinessProcesses,
+                };
+              },
+            },
+          },
+          {
             data: ideas,
             entities: {
               headers: { action: "getIdea" },
