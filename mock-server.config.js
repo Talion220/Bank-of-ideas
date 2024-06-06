@@ -424,16 +424,57 @@ const mockServerConfig = {
                   { filial: "Тываэнерго", filialIdeas: 0 },
                 ];
 
+                const allIdeasBusinessProcesses = [
+                  {
+                    businessProcess: "Бизнес-процесс 1",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 2",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 3",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 4",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 5",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 6",
+                    businessProcessIdeas: 0,
+                  },
+                  {
+                    businessProcess: "Бизнес-процесс 7",
+                    businessProcessIdeas: 0,
+                  },
+                ];
+
                 data.forEach((idea) => {
                   const filialIndex = allIdeasFilials.findIndex(
-                    (filial) => filial.filial === idea.filial
+                    (item) => item.filial === idea.filial
                   );
                   if (filialIndex !== -1) {
                     allIdeasFilials[filialIndex].filialIdeas += 1;
                   }
                 });
 
-                const allIdeasBusinessProcesses = 0;
+                data.forEach((idea) => {
+                  const businessProcessIndex =
+                    allIdeasBusinessProcesses.findIndex(
+                      (item) => item.businessProcess === idea.businessProcess
+                    );
+                  if (businessProcessIndex !== -1) {
+                    allIdeasBusinessProcesses[
+                      businessProcessIndex
+                    ].businessProcessIdeas += 1;
+                  }
+                });
 
                 if (!ideas) {
                   setStatusCode(404);
