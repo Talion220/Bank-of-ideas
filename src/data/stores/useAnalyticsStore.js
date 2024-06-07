@@ -4,6 +4,8 @@ import {
   getAllIdeas,
   getAnalytics,
   getIdeasImplemented,
+  getIdeasPerDay,
+  getIdeasPerEmployee,
 } from "../../api/analytics/analytics";
 
 const useAnalyticsStore = create((set, get) => ({
@@ -13,6 +15,11 @@ const useAnalyticsStore = create((set, get) => ({
   allIdeasAnalyticsData: {},
   ideasImplementedAnalyticsLoading: false,
   ideasImplementedAnalyticsData: {},
+  ideasImplementedAnalyticsLoading: false,
+  ideasPerEmployeeAnalyticsData: {},
+  ideasPerDayAnalyticsLoading: false,
+  ideasPerDayAnalyticsData: {},
+
   getMainAnalytics: async () => {
     set({ mainAnalyticsLoading: true });
     try {
@@ -56,6 +63,36 @@ const useAnalyticsStore = create((set, get) => ({
       console.error("Error:", error);
     } finally {
       set({ ideasImplementedAnalyticsLoading: false });
+    }
+  },
+  getIdeasPerEmployeeAnalytics: async () => {
+    set({ ideasImplementedAnalyticsLoading: true });
+    try {
+      const data = await getIdeasPerEmployee();
+      set({
+        ideasPerEmployeeAnalyticsData: data,
+        ideasPerEmployeeAnalyticsLoading: false,
+      });
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ ideasPerEmployeeAnalyticsLoading: false });
+    }
+  },
+  getIdeasPerDayAnalytics: async () => {
+    set({ ideasPerDayAnalyticsLoading: true });
+    try {
+      const data = await getIdeasPerDay();
+      set({
+        ideasPerDayAnalyticsData: data,
+        ideasPerDayAnalyticsLoading: false,
+      });
+      return data;
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ ideasPerDayAnalyticsLoading: false });
     }
   },
 }));

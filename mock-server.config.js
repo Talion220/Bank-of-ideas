@@ -566,7 +566,7 @@ const mockServerConfig = {
                     }
                   }
                 });
-                console.log(ideasImplementedFilials);
+
                 if (!ideas) {
                   setStatusCode(404);
                   return {
@@ -581,6 +581,218 @@ const mockServerConfig = {
                   ideasImplementedBusinessProcesses:
                     ideasImplementedBusinessProcesses,
                 };
+              },
+            },
+          },
+          {
+            entities: {
+              headers: { action: "getIdeasPerEmployee" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { setStatusCode }) => {
+                // const ideasPerEmployeeFilials = [
+                //   { filial: "ИА", filialIdeas: 0 },
+                //   { filial: "Алтайэнерго", filialIdeas: 0 },
+                //   { filial: "Бурятэнерго", filialIdeas: 0 },
+                //   { filial: "Красноярскэнерго", filialIdeas: 0 },
+                //   { filial: "Кузбассэнерго", filialIdeas: 0 },
+                //   { filial: "Омскэнерго", filialIdeas: 0 },
+                //   { filial: "Хакасэнерго", filialIdeas: 0 },
+                //   { filial: "Читаэнерго", filialIdeas: 0 },
+                //   { filial: "Тываэнерго", filialIdeas: 0 },
+                // ];
+
+                // const ideasPerEmployeeBusinessProcesses = [
+                //   {
+                //     businessProcess: "Бизнес-процесс 1",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 2",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 3",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 4",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 5",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 6",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 7",
+                //     businessProcessIdeas: 0,
+                //   },
+                // ];
+
+                ideasData = [...data];
+                const implemented = ideasData.filter(
+                  (index) => index.status === "Внедрено"
+                );
+                const activeUsers = ideasData
+                  .map((item) => item.author)
+                  .filter(
+                    (author, index, authorsArray) =>
+                      authorsArray.indexOf(author) === index
+                  );
+                ideasPerEmployee = (
+                  ideasData.length / activeUsers.length
+                ).toFixed(2);
+
+                // data.forEach((idea) => {
+                //   if (idea.status === "Внедрено") {
+                //     const filialIndex = ideasPerEmployeeFilials.findIndex(
+                //       (item) => item.filial === idea.filial
+                //     );
+                //     if (filialIndex !== -1) {
+                //       ideasPerEmployeeFilials[filialIndex].filialIdeas += 1;
+                //     }
+                //   }
+                // });
+
+                // data.forEach((idea) => {
+                //   if (idea.status === "Внедрено") {
+                //     const businessProcessIndex =
+                //       ideasPerEmployeeBusinessProcesses.findIndex(
+                //         (item) => item.businessProcess === idea.businessProcess
+                //       );
+                //     if (businessProcessIndex !== -1) {
+                //       ideasPerEmployeeBusinessProcesses[
+                //         businessProcessIndex
+                //       ].businessProcessIdeas += 1;
+                //     }
+                //   }
+                // });
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+
+                // return {
+                //   ideasPerEmployeeFilials: ideasPerEmployeeFilials,
+                //   ideasPerEmployeeBusinessProcesses:
+                //     ideasPerEmployeeBusinessProcesses,
+                // };
+              },
+            },
+          },
+          {
+            entities: {
+              headers: { action: "getIdeasPerDay" },
+            },
+            data: ideas,
+            interceptors: {
+              response: (data, { setStatusCode }) => {
+                // const ideasPerDayFilials = [
+                //   { filial: "ИА", filialIdeas: 0 },
+                //   { filial: "Алтайэнерго", filialIdeas: 0 },
+                //   { filial: "Бурятэнерго", filialIdeas: 0 },
+                //   { filial: "Красноярскэнерго", filialIdeas: 0 },
+                //   { filial: "Кузбассэнерго", filialIdeas: 0 },
+                //   { filial: "Омскэнерго", filialIdeas: 0 },
+                //   { filial: "Хакасэнерго", filialIdeas: 0 },
+                //   { filial: "Читаэнерго", filialIdeas: 0 },
+                //   { filial: "Тываэнерго", filialIdeas: 0 },
+                // ];
+
+                // const ideasPerDayBusinessProcesses = [
+                //   {
+                //     businessProcess: "Бизнес-процесс 1",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 2",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 3",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 4",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 5",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 6",
+                //     businessProcessIdeas: 0,
+                //   },
+                //   {
+                //     businessProcess: "Бизнес-процесс 7",
+                //     businessProcessIdeas: 0,
+                //   },
+                // ];
+
+                // ideasData = [...data];
+                // const implemented = ideasData.filter(
+                //   (index) => index.status === "Внедрено"
+                // );
+                // const activeUsers = ideasData
+                //   .map((item) => item.author)
+                //   .filter(
+                //     (author, index, authorsArray) =>
+                //       authorsArray.indexOf(author) === index
+                //   );
+                // ideasPerDay = (
+                //   ideasData.length / activeUsers.length
+                // ).toFixed(2);
+
+                // data.forEach((idea) => {
+                //   if (idea.status === "Внедрено") {
+                //     const filialIndex = ideasPerDayFilials.findIndex(
+                //       (item) => item.filial === idea.filial
+                //     );
+                //     if (filialIndex !== -1) {
+                //       ideasPerDayFilials[filialIndex].filialIdeas += 1;
+                //     }
+                //   }
+                // });
+
+                // data.forEach((idea) => {
+                //   if (idea.status === "Внедрено") {
+                //     const businessProcessIndex =
+                //       ideasPerDayBusinessProcesses.findIndex(
+                //         (item) => item.businessProcess === idea.businessProcess
+                //       );
+                //     if (businessProcessIndex !== -1) {
+                //       ideasPerDayBusinessProcesses[
+                //         businessProcessIndex
+                //       ].businessProcessIdeas += 1;
+                //     }
+                //   }
+                // });
+
+                if (!ideas) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идеи не найдены",
+                  };
+                }
+
+                // return {
+                //   ideasPerDayFilials: ideasPerDayFilials,
+                //   ideasPerDayBusinessProcesses:
+                //     ideasPerDayBusinessProcesses,
+                // };
               },
             },
           },

@@ -1,5 +1,7 @@
-import { Container, Title, Text } from "@mantine/core";
+import { Container, Title, Text, Skeleton } from "@mantine/core";
 import { AreaChart, BarChart } from "@mantine/charts";
+import useAnalyticsStore from "../../../data/stores/useAnalyticsStore";
+import { useEffect } from "react";
 
 const dataIdeaPerDay = [
   {
@@ -57,47 +59,70 @@ const dataBusinessProcesses = [
 ];
 
 export default function IdeasPerEmployee() {
+  const {
+    getIdeasPerEmployeeAnalytics,
+    ideasPerEmployeeAnalyticsData,
+    ideasPerEmployeeAnalyticsLoading,
+  } = useAnalyticsStore((state) => ({
+    getIdeasPerEmployeeAnalytics: state.getIdeasPerEmployeeAnalytics,
+    ideasPerEmployeeAnalyticsData: state.ideasPerEmployeeAnalyticsData,
+    ideasPerEmployeeAnalyticsLoading: state.ideasPerEmployeeAnalyticsLoading,
+  }));
+
+  useEffect(() => {
+    getIdeasPerEmployeeAnalytics();
+  }, []);
   return (
     <Container size="xl">
       <Title ta="center">Количество идей на одного сотрудника</Title>
-      <Text p="30px 0 100px" fz="lg" ta="center">
-        За последнюю неделю
-      </Text>
-      <AreaChart
-        h={500}
-        yAxisLabel="Количество идей на одного сотрудника"
-        tooltipAnimationDuration={200}
-        data={dataIdeaPerDay}
-        dataKey="date"
-        withGradient
-        series={[{ name: "ideas", label: "Идей", color: "blue" }]}
-      />
-      <Text p="100px 0 30px" fz="lg" ta="center">
-        По филиалам
-      </Text>
-      <BarChart
-        h={500}
-        data={dataFilials}
-        tooltipAnimationDuration={200}
-        dataKey="filial"
-        // xAxisLabel="Филиалы"
-        yAxisLabel="Количество идей на одного сотрудника"
-        series={[{ name: "filialIdeas", label: "Идей", color: "teal.7" }]}
-      />
-      <Text p="100px 0 30px" fz="lg" ta="center">
-        По бизнес-процессам
-      </Text>
-      <BarChart
-        h={500}
-        data={dataBusinessProcesses}
-        tooltipAnimationDuration={200}
-        dataKey="businessProcesses"
-        // xAxisLabel="Бизнес процессы"
-        yAxisLabel="Количество идей на одного сотрудника"
-        series={[
-          { name: "businessProcessesIdeas", label: "Идей", color: "cyan.7" },
-        ]}
-      />
+      {ideasPerEmployeeAnalyticsLoading ? (
+        <Skeleton height={650} my={30} radius={16} />
+      ) : (
+        <>
+          <Text p="30px 0 100px" fz="lg" ta="center">
+            За последнюю неделю
+          </Text>
+          <AreaChart
+            h={500}
+            yAxisLabel="Количество идей на одного сотрудника"
+            tooltipAnimationDuration={200}
+            data={dataIdeaPerDay}
+            dataKey="date"
+            withGradient
+            series={[{ name: "ideas", label: "Идей", color: "blue" }]}
+          />
+          <Text p="100px 0 30px" fz="lg" ta="center">
+            По филиалам
+          </Text>
+          <BarChart
+            h={500}
+            data={dataFilials}
+            tooltipAnimationDuration={200}
+            dataKey="filial"
+            // xAxisLabel="Филиалы"
+            yAxisLabel="Количество идей на одного сотрудника"
+            series={[{ name: "filialIdeas", label: "Идей", color: "teal.7" }]}
+          />
+          <Text p="100px 0 30px" fz="lg" ta="center">
+            По бизнес-процессам
+          </Text>
+          <BarChart
+            h={500}
+            data={dataBusinessProcesses}
+            tooltipAnimationDuration={200}
+            dataKey="businessProcesses"
+            // xAxisLabel="Бизнес процессы"
+            yAxisLabel="Количество идей на одного сотрудника"
+            series={[
+              {
+                name: "businessProcessesIdeas",
+                label: "Идей",
+                color: "cyan.7",
+              },
+            ]}
+          />
+        </>
+      )}
     </Container>
   );
 }
