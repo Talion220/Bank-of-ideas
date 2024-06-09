@@ -10,6 +10,7 @@ import {
   Group,
   Image,
   Text,
+  Tooltip,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./news.module.css";
@@ -43,9 +44,19 @@ function NewsCard({ article, index }) {
         }}
         className={classes.link}
       >
-        <Text fw="bold" lineClamp={1}>
-          {article.title}
-        </Text>
+        <Tooltip.Floating
+          color="gray.3"
+          multiline
+          w={440}
+          // withArrow
+          props={{ transition: "pop-bottom-left", duration: 200 }}
+          c="black"
+          label={article.title}
+        >
+          <Text fw="bold" lineClamp={1}>
+            {article.title}
+          </Text>
+        </Tooltip.Floating>
       </Anchor>
 
       <Flex gap="sm" wrap="wrap" align="center" mt={5}>

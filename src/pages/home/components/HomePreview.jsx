@@ -86,7 +86,7 @@ function HomePreview() {
     </Carousel.Slide>
   ));
   return (
-    <Container size="xl" px="md" my={200}>
+    <Container size="xl" px="md" my={100}>
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing={30} verticalSpacing={50}>
         <Flex
           data-aos="zoom-in-right"

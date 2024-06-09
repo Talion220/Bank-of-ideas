@@ -1,14 +1,4 @@
-import {
-  Anchor,
-  Flex,
-  Text,
-  Image,
-  AspectRatio,
-  Divider,
-  Paper,
-  Button,
-  Title,
-} from "@mantine/core";
+import { Text, Paper, Button, Title, Tooltip } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import classes from "./homeLatestNews.module.css";
 import scrollToTop from "../../../shared/utilities/ScrollToTop";
@@ -29,9 +19,19 @@ function HomeLatestNews({ article }) {
         <Text className={classes.date} size="xs">
           {date}
         </Text>
-        <Title order={3} className={classes.title}>
-          {article.title}
-        </Title>
+        <Tooltip.Floating
+          color="gray.3"
+          multiline
+          w={440}
+          // withArrow
+          props={{ transition: "pop-bottom-left", duration: 200 }}
+          c="black"
+          label={article.title}
+        >
+          <Title lineClamp={2} order={3} className={classes.title}>
+            {article.title}
+          </Title>
+        </Tooltip.Floating>
       </div>
       <Button
         component={NavLink}

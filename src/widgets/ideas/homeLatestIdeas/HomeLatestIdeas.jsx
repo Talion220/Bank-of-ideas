@@ -24,7 +24,7 @@ export default function HomeLatestIdeas({ article }) {
               multiline
               w={220}
               // withArrow
-              rops={{ transition: "pop-bottom-left", duration: 200 }}
+              props={{ transition: "pop-bottom-left", duration: 200 }}
               c="black"
               label={article.author}
             >
