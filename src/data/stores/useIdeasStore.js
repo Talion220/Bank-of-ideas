@@ -31,7 +31,7 @@ const useIdeasStore = create((set, get) => ({
     });
   },
   countLatestIdeas: 5,
-  user: "Иванов Иван Иванович",
+  user: "Заворин Сергей Сергеевич",
   allIdeasProfileData: [],
   totalIdeasProfile: 0,
   AllIdeasProfileLoading: false,

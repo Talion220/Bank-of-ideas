@@ -121,7 +121,7 @@ function IdeaCreate() {
   };
 
   const avatar = "/src/shared/images/avatar.png";
-  const author = "Иванов Иван Иванович";
+  const author = "Заворин Сергей Сергеевич";
   // const file = "";
 
   return (

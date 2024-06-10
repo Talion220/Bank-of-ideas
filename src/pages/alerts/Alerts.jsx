@@ -11,30 +11,30 @@ import classes from "./alerts.module.css";
 
 const alerts = [
   {
-    id: "bender",
+    id: "1",
     avatar: avatar,
-    label: "Bender Bending Rodríguez",
+    label: "Описание проблемы",
     role: "Модератор",
     content:
-      "Bender Bending Rodríguez, (born September 4, 2996), designated Bending Unit 22, and commonly known as Bender, is a bending unit created by a division of MomCorp in Tijuana, Mexico, and his serial number is 2716057. His mugshot id number is 01473. He is Fry's best friend.",
+      "Спасибо за вашу инициативу и активный вклад в развитие нашей компании. Ваша идея  была рассмотрена нашей экспертной комиссией. Мы видим потенциал в вашей идее, однако для её дальнейшего рассмотрения и внедрения нам необходимо внести некоторые доработки. Пожалуйста, предоставьте более детальное описание проблемы, которую ваша идея решает. Укажите конкретные аспекты текущей ситуации и почему она требует улучшения. Мы уверены, что после внесения этих доработок ваша идея станет ещё более ценной и реализуемой. Пожалуйста, внесите необходимые изменения и отправьте обновлённую версию для повторного рассмотрения. Спасибо за ваше сотрудничество и стремление к улучшению нашей работы! С уважением, Мария Смирнова, администратор платформы идей",
   },
 
   {
-    id: "carol",
+    id: "2",
     avatar: avatar,
-    label: "Carol Miller",
+    label: "Ресурсы и сроки",
     role: "Координатор",
     content:
-      "Carol Miller (born January 30, 2880), better known as Mom, is the evil chief executive officer and shareholder of 99.7% of Momcorp, one of the largest industrial conglomerates in the universe and the source of most of Earth's robots. She is also one of the main antagonists of the Futurama series.",
+      "Уточните, какие ресурсы (финансовые, человеческие, технологические) потребуются для реализации вашей идеи. Определите предполагаемые сроки выполнения каждого этапа реализации.",
   },
 
   {
-    id: "homer",
+    id: "3",
     avatar: avatar,
-    label: "Homer Simpson",
+    label: "Решение и его преимущества",
     role: "Модератор",
     content:
-      "Homer Jay Simpson (born May 12) is the main protagonist and one of the five main characters of The Simpsons series(or show). He is the spouse of Marge Simpson and father of Bart, Lisa and Maggie Simpson.",
+      "Расширьте описание предлагаемого решения. Объясните, какие конкретные шаги будут предприняты и как они повлияют на текущие процессы. Укажите, какие преимущества ваша идея принесёт компании.",
   },
 ];
 

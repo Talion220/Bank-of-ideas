@@ -32,7 +32,7 @@ const topAuthors = [
   },
   {
     avatar: avatar,
-    name: "Иванов Иван Иванович",
+    name: "Заворин Сергей Сергеевич",
     // count: "976",
     link: "/profile",
   },

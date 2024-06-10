@@ -17,7 +17,7 @@ import {
 } from "@mantine/form";
 import classes from "./commentsForm.module.css";
 
-const author = "Иванов Иван Иванович";
+const author = "Заворин Сергей Сергеевич";
 
 function CommentsForm({ id, from }) {
   const { postComm } =

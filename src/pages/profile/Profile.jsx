@@ -85,7 +85,7 @@ function Profile() {
             <Avatar src={avatar} size={94} />
             <div>
               <Text fz="xl" fw={600} className={classes.name}>
-                Иванов Иван Иванович
+                Заворин Сергей Сергеевич
               </Text>
               <Text fz="md" fw={500}>
                 Генеральный директор
