@@ -262,6 +262,12 @@ function LifeCycle() {
   const renderData = keys.map((item) => {
     const keyData = data[item.key];
 
+    //Переписать на Map
+    //Написать запросы
+    //добавить в стор
+    //логика в мок
+    //
+
     return (
       <Timeline.Item key={item.key} my={20}>
         <Text fz="lg" fw={700}>
