@@ -103,7 +103,7 @@ function Search() {
 
   return (
     <Container size="xl" mt={40}>
-      <Flex justify="space-between">
+      <Flex justify="space-between" wrap="wrap">
         <div>
           <Title>Изучайте идеи компании</Title>
           <Text mt={20} c="dimmed">
