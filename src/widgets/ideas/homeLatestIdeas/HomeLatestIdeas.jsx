@@ -37,6 +37,7 @@ export default function HomeLatestIdeas({ article }) {
       </Table.Td>
       <Table.Td>
         <Anchor
+          h="100%"
           component={NavLink}
           to={`/idea/${article.id}`}
           underline="hover"
