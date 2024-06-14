@@ -10,10 +10,29 @@
   margin-left: rem(7px);
 }
 .card {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   transition: transform 150ms ease, box-shadow 150ms ease;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    flex-direction: column;
+  }
 
   &:hover {
     transform: scale(1.01);
     box-shadow: var(--mantine-shadow-md);
+  }
+}
+.link {
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+  }
+}
+.img {
+  width: 300px;
+  height: 300px;
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
   }
 }
