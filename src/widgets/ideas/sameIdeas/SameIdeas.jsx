@@ -10,6 +10,7 @@ import {
   Flex,
   Group,
   Text,
+  Tooltip,
 } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import classes from "./sameIdeas.module.css";
@@ -28,7 +29,7 @@ export default function SameIdeas({ article }) {
       className={classes.card}
     >
       <Group wrap="nowrap" gap={0}>
-        <Flex direction="column" className={classes.body}>
+        <Flex direction="column" wrap="wrap" className={classes.body}>
           <Badge
             size="sm"
             variant="gradient"
@@ -44,9 +45,19 @@ export default function SameIdeas({ article }) {
             }}
             c="dark"
           >
-            <Text className={classes.title} mt="xs">
-              {article.title}
-            </Text>
+            <Tooltip.Floating
+              color="gray.3"
+              multiline
+              w={440}
+              // withArrow
+              props={{ transition: "pop-bottom-left", duration: 200 }}
+              c="black"
+              label={article.title}
+            >
+              <Text className={classes.title} lineClamp={2} mt="xs">
+                {article.title}
+              </Text>
+            </Tooltip.Floating>
           </Anchor>
           <Flex gap="sm" mt="xs">
             <Text size="sm">Статус:</Text>
@@ -55,38 +66,40 @@ export default function SameIdeas({ article }) {
             </Badge>
           </Flex>
           <Group pt={15} wrap="nowrap" gap="xs">
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={() => {
-                scrollToTop();
-              }}
-              c="dark"
-              //   className={classes.link}
-            >
-              <Group gap="xs" wrap="nowrap">
-                <Avatar size={20} src={article.avatar} />
-                <Text size="sm">{article.author}</Text>
-              </Group>
-            </Anchor>
-            <Text size="sm" c="dimmed">
-              •
-            </Text>
-            <Text size="sm" c="dimmed">
-              {article.businessProcess}
-            </Text>
-            <Text size="sm" c="dimmed">
-              •
-            </Text>
-            <Text size="sm" c="dimmed">
-              {date}
-            </Text>
-            <Text size="xs" c="dimmed">
-              •
-            </Text>
-            <Flex align="center" gap={5} size="xs" c="dimmed">
-              <Icons.IconEye />
-              <Text size="xs">{article.views}</Text>
+            <Flex gap="sm" wrap="wrap" align="center" mt={5}>
+              <Anchor
+                component={NavLink}
+                to="/profile"
+                onClick={() => {
+                  scrollToTop();
+                }}
+                c="dark"
+                //   className={classes.link}
+              >
+                <Group gap="xs" wrap="nowrap">
+                  <Avatar size={20} src={article.avatar} />
+                  <Text size="sm">{article.author}</Text>
+                </Group>
+              </Anchor>
+              <Text size="sm" c="dimmed">
+                •
+              </Text>
+              <Text size="sm" c="dimmed">
+                {article.businessProcess}
+              </Text>
+              <Text size="sm" c="dimmed">
+                •
+              </Text>
+              <Text size="sm" c="dimmed">
+                {date}
+              </Text>
+              <Text size="xs" c="dimmed">
+                •
+              </Text>
+              <Flex align="center" gap={5} size="xs" c="dimmed">
+                <Icons.IconEye />
+                <Text size="xs">{article.views}</Text>
+              </Flex>
             </Flex>
           </Group>
           <Group pt={15} gap="lg">
