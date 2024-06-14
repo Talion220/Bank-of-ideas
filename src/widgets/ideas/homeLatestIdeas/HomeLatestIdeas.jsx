@@ -19,19 +19,22 @@ export default function HomeLatestIdeas({ article }) {
         >
           <Flex align="center">
             <Avatar src={article.avatar} mr={10} />
-            <Tooltip.Floating
+            <Tooltip
               color="gray.3"
               multiline
-              w={220}
+              position="top-start"
               // withArrow
-              props={{ transition: "pop-bottom-left", duration: 200 }}
+              transitionProps={{
+                transition: "pop-bottom-left",
+                duration: 200,
+              }}
               c="black"
               label={article.author}
             >
               <Text fw={500} fz="md" maw={280} truncate="end">
                 {article.author}
               </Text>
-            </Tooltip.Floating>
+            </Tooltip>
           </Flex>
         </Anchor>
       </Table.Td>
@@ -46,9 +49,10 @@ export default function HomeLatestIdeas({ article }) {
             scrollToTop();
           }}
         >
-          <Tooltip.Floating
+          <Tooltip
             color="gray.3"
             multiline
+            position="top-start"
             transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
             c="black"
             label={article.title}
@@ -56,13 +60,14 @@ export default function HomeLatestIdeas({ article }) {
             <Text fw={500} fz="md" maw={180} truncate="end">
               {article.title}
             </Text>
-          </Tooltip.Floating>
+          </Tooltip>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Tooltip.Floating
+        <Tooltip
           color="gray.3"
           multiline
+          position="top-start"
           transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
           c="black"
           label={article.status}
@@ -70,7 +75,7 @@ export default function HomeLatestIdeas({ article }) {
           <Text fw={500} fz="md" maw={180} truncate="end">
             {article.status}
           </Text>
-        </Tooltip.Floating>
+        </Tooltip>
       </Table.Td>
       <Table.Td>
         <Text fw={500} fz="md">

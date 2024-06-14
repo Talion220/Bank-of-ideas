@@ -8,6 +8,7 @@ import {
   Group,
   Image,
   Text,
+  Tooltip,
 } from "@mantine/core";
 import { Icons } from "../../../shared/images/Icons";
 import { NavLink } from "react-router-dom";
@@ -41,37 +42,52 @@ function LatestNews({ article }) {
             }}
             c="dark"
           >
-            <Text className={classes.title} mt="xs">
-              {article.title}
-            </Text>
+            <Tooltip
+              color="gray.3"
+              multiline
+              position="top-start"
+              // withArrow
+              transitionProps={{
+                transition: "pop-bottom-left",
+                duration: 200,
+              }}
+              c="black"
+              label={article.title}
+            >
+              <Text className={classes.title} lineClamp={2} mt="xs">
+                {article.title}
+              </Text>
+            </Tooltip>
           </Anchor>
           <Group pt={15} wrap="nowrap" gap="xs">
-            <Anchor
-              component={NavLink}
-              to="/profile"
-              onClick={() => {
-                scrollToTop();
-              }}
-              c="dark"
-              className={classes.link}
-            >
-              <Group gap="xs" wrap="nowrap">
-                <Avatar size={20} src={article.avatar} />
-                <Text size="xs">{article.author}</Text>
-              </Group>
-            </Anchor>
-            <Text size="xs" c="dimmed">
-              •
-            </Text>
-            <Text size="xs" c="dimmed">
-              {date}
-            </Text>
-            <Text size="xs" c="dimmed">
-              •
-            </Text>
-            <Flex align="center" gap={5} size="xs" c="dimmed">
-              <Icons.IconEye />
-              <Text size="xs">{article.views}</Text>
+            <Flex gap="sm" wrap="wrap" align="center" mt={5}>
+              <Anchor
+                component={NavLink}
+                to="/profile"
+                onClick={() => {
+                  scrollToTop();
+                }}
+                c="dark"
+                className={classes.link}
+              >
+                <Group gap="xs" wrap="nowrap">
+                  <Avatar size={20} src={article.avatar} />
+                  <Text size="xs">{article.author}</Text>
+                </Group>
+              </Anchor>
+              <Text size="xs" c="dimmed">
+                •
+              </Text>
+              <Text size="xs" c="dimmed">
+                {date}
+              </Text>
+              <Text size="xs" c="dimmed">
+                •
+              </Text>
+              <Flex align="center" gap={5} size="xs" c="dimmed">
+                <Icons.IconEye />
+                <Text size="xs">{article.views}</Text>
+              </Flex>
             </Flex>
           </Group>
           <Group pt={15} gap="lg">

@@ -19,19 +19,22 @@ function HomeLatestNews({ article }) {
         <Text className={classes.date} size="xs">
           {date}
         </Text>
-        <Tooltip.Floating
+        <Tooltip
           color="gray.3"
           multiline
-          w={440}
+          position="top-start"
           // withArrow
-          props={{ transition: "pop-bottom-left", duration: 200 }}
+          transitionProps={{
+            transition: "pop-bottom-left",
+            duration: 200,
+          }}
           c="black"
           label={article.title}
         >
           <Title lineClamp={2} order={3} className={classes.title}>
             {article.title}
           </Title>
-        </Tooltip.Floating>
+        </Tooltip>
       </div>
       <Button
         component={NavLink}

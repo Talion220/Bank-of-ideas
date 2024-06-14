@@ -45,19 +45,22 @@ export default function SameIdeas({ article }) {
             }}
             c="dark"
           >
-            <Tooltip.Floating
+            <Tooltip
               color="gray.3"
               multiline
-              w={440}
+              position="top-start"
               // withArrow
-              props={{ transition: "pop-bottom-left", duration: 200 }}
+              transitionProps={{
+                transition: "pop-bottom-left",
+                duration: 200,
+              }}
               c="black"
               label={article.title}
             >
               <Text className={classes.title} lineClamp={2} mt="xs">
                 {article.title}
               </Text>
-            </Tooltip.Floating>
+            </Tooltip>
           </Anchor>
           <Flex gap="sm" mt="xs">
             <Text size="sm">Статус:</Text>

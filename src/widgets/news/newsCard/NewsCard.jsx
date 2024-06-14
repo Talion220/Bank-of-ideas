@@ -44,19 +44,22 @@ function NewsCard({ article, index }) {
         }}
         className={classes.link}
       >
-        <Tooltip.Floating
+        <Tooltip
           color="gray.3"
           multiline
-          w={440}
+          position="top-start"
           // withArrow
-          props={{ transition: "pop-bottom-left", duration: 200 }}
+          transitionProps={{
+            transition: "pop-bottom-left",
+            duration: 200,
+          }}
           c="black"
           label={article.title}
         >
           <Text fw="bold" lineClamp={1}>
             {article.title}
           </Text>
-        </Tooltip.Floating>
+        </Tooltip>
       </Anchor>
 
       <Flex gap="sm" wrap="wrap" align="center" mt={5}>
