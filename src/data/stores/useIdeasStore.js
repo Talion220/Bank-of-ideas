@@ -35,6 +35,8 @@ const useIdeasStore = create((set, get) => ({
   allIdeasProfileData: [],
   totalIdeasProfile: 0,
   AllIdeasProfileLoading: false,
+  LifeCycleDataLoading: false,
+  LifeCycleData: {},
   // idIdeas: null,
   // getId: (id) => {
   //   set({
@@ -239,6 +241,20 @@ const useIdeasStore = create((set, get) => ({
       return statistics;
     } catch (error) {
       console.error("Error:", error);
+    }
+  },
+  getLifeCycleData: async (id) => {
+    set({ LifeCycleDataLoading: true });
+    try {
+      const data = await getIdea({ id });
+      set({
+        LifeCycleData: data,
+        LifeCycleDataLoading: false,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      set({ LifeCycleDataLoading: false });
     }
   },
 }));
