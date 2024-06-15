@@ -205,3 +205,18 @@ export const getHomeStatistics = async () => {
     throw error;
   }
 };
+
+export const getLifeCycle = async () => {
+  try {
+    const response = await axios.get(IDEAS_URL, {
+      headers: {
+        action: "getLifeCycle",
+      },
+    });
+    const res = response.data;
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
