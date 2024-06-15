@@ -206,12 +206,11 @@ export const getHomeStatistics = async () => {
   }
 };
 
-export const getLifeCycle = async () => {
+export const getLifeCycle = async (id) => {
   try {
     const response = await axios.get(IDEAS_URL, {
-      headers: {
-        action: "getLifeCycle",
-      },
+      params: id,
+      headers: { action: "getLifeCycle" },
     });
     const res = response.data;
     return res;

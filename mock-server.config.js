@@ -819,6 +819,27 @@ const mockServerConfig = {
             },
           },
           {
+            data: ideas,
+            entities: {
+              headers: { action: "getLifeCycle" },
+            },
+            interceptors: {
+              response: (data, { request, setStatusCode }) => {
+                const id = request.query.id;
+                const idea = data.find((item) => item.id === parseInt(id));
+                if (!idea) {
+                  setStatusCode(404);
+                  return {
+                    code: 404,
+                    success: false,
+                    message: "Идея не найдена",
+                  };
+                }
+                return idea.lifeCycle;
+              },
+            },
+          },
+          {
             entities: {
               headers: { action: "getSameIdeas" },
             },
