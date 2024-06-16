@@ -6,6 +6,10 @@ function formatDate(time) {
   const now = new Date();
   let formattedDate;
 
+  if (time === "") {
+    return "";
+  }
+
   if (now - date < 24 * 60 * 60 * 1000) {
     formattedDate = formatDistanceToNow(date, { addSuffix: true, locale: ru });
   } else if (now - date < 2 * 24 * 60 * 60 * 1000) {

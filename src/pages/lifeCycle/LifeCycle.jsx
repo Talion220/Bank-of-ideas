@@ -33,6 +33,8 @@ function LifeCycle() {
     return Object.keys(LifeCycleData.lifeCycle).map((key) => {
       const keyItem = LifeCycleData.lifeCycle[key];
       const date = formatDate(keyItem.date);
+      const endDate = formatDate(keyItem.endDate);
+      const actualDate = formatDate(keyItem.actualDate);
       return (
         <Timeline.Item key={key} my={20}>
           <Text fz="lg" fw={700}>
@@ -100,10 +102,10 @@ function LifeCycle() {
                   <Text>{date}</Text>
                 </Table.Td>
                 <Table.Td>
-                  <Text>{keyItem.endDate}</Text>
+                  <Text>{endDate}</Text>
                 </Table.Td>
                 <Table.Td>
-                  <Text>{keyItem.actualDate}</Text>
+                  <Text>{actualDate}</Text>
                 </Table.Td>
               </Table.Tr>
             </Table.Tbody>
