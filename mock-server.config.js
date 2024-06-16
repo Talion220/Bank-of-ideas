@@ -1053,6 +1053,18 @@ const mockServerConfig = {
                   linkAuthor: "/profile",
                   date: new Date().toISOString(),
                   comments: [],
+                  lifeCycle: {
+                    ideaCreate: {
+                      title: "Создание",
+                      isActive: true,
+                      stage: "Выполнено",
+                      status: "Создана",
+                      responsible: "Ильин И.И.",
+                      date: new Date().toISOString(),
+                      endDate: "",
+                      actualDate: "",
+                    },
+                  },
                 };
 
                 data.push(newIdea);
