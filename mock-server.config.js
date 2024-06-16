@@ -358,7 +358,7 @@ const mockServerConfig = {
               response: (data, { setStatusCode }) => {
                 ideasData = [...data];
                 const implemented = ideasData.filter(
-                  (index) => index.status === "Внедрено"
+                  (index) => index.status === "Внедрена"
                 );
                 const activeUsers = ideasData
                   .map((item) => item.author)
@@ -543,7 +543,7 @@ const mockServerConfig = {
                 ];
 
                 data.forEach((idea) => {
-                  if (idea.status === "Внедрено") {
+                  if (idea.status === "Внедрена") {
                     const filialIndex = ideasImplementedFilials.findIndex(
                       (item) => item.filial === idea.filial
                     );
@@ -554,7 +554,7 @@ const mockServerConfig = {
                 });
 
                 data.forEach((idea) => {
-                  if (idea.status === "Внедрено") {
+                  if (idea.status === "Внедрена") {
                     const businessProcessIndex =
                       ideasImplementedBusinessProcesses.findIndex(
                         (item) => item.businessProcess === idea.businessProcess
@@ -636,7 +636,7 @@ const mockServerConfig = {
 
                 ideasData = [...data];
                 const implemented = ideasData.filter(
-                  (index) => index.status === "Внедрено"
+                  (index) => index.status === "Внедрена"
                 );
                 const activeUsers = ideasData
                   .map((item) => item.author)
@@ -649,7 +649,7 @@ const mockServerConfig = {
                 ).toFixed(2);
 
                 // data.forEach((idea) => {
-                //   if (idea.status === "Внедрено") {
+                //   if (idea.status === "Внедрена") {
                 //     const filialIndex = ideasPerEmployeeFilials.findIndex(
                 //       (item) => item.filial === idea.filial
                 //     );
@@ -660,7 +660,7 @@ const mockServerConfig = {
                 // });
 
                 // data.forEach((idea) => {
-                //   if (idea.status === "Внедрено") {
+                //   if (idea.status === "Внедрена") {
                 //     const businessProcessIndex =
                 //       ideasPerEmployeeBusinessProcesses.findIndex(
                 //         (item) => item.businessProcess === idea.businessProcess
@@ -742,7 +742,7 @@ const mockServerConfig = {
 
                 // ideasData = [...data];
                 // const implemented = ideasData.filter(
-                //   (index) => index.status === "Внедрено"
+                //   (index) => index.status === "Внедрена"
                 // );
                 // const activeUsers = ideasData
                 //   .map((item) => item.author)
@@ -755,7 +755,7 @@ const mockServerConfig = {
                 // ).toFixed(2);
 
                 // data.forEach((idea) => {
-                //   if (idea.status === "Внедрено") {
+                //   if (idea.status === "Внедрена") {
                 //     const filialIndex = ideasPerDayFilials.findIndex(
                 //       (item) => item.filial === idea.filial
                 //     );
@@ -766,7 +766,7 @@ const mockServerConfig = {
                 // });
 
                 // data.forEach((idea) => {
-                //   if (idea.status === "Внедрено") {
+                //   if (idea.status === "Внедрена") {
                 //     const businessProcessIndex =
                 //       ideasPerDayBusinessProcesses.findIndex(
                 //         (item) => item.businessProcess === idea.businessProcess
