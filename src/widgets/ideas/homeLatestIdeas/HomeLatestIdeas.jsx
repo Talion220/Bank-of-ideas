@@ -20,7 +20,7 @@ export default function HomeLatestIdeas({ article }) {
           <Flex align="center">
             <Avatar src={article.avatar} mr={10} />
             <Tooltip
-              color="gray.3"
+              color="gray.2"
               multiline
               position="top-start"
               // withArrow
@@ -50,7 +50,7 @@ export default function HomeLatestIdeas({ article }) {
           }}
         >
           <Tooltip
-            color="gray.3"
+            color="gray.2"
             multiline
             position="top-start"
             transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -65,7 +65,7 @@ export default function HomeLatestIdeas({ article }) {
       </Table.Td>
       <Table.Td>
         <Tooltip
-          color="gray.3"
+          color="gray.2"
           multiline
           position="top-start"
           transitionProps={{ transition: "pop-bottom-left", duration: 200 }}

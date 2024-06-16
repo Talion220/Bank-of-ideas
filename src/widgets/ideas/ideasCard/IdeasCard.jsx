@@ -21,7 +21,7 @@ function IdeasCard({ article, from }) {
             <Flex align="center">
               <Avatar src={article.avatar} mr={10} />
               <Tooltip
-                color="gray.3"
+                color="gray.2"
                 multiline
                 position="top-start"
                 transitionProps={{
@@ -51,7 +51,7 @@ function IdeasCard({ article, from }) {
           }}
         >
           <Tooltip
-            color="gray.3"
+            color="gray.2"
             multiline
             position="top-start"
             transitionProps={{ transition: "pop-bottom-left", duration: 200 }}
@@ -66,7 +66,7 @@ function IdeasCard({ article, from }) {
       </Table.Td>
       <Table.Td>
         <Tooltip
-          color="gray.3"
+          color="gray.2"
           multiline
           position="top-start"
           transitionProps={{ transition: "pop-bottom-left", duration: 200 }}

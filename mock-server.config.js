@@ -835,7 +835,7 @@ const mockServerConfig = {
                     message: "Идея не найдена",
                   };
                 }
-                return idea.lifeCycle;
+                return idea;
               },
             },
           },

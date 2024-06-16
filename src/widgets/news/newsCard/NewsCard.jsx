@@ -45,7 +45,7 @@ function NewsCard({ article, index }) {
         className={classes.link}
       >
         <Tooltip
-          color="gray.3"
+          color="gray.2"
           multiline
           position="top-start"
           // withArrow

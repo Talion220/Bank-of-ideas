@@ -43,7 +43,7 @@ function LatestNews({ article }) {
           c="dark"
         >
           <Tooltip
-            color="gray.3"
+            color="gray.2"
             multiline
             position="top-start"
             // withArrow

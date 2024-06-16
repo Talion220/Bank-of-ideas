@@ -22,6 +22,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2023-01-06T15:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2023-01-06T15:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -66,6 +78,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-07T16:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-07T16:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [],
   },
   {
@@ -88,6 +112,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-08T17:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-08T17:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -132,6 +168,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-09T18:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-09T18:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -176,6 +224,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-10T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-10T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -220,6 +280,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-11T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-11T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -264,6 +336,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-12T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-12T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -308,6 +392,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-13T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-13T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -352,6 +448,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-14T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-14T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -396,6 +504,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-15T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-15T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -440,6 +560,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-16T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-16T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -484,6 +616,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-07T16:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-07T16:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [],
   },
   {
@@ -506,6 +650,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-08T17:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-08T17:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -550,6 +706,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-09T18:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-09T18:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -594,6 +762,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-10T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-10T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -638,6 +818,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-11T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-11T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -682,6 +874,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-12T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-12T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -726,6 +930,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-13T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-13T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -770,6 +986,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-14T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-14T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -814,6 +1042,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-15T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-15T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -858,6 +1098,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-16T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-16T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -902,6 +1154,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-07T16:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-07T16:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [],
   },
   {
@@ -924,6 +1188,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-08T17:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-08T17:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -968,6 +1244,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-09T18:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-09T18:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1012,6 +1300,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-10T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-10T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1056,6 +1356,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-11T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-11T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1100,6 +1412,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-12T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-12T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1144,6 +1468,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-13T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-13T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1188,6 +1524,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-14T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-14T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1232,6 +1580,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-15T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-15T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,
@@ -1276,6 +1636,18 @@ export const ideas = [
     avatar: "/src/shared/images/avatar.png",
     linkAuthor: "/profile",
     date: "2024-01-16T12:00:00.126Z",
+    lifeCycle: {
+      ideaCreate: {
+        title: "Создание",
+        isActive: true,
+        stage: "Выполнено",
+        status: "Создана",
+        responsible: "Ильин И.И.",
+        date: "2024-01-16T12:00:00.126Z",
+        endDate: "",
+        actualDate: "",
+      },
+    },
     comments: [
       {
         id: 1,

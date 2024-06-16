@@ -10,6 +10,7 @@ import {
   getLatestIdeas,
   getHomeStatistics,
   getMyIdeas,
+  getLifeCycle,
 } from "../../api/ideas/ideas";
 
 const useIdeasStore = create((set, get) => ({
@@ -246,7 +247,7 @@ const useIdeasStore = create((set, get) => ({
   getLifeCycleData: async (id) => {
     set({ LifeCycleDataLoading: true });
     try {
-      const data = await getIdea({ id });
+      const data = await getLifeCycle({ id });
       set({
         LifeCycleData: data,
         LifeCycleDataLoading: false,
