@@ -42,7 +42,7 @@ export const news = [
     author: "Токарева Варвара Вячеславовна",
     avatar: "/src/shared/images/avatar.png",
     title: "Предприятие запускает инициативу по сокращению энергопотребления",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 25,
     views: 86,
     newsImg:
@@ -57,7 +57,7 @@ export const news = [
     author: "Куликова Вера Даниэльевна",
     avatar: "/src/shared/images/avatar.png",
     title: "Успешное внедрение цифровой технологии в производственный процесс",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 65,
     views: 12,
     newsImg:
@@ -95,7 +95,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие становится лидером в сфере устойчивого бизнеса: какие шаги были предприняты?",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 4,
     views: 6,
     newsImg:
@@ -119,7 +119,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Инновационный подход к управлению: как компания повышает эффективность своей работы",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg:
@@ -157,7 +157,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Развитие корпоративной культуры: как предприятие создает команду единомышленников",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg:
@@ -195,7 +195,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Премьера нового продукта: предприятие выпускает инновационное решение для рынка",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg: "/src/shared/images/newsImg.jpg",
@@ -232,7 +232,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Компания вводит гибкий график работы: как это повлияло на производительность и удовлетворенность сотрудников",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 48,
     newsImg:
@@ -270,7 +270,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Партнерство с местными сообществами: как компания внедряет социально ответственные проекты",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 11,
     views: 37,
     newsImg:
@@ -308,7 +308,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие вводит систему стимулирования инноваций: какие идеи привели к успеху?",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 22,
     views: 41,
     newsImg:
@@ -384,7 +384,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Запуск программы менторства для молодых специалистов: опытные сотрудники делятся знаниями",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 25,
     views: 86,
     newsImg:
@@ -400,7 +400,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Компания вводит новые стандарты безопасности: защита сотрудников и окружающей среды",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 65,
     views: 12,
     newsImg:
@@ -438,7 +438,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие становится сертифицированным экологическим лидером: снижение углеродного следа и внедрение зеленых практик",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 4,
     views: 6,
     newsImg:
@@ -476,7 +476,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Успешное партнерство с инновационными стартапами: как совместные проекты способствуют развитию обеих сторон",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg:
@@ -514,7 +514,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Компания запускает программу социального волонтерства: сотрудники вносят вклад в местное сообщество",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg:
@@ -552,7 +552,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие внедряет систему удаленной работы: новые возможности для гибкости и удобства сотрудников",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 47,
     newsImg:
@@ -590,7 +590,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Запуск проекта по внедрению искусственного интеллекта: как AI меняет способы работы и общение в компании",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 16,
     views: 48,
     newsImg:
@@ -628,7 +628,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Премьера новой корпоративной идентичности: компания обновляет бренд и стратегию",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 11,
     views: 37,
     newsImg:
@@ -666,7 +666,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие вводит программу по снижению стресса и повышению благополучия сотрудников: забота о здоровье и психологическом благополучии",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 22,
     views: 41,
     newsImg:
@@ -704,7 +704,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Компания выходит на новый уровень эффективности благодаря облачным технологиям: оптимизация процессов и увеличение масштабов",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 25,
     views: 86,
     newsImg:
@@ -720,7 +720,7 @@ export const news = [
     avatar: "/src/shared/images/avatar.png",
     title:
       "Предприятие вводит программу по устойчивому развитию поставщиков: сотрудничество с компаниями, разделяющими ценности ответственного бизнеса",
-    text: "Lorem ipsum",
+    text: "Текст новости",
     likes: 25,
     views: 86,
     newsImg:
