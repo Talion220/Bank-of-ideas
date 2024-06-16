@@ -899,10 +899,10 @@ const mockServerConfig = {
             interceptors: {
               response: (data, { setStatusCode }) => {
                 let approved = data.filter(
-                  (item) => item.status === "Одобрено"
+                  (item) => item.status === "Одобрена"
                 );
                 let implemented = data.filter(
-                  (item) => item.status === "Внедрено"
+                  (item) => item.status === "Внедрена"
                 );
                 const filteredIdeas = {
                   total: data.length,
@@ -1044,7 +1044,7 @@ const mockServerConfig = {
                   solution,
                   result,
                   note,
-                  status: "Опубликована",
+                  status: "Создана",
                   likes: 0,
                   isLiked: false,
                   views: 0,
