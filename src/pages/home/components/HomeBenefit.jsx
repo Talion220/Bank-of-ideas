@@ -33,7 +33,13 @@ const content = [
 function HomeBenefit() {
   const features = content.map((feature) => (
     <Grid.Col key={feature.title} my={20} span={{ base: 12, md: 4, lg: 4 }}>
-      <Card withBorder padding="lg" radius="md" className={classes.card}>
+      <Card
+        withBorder
+        shadow="lg"
+        padding="lg"
+        radius="md"
+        className={classes.card}
+      >
         <Card.Section mb="sm">
           <Image className={classes.img} src={feature.image} height={180} />
         </Card.Section>
