@@ -9,7 +9,7 @@ function HomeLatestNews({ article }) {
 
   return (
     <Paper
-      shadow="md"
+      shadow="lg"
       p="xl"
       radius="md"
       style={{ backgroundImage: `url(${article.newsImg})` }}

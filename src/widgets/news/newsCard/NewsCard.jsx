@@ -23,7 +23,7 @@ import formatDate from "../../../features/date/date";
 function NewsCard({ article, index }) {
   const date = formatDate(article.date);
   return (
-    <Card m={0} p="md" radius={16} className={classes.card}>
+    <Card m={0} p="md" radius={16} shadow="sm" className={classes.card}>
       <AspectRatio
         component={NavLink}
         to={`/news/${article.id}`}
